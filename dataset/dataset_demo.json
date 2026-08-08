@@ -1,0 +1,192 @@
+[
+  {
+    "index": 1,
+    "instruction": "Find the area 5 kilometers south of the Eiffel Tower.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower, Paris", "south", "5 km"]}
+    ],
+    "category": "simple_relative",
+    "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "Locate the midpoint between the Colosseum in Rome and the Pantheon.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Colosseum, Rome", "Pantheon, Rome"]}
+    ],
+    "category": "simple_between",
+    "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "Find the area 3 km northeast of Central Park in New York City.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, New York", "northeast", "3 km"]}
+    ],
+    "category": "simple_relative",
+    "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "Determine a point 8 km at a bearing of 120 degrees from the Sydney Opera House.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "120", "8 km"]}
+    ],
+    "category": "azimuth",
+    "difficulty": "easy"
+  },
+  {
+    "index": 5,
+    "instruction": "Find the area one-quarter of the way from Burwood to Sydney Town Hall, closer to Burwood.",
+    "steps": [
+      {"id": 1, "function": "Fraction", "inputs": ["Burwood, Sydney", "Sydney Town Hall", 0.25]}
+    ],
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "index": 6,
+    "instruction": "Identify the midpoint between Tokyo Tower and Mount Fuji, then move 10 km to the west.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Tokyo Tower", "Mount Fuji"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "10 km"]}
+    ],
+    "category": "chain_between_relative",
+    "difficulty": "medium"
+  },
+  {
+    "index": 7,
+    "instruction": "Starting from the Kremlin in Moscow, go 15 km northwest, then find the midpoint between that location and Sheremetyevo Airport.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Kremlin, Moscow", "northwest", "15 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Sheremetyevo Airport"]}
+    ],
+    "category": "chain_relative_between",
+    "difficulty": "medium"
+  },
+  {
+    "index": 8,
+    "instruction": "Plan a relay station 6 km east of Big Ben in London, then another station 4 km south of that.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Big Ben, London", "east", "6 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "4 km"]}
+    ],
+    "category": "chain_relative_relative",
+    "difficulty": "medium"
+  },
+  {
+    "index": 9,
+    "instruction": "Find the point three-quarters of the way from the Statue of Liberty to Times Square.",
+    "steps": [
+      {"id": 1, "function": "Fraction", "inputs": ["Statue of Liberty", "Times Square, New York", 0.75]}
+    ],
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "index": 10,
+    "instruction": "Determine the midpoint between the Brandenburg Gate in Berlin and the Charles Bridge in Prague.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Brandenburg Gate, Berlin", "Charles Bridge, Prague"]}
+    ],
+    "category": "between_cross_country",
+    "difficulty": "easy"
+  },
+  {
+    "index": 11,
+    "instruction": "From the Kazan Kremlin, move 7 km southwest, then from that point head 3 km at a bearing of 200 degrees.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Kazan Kremlin", "southwest", "7 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "200", "3 km"]}
+    ],
+    "category": "chain_relative_azimuth",
+    "difficulty": "hard"
+  },
+  {
+    "index": 12,
+    "instruction": "Identify the midpoint between Buckingham Palace and the Tower of London, then move 2 km north from that midpoint.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Buckingham Palace, London", "Tower of London"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "2 km"]}
+    ],
+    "category": "chain_between_relative",
+    "difficulty": "medium"
+  },
+  {
+    "index": 13,
+    "instruction": "Find the area 20 km due south of Reykjavik, Iceland.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Reykjavik, Iceland", "south", "20 km"]}
+    ],
+    "category": "simple_relative_large_distance",
+    "difficulty": "easy"
+  },
+  {
+    "index": 14,
+    "instruction": "Set up a checkpoint halfway between the Louvre Museum and Notre-Dame Cathedral, then go 1 km east.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Louvre Museum, Paris", "Notre-Dame Cathedral, Paris"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "1 km"]}
+    ],
+    "category": "chain_between_relative_short",
+    "difficulty": "medium"
+  },
+  {
+    "index": 15,
+    "instruction": "Find the area 12 km at a bearing of 45 degrees from the Acropolis of Athens, then find the midpoint between that area and the Temple of Poseidon at Cape Sounion.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Acropolis of Athens", "45", "12 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Temple of Poseidon, Cape Sounion"]}
+    ],
+    "category": "chain_azimuth_between",
+    "difficulty": "hard"
+  },
+  {
+    "index": 16,
+    "instruction": "Locate the point 4 km west of the Sagrada Familia in Barcelona.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Sagrada Familia, Barcelona", "west", "4 km"]}
+    ],
+    "category": "simple_relative",
+    "difficulty": "easy"
+  },
+  {
+    "index": 17,
+    "instruction": "Start at the Golden Gate Bridge, move 5 km southeast, then from there move 3 km southwest. Find the midpoint between the final location and Alcatraz Island.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Golden Gate Bridge, San Francisco", "southeast", "5 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "southwest", "3 km"]},
+      {"id": 3, "function": "Between", "inputs": [2, "Alcatraz Island"]}
+    ],
+    "category": "chain_3_steps",
+    "difficulty": "hard"
+  },
+  {
+    "index": 18,
+    "instruction": "Find the point one-third of the way from the Hermitage Museum in Saint Petersburg to the Peter and Paul Fortress.",
+    "steps": [
+      {"id": 1, "function": "Fraction", "inputs": ["Hermitage Museum, Saint Petersburg", "Peter and Paul Fortress, Saint Petersburg", 0.33]}
+    ],
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "index": 19,
+    "instruction": "Determine a patrol area 6 km north of the Pyramids of Giza, then shift 4 km east.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Pyramids of Giza", "north", "6 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "4 km"]}
+    ],
+    "category": "chain_relative_relative",
+    "difficulty": "medium"
+  },
+  {
+    "index": 20,
+    "instruction": "Find the midpoint between Machu Picchu and Lake Titicaca.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Machu Picchu, Peru", "Lake Titicaca"]}
+    ],
+    "category": "between_landmarks",
+    "difficulty": "easy"
+  }
+]

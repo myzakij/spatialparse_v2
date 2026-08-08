@@ -1,0 +1,18 @@
+[
+  {
+    "index": 1,
+    "instruction": "Plan a trip that involves determining the midpoint between Paris and London, and then finding another midpoint between this location and Paris to identify potential stopovers during travel.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Paris, France", "London, England"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Paris, France"]}
+    ]
+  },
+  {
+    "index": 2,
+    "instruction": "Imagine you are planning a picnic hike in the Blue Mountains of Australia. Start your hike in Katoomba, move southeast for 3 kilometers, and then find a scenic midpoint between your new location and Echo Point to set up your picnic.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Katoomba", "southeast", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Echo Point"]}
+    ]
+  }
+]

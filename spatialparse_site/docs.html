@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Документация - SpatialParse</title>
+  <meta name="description" content="Документация SpatialParse: как писать запросы, какие пространственные операции поддерживаются, как устроены маршруты, неопределенность, экспорт и API.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="docs">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="SpatialParse">
+      <span class="brand-mark"><i data-lucide="scan-line"></i></span>
+      <span>SpatialParse</span>
+    </a>
+    <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false"><i data-lucide="menu"></i></button>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="index.html">Главная</a>
+      <a href="features.html">Возможности</a>
+      <a href="demo.html">Демо</a>
+      <a class="active" href="docs.html">Документация</a>
+      <a href="pricing.html">Тарифы</a>
+      <a href="about.html">О проекте</a>
+      <a href="account.html">Кабинет</a>
+    </nav>
+    <div class="auth-actions">
+      <span class="user-chip" id="userChip" hidden></span>
+      <button class="icon-btn" id="openAccountBtn" type="button" title="Личный кабинет" aria-label="Личный кабинет"><i data-lucide="user-round"></i></button>
+      <button class="btn small ghost" id="authOpenBtn" type="button">Войти</button>
+      <button class="btn small secondary" id="logoutBtn" type="button" hidden>Выйти</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-shell">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span></span>Documentation</div>
+          <h1>Как писать запросы и как backend их исполняет</h1>
+          <p class="lead">Краткий справочник по пространственным операциям, маршрутам, областям неопределенности, экспорту, API и ограничениям системы.</p>
+        </div>
+        <nav class="docs-index reveal" aria-label="Разделы документации">
+          <a href="#writing">Как писать</a>
+          <a href="#functions">Функции</a>
+          <a href="#examples">Примеры</a>
+          <a href="#routes">Маршруты</a>
+          <a href="#api">API</a>
+          <a href="#limits">Ограничения</a>
+        </nav>
+      </div>
+    </section>
+
+    <section id="writing" class="section-shell no-top">
+      <div class="container split-grid">
+        <div class="section-head left reveal">
+          <div class="eyebrow"><span></span>Запросы</div>
+          <h2>Пишите так, как описали бы место человеку</h2>
+          <p>Лучшие запросы содержат опорный объект, расстояние, направление или отношение между объектами. Если топоним неоднозначен, добавляйте город, район или соседний ориентир.</p>
+        </div>
+        <div class="doc-patterns reveal">
+          <article><strong>Смещение</strong><code>5 км к северо-востоку от Казанского Кремля</code></article>
+          <article><strong>Между объектами</strong><code>Середина между Осиново и Юдино</code></article>
+          <article><strong>Доля пути</strong><code>Точка в трети пути от Зеленодольска до Казани</code></article>
+          <article><strong>Движение к цели</strong><code>15 км по направлению к Иннополису от центра Казани</code></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="functions" class="section-shell docs-band">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow"><span></span>Функции</div>
+          <h2>Поддерживаемые пространственные операции</h2>
+          <p>LLM-парсер превращает текст в цепочку функций, а геодвижок выполняет их детерминированно.</p>
+        </div>
+        <p class="sr-only" id="functionTableHint">Прокрутите таблицу по горизонтали, чтобы увидеть все колонки.</p>
+        <div class="table-wrap reveal" tabindex="0" aria-describedby="functionTableHint">
+          <table class="function-table">
+            <thead><tr><th>Функция</th><th>Назначение</th><th>Пример</th></tr></thead>
+            <tbody>
+              <tr><td>Locate</td><td>Найти объект по названию</td><td>Казанский Кремль</td></tr>
+              <tr><td>Relative</td><td>Смещение от точки по направлению и расстоянию</td><td>5 км на северо-восток</td></tr>
+              <tr><td>Azimuth</td><td>Смещение по углу в градусах</td><td>10 км по азимуту 45</td></tr>
+              <tr><td>Between</td><td>Точка между двумя объектами</td><td>между Осиново и Юдино</td></tr>
+              <tr><td>Fraction</td><td>Доля пути между объектами</td><td>треть пути от А до Б</td></tr>
+              <tr><td>Toward</td><td>Движение от объекта в сторону цели</td><td>к Иннополису от Казани</td></tr>
+              <tr><td>Along</td><td>Точка вдоль маршрута или линии</td><td>по дороге от А до Б</td></tr>
+              <tr><td>Near / Inside</td><td>Окрестность или попадание внутрь области</td><td>рядом с озером, внутри района</td></tr>
+              <tr><td>Intersection</td><td>Пересечение улиц или геометрий</td><td>перекресток улиц</td></tr>
+              <tr><td>StreetTurn</td><td>Поворот или движение по улицам</td><td>от улицы направо через 500 м</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section-shell">
+      <div class="container split-grid">
+        <div class="section-head left reveal">
+          <div class="eyebrow"><span></span>Примеры</div>
+          <h2>Готовые формулировки по Казани и рядом</h2>
+          <p>Эти запросы можно вставлять в демо без изменений. Они покрывают основные типы операций и неоднозначные топонимы.</p>
+        </div>
+        <div class="example-list reveal">
+          <button data-demo-query="Середина между Осиново и Юдино">Середина между Осиново и Юдино</button>
+          <button data-demo-query="Середина между Высокой Горой и Дербышками">Середина между Высокой Горой и Дербышками</button>
+          <button data-demo-query="5 км к северо-востоку от Казанского Кремля">5 км к северо-востоку от Казанского Кремля</button>
+          <button data-demo-query="Точка в трети пути от Зеленодольска до Казани">Точка в трети пути от Зеленодольска до Казани</button>
+          <button data-demo-query="15 км по направлению к Иннополису от центра Казани">15 км по направлению к Иннополису от центра Казани</button>
+          <button data-demo-query="Построить маршрут по дорогам от Казанского Кремля до Иннополиса">Построить маршрут по дорогам от Казанского Кремля до Иннополиса</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="routes" class="section-shell docs-band">
+      <div class="container docs-grid">
+        <article class="doc-card reveal"><i data-lucide="route"></i><h3>Как строятся дороги</h3><p>Если включен режим дорог, backend пытается получить маршрут через OSRM. Если маршрут недоступен, система должна явно предупредить и показать прямую линию как fallback.</p></article>
+        <article class="doc-card reveal"><i data-lucide="radar"></i><h3>Что значит круг</h3><p>Область неопределенности показывает предполагаемую ошибку. Она зависит от типа операции, качества геокодинга и точности входной фразы.</p></article>
+        <article class="doc-card reveal"><i data-lucide="map"></i><h3>Источник карты</h3><p>Базовая подложка берется из OpenStreetMap. Геокодинг, маршруты и доп. данные могут использовать внешние сервисы.</p></article>
+        <article class="doc-card reveal"><i data-lucide="download"></i><h3>Экспорт</h3><p>GeoJSON удобен для веб-карт, KML для Google Earth и части GIS, GPX для треков и навигационных инструментов.</p></article>
+      </div>
+    </section>
+
+    <section id="api" class="section-shell">
+      <div class="container split-grid">
+        <div class="section-head left reveal">
+          <div class="eyebrow"><span></span>API</div>
+          <h2>Основные backend endpoints</h2>
+          <p>Сайт использует WebSocket для live-статусов и REST как fallback. Авторизация нужна для истории и сохранений.</p>
+        </div>
+        <div class="code-block reveal">
+<pre><code>POST /api/parse
+WS   /ws/parse
+
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/me
+
+GET  /api/history
+POST /api/history
+
+GET  /api/saved-places
+POST /api/saved-places
+
+POST /api/export/geojson
+POST /api/export/kml
+POST /api/export/gpx</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="limits" class="section-shell docs-band">
+      <div class="container split-grid">
+        <div class="section-head left reveal">
+          <div class="eyebrow"><span></span>Ограничения</div>
+          <h2>Что важно проверять вручную</h2>
+          <p>SpatialParse помогает ускорять разбор текстовых описаний, но результат зависит от внешних данных и качества исходной фразы.</p>
+        </div>
+        <div class="limitation-list reveal">
+          <div><i data-lucide="alert-triangle"></i><span>Неоднозначные названия могут иметь несколько вариантов в разных регионах.</span></div>
+          <div><i data-lucide="cloud-off"></i><span>Внешние сервисы геокодинга и маршрутизации могут не отвечать или отдавать неполные данные.</span></div>
+          <div><i data-lucide="shield-alert"></i><span>Сервис не предназначен для критической навигации без проверки специалистом.</span></div>
+          <div><i data-lucide="scale"></i><span>Для публичной эксплуатации нужны актуальные юридические документы и процедуры обработки данных.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand mini" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a>
+      <span>Документация</span>
+      <nav class="footer-links" aria-label="Документы">
+        <a href="privacy.html">Конфиденциальность</a>
+        <a href="terms.html">Соглашение</a>
+        <a href="consent.html">Согласие</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-auth></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="icon-btn modal-close" type="button" data-close-auth aria-label="Закрыть"><i data-lucide="x"></i></button>
+      <h2 id="authTitle">Аккаунт SpatialParse</h2>
+      <p class="modal-sub">Вход нужен для истории запросов, сохраненных результатов и рабочего кабинета.</p>
+      <div class="auth-tabs">
+        <button class="active" id="loginTab" type="button">Вход</button>
+        <button id="registerTab" type="button">Регистрация</button>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+        <button class="btn primary full" type="submit"><i data-lucide="log-in"></i><span>Войти</span></button>
+      </form>
+      <form id="registerForm" class="auth-form" hidden>
+        <label><span>Имя</span><input name="name" type="text" autocomplete="name" required></label>
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label class="check-row auth-consent"><input name="consent" type="checkbox" required><span>Я принимаю пользовательское соглашение и согласие на обработку персональных данных.</span></label>
+        <button class="btn primary full" type="submit"><i data-lucide="user-plus"></i><span>Создать аккаунт</span></button>
+      </form>
+      <p class="auth-message" id="authMessage"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

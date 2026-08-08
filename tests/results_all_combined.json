@@ -1,0 +1,810 @@
+{
+  "execution": [
+    {
+      "index": 1,
+      "success": true,
+      "centroid": [
+        -122.674194,
+        45.47533107523315
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 2,
+      "success": true,
+      "centroid": [
+        -35.49266905,
+        47.28558305
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 3,
+      "success": true,
+      "centroid": [
+        151.20948630371228,
+        -33.88373806136926
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 4,
+      "success": true,
+      "centroid": [
+        -0.1245721,
+        51.50519580247669
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 5,
+      "success": true,
+      "centroid": [
+        -73.6746595,
+        -12.624501499999994
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 6,
+      "success": true,
+      "centroid": [
+        -155.9273471688349,
+        21.29356313772069
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 7,
+      "success": true,
+      "centroid": [
+        50.6915647,
+        56.054325504953376
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 8,
+      "success": true,
+      "centroid": [
+        2.1802324669999997,
+        50.4003384105
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 9,
+      "success": true,
+      "centroid": [
+        -77.0365528,
+        38.893147097523325
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 10,
+      "success": true,
+      "centroid": [
+        37.60802513630586,
+        55.846682348964194
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 11,
+      "success": true,
+      "centroid": [
+        -73.9859724,
+        40.76599270495337
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 12,
+      "success": true,
+      "centroid": [
+        139.72395777121926,
+        35.67854908076024
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 13,
+      "success": true,
+      "centroid": [
+        13.407227381040796,
+        52.50728302184429
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 14,
+      "success": true,
+      "centroid": [
+        9.173490185913728,
+        45.476868205666165
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 15,
+      "success": true,
+      "centroid": [
+        29.015749721746722,
+        41.05517718535733
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 16,
+      "success": true,
+      "centroid": [
+        -3.671942559817228,
+        40.35802277554765
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 17,
+      "success": true,
+      "centroid": [
+        -43.224345992,
+        -22.925281182000003
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 18,
+      "success": true,
+      "centroid": [
+        -3.1079666836564637,
+        55.98790715226748
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 19,
+      "success": true,
+      "centroid": [
+        -122.21617885140262,
+        47.61318082347905
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 20,
+      "success": true,
+      "centroid": [
+        -79.35284229963395,
+        43.50855025711912
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 21,
+      "success": true,
+      "centroid": [
+        139.37445805243172,
+        35.35862796086176
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 22,
+      "success": true,
+      "centroid": [
+        -118.24276599999999,
+        34.18843897430053
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 23,
+      "success": true,
+      "centroid": [
+        73.15432231967257,
+        19.05478008482363
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 24,
+      "success": true,
+      "centroid": [
+        140.67186525,
+        38.014266199999994
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 25,
+      "success": true,
+      "centroid": [
+        -71.08479111861513,
+        -34.059320664144806
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 26,
+      "success": true,
+      "centroid": [
+        -89.59685694891395,
+        30.05097277885088
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 27,
+      "success": true,
+      "centroid": [
+        -21.9422367,
+        63.99326651579272
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 28,
+      "success": true,
+      "centroid": [
+        84.881952399,
+        27.87371993
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 29,
+      "success": true,
+      "centroid": [
+        30.461059377687366,
+        30.62174256625837
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 30,
+      "success": true,
+      "centroid": [
+        33.224226205208666,
+        39.63358182664359
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 31,
+      "success": true,
+      "centroid": [
+        33.07497,
+        69.15032909906736
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 32,
+      "success": true,
+      "centroid": [
+        22.89674745,
+        54.698586899999995
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 33,
+      "success": true,
+      "centroid": [
+        30.413010817900414,
+        59.899209031642314
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 34,
+      "success": true,
+      "centroid": [
+        46.6239855,
+        55.9623953
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 35,
+      "success": true,
+      "centroid": [
+        37.431612867581514,
+        55.75232464881886
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 36,
+      "success": true,
+      "centroid": [
+        60.865371413000005,
+        56.284346221
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 37,
+      "success": true,
+      "centroid": [
+        30.648632163641114,
+        59.99171314784478
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 38,
+      "success": true,
+      "centroid": [
+        50.146430271564576,
+        53.15070101822726
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 39,
+      "success": true,
+      "centroid": [
+        106.757890125,
+        51.9491187
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 40,
+      "success": true,
+      "centroid": [
+        39.21378039644216,
+        46.05273509380306
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 41,
+      "success": true,
+      "centroid": [
+        130.27822948047677,
+        62.28042066350203
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 42,
+      "success": true,
+      "centroid": [
+        87.18819685,
+        69.37815185
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 43,
+      "success": true,
+      "centroid": [
+        37.666302637394516,
+        55.449000736360695
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 44,
+      "success": true,
+      "centroid": [
+        65.39650912685357,
+        57.07396332914398
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 45,
+      "success": true,
+      "centroid": [
+        34.045345575,
+        63.584582
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 46,
+      "success": true,
+      "centroid": [
+        44.5369358,
+        48.79631562972022
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 47,
+      "success": true,
+      "centroid": [
+        37.2100960368211,
+        54.19215656212046
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 48,
+      "success": true,
+      "centroid": [
+        -169.5858345998203,
+        66.08031971072897
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 49,
+      "success": true,
+      "centroid": [
+        104.30464215,
+        52.31859
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 50,
+      "success": true,
+      "centroid": [
+        45.145070169060745,
+        43.09922047028598
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 51,
+      "success": true,
+      "centroid": [
+        2.2945006,
+        48.81334387523317
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 52,
+      "success": true,
+      "centroid": [
+        37.520961400000004,
+        55.8638544
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 53,
+      "success": true,
+      "centroid": [
+        48.99297768793516,
+        55.86249074401953
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 54,
+      "success": true,
+      "centroid": [
+        30.314536375,
+        59.94342185
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 55,
+      "success": true,
+      "centroid": [
+        37.6665086984908,
+        55.778086697764095
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 56,
+      "success": true,
+      "centroid": [
+        87.89763735,
+        55.339309900932626
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 57,
+      "success": true,
+      "centroid": [
+        49.01067871738355,
+        55.716390815321766
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 58,
+      "success": true,
+      "centroid": [
+        30.31539075,
+        59.9342712
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 59,
+      "success": true,
+      "centroid": [
+        39.9650332,
+        43.69909388715027
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 60,
+      "success": true,
+      "centroid": [
+        134.0233592,
+        46.71041443
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 61,
+      "success": true,
+      "centroid": [
+        43.905179119239,
+        33.340471805243084
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 62,
+      "success": true,
+      "centroid": [
+        43.33572208916635,
+        36.15289930654044
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 63,
+      "success": true,
+      "centroid": [
+        71.01943689999999,
+        34.221289799999994
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 64,
+      "success": false,
+      "error": "Cannot geocode 'McMurdo Station, Antarctica'"
+    },
+    {
+      "index": 65,
+      "success": true,
+      "centroid": [
+        -5.497915213,
+        36.010135477
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 66,
+      "success": true,
+      "centroid": [
+        -47.78919232668548,
+        -16.338188314707317
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 67,
+      "success": true,
+      "centroid": [
+        105.3233336,
+        -1.959988702331554
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 68,
+      "success": true,
+      "centroid": [
+        20.073601356883547,
+        -34.68319050045861
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 69,
+      "success": true,
+      "centroid": [
+        130.19315566537716,
+        -11.534256675576898
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 70,
+      "success": true,
+      "centroid": [
+        23.1351618,
+        39.974128725
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 71,
+      "success": true,
+      "centroid": [
+        2.1744283,
+        41.38553819009326
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 72,
+      "success": true,
+      "centroid": [
+        2.31653245,
+        48.8674632
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 73,
+      "success": true,
+      "centroid": [
+        115.21877719204798,
+        -8.69569485893492
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 74,
+      "success": true,
+      "centroid": [
+        12.482140425,
+        41.894059325
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 75,
+      "success": true,
+      "centroid": [
+        7.779943874286555,
+        46.65854659585878
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 76,
+      "success": true,
+      "centroid": [
+        14.5440525,
+        40.63116405
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 77,
+      "success": true,
+      "centroid": [
+        6.839529609500429,
+        45.952191825581565
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 78,
+      "success": true,
+      "centroid": [
+        139.745813,
+        35.6556042
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 79,
+      "success": true,
+      "centroid": [
+        -7.8928495967543375,
+        31.569432355537785
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 80,
+      "success": true,
+      "centroid": [
+        151.23291604862962,
+        -33.811587036220175
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 81,
+      "success": true,
+      "centroid": [
+        118.58378143421439,
+        39.992879200914864
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 82,
+      "success": true,
+      "centroid": [
+        -1.7954134,
+        51.185842964393785
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 83,
+      "success": true,
+      "centroid": [
+        78.0421013,
+        27.148057885139895
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 84,
+      "success": true,
+      "centroid": [
+        35.9239625,
+        29.795600211191463
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 85,
+      "success": true,
+      "centroid": [
+        32.4212955,
+        30.618866500000003
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 86,
+      "success": true,
+      "centroid": [
+        103.8590321,
+        13.415655429720214
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 87,
+      "success": true,
+      "centroid": [
+        -81.338129775,
+        14.556138325000001
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 88,
+      "success": true,
+      "centroid": [
+        37.15267285917782,
+        -3.1580648583265787
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 89,
+      "success": true,
+      "centroid": [
+        1.5880225214652735,
+        51.01578344667574
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 90,
+      "success": true,
+      "centroid": [
+        61.1761879,
+        52.49795045
+      ],
+      "coord_count": 100
+    }
+  ]
+}

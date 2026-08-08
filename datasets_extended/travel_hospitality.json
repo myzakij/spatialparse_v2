@@ -1,0 +1,71 @@
+[
+  {
+    "index": 1,
+    "instruction": "The hotel is located 2 km south of the Sagrada Familia in Barcelona, within walking distance of the beach.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Sagrada Familia, Barcelona", "south", "2 km"]}],
+    "source": "travel_hospitality", "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "Our Airbnb is situated halfway between the Louvre and the Arc de Triomphe in Paris.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Louvre Museum, Paris", "Arc de Triomphe, Paris"]}],
+    "source": "travel_hospitality", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "The resort is 8 km northeast of Denpasar Airport in Bali, near the coast of Sanur.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Ngurah Rai Airport, Bali", "northeast", "8 km"]}],
+    "source": "travel_hospitality", "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "Find a restaurant at the quarter-way point from the Colosseum to Vatican City, closer to the Colosseum.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Colosseum, Rome", "Vatican City", 0.25]}],
+    "source": "travel_hospitality", "difficulty": "medium"
+  },
+  {
+    "index": 5,
+    "instruction": "The campsite is 6 km west of Interlaken, then another 3 km south towards the lake.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Interlaken, Switzerland", "west", "6 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "3 km"]}
+    ],
+    "source": "travel_hospitality", "difficulty": "medium"
+  },
+  {
+    "index": 6,
+    "instruction": "The villa is positioned at the midpoint between Amalfi and Positano on the Italian coast.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Amalfi, Italy", "Positano, Italy"]}],
+    "source": "travel_hospitality", "difficulty": "easy"
+  },
+  {
+    "index": 7,
+    "instruction": "The ski lodge is 4 km at a bearing of 320 degrees from Chamonix, up on the mountainside.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Chamonix, France", 320, "4 km"]}],
+    "source": "travel_hospitality", "difficulty": "medium"
+  },
+  {
+    "index": 8,
+    "instruction": "Our meeting point is three-quarters of the way from Shibuya Station to Tokyo Tower.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Shibuya Station, Tokyo", "Tokyo Tower", 0.75]}],
+    "source": "travel_hospitality", "difficulty": "medium"
+  },
+  {
+    "index": 9,
+    "instruction": "The guesthouse is 10 km southeast of Marrakech Medina, then 2 km east into the palm grove.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Marrakech Medina", "southeast", "10 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "2 km"]}
+    ],
+    "source": "travel_hospitality", "difficulty": "medium"
+  },
+  {
+    "index": 10,
+    "instruction": "Plan a day trip: start at the Sydney Opera House, go 5 km northwest to Taronga Zoo, then find the midpoint between the zoo and Manly Beach for lunch.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Sydney Opera House", "northwest", "5 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Manly Beach, Sydney"]}
+    ],
+    "source": "travel_hospitality", "difficulty": "hard"
+  }
+]

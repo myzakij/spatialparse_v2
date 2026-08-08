@@ -1,0 +1,2337 @@
+{
+  "summary": {
+    "timestamp": "2026-04-15T02:22:09.463304",
+    "dataset": "dataset\\gold_standard.json",
+    "total_examples": 60,
+    "successful": 57,
+    "parse_errors": 0,
+    "exec_errors": 3,
+    "elapsed_s": 168.9,
+    "overall_metrics": {
+      "mean_distance_error_km": 1.215,
+      "median_distance_error_km": 0.092,
+      "min_error_km": 0.002,
+      "max_error_km": 14.795,
+      "accuracy_1km_%": 78.9,
+      "accuracy_5km_%": 91.2,
+      "accuracy_10km_%": 94.7,
+      "function_accuracy_%": 86.7
+    },
+    "per_category": {
+      "along": {
+        "total": 5,
+        "successful": 5,
+        "func_accuracy_%": 80.0,
+        "mean_error_km": 3.437,
+        "median_error_km": 1.223,
+        "accuracy_1km_%": 40.0,
+        "accuracy_5km_%": 80.0
+      },
+      "azimuth": {
+        "total": 5,
+        "successful": 5,
+        "func_accuracy_%": 100.0,
+        "mean_error_km": 2.362,
+        "median_error_km": 0.047,
+        "accuracy_1km_%": 80.0,
+        "accuracy_5km_%": 80.0
+      },
+      "between": {
+        "total": 5,
+        "successful": 5,
+        "func_accuracy_%": 100.0,
+        "mean_error_km": 1.21,
+        "median_error_km": 0.049,
+        "accuracy_1km_%": 80.0,
+        "accuracy_5km_%": 80.0
+      },
+      "chain": {
+        "total": 13,
+        "successful": 13,
+        "func_accuracy_%": 53.8,
+        "mean_error_km": 0.252,
+        "median_error_km": 0.092,
+        "accuracy_1km_%": 92.3,
+        "accuracy_5km_%": 100.0
+      },
+      "fraction": {
+        "total": 5,
+        "successful": 5,
+        "func_accuracy_%": 80.0,
+        "mean_error_km": 0.442,
+        "median_error_km": 0.054,
+        "accuracy_1km_%": 80.0,
+        "accuracy_5km_%": 100.0
+      },
+      "intersection": {
+        "total": 5,
+        "successful": 2,
+        "func_accuracy_%": 100.0,
+        "mean_error_km": 0.49,
+        "median_error_km": 0.49,
+        "accuracy_1km_%": 100.0,
+        "accuracy_5km_%": 100.0
+      },
+      "locate": {
+        "total": 5,
+        "successful": 5,
+        "func_accuracy_%": 100.0,
+        "mean_error_km": 0.053,
+        "median_error_km": 0.053,
+        "accuracy_1km_%": 100.0,
+        "accuracy_5km_%": 100.0
+      },
+      "relative": {
+        "total": 10,
+        "successful": 10,
+        "func_accuracy_%": 100.0,
+        "mean_error_km": 0.041,
+        "median_error_km": 0.042,
+        "accuracy_1km_%": 100.0,
+        "accuracy_5km_%": 100.0
+      },
+      "toward": {
+        "total": 7,
+        "successful": 7,
+        "func_accuracy_%": 100.0,
+        "mean_error_km": 3.865,
+        "median_error_km": 1.494,
+        "accuracy_1km_%": 28.6,
+        "accuracy_5km_%": 71.4
+      }
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "text": "Эйфелева башня",
+      "category": "locate",
+      "difficulty": "easy",
+      "gold_lon": 2.2945,
+      "gold_lat": 48.8584,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower"
+          ]
+        }
+      ],
+      "parse_time_s": 3.39,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Locate"
+      ],
+      "expected_functions": [
+        "Locate"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 2.2945,
+      "pred_lat": 48.85826,
+      "distance_error_km": 0.016
+    },
+    {
+      "id": 2,
+      "text": "Кремль в Москве",
+      "category": "locate",
+      "difficulty": "easy",
+      "gold_lon": 37.6176,
+      "gold_lat": 55.752,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Kremlin, Moscow"
+          ]
+        }
+      ],
+      "parse_time_s": 2.02,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Locate"
+      ],
+      "expected_functions": [
+        "Locate"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 37.61812,
+      "pred_lat": 55.75162,
+      "distance_error_km": 0.053
+    },
+    {
+      "id": 3,
+      "text": "Колизей в Риме",
+      "category": "locate",
+      "difficulty": "easy",
+      "gold_lon": 12.4924,
+      "gold_lat": 41.8902,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Colosseum, Rome"
+          ]
+        }
+      ],
+      "parse_time_s": 1.43,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Locate"
+      ],
+      "expected_functions": [
+        "Locate"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 12.4919,
+      "pred_lat": 41.89094,
+      "distance_error_km": 0.092
+    },
+    {
+      "id": 4,
+      "text": "Тадж-Махал",
+      "category": "locate",
+      "difficulty": "easy",
+      "gold_lon": 78.0421,
+      "gold_lat": 27.1751,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Taj Mahal"
+          ]
+        }
+      ],
+      "parse_time_s": 2.08,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Locate"
+      ],
+      "expected_functions": [
+        "Locate"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 78.0421,
+      "pred_lat": 27.17501,
+      "distance_error_km": 0.01
+    },
+    {
+      "id": 5,
+      "text": "Казанский Кремль",
+      "category": "locate",
+      "difficulty": "easy",
+      "gold_lon": 49.1064,
+      "gold_lat": 55.7982,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Kazan Kremlin"
+          ]
+        }
+      ],
+      "parse_time_s": 1.26,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Locate"
+      ],
+      "expected_functions": [
+        "Locate"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 49.10617,
+      "pred_lat": 55.79902,
+      "distance_error_km": 0.092
+    },
+    {
+      "id": 6,
+      "text": "5 км к югу от Эйфелевой башни",
+      "category": "relative",
+      "difficulty": "easy",
+      "gold_lon": 2.2945,
+      "gold_lat": 48.81348,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "south",
+            "5 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.52,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 2.2945,
+      "pred_lat": 48.81334,
+      "distance_error_km": 0.016
+    },
+    {
+      "id": 7,
+      "text": "10 км к северу от Кремля",
+      "category": "relative",
+      "difficulty": "easy",
+      "gold_lon": 37.6176,
+      "gold_lat": 55.84183,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Kremlin, Moscow",
+            "north",
+            "10 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.04,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 37.61812,
+      "pred_lat": 55.84145,
+      "distance_error_km": 0.053
+    },
+    {
+      "id": 8,
+      "text": "3 км к востоку от Колизея",
+      "category": "relative",
+      "difficulty": "easy",
+      "gold_lon": 12.5286,
+      "gold_lat": 41.89019,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Colosseum, Rome",
+            "east",
+            "3 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.27,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 12.52811,
+      "pred_lat": 41.89094,
+      "distance_error_km": 0.093
+    },
+    {
+      "id": 9,
+      "text": "7 км к западу от Биг-Бена",
+      "category": "relative",
+      "difficulty": "easy",
+      "gold_lon": -0.22562,
+      "gold_lat": 51.50066,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Big Ben",
+            "west",
+            "7 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.05,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": -0.22559,
+      "pred_lat": 51.50066,
+      "distance_error_km": 0.002
+    },
+    {
+      "id": 10,
+      "text": "15 км к северо-западу от Кремля",
+      "category": "relative",
+      "difficulty": "medium",
+      "gold_lon": 37.44788,
+      "gold_lat": 55.84716,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Kremlin, Moscow",
+            "northwest",
+            "15 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.29,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 37.4484,
+      "pred_lat": 55.84679,
+      "distance_error_km": 0.052
+    },
+    {
+      "id": 11,
+      "text": "20 км к юго-востоку от Бурдж-Халифы",
+      "category": "relative",
+      "difficulty": "medium",
+      "gold_lon": 55.41466,
+      "gold_lat": 25.07009,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Burj Khalifa",
+            "southeast",
+            "20 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.74,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 55.41439,
+      "pred_lat": 25.06993,
+      "distance_error_km": 0.032
+    },
+    {
+      "id": 12,
+      "text": "8 км к северо-востоку от Бранденбургских ворот",
+      "category": "relative",
+      "difficulty": "medium",
+      "gold_lon": 13.4613,
+      "gold_lat": 52.56709,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Brandenburg Gate, Berlin",
+            "northeast",
+            "8 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.4,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 13.46131,
+      "pred_lat": 52.56706,
+      "distance_error_km": 0.003
+    },
+    {
+      "id": 13,
+      "text": "2 км к югу от Казанского Кремля",
+      "category": "relative",
+      "difficulty": "easy",
+      "gold_lon": 49.1064,
+      "gold_lat": 55.78023,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Kazan Kremlin",
+            "south",
+            "2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.6,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 49.10617,
+      "pred_lat": 55.78106,
+      "distance_error_km": 0.093
+    },
+    {
+      "id": 14,
+      "text": "12 км к юго-западу от Тадж-Махала",
+      "category": "relative",
+      "difficulty": "medium",
+      "gold_lon": 77.95648,
+      "gold_lat": 27.09885,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Taj Mahal",
+            "southwest",
+            "12 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.71,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 77.95648,
+      "pred_lat": 27.09876,
+      "distance_error_km": 0.01
+    },
+    {
+      "id": 15,
+      "text": "6 км к северу от Акрополя",
+      "category": "relative",
+      "difficulty": "easy",
+      "gold_lon": 23.7257,
+      "gold_lat": 38.0254,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Acropolis",
+            "north",
+            "6 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.33,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 23.72632,
+      "pred_lat": 38.02559,
+      "distance_error_km": 0.058
+    },
+    {
+      "id": 16,
+      "text": "Середина пути между Кремлём и Шереметьево",
+      "category": "between",
+      "difficulty": "easy",
+      "gold_lon": 37.5161,
+      "gold_lat": 55.8623,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Kremlin, Moscow",
+            "Sheremetyevo International Airport, Moscow"
+          ]
+        }
+      ],
+      "parse_time_s": 1.32,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Between"
+      ],
+      "expected_functions": [
+        "Between"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 37.52096,
+      "pred_lat": 55.86385,
+      "distance_error_km": 0.349
+    },
+    {
+      "id": 17,
+      "text": "Средняя точка между Колизеем и Пантеоном в Риме",
+      "category": "between",
+      "difficulty": "easy",
+      "gold_lon": 12.4846,
+      "gold_lat": 41.8944,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Colosseum, Rome",
+            "Pantheon, Rome"
+          ]
+        }
+      ],
+      "parse_time_s": 1.35,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Between"
+      ],
+      "expected_functions": [
+        "Between"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 12.48437,
+      "pred_lat": 41.89478,
+      "distance_error_km": 0.046
+    },
+    {
+      "id": 18,
+      "text": "Середина между Эйфелевой башней и Лувром",
+      "category": "between",
+      "difficulty": "easy",
+      "gold_lon": 2.31605,
+      "gold_lat": 48.8595,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "Louvre Museum, Paris"
+          ]
+        }
+      ],
+      "parse_time_s": 1.35,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Between"
+      ],
+      "expected_functions": [
+        "Between"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 2.31626,
+      "pred_lat": 48.8597,
+      "distance_error_km": 0.027
+    },
+    {
+      "id": 19,
+      "text": "Средняя точка между Биг-Беном и Букингемским дворцом",
+      "category": "between",
+      "difficulty": "easy",
+      "gold_lon": -0.13325,
+      "gold_lat": 51.50105,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Big Ben, London",
+            "Buckingham Palace, London"
+          ]
+        }
+      ],
+      "parse_time_s": 1.29,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Between"
+      ],
+      "expected_functions": [
+        "Between"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": -0.13379,
+      "pred_lat": 51.50077,
+      "distance_error_km": 0.049
+    },
+    {
+      "id": 20,
+      "text": "Середина пути между пирамидами Гизы и Акрополем",
+      "category": "between",
+      "difficulty": "medium",
+      "gold_lon": 27.42995,
+      "gold_lat": 33.97535,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Pyramids of Giza",
+            "Acropolis, Athens"
+          ]
+        }
+      ],
+      "parse_time_s": 1.27,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Between"
+      ],
+      "expected_functions": [
+        "Between"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 27.37118,
+      "pred_lat": 33.98736,
+      "distance_error_km": 5.581
+    },
+    {
+      "id": 21,
+      "text": "Четверть пути от Статуи Свободы до Таймс-сквер",
+      "category": "fraction",
+      "difficulty": "medium",
+      "gold_lon": -74.0298,
+      "gold_lat": 40.7064,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Fraction",
+          "inputs": [
+            "Statue of Liberty",
+            "Times Square, New York",
+            0.25
+          ]
+        }
+      ],
+      "parse_time_s": 1.36,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Fraction"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": -74.0299,
+      "pred_lat": 40.70619,
+      "distance_error_km": 0.025
+    },
+    {
+      "id": 22,
+      "text": "Три четверти пути от Эйфелевой башни до Триумфальной арки",
+      "category": "fraction",
+      "difficulty": "medium",
+      "gold_lon": 2.29488,
+      "gold_lat": 48.86995,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Fraction",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "Arc de Triomphe, Paris",
+            0.75
+          ]
+        }
+      ],
+      "parse_time_s": 1.09,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Fraction"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 2.2949,
+      "pred_lat": 48.8699,
+      "distance_error_km": 0.006
+    },
+    {
+      "id": 23,
+      "text": "Треть пути от Кремля до Останкинской башни",
+      "category": "fraction",
+      "difficulty": "medium",
+      "gold_lon": 37.61564,
+      "gold_lat": 55.77454,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Fraction",
+          "inputs": [
+            "Kremlin, Moscow",
+            "Ostankino Tower, Moscow",
+            0.33
+          ]
+        }
+      ],
+      "parse_time_s": 1.77,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Fraction"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 37.61599,
+      "pred_lat": 55.7741,
+      "distance_error_km": 0.054
+    },
+    {
+      "id": 24,
+      "text": "Половина пути от Эрмитажа до Петергофа",
+      "category": "fraction",
+      "difficulty": "medium",
+      "gold_lon": 30.11165,
+      "gold_lat": 59.91295,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Hermitage Museum, Saint Petersburg",
+            "Peterhof, Saint Petersburg"
+          ]
+        }
+      ],
+      "parse_time_s": 1.44,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Between"
+      ],
+      "expected_functions": [
+        "Fraction"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 30.08192,
+      "pred_lat": 59.90871,
+      "distance_error_km": 1.723
+    },
+    {
+      "id": 25,
+      "text": "Две трети пути от Токийской башни до горы Фудзи",
+      "category": "fraction",
+      "difficulty": "hard",
+      "gold_lon": 139.06639,
+      "gold_lat": 35.45983,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Fraction",
+          "inputs": [
+            "Tokyo Tower",
+            "Mount Fuji",
+            0.67
+          ]
+        }
+      ],
+      "parse_time_s": 1.35,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Fraction"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 139.07074,
+      "pred_lat": 35.4592,
+      "distance_error_km": 0.4
+    },
+    {
+      "id": 26,
+      "text": "8 км по азимуту 120 градусов от Сиднейского оперного театра",
+      "category": "azimuth",
+      "difficulty": "easy",
+      "gold_lon": 151.29028,
+      "gold_lat": -33.89271,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            120,
+            "8 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.68,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Azimuth"
+      ],
+      "expected_functions": [
+        "Azimuth"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 151.2901,
+      "pred_lat": -33.89311,
+      "distance_error_km": 0.047
+    },
+    {
+      "id": 27,
+      "text": "10 км по азимуту 45 градусов от Кремля",
+      "category": "azimuth",
+      "difficulty": "easy",
+      "gold_lon": 37.73065,
+      "gold_lat": 55.81547,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Kremlin, Moscow",
+            45,
+            "10 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.04,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Azimuth"
+      ],
+      "expected_functions": [
+        "Azimuth"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 37.73118,
+      "pred_lat": 55.81509,
+      "distance_error_km": 0.054
+    },
+    {
+      "id": 28,
+      "text": "5 км по азимуту 200 градусов от Бурдж-Халифы",
+      "category": "azimuth",
+      "difficulty": "medium",
+      "gold_lon": 55.25743,
+      "gold_lat": 25.15499,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Burj Khalifa",
+            200,
+            "5 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.19,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Azimuth"
+      ],
+      "expected_functions": [
+        "Azimuth"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 55.25716,
+      "pred_lat": 25.15483,
+      "distance_error_km": 0.032
+    },
+    {
+      "id": 29,
+      "text": "15 км по азимуту 330 градусов от пирамид Гизы",
+      "category": "azimuth",
+      "difficulty": "medium",
+      "gold_lon": 31.05633,
+      "gold_lat": 30.09587,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Pyramids of Giza",
+            330,
+            "15 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.42,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Azimuth"
+      ],
+      "expected_functions": [
+        "Azimuth"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 30.93815,
+      "pred_lat": 30.1197,
+      "distance_error_km": 11.673
+    },
+    {
+      "id": 30,
+      "text": "3 км по азимуту 90 градусов от Пизанской башни",
+      "category": "azimuth",
+      "difficulty": "easy",
+      "gold_lon": 10.43389,
+      "gold_lat": 43.72299,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Leaning Tower of Pisa",
+            90,
+            "3 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.34,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Azimuth"
+      ],
+      "expected_functions": [
+        "Azimuth"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 10.43392,
+      "pred_lat": 43.72301,
+      "distance_error_km": 0.003
+    },
+    {
+      "id": 31,
+      "text": "20 километров в сторону Казани от Арска",
+      "category": "toward",
+      "difficulty": "medium",
+      "gold_lon": 49.60612,
+      "gold_lat": 55.99076,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Arsk",
+            "Kazan",
+            "20 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.47,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 49.61193,
+      "pred_lat": 55.98938,
+      "distance_error_km": 0.393
+    },
+    {
+      "id": 32,
+      "text": "50 км от Москвы в сторону Нижнего Новгорода",
+      "category": "toward",
+      "difficulty": "medium",
+      "gold_lon": 38.40178,
+      "gold_lat": 55.83812,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Moscow",
+            "Nizhny Novgorod",
+            "50 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.41,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.03,
+      "exec_error": null,
+      "pred_lon": 38.39012,
+      "pred_lat": 55.70523,
+      "distance_error_km": 14.795
+    },
+    {
+      "id": 33,
+      "text": "30 км от Сочи в сторону Краснодара",
+      "category": "toward",
+      "difficulty": "medium",
+      "gold_lon": 39.59465,
+      "gold_lat": 43.85215,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Sochi",
+            "Krasnodar",
+            "30 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.44,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.03,
+      "exec_error": null,
+      "pred_lon": 39.59561,
+      "pred_lat": 43.83873,
+      "distance_error_km": 1.494
+    },
+    {
+      "id": 34,
+      "text": "100 км от Новосибирска в сторону Омска",
+      "category": "toward",
+      "difficulty": "hard",
+      "gold_lon": 81.36938,
+      "gold_lat": 55.05655,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Novosibirsk",
+            "Omsk",
+            "100 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.17,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 81.35636,
+      "pred_lat": 55.07262,
+      "distance_error_km": 1.97
+    },
+    {
+      "id": 35,
+      "text": "40 км от Екатеринбурга в сторону Челябинска",
+      "category": "toward",
+      "difficulty": "medium",
+      "gold_lon": 60.78191,
+      "gold_lat": 56.49189,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Yekaterinburg",
+            "Chelyabinsk",
+            "40 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.27,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.03,
+      "exec_error": null,
+      "pred_lon": 60.77243,
+      "pred_lat": 56.49148,
+      "distance_error_km": 0.584
+    },
+    {
+      "id": 36,
+      "text": "80 км от Мурманска в направлении Архангельска",
+      "category": "toward",
+      "difficulty": "hard",
+      "gold_lon": 34.26296,
+      "gold_lat": 68.38154,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Murmansk",
+            "Arkhangelsk",
+            "80 km"
+          ]
+        }
+      ],
+      "parse_time_s": 0.97,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.03,
+      "exec_error": null,
+      "pred_lon": 34.36906,
+      "pred_lat": 68.42705,
+      "distance_error_km": 6.668
+    },
+    {
+      "id": 37,
+      "text": "60 км от Иркутска в сторону Улан-Удэ",
+      "category": "toward",
+      "difficulty": "medium",
+      "gold_lon": 105.15827,
+      "gold_lat": 52.178,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Irkutsk",
+            "Ulan-Ude",
+            "60 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.48,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Toward"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 105.14191,
+      "pred_lat": 52.1806,
+      "distance_error_km": 1.152
+    },
+    {
+      "id": 38,
+      "text": "20 км от Арска вдоль трассы М7 в сторону Казани",
+      "category": "along",
+      "difficulty": "medium",
+      "gold_lon": 49.65344,
+      "gold_lat": 56.01071,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Along",
+          "inputs": [
+            "Arsk",
+            "Kazan",
+            "20 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.4,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Along"
+      ],
+      "expected_functions": [
+        "Along"
+      ],
+      "exec_time_s": 0.55,
+      "exec_error": null,
+      "pred_lon": 49.6629,
+      "pred_lat": 56.01247,
+      "distance_error_km": 0.62
+    },
+    {
+      "id": 39,
+      "text": "50 км от Москвы по дороге в сторону Нижнего Новгорода",
+      "category": "along",
+      "difficulty": "hard",
+      "gold_lon": 38.24275,
+      "gold_lat": 55.78642,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Moscow",
+            "Nizhny Novgorod",
+            "50 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.67,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Toward"
+      ],
+      "expected_functions": [
+        "Along"
+      ],
+      "exec_time_s": 0.09,
+      "exec_error": null,
+      "pred_lon": 38.39012,
+      "pred_lat": 55.70523,
+      "distance_error_km": 12.906
+    },
+    {
+      "id": 40,
+      "text": "30 км от Сочи вдоль шоссе в сторону Краснодара",
+      "category": "along",
+      "difficulty": "medium",
+      "gold_lon": 39.55003,
+      "gold_lat": 43.73615,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Along",
+          "inputs": [
+            "Sochi",
+            "Krasnodar",
+            "30 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.35,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Along"
+      ],
+      "expected_functions": [
+        "Along"
+      ],
+      "exec_time_s": 0.66,
+      "exec_error": null,
+      "pred_lon": 39.56111,
+      "pred_lat": 43.72861,
+      "distance_error_km": 1.223
+    },
+    {
+      "id": 41,
+      "text": "40 км от Екатеринбурга по трассе в сторону Челябинска",
+      "category": "along",
+      "difficulty": "medium",
+      "gold_lon": 60.89343,
+      "gold_lat": 56.54278,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Along",
+          "inputs": [
+            "Yekaterinburg",
+            "Chelyabinsk",
+            "40 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.33,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Along"
+      ],
+      "expected_functions": [
+        "Along"
+      ],
+      "exec_time_s": 0.6,
+      "exec_error": null,
+      "pred_lon": 60.89756,
+      "pred_lat": 56.53726,
+      "distance_error_km": 0.664
+    },
+    {
+      "id": 42,
+      "text": "60 км от Иркутска вдоль дороги в сторону Улан-Удэ",
+      "category": "along",
+      "difficulty": "hard",
+      "gold_lon": 103.81743,
+      "gold_lat": 51.96121,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Along",
+          "inputs": [
+            "Irkutsk",
+            "Ulan-Ude",
+            "60 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.43,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Along"
+      ],
+      "expected_functions": [
+        "Along"
+      ],
+      "exec_time_s": 0.64,
+      "exec_error": null,
+      "pred_lon": 103.81138,
+      "pred_lat": 51.94571,
+      "distance_error_km": 1.773
+    },
+    {
+      "id": 43,
+      "text": "Пересечение улицы Баумана и Профсоюзной в Казани",
+      "category": "intersection",
+      "difficulty": "medium",
+      "gold_lon": 49.1154,
+      "gold_lat": 55.7893,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Intersection",
+          "inputs": [
+            "Bauman Street",
+            "Profsoyuznaya Street",
+            "Kazan"
+          ]
+        }
+      ],
+      "parse_time_s": 1.33,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Intersection"
+      ],
+      "expected_functions": [
+        "Intersection"
+      ],
+      "exec_time_s": 1.69,
+      "exec_error": null,
+      "pred_lon": 49.10645,
+      "pred_lat": 55.79577,
+      "distance_error_km": 0.911
+    },
+    {
+      "id": 44,
+      "text": "Перекрёсток Тверской и Бульварного кольца в Москве",
+      "category": "intersection",
+      "difficulty": "medium",
+      "gold_lon": 37.6059,
+      "gold_lat": 55.7633,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Intersection",
+          "inputs": [
+            "Tverskaya Street",
+            "Boulevard Ring",
+            "Moscow"
+          ]
+        }
+      ],
+      "parse_time_s": 1.97,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Intersection"
+      ],
+      "expected_functions": [
+        "Intersection"
+      ],
+      "exec_time_s": 24.52,
+      "exec_error": "Street 'Tverskaya Street' not found in Overpass",
+      "pred_lon": null,
+      "pred_lat": null,
+      "distance_error_km": null
+    },
+    {
+      "id": 45,
+      "text": "Пересечение Невского проспекта и Садовой улицы в Петербурге",
+      "category": "intersection",
+      "difficulty": "medium",
+      "gold_lon": 30.3339,
+      "gold_lat": 59.9293,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Intersection",
+          "inputs": [
+            "Nevsky Prospekt",
+            "Sadovaya Street",
+            "St. Petersburg"
+          ]
+        }
+      ],
+      "parse_time_s": 1.5,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Intersection"
+      ],
+      "expected_functions": [
+        "Intersection"
+      ],
+      "exec_time_s": 29.43,
+      "exec_error": "Street 'Nevsky Prospekt' not found in Overpass",
+      "pred_lon": null,
+      "pred_lat": null,
+      "distance_error_km": null
+    },
+    {
+      "id": 46,
+      "text": "Перекрёсток Oxford Street и Regent Street в Лондоне",
+      "category": "intersection",
+      "difficulty": "medium",
+      "gold_lon": -0.141,
+      "gold_lat": 51.5152,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Intersection",
+          "inputs": [
+            "Oxford Street",
+            "Regent Street",
+            "London"
+          ]
+        }
+      ],
+      "parse_time_s": 1.46,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Intersection"
+      ],
+      "expected_functions": [
+        "Intersection"
+      ],
+      "exec_time_s": 7.17,
+      "exec_error": null,
+      "pred_lon": -0.14197,
+      "pred_lat": 51.51531,
+      "distance_error_km": 0.068
+    },
+    {
+      "id": 47,
+      "text": "Пересечение Broadway и 7th Avenue в Нью-Йорке",
+      "category": "intersection",
+      "difficulty": "medium",
+      "gold_lon": -73.9857,
+      "gold_lat": 40.758,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Intersection",
+          "inputs": [
+            "Broadway",
+            "7th Avenue",
+            "New York"
+          ]
+        }
+      ],
+      "parse_time_s": 1.73,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Intersection"
+      ],
+      "expected_functions": [
+        "Intersection"
+      ],
+      "exec_time_s": 13.56,
+      "exec_error": "Street 'Broadway' not found in Overpass",
+      "pred_lon": null,
+      "pred_lat": null,
+      "distance_error_km": null
+    },
+    {
+      "id": 48,
+      "text": "15 км к северо-западу от Кремля, затем середина пути до Шереметьево",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 37.43124,
+      "gold_lat": 55.90988,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Kremlin, Moscow",
+            "northwest",
+            "15 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            1,
+            "Sheremetyevo Airport",
+            0.5
+          ]
+        }
+      ],
+      "parse_time_s": 1.61,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Relative",
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Relative",
+        "Between"
+      ],
+      "exec_time_s": 0.03,
+      "exec_error": null,
+      "pred_lon": 37.4361,
+      "pred_lat": 55.91144,
+      "distance_error_km": 0.349
+    },
+    {
+      "id": 49,
+      "text": "6 км к востоку от Биг-Бена, затем 4 км к югу",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": -0.03802,
+      "gold_lat": 51.46474,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Big Ben, London",
+            "east",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "4 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.69,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative",
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": -0.03799,
+      "pred_lat": 51.46474,
+      "distance_error_km": 0.002
+    },
+    {
+      "id": 50,
+      "text": "Найди Эйфелеву башню, затем 3 км к северу от неё",
+      "category": "chain",
+      "difficulty": "medium",
+      "gold_lon": 2.2945,
+      "gold_lat": 48.88535,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower, Paris"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "3 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.4,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Locate",
+        "Relative"
+      ],
+      "expected_functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 0.0,
+      "exec_error": null,
+      "pred_lon": 2.2945,
+      "pred_lat": 48.88521,
+      "distance_error_km": 0.016
+    },
+    {
+      "id": 51,
+      "text": "Середина между Колизеем и Ватиканом, затем 2 км к югу",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 12.4729,
+      "gold_lat": 41.87858,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Colosseum, Rome",
+            "Vatican City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.62,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Between",
+        "Relative"
+      ],
+      "expected_functions": [
+        "Between",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 12.47238,
+      "pred_lat": 41.87921,
+      "distance_error_km": 0.082
+    },
+    {
+      "id": 52,
+      "text": "5 км к востоку от Красной площади, затем середина пути до Большого театра",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 37.65961,
+      "gold_lat": 55.75699,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Red Square, Moscow",
+            "east",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Bolshoi Theatre, Moscow"
+          ]
+        }
+      ],
+      "parse_time_s": 1.27,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative",
+        "Between"
+      ],
+      "expected_functions": [
+        "Relative",
+        "Between"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 37.65996,
+      "pred_lat": 55.75685,
+      "distance_error_km": 0.027
+    },
+    {
+      "id": 53,
+      "text": "10 км по азимуту 60 градусов от Бранденбургских ворот, затем середина пути обратно до ворот",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 13.44168,
+      "gold_lat": 52.53872,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Brandenburg Gate, Berlin",
+            60,
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            1,
+            "Brandenburg Gate, Berlin",
+            0.5
+          ]
+        }
+      ],
+      "parse_time_s": 1.57,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Azimuth",
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Azimuth",
+        "Between"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 13.44169,
+      "pred_lat": 52.53869,
+      "distance_error_km": 0.003
+    },
+    {
+      "id": 54,
+      "text": "5 км к северу от Казанского Кремля, затем 3 км к востоку, затем 2 км к югу",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 49.1544,
+      "gold_lat": 55.82514,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Kazan Kremlin, Kazan",
+            "north",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "south",
+            "2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.63,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative",
+        "Relative",
+        "Relative"
+      ],
+      "expected_functions": [
+        "Relative",
+        "Relative",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 49.15417,
+      "pred_lat": 55.82596,
+      "distance_error_km": 0.092
+    },
+    {
+      "id": 55,
+      "text": "Половина пути от Эрмитажа до Петропавловской крепости, затем 1 км к востоку",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 30.33339,
+      "gold_lat": 59.945,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Hermitage Museum, Saint Petersburg",
+            "Peter and Paul Fortress, Saint Petersburg"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "1 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.56,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Between",
+        "Relative"
+      ],
+      "expected_functions": [
+        "Fraction",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 30.33152,
+      "pred_lat": 59.94563,
+      "distance_error_km": 0.126
+    },
+    {
+      "id": 56,
+      "text": "4 км к востоку от Эйфелевой башни, затем половина пути оттуда до Лувра",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 2.34336,
+      "gold_lat": 48.85949,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "east",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Louvre, Paris"
+          ]
+        }
+      ],
+      "parse_time_s": 1.42,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Relative",
+        "Between"
+      ],
+      "expected_functions": [
+        "Relative",
+        "Fraction"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 2.34357,
+      "pred_lat": 48.8597,
+      "distance_error_km": 0.028
+    },
+    {
+      "id": 57,
+      "text": "Середина между Кремлём и Воробьёвыми горами, затем середина оттуда до Парка Горького",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 37.59072,
+      "gold_lat": 55.73123,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Kremlin, Moscow",
+            "Vorobyovy Gory"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            1,
+            "Gorky Park, Moscow",
+            0.5
+          ]
+        }
+      ],
+      "parse_time_s": 1.9,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Between",
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Between",
+        "Between"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 37.58817,
+      "pred_lat": 55.72756,
+      "distance_error_km": 0.438
+    },
+    {
+      "id": 58,
+      "text": "20 км от Арска в сторону Казани, затем середина пути оттуда до Казани",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 49.35626,
+      "gold_lat": 55.89448,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Arsk, Tatarstan",
+            "Kazan, Tatarstan",
+            "20 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            1,
+            "Kazan, Tatarstan",
+            0.5
+          ]
+        }
+      ],
+      "parse_time_s": 1.91,
+      "parse_error": null,
+      "function_match": false,
+      "step_count_match": true,
+      "exact_match": false,
+      "predicted_functions": [
+        "Toward",
+        "Fraction"
+      ],
+      "expected_functions": [
+        "Toward",
+        "Between"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 49.36172,
+      "pred_lat": 55.89201,
+      "distance_error_km": 0.437
+    },
+    {
+      "id": 59,
+      "text": "30 км от Сочи в сторону Краснодара, затем 5 км к востоку",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 39.65694,
+      "gold_lat": 43.85213,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Sochi",
+            "Krasnodar",
+            "30 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "5 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.44,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Toward",
+        "Relative"
+      ],
+      "expected_functions": [
+        "Toward",
+        "Relative"
+      ],
+      "exec_time_s": 0.02,
+      "exec_error": null,
+      "pred_lon": 39.65788,
+      "pred_lat": 43.83872,
+      "distance_error_km": 1.493
+    },
+    {
+      "id": 60,
+      "text": "10 км к северу от Кремля, затем 5 км в сторону Шереметьево",
+      "category": "chain",
+      "difficulty": "hard",
+      "gold_lon": 37.56513,
+      "gold_lat": 55.87575,
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Kremlin, Moscow",
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Toward",
+          "inputs": [
+            1,
+            "Sheremetyevo Airport",
+            "5 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.62,
+      "parse_error": null,
+      "function_match": true,
+      "step_count_match": true,
+      "exact_match": true,
+      "predicted_functions": [
+        "Relative",
+        "Toward"
+      ],
+      "expected_functions": [
+        "Relative",
+        "Toward"
+      ],
+      "exec_time_s": 0.01,
+      "exec_error": null,
+      "pred_lon": 37.56785,
+      "pred_lat": 55.8764,
+      "distance_error_km": 0.184
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "SpatialParse",
+  "short_name": "SpatialParse",
+  "description": "Geospatial NLP engine for Russian spatial descriptions.",
+  "start_url": "/site/index.html",
+  "display": "standalone",
+  "background_color": "#f6f2ea",
+  "theme_color": "#0d5eaf",
+  "icons": [
+    {
+      "src": "/site/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

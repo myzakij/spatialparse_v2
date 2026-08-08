@@ -1,0 +1,65 @@
+[
+  {
+    "index": 1,
+    "instruction": "The Great Wall of China extends from Shanhaiguan in the east. Find the point 100 km west of Shanhaiguan along the wall.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Shanhaiguan", "west", "100 km"]}],
+    "source": "wikipedia", "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "Stonehenge is located 13 km north of Salisbury in Wiltshire, England.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Salisbury, England", "north", "13 km"]}],
+    "source": "wikipedia", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "The Taj Mahal is situated on the banks of the Yamuna River in Agra. Find the area 3 km south of the Taj Mahal.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Taj Mahal, Agra", "south", "3 km"]}],
+    "source": "wikipedia", "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "Petra is located approximately 240 km south of Amman, the capital of Jordan.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Amman, Jordan", "south", "240 km"]}],
+    "source": "wikipedia", "difficulty": "easy"
+  },
+  {
+    "index": 5,
+    "instruction": "The Suez Canal connects Port Said on the Mediterranean to Suez on the Red Sea. Find the midpoint of the canal.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Port Said, Egypt", "Suez, Egypt"]}],
+    "source": "wikipedia", "difficulty": "easy"
+  },
+  {
+    "index": 6,
+    "instruction": "Angkor Wat is situated 6 km north of the modern town of Siem Reap in Cambodia.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Siem Reap, Cambodia", "north", "6 km"]}],
+    "source": "wikipedia", "difficulty": "easy"
+  },
+  {
+    "index": 7,
+    "instruction": "The Panama Canal runs from Colon on the Atlantic to Panama City on the Pacific. The Gatun Locks are located roughly one-quarter of the way from Colon.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Colon, Panama", "Panama City", 0.25]}],
+    "source": "wikipedia", "difficulty": "medium"
+  },
+  {
+    "index": 8,
+    "instruction": "Mount Kilimanjaro rises 5,895 m above sea level, located 330 km south of the equator near the town of Moshi in Tanzania.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Moshi, Tanzania", "northwest", "30 km"]}],
+    "source": "wikipedia", "difficulty": "medium"
+  },
+  {
+    "index": 9,
+    "instruction": "The Chunnel entrance on the French side is near Calais. The English entrance is near Folkestone. Find the midpoint under the English Channel, then shift 5 km east towards the English coast.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Calais, France", "Folkestone, England"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "5 km"]}
+    ],
+    "source": "wikipedia", "difficulty": "hard"
+  },
+  {
+    "index": 10,
+    "instruction": "The Trans-Siberian Railway connects Moscow to Vladivostok. The halfway point is near Irkutsk. Find the quarter-way point from Moscow.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Moscow", "Vladivostok", 0.25]}],
+    "source": "wikipedia", "difficulty": "medium"
+  }
+]

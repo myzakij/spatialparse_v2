@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Expression Taxonomy</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f5f5f5; }
+  .hdr { background: linear-gradient(135deg,#1a1a2e,#16213e); color: white; padding: 24px 32px; }
+  .hdr h1 { margin: 0; } .hdr p { opacity: .7; margin: 4px 0 0; }
+  .content { max-width: 1000px; margin: 0 auto; padding: 16px; }
+  h2 { color: #2c3e50; margin: 24px 0 12px; border-bottom: 2px solid #3498db; padding-bottom: 6px; }
+  h3 { color: #16213e; margin: 16px 0 8px; }
+  .card { background: white; border-radius: 8px; padding: 16px 20px; margin: 10px 0;
+           box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .card.supported { border-left: 4px solid #27ae60; }
+  .card.unsupported { border-left: 4px solid #e74c3c; }
+  .card h4 { margin: 0 0 6px; }
+  .card .desc { color: #555; font-size: 13px; margin-bottom: 8px; }
+  .card .func { display: inline-block; background: #eef6ff; color: #2980b9; padding: 2px 8px;
+                 border-radius: 4px; font-size: 11px; font-weight: 600; margin-bottom: 6px; }
+  .card .func.red { background: #fef0f0; color: #e74c3c; }
+  .examples { margin: 6px 0; }
+  .examples code { display: block; background: #f8f9fa; padding: 4px 8px; margin: 3px 0;
+                    border-radius: 4px; font-size: 12px; color: #333; }
+  .constraints { font-size: 12px; color: #888; margin: 6px 0; }
+  .constraints li { margin: 2px 0; }
+  .accuracy { font-size: 12px; color: #27ae60; font-weight: 600; margin-top: 6px; }
+  .reason { font-size: 12px; color: #e74c3c; margin-top: 6px; font-style: italic; }
+  .summary { background: white; padding: 16px 20px; border-radius: 8px; margin: 16px 0;
+              box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .summary table { width: 100%; border-collapse: collapse; }
+  .summary th { text-align: left; padding: 6px 8px; border-bottom: 2px solid #ddd; font-size: 12px; }
+  .summary td { padding: 6px 8px; border-bottom: 1px solid #eee; font-size: 12px; }
+  .tag { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px;
+          font-weight: 600; margin: 1px; }
+  .tag.green { background: #d5f5e3; color: #1e8449; }
+  .tag.red { background: #fadbd8; color: #922b21; }
+</style></head><body>
+<div class="hdr">
+  <h1>SpatialParse Expression Taxonomy</h1>
+  <p>Formal classification of supported and unsupported spatial expressions | 2026-03-21</p>
+</div>
+<div class="content">
+
+<div class="summary">
+<table>
+<tr><th>Category</th><th>Count</th><th>Status</th></tr>
+<tr><td>Supported expression types</td><td>10</td><td><span class="tag green">SUPPORTED</span></td></tr>
+<tr><td>Unsupported expression types</td><td>9</td><td><span class="tag red">NOT SUPPORTED</span></td></tr>
+<tr><td>Functions available</td><td>5</td><td>Locate, Relative, Between, Fraction, Azimuth</td></tr>
+<tr><td>Maximum chain length (tested)</td><td>5 steps</td><td>Longer chains possible but untested</td></tr>
+<tr><td>Languages</td><td>2</td><td>English, Russian (auto-translated)</td></tr>
+</table>
+</div>
+
+<h2>Supported Expressions</h2>
+<div class="card supported">
+  <span class="func">Locate</span>
+  <h4>Absolute Spatial Reference</h4>
+  <div class="desc">Direct reference to a named geographic entity</div>
+  <div class="examples"><code>"Find Central Park in New York"</code>
+<code>"Where is the Eiffel Tower?"</code>
+<code>"Locate Kazan Kremlin"</code>
+</div><ul class="constraints">
+<li>Place must exist in OpenStreetMap/Nominatim</li>
+<li>Ambiguous names resolved via LLM context (Portland OR vs ME)</li>
+<li>Supports Latin and Cyrillic place names</li>
+</ul>
+<div class="accuracy">Depends on Nominatim data quality</div>
+</div>
+<div class="card supported">
+  <span class="func">Relative</span>
+  <h4>Cardinal Direction + Distance</h4>
+  <div class="desc">Offset from a place in one of 4 cardinal directions (N/S/E/W)</div>
+  <div class="examples"><code>"5 km south of the Eiffel Tower"</code>
+<code>"20 km north of Murmansk"</code>
+<code>"3 km east of Big Ben"</code>
+</div><ul class="constraints">
+<li>Direction must be one of: north, south, east, west</li>
+<li>Distance must include a numeric value and unit (km, miles, meters)</li>
+</ul>
+<div class="accuracy">ADE < 0.01 km (Haversine projection)</div>
+</div>
+<div class="card supported">
+  <span class="func">Relative</span>
+  <h4>Ordinal Direction + Distance</h4>
+  <div class="desc">Offset in one of 4 ordinal directions (NE/NW/SE/SW)</div>
+  <div class="examples"><code>"3 km northeast of Central Park"</code>
+<code>"7 km southwest of Kazan Kremlin"</code>
+<code>"10 km southeast of Sydney Opera House"</code>
+</div><ul class="constraints">
+<li>Direction: northeast, northwest, southeast, southwest</li>
+<li>Bearing fixed at 45/135/225/315 degrees</li>
+</ul>
+<div class="accuracy">ADE < 0.01 km</div>
+</div>
+<div class="card supported">
+  <span class="func">Azimuth</span>
+  <h4>Specific Compass Bearing + Distance</h4>
+  <div class="desc">Offset at an exact bearing angle in degrees</div>
+  <div class="examples"><code>"8 km at bearing 120 degrees from Sydney Opera House"</code>
+<code>"50 km at 210 degrees from Santiago"</code>
+<code>"4 km at 36 degrees from Jasper"</code>
+</div><ul class="constraints">
+<li>Bearing: 0-360 degrees (0=North, 90=East, 180=South, 270=West)</li>
+<li>Accepts degree symbol: 120, 120deg, 120 degrees</li>
+</ul>
+<div class="accuracy">ADE < 0.01 km</div>
+</div>
+<div class="card supported">
+  <span class="func">Between</span>
+  <h4>Midpoint Between Two Places</h4>
+  <div class="desc">Geographic center point between two locations</div>
+  <div class="examples"><code>"Midpoint between Paris and London"</code>
+<code>"Halfway between Kremlin and Sheremetyevo"</code>
+<code>"Center between Colosseum and Pantheon"</code>
+</div><ul class="constraints">
+<li>Both places must be geocodable</li>
+<li>Uses linear interpolation of coordinates (not great circle)</li>
+<li>Works at any scale: local (1 km) to international (10000 km)</li>
+</ul>
+<div class="accuracy">ADE < 0.05 km</div>
+</div>
+<div class="card supported">
+  <span class="func">Fraction</span>
+  <h4>Fractional Position Between Two Places</h4>
+  <div class="desc">Point at a specific fraction along the line between two locations</div>
+  <div class="examples"><code>"One-quarter of the way from Burwood to Sydney Town Hall"</code>
+<code>"Three-quarters from Statue of Liberty to Times Square"</code>
+<code>"Two-thirds of the way from Vladivostok to Khabarovsk"</code>
+</div><ul class="constraints">
+<li>Ratio: 0.0 (at location1) to 1.0 (at location2)</li>
+<li>Natural language fractions: 'quarter' -> 0.25, 'third' -> 0.33</li>
+</ul>
+<div class="accuracy">ADE < 0.3 km (depends on geocoding consistency)</div>
+</div>
+<div class="card supported">
+  <span class="func">Multiple</span>
+  <h4>Sequential Chain (2 steps)</h4>
+  <div class="desc">Two positioning operations applied in sequence</div>
+  <div class="examples"><code>"6 km east of Big Ben, then 4 km south"</code>
+<code>"15 km NW of Kremlin, then midpoint to Sheremetyevo"</code>
+<code>"Midpoint of A and B, then 2 km north"</code>
+</div><ul class="constraints">
+<li>Each step references the result of the previous step</li>
+<li>Supports any combination of Relative, Between, Azimuth, Fraction</li>
+</ul>
+<div class="accuracy">ADE < 0.1 km (errors do not accumulate with Haversine)</div>
+</div>
+<div class="card supported">
+  <span class="func">Multiple</span>
+  <h4>Complex Chain (3+ steps)</h4>
+  <div class="desc">Three or more positioning operations in sequence</div>
+  <div class="examples"><code>"From Kremlin 7 km SW, then 4 km azimuth 200, midpoint to Kazan Station, 3 km N, 2 km E"</code>
+<code>"Start at Golden Gate, 5 km SE, 3 km SW, midpoint to Alcatraz"</code>
+<code>"From Edinburgh Castle 2 km E, 3 km N, then 4 km at 70 degrees"</code>
+</div><ul class="constraints">
+<li>Maximum tested: 5 steps</li>
+<li>LLM must correctly parse all step references</li>
+<li>Parsing accuracy decreases with chain length</li>
+</ul>
+<div class="accuracy">ADE < 0.2 km for 3 steps, < 0.5 km for 5 steps</div>
+</div>
+<div class="card supported">
+  <span class="func">Any</span>
+  <h4>Russian Language Input</h4>
+  <div class="desc">Spatial descriptions in Russian, auto-translated to English</div>
+  <div class="examples"><code>"5 km k yugu ot Eiffelevoj bashni"</code>
+<code>"Seredina mezhdu Kremlyom i Sheremetyevo"</code>
+<code>"10 km na severo-zapad ot Kazanskogo Kremlya"</code>
+</div><ul class="constraints">
+<li>Cyrillic text auto-detected and translated via LLM</li>
+<li>Place names converted to standard English (Kazan, Moscow)</li>
+<li>Directions translated (k severu -> north)</li>
+<li>Translation cached in SQLite for consistency</li>
+</ul>
+<div class="accuracy">Same as English equivalent after translation</div>
+</div>
+<div class="card supported">
+  <span class="func">Azimuth</span>
+  <h4>Compound Direction Description</h4>
+  <div class="desc">Non-standard directional descriptions converted to bearing</div>
+  <div class="examples"><code>"10 degrees west of south -> 190 degrees"</code>
+<code>"Bearing 045 from location"</code>
+</div><ul class="constraints">
+<li>LLM interprets compound directions and converts to numeric bearing</li>
+</ul>
+<div class="accuracy">Depends on LLM interpretation accuracy</div>
+</div>
+<h2>Not Supported</h2>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Temporal-Spatial Expressions</h4>
+  <div class="desc">Locations that depend on time or movement</div>
+  <div class="examples"><code>"Where the hurricane will be in 6 hours"</code>
+<code>"The ship's position tomorrow at noon"</code>
+<code>"5 km from where I was yesterday"</code>
+</div>
+<div class="reason">Reason: System processes static spatial descriptions, not temporal trajectories</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Self-Referential Positions</h4>
+  <div class="desc">Locations relative to the user's current position</div>
+  <div class="examples"><code>"3 km north of here"</code>
+<code>"The nearest hospital"</code>
+<code>"5 minutes walk from my location"</code>
+</div>
+<div class="reason">Reason: System has no access to user's GPS coordinates</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Route Planning / Navigation</h4>
+  <div class="desc">Optimal paths between locations considering roads</div>
+  <div class="examples"><code>"Fastest route from A to B"</code>
+<code>"Drive 10 minutes north on Highway 1"</code>
+<code>"Walking distance to the station"</code>
+</div>
+<div class="reason">Reason: System computes geometric positions, not routes. OSRM integration is for visualization only</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Area Containment / Topology</h4>
+  <div class="desc">Spatial relationships like 'inside', 'outside', 'bordering'</div>
+  <div class="examples"><code>"Hotels inside Central Park"</code>
+<code>"Cities bordering France"</code>
+<code>"Restaurants within 500m of the river"</code>
+</div>
+<div class="reason">Reason: System handles point-based positioning, not polygon intersection queries</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Vague / Fuzzy Distances</h4>
+  <div class="desc">Non-numeric distance descriptions</div>
+  <div class="examples"><code>"A short walk from the station"</code>
+<code>"Not far from the city center"</code>
+<code>"A few hours drive south"</code>
+</div>
+<div class="reason">Reason: System requires explicit numeric distances. 'nearby' and 'close' are not supported in HGFL pipeline</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>3D / Altitude Positioning</h4>
+  <div class="desc">Vertical spatial references</div>
+  <div class="examples"><code>"500 meters above sea level"</code>
+<code>"The 30th floor of the building"</code>
+<code>"At the summit of the mountain"</code>
+</div>
+<div class="reason">Reason: System operates in 2D (lon/lat). No elevation data used</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Historical / Non-Existent Places</h4>
+  <div class="desc">Places that no longer exist or have changed names</div>
+  <div class="examples"><code>"Constantinople (now Istanbul)"</code>
+<code>"The Berlin Wall checkpoint"</code>
+<code>"Stalingrad city center"</code>
+</div>
+<div class="reason">Reason: Nominatim indexes current OSM data. Historical names may not resolve. LLM may help with well-known renamings</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Multiple Result Locations</h4>
+  <div class="desc">Queries that should return multiple points</div>
+  <div class="examples"><code>"All Starbucks within 5 km of Times Square"</code>
+<code>"Three equidistant points between A and B"</code>
+<code>"Every intersection along Main Street"</code>
+</div>
+<div class="reason">Reason: System returns a single result area per query. No POI search capability</div>
+</div>
+<div class="card unsupported">
+  <span class="func red">NOT SUPPORTED</span>
+  <h4>Indoor / Micro-Scale Positioning</h4>
+  <div class="desc">Sub-building level spatial references</div>
+  <div class="examples"><code>"Room 305 in the north wing"</code>
+<code>"Third aisle of the supermarket"</code>
+<code>"Gate B12 at the airport"</code>
+</div>
+<div class="reason">Reason: Nominatim resolution is ~building level. No indoor mapping</div>
+</div>
+</div></body></html>

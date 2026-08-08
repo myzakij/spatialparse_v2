@@ -1,0 +1,74 @@
+[
+  {
+    "index": 1,
+    "instruction": "The earthquake struck 50 km southwest of Tokyo, near the coast of Sagami Bay.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Tokyo", "southwest", "50 km"]}],
+    "source": "news_disasters", "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "A wildfire was reported 15 km north of Los Angeles, spreading towards the San Gabriel Mountains.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Los Angeles", "north", "15 km"]}],
+    "source": "news_disasters", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "Flooding hit the area 30 km east of Mumbai along the Ulhas River basin.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Mumbai", "east", "30 km"]}],
+    "source": "news_disasters", "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "The tsunami warning was issued for the coastal zone between Sendai and Fukushima, approximately at the midpoint.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Sendai, Japan", "Fukushima, Japan"]}],
+    "source": "news_disasters", "difficulty": "easy"
+  },
+  {
+    "index": 5,
+    "instruction": "A 6.2 magnitude earthquake struck 80 km at a bearing of 210 degrees from Santiago, Chile.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Santiago, Chile", 210, "80 km"]}],
+    "source": "news_disasters", "difficulty": "medium"
+  },
+  {
+    "index": 6,
+    "instruction": "The hurricane made landfall 25 km southeast of New Orleans and moved 40 km northeast over the next 6 hours.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["New Orleans", "southeast", "25 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "40 km"]}
+    ],
+    "source": "news_disasters", "difficulty": "medium"
+  },
+  {
+    "index": 7,
+    "instruction": "Volcanic eruption reported 12 km south of Reykjavik. Evacuation zone extends 5 km further south from the eruption site.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Reykjavik", "south", "12 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "5 km"]}
+    ],
+    "source": "news_disasters", "difficulty": "medium"
+  },
+  {
+    "index": 8,
+    "instruction": "The landslide occurred at a point roughly one-third of the way from Kathmandu to Pokhara along the Prithvi Highway.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Kathmandu", "Pokhara", 0.33]}],
+    "source": "news_disasters", "difficulty": "medium"
+  },
+  {
+    "index": 9,
+    "instruction": "Flash floods affected the area between Cairo and Alexandria. Emergency response was set up at the midpoint, then shifted 10 km west due to road access.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Cairo", "Alexandria, Egypt"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "10 km"]}
+    ],
+    "source": "news_disasters", "difficulty": "hard"
+  },
+  {
+    "index": 10,
+    "instruction": "The epicenter was located 65 km at a bearing of 135 degrees from Ankara. Aftershocks were felt 20 km northwest of the epicenter.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Ankara", 135, "65 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northwest", "20 km"]}
+    ],
+    "source": "news_disasters", "difficulty": "hard"
+  }
+]

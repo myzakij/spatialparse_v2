@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Accuracy Report v2</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f5f5f5; }
+  .hdr { background: linear-gradient(135deg,#2c3e50,#3498db); color: white; padding: 24px 32px; }
+  .hdr h1 { margin: 0; } .hdr p { opacity: .7; margin: 4px 0 0; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  .stats { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+  .st { background: white; padding: 16px 20px; border-radius: 8px; flex: 1; min-width: 120px;
+         text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .st .v { font-size: 28px; font-weight: bold; } .st .l { color: #888; font-size: 12px; }
+  .st.g .v { color: #27ae60; } .st.b .v { color: #2980b9; } .st.o .v { color: #e67e22; }
+  .card { background: white; border-radius: 8px; margin: 16px 0; overflow: hidden;
+           box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .card-h { padding: 12px 16px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+  .card-h .n { background: #3498db; color: white; border-radius: 50%; width: 28px; height: 28px;
+                display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; }
+  .card-h .n.bad { background: #e74c3c; } .card-h .n.warn { background: #e67e22; }
+  .card-h .txt { flex: 1; font-size: 13px; }
+  .badge { padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: bold; }
+  .badge.g { background: #d5f5e3; color: #1e8449; }
+  .badge.o { background: #fef9e7; color: #b7950b; }
+  .badge.r { background: #fadbd8; color: #922b21; }
+  .mapbox { height: 350px; }
+  .info { padding: 10px 16px; font-size: 12px; background: #f9f9f9; border-top: 1px solid #eee; }
+  .err { padding: 14px 16px; color: #e74c3c; }
+</style></head><body>
+<div class="hdr"><h1>SpatialParse v2 — Accuracy Report</h1>
+<p>Manual calculation vs Program | 2026-03-21 12:51 | 90 tests</p></div>
+<div class="content">
+<div class="stats">
+  <div class="st g"><div class="v">79/87</div><div class="l">Exact (&lt;100m)</div></div>
+  <div class="st b"><div class="v">84/87</div><div class="l">Good (&lt;2km)</div></div>
+  <div class="st o"><div class="v">38.77 km</div><div class="l">Mean error</div></div>
+  <div class="st"><div class="v">0.00 km</div><div class="l">Median</div></div>
+  <div class="st o"><div class="v">2292.55 km</div><div class="l">Max</div></div>
+</div>
+<p style="font-size:13px;color:#888">
+  <span style="color:#3498db">&#9679;</span> Blue = manual (independent math)
+  &nbsp;<span style="color:#e74c3c">&#9733;</span> Red = program
+  &nbsp;<span style="color:#e74c3c">- - -</span> difference
+</p>
+<div class="card"><div class="card-h"><div class="n ">1</div><div class="txt">Find the area 5 km south of Portland.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map1"></div><script>
+(function(){
+  var m=L.map('map1').setView([45.47533107523315,-122.674194],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([45.47533107523315,-122.674194],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-122.67419, 45.47533)');
+  L.marker([45.47533107523315,-122.674194],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-122.67419, 45.47533)');
+  
+  m.fitBounds([[45.47533107523315,-122.674194],[45.47533107523315,-122.674194]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-122.67419, 45.47533) | Program: (-122.67419, 45.47533) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">2</div><div class="txt">Locate the midpoint between Cambridge in England and Cambridge in Massachusetts.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map2"></div><script>
+(function(){
+  var m=L.map('map2').setView([47.28558305,-35.49266905],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([47.28558305,-35.49266905],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-35.49267, 47.28558)');
+  L.marker([47.28558305,-35.49266905],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-35.49267, 47.28558)');
+  
+  m.fitBounds([[47.28558305,-35.49266905],[47.28558305,-35.49266905]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-35.49267, 47.28558) | Program: (-35.49267, 47.28558) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">3</div><div class="txt">3 km at a bearing of 10 degrees west of south from the Sydney Opera House.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map3"></div><script>
+(function(){
+  var m=L.map('map3').setView([-33.88373806136926,151.20948630371228],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-33.88373806136926,151.20948630371228],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(151.20949, -33.88374)');
+  L.marker([-33.88373806136926,151.20948630371228],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(151.20949, -33.88374)');
+  
+  m.fitBounds([[-33.88373806136926,151.20948630371228],[-33.88373806136926,151.20948630371228]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (151.20949, -33.88374) | Program: (151.20949, -33.88374) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">4</div><div class="txt">Find a location 0.5 km north of Big Ben in London.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map4"></div><script>
+(function(){
+  var m=L.map('map4').setView([51.50519580247669,-0.1245721],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([51.50519580247669,-0.1245721],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-0.12457, 51.50520)');
+  L.marker([51.50519580247669,-0.1245721],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-0.12457, 51.50520)');
+  
+  m.fitBounds([[51.50519580247669,-0.1245721],[51.50519580247669,-0.1245721]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-0.12457, 51.50520) | Program: (-0.12457, 51.50520) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">5</div><div class="txt">Find the midpoint between the North Pole and the South Pole.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map5"></div><script>
+(function(){
+  var m=L.map('map5').setView([-12.624501499999997,-73.6746595],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-12.624501500000001,-73.6746595],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-73.67466, -12.62450)');
+  L.marker([-12.624501499999994,-73.6746595],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-73.67466, -12.62450)');
+  
+  m.fitBounds([[-12.624501500000001,-73.6746595],[-12.624501499999994,-73.6746595]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-73.67466, -12.62450) | Program: (-73.67466, -12.62450) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">6</div><div class="txt">200 km east of Honolulu, Hawaii, in the Pacific Ocean.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map6"></div><script>
+(function(){
+  var m=L.map('map6').setView([21.29356313772069,-155.9273471688349],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([21.29356313772069,-155.9273471688349],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-155.92735, 21.29356)');
+  L.marker([21.29356313772069,-155.9273471688349],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-155.92735, 21.29356)');
+  
+  m.fitBounds([[21.29356313772069,-155.9273471688349],[21.29356313772069,-155.9273471688349]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-155.92735, 21.29356) | Program: (-155.92735, 21.29356) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n bad">7</div><div class="txt">1 км к северу от деревни Лесхоз в Татарстане, Россия.</div><span class="badge r">ERROR</span></div><div class="err">Nominatim: no results for 'Leskhoz, Tatarstan, Russia'</div></div><div class="card"><div class="card-h"><div class="n ">8</div><div class="txt">Find the area in the center of the triangle formed by Paris, London, and Brussels.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map8"></div><script>
+(function(){
+  var m=L.map('map8').setView([50.4003384105,2.1802324669999997],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([50.4003384105,2.1802324669999997],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(2.18023, 50.40034)');
+  L.marker([50.4003384105,2.1802324669999997],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(2.18023, 50.40034)');
+  
+  m.fitBounds([[50.4003384105,2.1802324669999997],[50.4003384105,2.1802324669999997]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (2.18023, 50.40034) | Program: (2.18023, 50.40034) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">9</div><div class="txt">500 meters south of the White House, Washington DC.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map9"></div><script>
+(function(){
+  var m=L.map('map9').setView([38.893147097523325,-77.0365528],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([38.893147097523325,-77.0365528],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-77.03655, 38.89315)');
+  L.marker([38.893147097523325,-77.0365528],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-77.03655, 38.89315)');
+  
+  m.fitBounds([[38.893147097523325,-77.0365528],[38.893147097523325,-77.0365528]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-77.03655, 38.89315) | Program: (-77.03655, 38.89315) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">10</div><div class="txt">Go 15 km northwest from the place that is 10 km east of the Kremlin.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map10"></div><script>
+(function(){
+  var m=L.map('map10').setView([55.846682348964194,37.60802513630586],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.846682348964194,37.60802513630586],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.60803, 55.84668)');
+  L.marker([55.846682348964194,37.60802513630586],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.60803, 55.84668)');
+  
+  m.fitBounds([[55.846682348964194,37.60802513630586],[55.846682348964194,37.60802513630586]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.60803, 55.84668) | Program: (37.60803, 55.84668) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">11</div><div class="txt">From Times Square, walk 1 km north along Broadway to reach Columbus Circle.</div><span class="badge g">0.03 km</span></div><div class="mapbox" id="map11"></div><script>
+(function(){
+  var m=L.map('map11').setView([40.766118654953374,-73.9859361],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([40.76624460495337,-73.9858998],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-73.98590, 40.76624)');
+  L.marker([40.76599270495337,-73.9859724],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-73.98597, 40.76599)');
+  L.polyline([[40.76624460495337,-73.9858998],[40.76599270495337,-73.9859724]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[40.76624460495337,-73.9858998],[40.76599270495337,-73.9859724]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-73.98590, 40.76624) | Program: (-73.98597, 40.76599) | <b>Diff: 0.03 km</b></div></div><div class="card"><div class="card-h"><div class="n ">12</div><div class="txt">Start at Shibuya Crossing in Tokyo. Head northeast for 3 km to reach the Meiji Shrine area.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map12"></div><script>
+(function(){
+  var m=L.map('map12').setView([35.67854908076024,139.72395777121926],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([35.67854908076024,139.72395777121926],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(139.72396, 35.67855)');
+  L.marker([35.67854908076024,139.72395777121926],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(139.72396, 35.67855)');
+  
+  m.fitBounds([[35.67854908076024,139.72395777121926],[35.67854908076024,139.72395777121926]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (139.72396, 35.67855) | Program: (139.72396, 35.67855) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">13</div><div class="txt">Begin at the Brandenburger Tor in Berlin, go 2 km east along Unter den Linden, then 1 km south to reach Checkpoint Charlie.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map13"></div><script>
+(function(){
+  var m=L.map('map13').setView([52.50728302184429,13.407227381040796],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([52.50728302184429,13.407227381040796],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(13.40723, 52.50728)');
+  L.marker([52.50728302184429,13.407227381040796],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(13.40723, 52.50728)');
+  
+  m.fitBounds([[52.50728302184429,13.407227381040796],[52.50728302184429,13.407227381040796]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (13.40723, 52.50728) | Program: (13.40723, 52.50728) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">14</div><div class="txt">From the Duomo in Milan, head northwest for 4 km to reach the Cimitero Monumentale. Then find the midpoint between the Duomo and your destination.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map14"></div><script>
+(function(){
+  var m=L.map('map14').setView([45.476868205666165,9.173490185913728],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([45.476868205666165,9.173490185913728],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(9.17349, 45.47687)');
+  L.marker([45.476868205666165,9.173490185913728],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(9.17349, 45.47687)');
+  
+  m.fitBounds([[45.476868205666165,9.173490185913728],[45.476868205666165,9.173490185913728]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (9.17349, 45.47687) | Program: (9.17349, 45.47687) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">15</div><div class="txt">Start at the Hagia Sophia in Istanbul. Navigate 6 km at a bearing of 30 degrees to reach the area near Istinye.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map15"></div><script>
+(function(){
+  var m=L.map('map15').setView([41.05517718535733,29.015749721746722],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([41.05517718535733,29.015749721746722],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(29.01575, 41.05518)');
+  L.marker([41.05517718535733,29.015749721746722],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(29.01575, 41.05518)');
+  
+  m.fitBounds([[41.05517718535733,29.015749721746722],[41.05517718535733,29.015749721746722]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (29.01575, 41.05518) | Program: (29.01575, 41.05518) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">16</div><div class="txt">From the Royal Palace in Madrid, go 3 km south to Puerta de Toledo, then 5 km southeast to reach the Retiro Park area.</div><span class="badge g">0.17 km</span></div><div class="mapbox" id="map16"></div><script>
+(function(){
+  var m=L.map('map16').setView([40.35856487540421,-3.672687824688709],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([40.35910697526078,-3.6734330895601905],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-3.67343, 40.35911)');
+  L.marker([40.35802277554765,-3.671942559817228],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-3.67194, 40.35802)');
+  L.polyline([[40.35910697526078,-3.6734330895601905],[40.35802277554765,-3.671942559817228]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[40.35910697526078,-3.6734330895601905],[40.35802277554765,-3.671942559817228]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-3.67343, 40.35911) | Program: (-3.67194, 40.35802) | <b>Diff: 0.17 km</b></div></div><div class="card"><div class="card-h"><div class="n ">17</div><div class="txt">Navigate from the Christ the Redeemer statue in Rio de Janeiro, 8 km northeast to Maracana Stadium. The pickup point is two-thirds of the way there.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map17"></div><script>
+(function(){
+  var m=L.map('map17').setView([-22.925281182000003,-43.224345992],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-22.925281182000003,-43.224345992],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-43.22435, -22.92528)');
+  L.marker([-22.925281182000003,-43.224345992],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-43.22435, -22.92528)');
+  
+  m.fitBounds([[-22.925281182000003,-43.224345992],[-22.925281182000003,-43.224345992]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-43.22435, -22.92528) | Program: (-43.22435, -22.92528) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">18</div><div class="txt">Start at Edinburgh Castle, head 2 km east along the Royal Mile, then 3 km north to reach Leith. From Leith, proceed 4 km at a bearing of 70 degrees.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map18"></div><script>
+(function(){
+  var m=L.map('map18').setView([55.98790715226748,-3.1079666836564637],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.98790715226748,-3.1079666836564637],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-3.10797, 55.98791)');
+  L.marker([55.98790715226748,-3.1079666836564637],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-3.10797, 55.98791)');
+  
+  m.fitBounds([[55.98790715226748,-3.1079666836564637],[55.98790715226748,-3.1079666836564637]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-3.10797, 55.98791) | Program: (-3.10797, 55.98791) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">19</div><div class="txt">From the Space Needle in Seattle, go 10 km southeast to Bellevue. Find the midpoint between Bellevue and Redmond, then move 2 km west.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map19"></div><script>
+(function(){
+  var m=L.map('map19').setView([47.61318082347905,-122.21617885140262],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([47.61318082347905,-122.21617885140262],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-122.21618, 47.61318)');
+  L.marker([47.61318082347905,-122.21617885140262],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-122.21618, 47.61318)');
+  
+  m.fitBounds([[47.61318082347905,-122.21617885140262],[47.61318082347905,-122.21617885140262]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-122.21618, 47.61318) | Program: (-122.21618, 47.61318) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">20</div><div class="txt">From the CN Tower in Toronto, head 5 km west. Then find the quarter-way point between your location and Niagara Falls.</div><span class="badge g">0.62 km</span></div><div class="mapbox" id="map20"></div><script>
+(function(){
+  var m=L.map('map20').setView([43.505835344619115,-79.35362663713396],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([43.50312043211912,-79.35441097463396],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-79.35441, 43.50312)');
+  L.marker([43.50855025711912,-79.35284229963395],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-79.35284, 43.50855)');
+  L.polyline([[43.50312043211912,-79.35441097463396],[43.50855025711912,-79.35284229963395]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[43.50312043211912,-79.35441097463396],[43.50855025711912,-79.35284229963395]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-79.35441, 43.50312) | Program: (-79.35284, 43.50855) | <b>Diff: 0.62 km</b></div></div><div class="card"><div class="card-h"><div class="n ">21</div><div class="txt">The earthquake struck 50 km southwest of Tokyo, near the coast of Sagami Bay.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map21"></div><script>
+(function(){
+  var m=L.map('map21').setView([35.35862796086176,139.37445805243172],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([35.35862796086176,139.37445805243172],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(139.37446, 35.35863)');
+  L.marker([35.35862796086176,139.37445805243172],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(139.37446, 35.35863)');
+  
+  m.fitBounds([[35.35862796086176,139.37445805243172],[35.35862796086176,139.37445805243172]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (139.37446, 35.35863) | Program: (139.37446, 35.35863) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">22</div><div class="txt">A wildfire was reported 15 km north of Los Angeles, spreading towards the San Gabriel Mountains.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map22"></div><script>
+(function(){
+  var m=L.map('map22').setView([34.18843897430053,-118.24276599999999],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([34.18843897430053,-118.24276599999999],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-118.24277, 34.18844)');
+  L.marker([34.18843897430053,-118.24276599999999],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-118.24277, 34.18844)');
+  
+  m.fitBounds([[34.18843897430053,-118.24276599999999],[34.18843897430053,-118.24276599999999]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-118.24277, 34.18844) | Program: (-118.24277, 34.18844) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">23</div><div class="txt">Flooding hit the area 30 km east of Mumbai along the Ulhas River basin.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map23"></div><script>
+(function(){
+  var m=L.map('map23').setView([19.05478008482363,73.15432231967257],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([19.05478008482363,73.15432231967257],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(73.15432, 19.05478)');
+  L.marker([19.05478008482363,73.15432231967257],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(73.15432, 19.05478)');
+  
+  m.fitBounds([[19.05478008482363,73.15432231967257],[19.05478008482363,73.15432231967257]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (73.15432, 19.05478) | Program: (73.15432, 19.05478) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">24</div><div class="txt">The tsunami warning was issued for the coastal zone between Sendai and Fukushima, approximately at the midpoint.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map24"></div><script>
+(function(){
+  var m=L.map('map24').setView([38.014266199999994,140.67186525],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([38.014266199999994,140.67186525],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(140.67187, 38.01427)');
+  L.marker([38.014266199999994,140.67186525],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(140.67187, 38.01427)');
+  
+  m.fitBounds([[38.014266199999994,140.67186525],[38.014266199999994,140.67186525]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (140.67187, 38.01427) | Program: (140.67187, 38.01427) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">25</div><div class="txt">A 6.2 magnitude earthquake struck 80 km at a bearing of 210 degrees from Santiago, Chile.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map25"></div><script>
+(function(){
+  var m=L.map('map25').setView([-34.059320664144806,-71.08479111861513],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-34.059320664144806,-71.08479111861513],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-71.08479, -34.05932)');
+  L.marker([-34.059320664144806,-71.08479111861513],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-71.08479, -34.05932)');
+  
+  m.fitBounds([[-34.059320664144806,-71.08479111861513],[-34.059320664144806,-71.08479111861513]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-71.08479, -34.05932) | Program: (-71.08479, -34.05932) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">26</div><div class="txt">The hurricane made landfall 25 km southeast of New Orleans and moved 40 km northeast over the next 6 hours.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map26"></div><script>
+(function(){
+  var m=L.map('map26').setView([30.05097277885088,-89.59685694891395],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([30.05097277885088,-89.59685694891395],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-89.59686, 30.05097)');
+  L.marker([30.05097277885088,-89.59685694891395],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-89.59686, 30.05097)');
+  
+  m.fitBounds([[30.05097277885088,-89.59685694891395],[30.05097277885088,-89.59685694891395]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-89.59686, 30.05097) | Program: (-89.59686, 30.05097) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">27</div><div class="txt">Volcanic eruption reported 12 km south of Reykjavik. Evacuation zone extends 5 km further south from the eruption site.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map27"></div><script>
+(function(){
+  var m=L.map('map27').setView([63.99326651579272,-21.9422367],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([63.99326651579272,-21.9422367],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-21.94224, 63.99327)');
+  L.marker([63.99326651579272,-21.9422367],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-21.94224, 63.99327)');
+  
+  m.fitBounds([[63.99326651579272,-21.9422367],[63.99326651579272,-21.9422367]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-21.94224, 63.99327) | Program: (-21.94224, 63.99327) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">28</div><div class="txt">The landslide occurred at a point roughly one-third of the way from Kathmandu to Pokhara along the Prithvi Highway.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map28"></div><script>
+(function(){
+  var m=L.map('map28').setView([27.87371993,84.881952399],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([27.87371993,84.881952399],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(84.88195, 27.87372)');
+  L.marker([27.87371993,84.881952399],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(84.88195, 27.87372)');
+  
+  m.fitBounds([[27.87371993,84.881952399],[27.87371993,84.881952399]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (84.88195, 27.87372) | Program: (84.88195, 27.87372) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">29</div><div class="txt">Flash floods affected the area between Cairo and Alexandria. Emergency response was set up at the midpoint, then shifted 10 km west due to road access.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map29"></div><script>
+(function(){
+  var m=L.map('map29').setView([30.62174256625837,30.461059377687366],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([30.62174256625837,30.461059377687366],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(30.46106, 30.62174)');
+  L.marker([30.62174256625837,30.461059377687366],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(30.46106, 30.62174)');
+  
+  m.fitBounds([[30.62174256625837,30.461059377687366],[30.62174256625837,30.461059377687366]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (30.46106, 30.62174) | Program: (30.46106, 30.62174) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">30</div><div class="txt">The epicenter was located 65 km at a bearing of 135 degrees from Ankara. Aftershocks were felt 20 km northwest of the epicenter.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map30"></div><script>
+(function(){
+  var m=L.map('map30').setView([39.63358182664359,33.224226205208666],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([39.63358182664359,33.224226205208666],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(33.22423, 39.63358)');
+  L.marker([39.63358182664359,33.224226205208666],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(33.22423, 39.63358)');
+  
+  m.fitBounds([[39.63358182664359,33.224226205208666],[39.63358182664359,33.224226205208666]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (33.22423, 39.63358) | Program: (33.22423, 39.63358) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">31</div><div class="txt">20 км к северу от Мурманска в сторону Баренцева моря.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map31"></div><script>
+(function(){
+  var m=L.map('map31').setView([69.15032909906736,33.07497],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([69.15032909906736,33.07497],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(33.07497, 69.15033)');
+  L.marker([69.15032909906736,33.07497],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(33.07497, 69.15033)');
+  
+  m.fitBounds([[69.15032909906736,33.07497],[69.15032909906736,33.07497]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (33.07497, 69.15033) | Program: (33.07497, 69.15033) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">32</div><div class="txt">Середина между Калининградом и Вильнюсом.</div><span class="badge g">1.76 km</span></div><div class="mapbox" id="map32"></div><script>
+(function(){
+  var m=L.map('map32').setView([54.697217025,22.88324315],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([54.69584715,22.869738849999997],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(22.86974, 54.69585)');
+  L.marker([54.698586899999995,22.89674745],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(22.89675, 54.69859)');
+  L.polyline([[54.69584715,22.869738849999997],[54.698586899999995,22.89674745]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[54.69584715,22.869738849999997],[54.698586899999995,22.89674745]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (22.86974, 54.69585) | Program: (22.89675, 54.69859) | <b>Diff: 1.76 km</b></div></div><div class="card"><div class="card-h"><div class="n ">33</div><div class="txt">8 км на юго-восток от Петропавловской крепости в Санкт-Петербурге.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map33"></div><script>
+(function(){
+  var m=L.map('map33').setView([59.899209031642314,30.413010817900414],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([59.899209031642314,30.413010817900414],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(30.41301, 59.89921)');
+  L.marker([59.899209031642314,30.413010817900414],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(30.41301, 59.89921)');
+  
+  m.fitBounds([[59.899209031642314,30.413010817900414],[59.899209031642314,30.413010817900414]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (30.41301, 59.89921) | Program: (30.41301, 59.89921) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">34</div><div class="txt">Найди точку на полпути между Нижним Новгородом и Казанью вдоль Волги.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map34"></div><script>
+(function(){
+  var m=L.map('map34').setView([55.9623953,46.6239855],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.9623953,46.6239855],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(46.62399, 55.96240)');
+  L.marker([55.9623953,46.6239855],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(46.62399, 55.96240)');
+  
+  m.fitBounds([[55.9623953,46.6239855],[55.9623953,46.6239855]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (46.62399, 55.96240) | Program: (46.62399, 55.96240) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">35</div><div class="txt">12 км к западу от Храма Василия Блаженного на Красной площади в Москве.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map35"></div><script>
+(function(){
+  var m=L.map('map35').setView([55.75232464881886,37.431612867581514],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.75232464881886,37.431612867581514],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.43161, 55.75232)');
+  L.marker([55.75232464881886,37.431612867581514],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.43161, 55.75232)');
+  
+  m.fitBounds([[55.75232464881886,37.431612867581514],[55.75232464881886,37.431612867581514]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.43161, 55.75232) | Program: (37.43161, 55.75232) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">36</div><div class="txt">Треть пути от Екатеринбурга до Челябинска.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map36"></div><script>
+(function(){
+  var m=L.map('map36').setView([56.284346221,60.865371413000005],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([56.284346221,60.865371413000005],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(60.86537, 56.28435)');
+  L.marker([56.284346221,60.865371413000005],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(60.86537, 56.28435)');
+  
+  m.fitBounds([[56.284346221,60.865371413000005],[56.284346221,60.865371413000005]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (60.86537, 56.28435) | Program: (60.86537, 56.28435) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">37</div><div class="txt">30 км по азимуту 45 градусов от Пулково в Петербурге.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map37"></div><script>
+(function(){
+  var m=L.map('map37').setView([59.99171314784478,30.648632163641114],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([59.99171314784478,30.648632163641114],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(30.64863, 59.99171)');
+  L.marker([59.99171314784478,30.648632163641114],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(30.64863, 59.99171)');
+  
+  m.fitBounds([[59.99171314784478,30.648632163641114],[59.99171314784478,30.648632163641114]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (30.64863, 59.99171) | Program: (30.64863, 59.99171) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">38</div><div class="txt">Из центра Самары 5 км на юг, потом 3 км на восток к берегу Волги.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map38"></div><script>
+(function(){
+  var m=L.map('map38').setView([53.15070101822726,50.146430271564576],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([53.15070101822726,50.146430271564576],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(50.14643, 53.15070)');
+  L.marker([53.15070101822726,50.146430271564576],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(50.14643, 53.15070)');
+  
+  m.fitBounds([[53.15070101822726,50.146430271564576],[53.15070101822726,50.146430271564576]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (50.14643, 53.15070) | Program: (50.14643, 53.15070) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">39</div><div class="txt">Точка на три четверти пути от Иркутска до Улан-Удэ вдоль Транссиба.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map39"></div><script>
+(function(){
+  var m=L.map('map39').setView([51.9491187,106.757890125],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([51.9491187,106.757890125],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(106.75789, 51.94912)');
+  L.marker([51.9491187,106.757890125],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(106.75789, 51.94912)');
+  
+  m.fitBounds([[51.9491187,106.757890125],[51.9491187,106.757890125]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (106.75789, 51.94912) | Program: (106.75789, 51.94912) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">40</div><div class="txt">Середина между Ростовом-на-Дону и Краснодаром, затем 15 км на юго-запад.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map40"></div><script>
+(function(){
+  var m=L.map('map40').setView([46.05273509380306,39.21378039644216],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([46.05273509380306,39.21378039644216],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(39.21378, 46.05274)');
+  L.marker([46.05273509380306,39.21378039644216],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(39.21378, 46.05274)');
+  
+  m.fitBounds([[46.05273509380306,39.21378039644216],[46.05273509380306,39.21378039644216]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (39.21378, 46.05274) | Program: (39.21378, 46.05274) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">41</div><div class="txt">Пожар обнаружен в 40 км к северо-востоку от Якутска в тайге.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map41"></div><script>
+(function(){
+  var m=L.map('map41').setView([62.28042066350203,130.27822948047677],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([62.28042066350203,130.27822948047677],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(130.27823, 62.28042)');
+  L.marker([62.28042066350203,130.27822948047677],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(130.27823, 62.28042)');
+  
+  m.fitBounds([[62.28042066350203,130.27822948047677],[62.28042066350203,130.27822948047677]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (130.27823, 62.28042) | Program: (130.27823, 62.28042) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">42</div><div class="txt">Метеостанция установлена на полпути между Норильском и Дудинкой.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map42"></div><script>
+(function(){
+  var m=L.map('map42').setView([69.37815185,87.18819685],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([69.37815185,87.18819685],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(87.18820, 69.37815)');
+  L.marker([69.37815185,87.18819685],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(87.18820, 69.37815)');
+  
+  m.fitBounds([[69.37815185,87.18819685],[69.37815185,87.18819685]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (87.18820, 69.37815) | Program: (87.18820, 69.37815) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">43</div><div class="txt">Из аэропорта Домодедово 10 км на запад, затем ещё 7 км по азимуту 310 градусов.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map43"></div><script>
+(function(){
+  var m=L.map('map43').setView([55.449000736360695,37.666302637394516],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.449000736360695,37.666302637394516],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.66630, 55.44900)');
+  L.marker([55.449000736360695,37.666302637394516],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.66630, 55.44900)');
+  
+  m.fitBounds([[55.449000736360695,37.666302637394516],[55.449000736360695,37.666302637394516]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.66630, 55.44900) | Program: (37.66630, 55.44900) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">44</div><div class="txt">Место аварии находится в 25 км к юго-западу от Тюмени. Спасатели выдвинулись из Тюмени к месту аварии, остановка на середине пути.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map44"></div><script>
+(function(){
+  var m=L.map('map44').setView([57.07396332914398,65.39650912685357],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([57.07396332914398,65.39650912685357],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(65.39651, 57.07396)');
+  L.marker([57.07396332914398,65.39650912685357],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(65.39651, 57.07396)');
+  
+  m.fitBounds([[57.07396332914398,65.39650912685357],[57.07396332914398,65.39650912685357]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (65.39651, 57.07396) | Program: (65.39651, 57.07396) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">45</div><div class="txt">Четверть пути от Петрозаводска до Мурманска, ближе к Петрозаводску.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map45"></div><script>
+(function(){
+  var m=L.map('map45').setView([63.584582,34.045345575],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([63.584582,34.045345575],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(34.04535, 63.58458)');
+  L.marker([63.584582,34.045345575],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(34.04535, 63.58458)');
+  
+  m.fitBounds([[63.584582,34.045345575],[63.584582,34.045345575]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (34.04535, 63.58458) | Program: (34.04535, 63.58458) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">46</div><div class="txt">6 км на север от Мамаева кургана в Волгограде.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map46"></div><script>
+(function(){
+  var m=L.map('map46').setView([48.79631562972022,44.5369358],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([48.79631562972022,44.5369358],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(44.53694, 48.79632)');
+  L.marker([48.79631562972022,44.5369358],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(44.53694, 48.79632)');
+  
+  m.fitBounds([[48.79631562972022,44.5369358],[48.79631562972022,44.5369358]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (44.53694, 48.79632) | Program: (44.53694, 48.79632) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">47</div><div class="txt">Из Калуги 50 км на юго-восток в сторону Тулы, затем найди середину между этой точкой и Тулой.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map47"></div><script>
+(function(){
+  var m=L.map('map47').setView([54.19215656212046,37.2100960368211],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([54.19215656212046,37.2100960368211],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.21010, 54.19216)');
+  L.marker([54.19215656212046,37.2100960368211],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.21010, 54.19216)');
+  
+  m.fitBounds([[54.19215656212046,37.2100960368211],[54.19215656212046,37.2100960368211]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.21010, 54.19216) | Program: (37.21010, 54.19216) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">48</div><div class="txt">Маяк расположен в 3 км к востоку от мыса Дежнёва на Чукотке.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map48"></div><script>
+(function(){
+  var m=L.map('map48').setView([66.08031971072897,-169.5858345998203],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([66.08031971072897,-169.5858345998203],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-169.58583, 66.08032)');
+  L.marker([66.08031971072897,-169.5858345998203],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-169.58583, 66.08032)');
+  
+  m.fitBounds([[66.08031971072897,-169.5858345998203],[66.08031971072897,-169.5858345998203]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-169.58583, 66.08032) | Program: (-169.58583, 66.08032) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">49</div><div class="txt">Найди точку ровно посередине между Байкалом и Хубсугулом в Монголии.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map49"></div><script>
+(function(){
+  var m=L.map('map49').setView([52.31859,104.30464215],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([52.31859,104.30464215],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(104.30464, 52.31859)');
+  L.marker([52.31859,104.30464215],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(104.30464, 52.31859)');
+  
+  m.fitBounds([[52.31859,104.30464215],[52.31859,104.30464215]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (104.30464, 52.31859) | Program: (104.30464, 52.31859) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">50</div><div class="txt">Из Грозного 15 км на юг в горы, потом 8 км на запад, потом середина между конечной точкой и Владикавказом.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map50"></div><script>
+(function(){
+  var m=L.map('map50').setView([43.09922047028598,45.145070169060745],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([43.09922047028598,45.145070169060745],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(45.14507, 43.09922)');
+  L.marker([43.09922047028598,45.145070169060745],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(45.14507, 43.09922)');
+  
+  m.fitBounds([[43.09922047028598,45.145070169060745],[43.09922047028598,45.145070169060745]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (45.14507, 43.09922) | Program: (45.14507, 43.09922) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">51</div><div class="txt">5 километров к югу от Эйфелевой башни.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map51"></div><script>
+(function(){
+  var m=L.map('map51').setView([48.81334387523317,2.2945006],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([48.81334387523317,2.2945006],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(2.29450, 48.81334)');
+  L.marker([48.81334387523317,2.2945006],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(2.29450, 48.81334)');
+  
+  m.fitBounds([[48.81334387523317,2.2945006],[48.81334387523317,2.2945006]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (2.29450, 48.81334) | Program: (2.29450, 48.81334) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">52</div><div class="txt">Середина между Кремлём и аэропортом Шереметьево.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map52"></div><script>
+(function(){
+  var m=L.map('map52').setView([55.8638544,37.520961400000004],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.8638544,37.520961400000004],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.52096, 55.86385)');
+  L.marker([55.8638544,37.520961400000004],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.52096, 55.86385)');
+  
+  m.fitBounds([[55.8638544,37.520961400000004],[55.8638544,37.520961400000004]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.52096, 55.86385) | Program: (37.52096, 55.86385) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">53</div><div class="txt">10 км на северо-запад от Казанского Кремля.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map53"></div><script>
+(function(){
+  var m=L.map('map53').setView([55.86249074401953,48.99297768793516],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.86249074401953,48.99297768793516],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(48.99298, 55.86249)');
+  L.marker([55.86249074401953,48.99297768793516],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(48.99298, 55.86249)');
+  
+  m.fitBounds([[55.86249074401953,48.99297768793516],[55.86249074401953,48.99297768793516]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (48.99298, 55.86249) | Program: (48.99298, 55.86249) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">54</div><div class="txt">Четверть пути от Эрмитажа до Петропавловской крепости в Санкт-Петербурге.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map54"></div><script>
+(function(){
+  var m=L.map('map54').setView([59.94342185,30.314536375],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([59.94342185,30.314536375],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(30.31454, 59.94342)');
+  L.marker([59.94342185,30.314536375],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(30.31454, 59.94342)');
+  
+  m.fitBounds([[59.94342185,30.314536375],[59.94342185,30.314536375]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (30.31454, 59.94342) | Program: (30.31454, 59.94342) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">55</div><div class="txt">3 км к востоку от Большого театра в Москве, затем 2 км на север.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map55"></div><script>
+(function(){
+  var m=L.map('map55').setView([55.778086697764095,37.6665086984908],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.778086697764095,37.6665086984908],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.66651, 55.77809)');
+  L.marker([55.778086697764095,37.6665086984908],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.66651, 55.77809)');
+  
+  m.fitBounds([[55.778086697764095,37.6665086984908],[55.778086697764095,37.6665086984908]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.66651, 55.77809) | Program: (37.66651, 55.77809) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">56</div><div class="txt">Середина между Новосибирском и Красноярском, затем 20 км на юг.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map56"></div><script>
+(function(){
+  var m=L.map('map56').setView([55.339309900932626,87.89763735],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.339309900932626,87.89763735],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(87.89764, 55.33931)');
+  L.marker([55.339309900932626,87.89763735],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(87.89764, 55.33931)');
+  
+  m.fitBounds([[55.339309900932626,87.89763735],[55.339309900932626,87.89763735]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (87.89764, 55.33931) | Program: (87.89764, 55.33931) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">57</div><div class="txt">7 км к юго-западу от центра Казани, затем ещё 4 км по азимуту 200 градусов.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map57"></div><script>
+(function(){
+  var m=L.map('map57').setView([55.716390815321766,49.01067871738355],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([55.716390815321766,49.01067871738355],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(49.01068, 55.71639)');
+  L.marker([55.716390815321766,49.01067871738355],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(49.01068, 55.71639)');
+  
+  m.fitBounds([[55.716390815321766,49.01067871738355],[55.716390815321766,49.01067871738355]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (49.01068, 55.71639) | Program: (49.01068, 55.71639) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n bad">58</div><div class="txt">Найди точку на полпути от Исаакиевского собора до Казанского собора в Петербурге.</div><span class="badge r">ERROR</span></div><div class="err">Nominatim: no results for 'Saint Isaac's Cathedral, Saint Petersburg'</div></div><div class="card"><div class="card-h"><div class="n ">59</div><div class="txt">15 км к северу от Сочи, затем середина между этой точкой и горнолыжным курортом Красная Поляна.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map59"></div><script>
+(function(){
+  var m=L.map('map59').setView([43.69909388715027,39.9650332],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([43.69909388715027,39.9650332],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(39.96503, 43.69909)');
+  L.marker([43.69909388715027,39.9650332],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(39.96503, 43.69909)');
+  
+  m.fitBounds([[43.69909388715027,39.9650332],[43.69909388715027,39.9650332]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (39.96503, 43.69909) | Program: (39.96503, 43.69909) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n bad">60</div><div class="txt">Две трети пути от Владивостока до Хабаровска.</div><span class="badge r">240.4 km</span></div><div class="mapbox" id="map60"></div><script>
+(function(){
+  var m=L.map('map60').setView([47.765668316,134.373510312],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([48.820922202000006,134.723661424],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(134.72366, 48.82092)');
+  L.marker([46.71041443,134.0233592],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(134.02336, 46.71041)');
+  L.polyline([[48.820922202000006,134.723661424],[46.71041443,134.0233592]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[48.820922202000006,134.723661424],[46.71041443,134.0233592]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (134.72366, 48.82092) | Program: (134.02336, 46.71041) | <b>Diff: 240.44 km</b></div></div><div class="card"><div class="card-h"><div class="n ">61</div><div class="txt">The military base is located 45 km at a bearing of 275 degrees from Baghdad, in the western desert.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map61"></div><script>
+(function(){
+  var m=L.map('map61').setView([33.340471805243084,43.905179119239],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([33.340471805243084,43.905179119239],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(43.90518, 33.34047)');
+  L.marker([33.340471805243084,43.905179119239],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(43.90518, 33.34047)');
+  
+  m.fitBounds([[33.340471805243084,43.905179119239],[33.340471805243084,43.905179119239]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (43.90518, 33.34047) | Program: (43.90518, 33.34047) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">62</div><div class="txt">Reconnaissance aircraft spotted the convoy 30 km southeast of Mosul, moving towards Kirkuk.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map62"></div><script>
+(function(){
+  var m=L.map('map62').setView([36.15289930654044,43.33572208916635],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([36.15289930654044,43.33572208916635],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(43.33572, 36.15290)');
+  L.marker([36.15289930654044,43.33572208916635],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(43.33572, 36.15290)');
+  
+  m.fitBounds([[36.15289930654044,43.33572208916635],[36.15289930654044,43.33572208916635]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (43.33572, 36.15290) | Program: (43.33572, 36.15290) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">63</div><div class="txt">The border checkpoint is at the midpoint between Peshawar and Jalalabad along the Khyber Pass.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map63"></div><script>
+(function(){
+  var m=L.map('map63').setView([34.221289799999994,71.01943689999999],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([34.221289799999994,71.01943689999999],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(71.01944, 34.22129)');
+  L.marker([34.221289799999994,71.01943689999999],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(71.01944, 34.22129)');
+  
+  m.fitBounds([[34.221289799999994,71.01943689999999],[34.221289799999994,71.01943689999999]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (71.01944, 34.22129) | Program: (71.01944, 34.22129) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n bad">64</div><div class="txt">The research station is 120 km south of McMurdo Station in Antarctica, on the Ross Ice Shelf.</div><span class="badge r">ERROR</span></div><div class="err">Nominatim: no results for 'McMurdo Station, Antarctica'</div></div><div class="card"><div class="card-h"><div class="n ">65</div><div class="txt">Set up observation post at the point one-third of the way from Gibraltar to Tangier across the strait.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map65"></div><script>
+(function(){
+  var m=L.map('map65').setView([36.010135477,-5.497915213],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([36.010135477,-5.497915213],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-5.49792, 36.01014)');
+  L.marker([36.010135477,-5.497915213],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-5.49792, 36.01014)');
+  
+  m.fitBounds([[36.010135477,-5.497915213],[36.010135477,-5.497915213]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-5.49792, 36.01014) | Program: (-5.49792, 36.01014) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n bad">66</div><div class="txt">The satellite detected heat anomaly 70 km at bearing 150 degrees from Brasilia. A second anomaly was found 25 km west of the first.</div><span class="badge r">836.0 km</span></div><div class="mapbox" id="map66"></div><script>
+(function(){
+  var m=L.map('map66').setView([-13.607927292669071,-50.44886068321306],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-10.877666270630828,-53.108529039740645],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-53.10853, -10.87767)');
+  L.marker([-16.338188314707317,-47.78919232668548],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-47.78919, -16.33819)');
+  L.polyline([[-10.877666270630828,-53.108529039740645],[-16.338188314707317,-47.78919232668548]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[-10.877666270630828,-53.108529039740645],[-16.338188314707317,-47.78919232668548]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-53.10853, -10.87767) | Program: (-47.78919, -16.33819) | <b>Diff: 835.97 km</b></div></div><div class="card"><div class="card-h"><div class="n ">67</div><div class="txt">The vessel was last seen at the midpoint between Singapore and Jakarta. Search area extends 50 km north of that position.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map67"></div><script>
+(function(){
+  var m=L.map('map67').setView([-1.959988702331554,105.3233336],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-1.959988702331554,105.3233336],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(105.32333, -1.95999)');
+  L.marker([-1.959988702331554,105.3233336],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(105.32333, -1.95999)');
+  
+  m.fitBounds([[-1.959988702331554,105.3233336],[-1.959988702331554,105.3233336]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (105.32333, -1.95999) | Program: (105.32333, -1.95999) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">68</div><div class="txt">The sensor array is positioned 18 km at a bearing of 22 degrees from the lighthouse at Cape Agulhas, South Africa.</div><span class="badge g">0.02 km</span></div><div class="mapbox" id="map68"></div><script>
+(function(){
+  var m=L.map('map68').setView([-34.68326715039527,20.073600625076438],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-34.68334380033192,20.07359989326933],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(20.07360, -34.68334)');
+  L.marker([-34.68319050045861,20.073601356883547],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(20.07360, -34.68319)');
+  L.polyline([[-34.68334380033192,20.07359989326933],[-34.68319050045861,20.073601356883547]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[-34.68334380033192,20.07359989326933],[-34.68319050045861,20.073601356883547]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (20.07360, -34.68334) | Program: (20.07360, -34.68319) | <b>Diff: 0.02 km</b></div></div><div class="card"><div class="card-h"><div class="n ">69</div><div class="txt">Weather balloon launched from Darwin, Australia, drifted 90 km northwest, then 40 km at a bearing of 350 degrees.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map69"></div><script>
+(function(){
+  var m=L.map('map69').setView([-11.534256675576898,130.19315566537716],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-11.534256675576898,130.19315566537716],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(130.19316, -11.53426)');
+  L.marker([-11.534256675576898,130.19315566537716],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(130.19316, -11.53426)');
+  
+  m.fitBounds([[-11.534256675576898,130.19315566537716],[-11.534256675576898,130.19315566537716]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (130.19316, -11.53426) | Program: (130.19316, -11.53426) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n bad">70</div><div class="txt">The archaeological site is located three-quarters of the way from Athens to Thessaloniki along the ancient road.</div><span class="badge r">2292.6 km</span></div><div class="mapbox" id="map70"></div><script>
+(function(){
+  var m=L.map('map70').setView([39.4721540875,9.746258000000001],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([38.97017945,-3.642645799999997],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-3.64265, 38.97018)');
+  L.marker([39.974128725,23.1351618],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(23.13516, 39.97413)');
+  L.polyline([[38.97017945,-3.642645799999997],[39.974128725,23.1351618]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[38.97017945,-3.642645799999997],[39.974128725,23.1351618]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-3.64265, 38.97018) | Program: (23.13516, 39.97413) | <b>Diff: 2292.55 km</b></div></div><div class="card"><div class="card-h"><div class="n ">71</div><div class="txt">The hotel is located 2 km south of the Sagrada Familia in Barcelona, within walking distance of the beach.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map71"></div><script>
+(function(){
+  var m=L.map('map71').setView([41.38553819009326,2.1744283],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([41.38553819009326,2.1744283],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(2.17443, 41.38554)');
+  L.marker([41.38553819009326,2.1744283],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(2.17443, 41.38554)');
+  
+  m.fitBounds([[41.38553819009326,2.1744283],[41.38553819009326,2.1744283]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (2.17443, 41.38554) | Program: (2.17443, 41.38554) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">72</div><div class="txt">Our Airbnb is situated halfway between the Louvre and the Arc de Triomphe in Paris.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map72"></div><script>
+(function(){
+  var m=L.map('map72').setView([48.8674632,2.31653245],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([48.8674632,2.31653245],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(2.31653, 48.86746)');
+  L.marker([48.8674632,2.31653245],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(2.31653, 48.86746)');
+  
+  m.fitBounds([[48.8674632,2.31653245],[48.8674632,2.31653245]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (2.31653, 48.86746) | Program: (2.31653, 48.86746) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">73</div><div class="txt">The resort is 8 km northeast of Denpasar Airport in Bali, near the coast of Sanur.</div><span class="badge g">0.64 km</span></div><div class="mapbox" id="map73"></div><script>
+(function(){
+  var m=L.map('map73').setView([-8.693444609840661,115.21693908333653],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-8.691194360746403,115.21510097462507],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(115.21510, -8.69119)');
+  L.marker([-8.69569485893492,115.21877719204798],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(115.21878, -8.69569)');
+  L.polyline([[-8.691194360746403,115.21510097462507],[-8.69569485893492,115.21877719204798]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[-8.691194360746403,115.21510097462507],[-8.69569485893492,115.21877719204798]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (115.21510, -8.69119) | Program: (115.21878, -8.69569) | <b>Diff: 0.64 km</b></div></div><div class="card"><div class="card-h"><div class="n ">74</div><div class="txt">Find a restaurant at the quarter-way point from the Colosseum to Vatican City, closer to the Colosseum.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map74"></div><script>
+(function(){
+  var m=L.map('map74').setView([41.894069349999995,12.482138200000001],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([41.894079375,12.482135975],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(12.48214, 41.89408)');
+  L.marker([41.894059325,12.482140425],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(12.48214, 41.89406)');
+  
+  m.fitBounds([[41.894079375,12.482135975],[41.894059325,12.482140425]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (12.48214, 41.89408) | Program: (12.48214, 41.89406) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">75</div><div class="txt">The campsite is 6 km west of Interlaken, then another 3 km south towards the lake.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map75"></div><script>
+(function(){
+  var m=L.map('map75').setView([46.65854659585878,7.779943874286555],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([46.65854659585878,7.779943874286555],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(7.77994, 46.65855)');
+  L.marker([46.65854659585878,7.779943874286555],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(7.77994, 46.65855)');
+  
+  m.fitBounds([[46.65854659585878,7.779943874286555],[46.65854659585878,7.779943874286555]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (7.77994, 46.65855) | Program: (7.77994, 46.65855) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">76</div><div class="txt">The villa is positioned at the midpoint between Amalfi and Positano on the Italian coast.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map76"></div><script>
+(function(){
+  var m=L.map('map76').setView([40.63116405,14.5440525],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([40.63116405,14.5440525],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(14.54405, 40.63116)');
+  L.marker([40.63116405,14.5440525],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(14.54405, 40.63116)');
+  
+  m.fitBounds([[40.63116405,14.5440525],[40.63116405,14.5440525]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (14.54405, 40.63116) | Program: (14.54405, 40.63116) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">77</div><div class="txt">The ski lodge is 4 km at a bearing of 320 degrees from Chamonix, up on the mountainside.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map77"></div><script>
+(function(){
+  var m=L.map('map77').setView([45.952191825581565,6.839529609500429],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([45.952191825581565,6.839529609500429],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(6.83953, 45.95219)');
+  L.marker([45.952191825581565,6.839529609500429],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(6.83953, 45.95219)');
+  
+  m.fitBounds([[45.952191825581565,6.839529609500429],[45.952191825581565,6.839529609500429]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (6.83953, 45.95219) | Program: (6.83953, 45.95219) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">78</div><div class="txt">Our meeting point is three-quarters of the way from Shibuya Station to Tokyo Tower.</div><span class="badge g">1.09 km</span></div><div class="mapbox" id="map78"></div><script>
+(function(){
+  var m=L.map('map78').setView([35.65695675,139.7400186875],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([35.6583093,139.734224375],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(139.73422, 35.65831)');
+  L.marker([35.6556042,139.745813],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(139.74581, 35.65560)');
+  L.polyline([[35.6583093,139.734224375],[35.6556042,139.745813]],{color:'#e74c3c',weight:2,dashArray:'6',opacity:.6}).addTo(m);
+  m.fitBounds([[35.6583093,139.734224375],[35.6556042,139.745813]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (139.73422, 35.65831) | Program: (139.74581, 35.65560) | <b>Diff: 1.09 km</b></div></div><div class="card"><div class="card-h"><div class="n ">79</div><div class="txt">The guesthouse is 10 km southeast of Marrakech Medina, then 2 km east into the palm grove.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map79"></div><script>
+(function(){
+  var m=L.map('map79').setView([31.569432355537785,-7.8928495967543375],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([31.569432355537785,-7.8928495967543375],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-7.89285, 31.56943)');
+  L.marker([31.569432355537785,-7.8928495967543375],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-7.89285, 31.56943)');
+  
+  m.fitBounds([[31.569432355537785,-7.8928495967543375],[31.569432355537785,-7.8928495967543375]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-7.89285, 31.56943) | Program: (-7.89285, 31.56943) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">80</div><div class="txt">Plan a day trip: start at the Sydney Opera House, go 5 km northwest to Taronga Zoo, then find the midpoint between the zoo and Manly Beach for lunch.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map80"></div><script>
+(function(){
+  var m=L.map('map80').setView([-33.811587036220175,151.23291604862962],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-33.811587036220175,151.23291604862962],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(151.23292, -33.81159)');
+  L.marker([-33.811587036220175,151.23291604862962],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(151.23292, -33.81159)');
+  
+  m.fitBounds([[-33.811587036220175,151.23291604862962],[-33.811587036220175,151.23291604862962]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (151.23292, -33.81159) | Program: (151.23292, -33.81159) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">81</div><div class="txt">The Great Wall of China extends from Shanhaiguan in the east. Find the point 100 km west of Shanhaiguan along the wall.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map81"></div><script>
+(function(){
+  var m=L.map('map81').setView([39.992879200914864,118.58378143421439],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([39.992879200914864,118.58378143421439],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(118.58378, 39.99288)');
+  L.marker([39.992879200914864,118.58378143421439],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(118.58378, 39.99288)');
+  
+  m.fitBounds([[39.992879200914864,118.58378143421439],[39.992879200914864,118.58378143421439]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (118.58378, 39.99288) | Program: (118.58378, 39.99288) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">82</div><div class="txt">Stonehenge is located 13 km north of Salisbury in Wiltshire, England.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map82"></div><script>
+(function(){
+  var m=L.map('map82').setView([51.185842964393785,-1.7954134],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([51.185842964393785,-1.7954134],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-1.79541, 51.18584)');
+  L.marker([51.185842964393785,-1.7954134],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-1.79541, 51.18584)');
+  
+  m.fitBounds([[51.185842964393785,-1.7954134],[51.185842964393785,-1.7954134]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-1.79541, 51.18584) | Program: (-1.79541, 51.18584) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">83</div><div class="txt">The Taj Mahal is situated on the banks of the Yamuna River in Agra. Find the area 3 km south of the Taj Mahal.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map83"></div><script>
+(function(){
+  var m=L.map('map83').setView([27.148057885139895,78.0421013],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([27.148057885139895,78.0421013],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(78.04210, 27.14806)');
+  L.marker([27.148057885139895,78.0421013],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(78.04210, 27.14806)');
+  
+  m.fitBounds([[27.148057885139895,78.0421013],[27.148057885139895,78.0421013]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (78.04210, 27.14806) | Program: (78.04210, 27.14806) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">84</div><div class="txt">Petra is located approximately 240 km south of Amman, the capital of Jordan.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map84"></div><script>
+(function(){
+  var m=L.map('map84').setView([29.795600211191463,35.9239625],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([29.795600211191463,35.9239625],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(35.92396, 29.79560)');
+  L.marker([29.795600211191463,35.9239625],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(35.92396, 29.79560)');
+  
+  m.fitBounds([[29.795600211191463,35.9239625],[29.795600211191463,35.9239625]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (35.92396, 29.79560) | Program: (35.92396, 29.79560) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">85</div><div class="txt">The Suez Canal connects Port Said on the Mediterranean to Suez on the Red Sea. Find the midpoint of the canal.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map85"></div><script>
+(function(){
+  var m=L.map('map85').setView([30.618866500000003,32.4212955],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([30.618866500000003,32.4212955],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(32.42130, 30.61887)');
+  L.marker([30.618866500000003,32.4212955],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(32.42130, 30.61887)');
+  
+  m.fitBounds([[30.618866500000003,32.4212955],[30.618866500000003,32.4212955]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (32.42130, 30.61887) | Program: (32.42130, 30.61887) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">86</div><div class="txt">Angkor Wat is situated 6 km north of the modern town of Siem Reap in Cambodia.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map86"></div><script>
+(function(){
+  var m=L.map('map86').setView([13.415655429720214,103.8590321],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([13.415655429720214,103.8590321],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(103.85903, 13.41566)');
+  L.marker([13.415655429720214,103.8590321],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(103.85903, 13.41566)');
+  
+  m.fitBounds([[13.415655429720214,103.8590321],[13.415655429720214,103.8590321]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (103.85903, 13.41566) | Program: (103.85903, 13.41566) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">87</div><div class="txt">The Panama Canal runs from Colon on the Atlantic to Panama City on the Pacific. The Gatun Locks are located roughly one-quarter of the way from Colon.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map87"></div><script>
+(function(){
+  var m=L.map('map87').setView([14.556138325000001,-81.338129775],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([14.556138325000001,-81.338129775],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(-81.33813, 14.55614)');
+  L.marker([14.556138325000001,-81.338129775],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(-81.33813, 14.55614)');
+  
+  m.fitBounds([[14.556138325000001,-81.338129775],[14.556138325000001,-81.338129775]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (-81.33813, 14.55614) | Program: (-81.33813, 14.55614) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">88</div><div class="txt">Mount Kilimanjaro rises 5,895 m above sea level, located 330 km south of the equator near the town of Moshi in Tanzania.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map88"></div><script>
+(function(){
+  var m=L.map('map88').setView([-3.1580648583265787,37.15267285917782],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([-3.1580648583265787,37.15267285917782],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(37.15267, -3.15806)');
+  L.marker([-3.1580648583265787,37.15267285917782],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(37.15267, -3.15806)');
+  
+  m.fitBounds([[-3.1580648583265787,37.15267285917782],[-3.1580648583265787,37.15267285917782]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (37.15267, -3.15806) | Program: (37.15267, -3.15806) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">89</div><div class="txt">The Chunnel entrance on the French side is near Calais. The English entrance is near Folkestone. Find the midpoint under the English Channel, then shift 5 km east towards the English coast.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map89"></div><script>
+(function(){
+  var m=L.map('map89').setView([51.01578344667574,1.5880225214652735],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([51.01578344667574,1.5880225214652735],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(1.58802, 51.01578)');
+  L.marker([51.01578344667574,1.5880225214652735],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(1.58802, 51.01578)');
+  
+  m.fitBounds([[51.01578344667574,1.5880225214652735],[51.01578344667574,1.5880225214652735]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (1.58802, 51.01578) | Program: (1.58802, 51.01578) | <b>Diff: 0.00 km</b></div></div><div class="card"><div class="card-h"><div class="n ">90</div><div class="txt">The Trans-Siberian Railway connects Moscow to Vladivostok. The halfway point is near Irkutsk. Find the quarter-way point from Moscow.</div><span class="badge g">0.00 km</span></div><div class="mapbox" id="map90"></div><script>
+(function(){
+  var m=L.map('map90').setView([52.49795045,61.1761879],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'OSM'}).addTo(m);
+  L.marker([52.49795045,61.1761879],{icon:L.divIcon({className:'',html:'<div style="width:20px;height:20px;border-radius:50%;background:#3498db;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4)"></div>',iconSize:[20,20],iconAnchor:[10,10]})}
+  ).addTo(m).bindPopup('<b>Manual</b><br>(61.17619, 52.49795)');
+  L.marker([52.49795045,61.1761879],{icon:L.divIcon({className:'',html:'<div style="width:22px;height:22px;border-radius:50%;background:#e74c3c;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;color:white;font-size:12px">★</div>',iconSize:[22,22],iconAnchor:[11,11]})}
+  ).addTo(m).bindPopup('<b>Program</b><br>(61.17619, 52.49795)');
+  
+  m.fitBounds([[52.49795045,61.1761879],[52.49795045,61.1761879]],{padding:[60,60]});
+})();
+</script><div class="info">Manual: (61.17619, 52.49795) | Program: (61.17619, 52.49795) | <b>Diff: 0.00 km</b></div></div></div></body></html>

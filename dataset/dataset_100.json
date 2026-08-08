@@ -1,0 +1,1005 @@
+[
+  {
+    "index": 1,
+    "instruction": "Plan a trip that involves determining the midpoint between Paris and London, and then finding another midpoint between this location and Paris to identify potential stopovers during travel.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Paris, France", "London, England"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Paris, France"]}
+    ]
+  },
+  {
+    "index": 2,
+    "instruction": "Imagine you are planning a picnic hike in the Blue Mountains of Australia. Start your hike in Katoomba, move southeast for 3 kilometers, and then find a scenic midpoint between your new location and Echo Point to set up your picnic.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Katoomba", "southeast", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Echo Point"]}
+    ]
+  },
+  {
+    "index": 3,
+    "instruction": "Plan a hiking route starting at Scafell Pike and travel 8 km to the west, then continue proceeding another 9 km westward.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Scafell Pike", "west", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "9 km"]}
+    ]
+  },
+  {
+    "index": 4,
+    "instruction": "Starting from the Colosseum in Rome, navigate 8 kilometers at a 25° azimuth to go towards the northeast, and then move a further 2 kilometers in the northeast direction. Determine if this is a suitable location for a new tourist station setup.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Colosseum, Rome", "25°", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "2 km"]}
+    ]
+  },
+  {
+    "index": 5,
+    "instruction": "Set up a communications relay point 4 km in the direction of 36° from Jasper, Alberta and then find the midpoint between this point and Banff, Alberta.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Jasper, Alberta", "36°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Banff, Alberta", 1]}
+    ]
+  },
+  {
+    "index": 6,
+    "instruction": "Identify the midpoint between the Statue of Liberty and the Eiffel Tower. From this midpoint, proceed 8 kilometers due west to establish a new GPS tracking station.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Eiffel Tower", "Statue of Liberty"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "266°", "8 km"]}
+    ]
+  },
+  {
+    "index": 7,
+    "instruction": "Determine a strategic location for a new lookout post by first finding the midpoint between New Orleans, USA, and Veracruz, Mexico. Then, identify a spot 8 km southwest of this midpoint.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["New Orleans, USA", "Veracruz, Mexico"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "220°", "8 km"]}
+    ]
+  },
+  {
+    "index": 8,
+    "instruction": "Plan a marine survey starting at Santorini, Greece: First, move 9 km south to begin the survey in a new area. Then, identify the midpoint between Santorini and this new location, and move 1 km south from it for further exploration. From the original midpoint, proceed 5 km at an azimuth of 150° towards a final survey site. Find the midpoint between this location and the previous exploration point for setting a central sampling station.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Santorini, Greece", "south", "9 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Santorini, Greece", 1]},
+      {"id": 3, "function": "Relative", "inputs": [1, "south", "1 km"]},
+      {"id": 4, "function": "Azimuth", "inputs": [2, "150°", "5 km"]},
+      {"id": 5, "function": "Between", "inputs": [3, 4]}
+    ]
+  },
+  {
+    "index": 9,
+    "instruction": "Plan a central spot for a camping trip by first finding the midpoint between Mont Blanc and Matterhorn, then find the midpoint between this point and Chamonix to refine the camping location.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Mont Blanc, France-Italy border", "Matterhorn, Switzerland-Italy border"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Chamonix, France"]}
+    ]
+  },
+  {
+    "index": 10,
+    "instruction": "Begin your geocaching adventure at Central Park in New York City. Move southwest for 9 km. Then head east for another 7 km. Finally, go west for an additional 1 km to find the hidden cache location.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Central Park, New York City", "215°", "9 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "99°", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "285°", "1 km"]}
+    ]
+  },
+  {
+    "index": 11,
+    "instruction": "Plan a meeting point by moving 3 kilometers east of Central Park and then find a midpoint between this new location and Central Park.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, Manhattan, New York", "east", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Central Park, Manhattan, New York"]}
+    ]
+  },
+  {
+    "index": 12,
+    "instruction": "Identify the location that is 9 km to the southeast of Paris city center to set up a monitoring station.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Paris", "southeast", "9 km"]}
+    ]
+  },
+  {
+    "index": 13,
+    "instruction": "Set up a series of geocaching locations in Central Park, starting at the Central Park Carousel. First, place the first geocache 6 km north. Next, move 5 km at an angle of 3° to place the second cache. Then, go 3 km at 199° from the second cache for the third one. Finally, find the midpoint between this third cache location and the Carousel for a bonus cache.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park Carousel, New York", "north", "6 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "3°", "5 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "199°", "3 km"]},
+      {"id": 4, "function": "Between", "inputs": [3, "Central Park Carousel, New York"]}
+    ]
+  },
+  {
+    "index": 14,
+    "instruction": "Plan a scenic hiking route starting from Banff, Alberta. First, travel northwest for 2 km to reach a noted viewpoint. From there, continue northeast for 4 km, potentially spotting wildlife along the way. Finally, identify a midpoint between Banff and your current location to set a resting spot or picnic area for optimal views and convenience.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Banff", "northwest", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "4 km"]},
+      {"id": 3, "function": "Between", "inputs": ["Banff", 2]}
+    ]
+  },
+  {
+    "index": 15,
+    "instruction": "Start at Central Park in New York City. Move northeast for 2 km to reach the area near The Met Cloisters in Fort Tryon Park. From there, head in the direction of 333° for 7 km towards the intersection of Riverside Drive and W 165th St. Finally, navigate 9 km in the direction of 62° to reach a suitable spot near Yonkers Avenue in Yonkers for the meteorological station setup.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park", "northeast", "2 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "333°", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "62°", "9 km"]}
+    ]
+  },
+  {
+    "index": 16,
+    "instruction": "Begin at Central Park in New York City and determine the area situated 5 kilometers to the east for the next phase of environmental monitoring.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, New York City", "east", "5 km"]}
+    ]
+  },
+  {
+    "index": 17,
+    "instruction": "Plan a geological survey in the Cape Town area. First, find a point 3 km southwest of Signal Hill. Then, find the midpoint between this new location and Signal Hill. Next, calculate the midpoint between this result and Cape Town. Finally, determine the central point between all computed midpoints to establish a base camp for your survey operations.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Signal Hill", "southwest", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Signal Hill"]},
+      {"id": 3, "function": "Between", "inputs": ["Cape Town", 1]},
+      {"id": 4, "function": "Between", "inputs": [2, 3]}
+    ]
+  },
+  {
+    "index": 18,
+    "instruction": "Start at Praça do Comércio in Lisbon. First, calculate a point 1 km north from this location. Then, find the midpoint between this new location and Praça do Comércio. Finally, determine the midpoint between Praça do Comércio and the previously calculated midpoint to navigate effectively around the city.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Praça do Comércio, Lisbon", "north", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Praça do Comércio, Lisbon"]},
+      {"id": 3, "function": "Between", "inputs": ["Praça do Comércio, Lisbon", 2]}
+    ]
+  },
+  {
+    "index": 19,
+    "instruction": "Starting at the South Pole, travel 4 kilometers at an angle of 65° to find Point A. Determine the midpoint between the South Pole and Point A. From this midpoint, travel 7 kilometers at an angle of 184° to reach McMurdo Station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["South Pole", "65°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["South Pole", 1]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "184°", "7 km"]}
+    ]
+  },
+  {
+    "index": 20,
+    "instruction": "Identify a new exploration point 10 km northwest of the base camp at Yosemite National Park.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Yosemite National Park", "northwest", "10 km"]}
+    ]
+  },
+  {
+    "index": 1,
+    "instruction": "Identify potential locations for setting up weather stations in the area surrounding the Sydney Opera House. First, locate a point 10 km away in a direction of 166° from the Opera House. Then, find the midpoint between this point and the Opera House. Finally, calculate the midpoint between the Opera House and the previously determined midpoint to identify two strategic locations.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "166°", "10 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Sydney Opera House"]},
+      {"id": 3, "function": "Between", "inputs": ["Sydney Opera House", 2]}
+    ]
+  },
+  {
+    "index": 2,
+    "instruction": "Starting in Paris, France, identify a location 4 km to the east. Then, proceed an additional 9 km further east to determine the final point for another weather monitoring station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Paris, France", "90°", "4 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "9 km"]}
+    ]
+  },
+  {
+    "index": 3,
+    "instruction": "Determine a location for a scenic observation point by first moving 8 km south of Florence, Italy. Then, find the midpoint between this new location and the city center of Florence.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Florence, Italy", "south", "8 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Florence, Italy"]}
+    ]
+  },
+  {
+    "index": 4,
+    "instruction": "You are at the New York Botanical Garden and wish to find a point 6 kilometers to the northwest and then determine the midpoint between this new position and the Botanical Garden. First, calculate the location 6 kilometers to the northwest, then find the midpoint between these two points.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["New York Botanical Garden", "339°", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "New York Botanical Garden"]}
+    ]
+  },
+  {
+    "index": 5,
+    "instruction": "Determine the optimal midpoint location starting from Central Park, New York, moving first 3 km northeast, then 3 km north from that point; also consider another point 3 km northeast from Central Park as your reference for calculation.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, New York", "northeast", "3 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "3 km"]},
+      {"id": 3, "function": "Relative", "inputs": ["Central Park, New York", "northeast", "3 km"]},
+      {"id": 4, "function": "Between", "inputs": [3, 2]}
+    ]
+  },
+  {
+    "index": 6,
+    "instruction": "Find a spot for an additional activity northwest of Central Park, New York, within a 5 km radius for an outdoor event.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, New York", "northwest", "5 km"]}
+    ]
+  },
+  {
+    "index": 7,
+    "instruction": "From the Eiffel Tower in Paris, navigate in the direction of 247° for 2 km to find a suitable location for the outdoor art installation.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Eiffel Tower, Paris", "247°", "2 km"]}
+    ]
+  },
+  {
+    "index": 8,
+    "instruction": "Plan a scenic route starting from Milan. First, head southeast for 6 km to reach near Monza. Then, find the midpoint between this location and Milan. Finally, continue southeast from the midpoint for another 7 km to explore the charming countryside before heading back to your main route to Lake Como.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Milan", "southeast", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Milan"]},
+      {"id": 3, "function": "Relative", "inputs": [2, "southeast", "7 km"]}
+    ]
+  },
+  {
+    "index": 9,
+    "instruction": "Start at Leura in Australia and determine an observation point by first moving 10 km northwest at 317° to find a new location. From this new location, proceed 3 km west at 255° to find another spot. Finally, calculate the midpoint between these two offset locations to establish your central observation point.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Leura, Australia", "317°", "10 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "255°", "3 km"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 10,
+    "instruction": "Start at the Eiffel Tower and walk 1 km west to explore the Trocadéro area. Then, head 6 km east to visit the iconic Louvre Museum.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "west", "1 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "6 km"]}
+    ]
+  },
+  {
+    "index": 11,
+    "instruction": "Determine a suitable location for setting up a temporary medical camp near Nairobi, Kenya. Start by moving 5 km southeast from Nairobi and then find the midpoint between Nairobi and the newly identified location.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Nairobi, Kenya", "101°", "5 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Nairobi, Kenya", 1]}
+    ]
+  },
+  {
+    "index": 12,
+    "instruction": "Determine the location 4 km at a 34° azimuth from Berlin, Germany, for setting up a temporary weather monitoring station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Berlin, Germany", "34°", "4 km"]}
+    ]
+  },
+  {
+    "index": 13,
+    "instruction": "To establish a central hub for activities, start at Zuma Beach in Malibu. Proceed 4 kilometers southwest, roughly parallel to the coast. Then, determine the midpoint between this new location and Zuma Beach to set up your campsite.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Zuma Beach, Malibu", "261°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Zuma Beach, Malibu", 1]}
+    ]
+  },
+  {
+    "index": 14,
+    "instruction": "You are tasked with planning a reconnaissance mission starting from Banff, Alberta. First, move 7 km west from Banff to reach a new location. Determine the midpoint between this location and Banff. From this midpoint, proceed 8 km south to reach your final survey point.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Banff, Alberta", "west", "7 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Banff, Alberta"]},
+      {"id": 3, "function": "Relative", "inputs": [2, "south", "8 km"]}
+    ]
+  },
+  {
+    "index": 15,
+    "instruction": "Plan a hiking route starting from Mount Tamalpais. First, navigate 5 kilometers southeast, then head 10 kilometers west, followed by an additional 4 kilometers west, to explore the surrounding wilderness area.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Mount Tamalpais", "southeast", "5 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "10 km"]},
+      {"id": 3, "function": "Relative", "inputs": [2, "west", "4 km"]}
+    ]
+  },
+  {
+    "index": 16,
+    "instruction": "Start by finding a point 10 km west of the Eiffel Tower. Then, determine the midpoint between this location and the Eiffel Tower. Finally, find a location 1 km southwest of this midpoint.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "west", "10 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Eiffel Tower", 1]},
+      {"id": 3, "function": "Relative", "inputs": [2, "southwest", "1 km"]}
+    ]
+  },
+  {
+    "index": 17,
+    "instruction": "Plan the setup of a telecommunications relay network starting from New York City by calculating optimal intermediate points for relay placement. First, determine a position by moving 7 km north from New York City. Then, compute another point by moving 8 km at a 125° angle from New York City. Next, proceed 1 km northwest from your first calculated location. Once these locations are established, find the midpoint between your northwest adjustment and New York City. Finally, identify the midpoint between the position on the 125° azimuth and the previous midpoint to determine the best relay placement.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["New York City, USA", "north", "7 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": ["New York City, USA", "125°", "8 km"]},
+      {"id": 3, "function": "Relative", "inputs": [1, "northwest", "1 km"]},
+      {"id": 4, "function": "Between", "inputs": [3, "New York City, USA"]},
+      {"id": 5, "function": "Between", "inputs": [2, 4]}
+    ]
+  },
+  {
+    "index": 18,
+    "instruction": "You are in Paris, France. Move 2 kilometers northwest from the center of Paris to reach a new area of the city.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Paris, France", "northwest", "2 km"]}
+    ]
+  },
+  {
+    "index": 19,
+    "instruction": "Determine the location 6 km west-southwest from the Sydney Opera House using an azimuth of 247°.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "247°", "6 km"]}
+    ]
+  },
+  {
+    "index": 20,
+    "instruction": "Plan a rest stop for hikers 2 km northwest of Yosemite Village and find the point midway back between this location and the original starting point.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Yosemite Village", "northwest", "2 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Yosemite Village"]}
+    ]
+  },
+  {
+    "index": 21,
+    "instruction": "Plan an expedition by establishing a research station in the Amazon rainforest. Start from Santarém, Brazil, then navigate as follows: travel southeast for 10 km; from there, go north for another 10 km; proceed in a 30° direction for 5 km, and finally, calculate the midpoint between the last two positions to determine the best spot for setting up the station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Santarém, Brazil", "121°", "10 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "10 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "30°", "5 km"]},
+      {"id": 4, "function": "Between", "inputs": [3, 2]}
+    ]
+  },
+  {
+    "index": 22,
+    "instruction": "Plan a road trip from Los Angeles to San Francisco. First, determine a good stopping point by finding the midpoint of the journey, then plan an additional small voyage split between Los Angeles and this midpoint.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Los Angeles", "San Francisco"]},
+      {"id": 2, "function": "Between", "inputs": ["Los Angeles", 1]}
+    ]
+  },
+  {
+    "index": 23,
+    "instruction": "Start from the Eiffel Tower in Paris, travel 1 km due north, and then find the midpoint between your original location at the Eiffel Tower and your new location to select a spot for a picnic.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Eiffel Tower, Paris", "346°", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Eiffel Tower, Paris", 1]}
+    ]
+  },
+  {
+    "index": 24,
+    "instruction": "Plan a hiking trip between Zermatt, Switzerland, and Chamonix, France. Start by determining a new location 9 km away at 140° from Zermatt and another one 5 km away at 338° from Chamonix. Find the midpoint between these two new locations to identify a first potential meeting point. Further, calculate between this first meeting point and the new location from Chamonix for a secondary checkpoint. Finally, determine the last potential rest spot by finding the midpoint between the two new results obtained.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Zermatt, Switzerland", "140°", "9 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": ["Chamonix, France", "338°", "5 km"]},
+      {"id": 3, "function": "Between", "inputs": [1, "Chamonix, France"]},
+      {"id": 4, "function": "Between", "inputs": [3, 2]},
+      {"id": 5, "function": "Between", "inputs": [4, 3]}
+    ]
+  },
+  {
+    "index": 25,
+    "instruction": "You have been tasked with setting up survey stations around Auckland, New Zealand for a geographical study. Begin by finding a point 6 km southwest of Auckland. Then, find the midpoint between this new point and Auckland. Finally, calculate the midpoint between Auckland and the previously obtained midpoint to determine an optimal survey station location.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Auckland, New Zealand", "southwest", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Auckland, New Zealand", 1]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 26,
+    "instruction": "Starting from Paris, France, head in the direction of an azimuth of 263° for 8 kilometers. Then find the midpoint between Paris and this new location.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Paris, France", "263°", "8 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Paris, France", 1]}
+    ]
+  },
+  {
+    "index": 27,
+    "instruction": "Identify potential locations for a new transatlantic transportation hub by calculating the midpoint between New York City and London, UK.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["New York City", "London, UK"]},
+      {"id": 2, "function": "Between", "inputs": ["New York City", 1]},
+      {"id": 3, "function": "Between", "inputs": ["New York City", 2]},
+      {"id": 4, "function": "Between", "inputs": ["New York City", 3]}
+    ]
+  },
+  {
+    "index": 28,
+    "instruction": "Determine the location 6 kilometers east of Shinjuku in Tokyo to explore potential development opportunities for urban expansion.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Shinjuku", "east", "6 km"]}
+    ]
+  },
+  {
+    "index": 29,
+    "instruction": "You are planning to set up a strategic tourist information center that serves travelers between Paris and Rome. First, relocate your initial planning position 7 km southwest from the Eiffel Tower. Then find the midpoint between this new location and the Colosseum in Rome to determine a secondary focus area. Finally, calculate the central navigational hub between this focus area and the Colosseum to ensure optimal accessibility for tourists in both major cities.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "southwest", "7 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Colosseum", 1]},
+      {"id": 3, "function": "Between", "inputs": [2, "Colosseum"]}
+    ]
+  },
+  {
+    "index": 30,
+    "instruction": "Calculate the strategic point for logistics by starting from Los Angeles, finding the midpoint to New York City, re-evaluating midpoints twice, and finally moving 9 km north to finalize the location.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Los Angeles", "New York City"]},
+      {"id": 2, "function": "Between", "inputs": [1, "New York City"]},
+      {"id": 3, "function": "Relative", "inputs": [2, "north", "9 km"]}
+    ]
+  },
+  {
+    "index": 31,
+    "instruction": "Start at Toronto Pearson International Airport. Move 9 km north to locate your initial checkpoint. From there, travel 4 km south to reach your final meeting point for the logistics team.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Toronto Pearson International Airport", "north", "9 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "4 km"]}
+    ]
+  },
+  {
+    "index": 32,
+    "instruction": "Calculate the midpoint between New York City and Los Angeles, then adjust this point by moving 3 kilometers in the azimuth direction of 51 degrees to find a suitable location for setting up a temporary distribution hub.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["New York City", "Los Angeles"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "51°", "3 km"]}
+    ]
+  },
+  {
+    "index": 33,
+    "instruction": "Calculate the location that is 9 km southeast from Fort William, which could serve as the next hiking point on your trip in the Scottish Highlands.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Fort William", "southeast", "9 km"]}
+    ]
+  },
+  {
+    "index": 34,
+    "instruction": "Start at the Sydney Opera House and head 6 km at an azimuth of 235°. Then move southwest for 1 km to reach the designated location for setting up the research station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "235°", "6 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "southwest", "1 km"]}
+    ]
+  },
+  {
+    "index": 35,
+    "instruction": "Plan an expedition starting from Honolulu, Hawaii. Move 6 km at a 52° azimuth from Honolulu to find a new location. Then, calculate the midpoint between this location and Honolulu. From this midpoint, travel 8 km at a 103° azimuth to reach the next location on your expedition route.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Honolulu", "52°", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Honolulu"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "103°", "8 km"]}
+    ]
+  },
+  {
+    "index": 36,
+    "instruction": "For a scientific expedition in Antarctica, navigate approximately 5 km along a 175° azimuth from McMurdo Station. Then, determine the midpoint between the new location and the Amundsen-Scott South Pole Station to plan the location of a temporary research marker.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["McMurdo Station", "175°", "5 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Amundsen-Scott South Pole Station"]}
+    ]
+  },
+  {
+    "index": 37,
+    "instruction": "Plan a hiking route starting from Yokohama. First, hike 3 km in the southeast direction at an angle of 105°. From this new location, continue a further 6 km eastwards at 110°. Finally, determine the midpoint between Yokohama and your current location to find an ideal campsite with a good view of the region.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Yokohama", "105°", "3 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "110°", "6 km"]},
+      {"id": 3, "function": "Between", "inputs": ["Yokohama", 2]}
+    ]
+  },
+  {
+    "index": 38,
+    "instruction": "You are at the Eiffel Tower in Paris. First, travel 7 kilometers southwest to reach a new point. From there, head 9 kilometers north to discover an interesting location for sightseeing.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "southwest", "7 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "9 km"]}
+    ]
+  },
+  {
+    "index": 39,
+    "instruction": "Determine the location that is 8 kilometers southeast of Paris, France, for setting up a new survey point.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Paris, France", "southeast", "8 km"]}
+    ]
+  },
+  {
+    "index": 40,
+    "instruction": "Determine the optimal location for a wildlife research station by starting from the midpoint between Tromsø, Norway, and Rovaniemi, Finland. Move 10 km north from this midpoint, then find the point that lies midway between this new position and Rovaniemi. Finally, calculate the midpoint between this last point and Rovaniemi to finalize the location of the research station.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Tromsø", "Rovaniemi"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "354°", "10 km"]},
+      {"id": 3, "function": "Between", "inputs": [2, "Rovaniemi"]},
+      {"id": 4, "function": "Between", "inputs": ["Rovaniemi", 3]}
+    ]
+  },
+  {
+    "index": 41,
+    "instruction": "Plan a short hiking trip starting from Syntagma Square in Athens, Greece, and head west for approximately 6 kilometers to explore the surroundings.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Syntagma Square, Athens", "west", "6 km"]}
+    ]
+  },
+  {
+    "index": 42,
+    "instruction": "Plan a short hiking adventure starting from Sydney, Australia. First, find a point located 8 km to the southwest at an azimuth angle of 228°. Then, determine the midpoint between Sydney and this new location to possibly set up a waypoint for your hike.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney, Australia", "228°", "8 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Sydney, Australia", 1]}
+    ]
+  },
+  {
+    "index": 43,
+    "instruction": "From the base of the Eiffel Tower, proceed southwest for 2 km to find a quiet spot or meeting point.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "southwest", "2 km"]}
+    ]
+  },
+  {
+    "index": 44,
+    "instruction": "Find a location that is at the midpoint between the Eiffel Tower and a point 2 kilometers north of the Eiffel Tower, then continue to find a midpoint between this location and the Arc de Triomphe in Paris.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "north", "2 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Eiffel Tower", 1]}
+    ]
+  },
+  {
+    "index": 45,
+    "instruction": "Determine the location that is 3 km northeast (67° azimuth) of Tokyo, Japan, to set up a new meteorological research station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Tokyo, Japan", "67°", "3 km"]}
+    ]
+  },
+  {
+    "index": 46,
+    "instruction": "Starting from the Christopher Columbus Monument in Barcelona, proceed 1 km at an azimuth of 173° to reach your next sightseeing point on the beach.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Christopher Columbus Monument, Barcelona, Spain", "173°", "1 km"]}
+    ]
+  },
+  {
+    "index": 47,
+    "instruction": "Identify a suitable midpoint location to set up a communication outpost between Alice Springs and a point 6 km to the east of it.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Alice Springs", "94°", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Alice Springs"]}
+    ]
+  },
+  {
+    "index": 48,
+    "instruction": "You are starting at Fisherman's Wharf in San Francisco. Walk northwest for 2 kilometers to reach the San Francisco Maritime National Historical Park.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Fisherman's Wharf", "northwest", "2 km"]}
+    ]
+  },
+  {
+    "index": 49,
+    "instruction": "You are planning an exploratory session starting from the Sydney Opera House. First, navigate 2 km southwest to reach a new area in Sydney. Then, from there, travel 2 km north. Finally, find the midpoint between St Kilda Beach in Melbourne and your latest location to identify a central meeting or station setup point.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "232°", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "2 km"]},
+      {"id": 3, "function": "Between", "inputs": ["St Kilda Beach", 2]}
+    ]
+  },
+  {
+    "index": 50,
+    "instruction": "You're leading an archaeological expedition and starting the journey from Luxor, Egypt. First, move 6 km at an azimuth of 121° to a new exploration site. Simultaneously, from the Valley of the Kings, head 9 km northeast, and then adjust your path 3 km to the southeast. Finally, find the midpoint between your moved positions to establish a central base camp for the expedition.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Luxor", "121°", "6 km"]},
+      {"id": 2, "function": "Relative", "inputs": ["Valley of the Kings", "northeast", "9 km"]},
+      {"id": 3, "function": "Relative", "inputs": [2, "southeast", "3 km"]},
+      {"id": 4, "function": "Between", "inputs": [1, 3]}
+    ]
+  },
+  {
+    "index": 51,
+    "instruction": "Plan a short exploration route by first identifying a location approximately 5 km northwest of the center of Paris, then calculate the midpoint between this northwest point and Paris itself, and finally find the central location between the two previously identified midpoints.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Paris, France", "northwest", "5 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Paris, France"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 52,
+    "instruction": "Determine the optimal location for a communication relay station by first finding the midpoint between the Eiffel Tower in Paris and the Brandenburg Gate in Berlin. From this midpoint, move 1 kilometer at an azimuth angle of 15° to finalize the station's position.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Eiffel Tower", "Brandenburg Gate"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "15°", "1 km"]}
+    ]
+  },
+  {
+    "index": 53,
+    "instruction": "Calculate the midpoint for a new research station between 10 km south of Mendoza, Argentina and Santiago, Chile.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Mendoza, Argentina", "south", "10 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Santiago, Chile"]}
+    ]
+  },
+  {
+    "index": 54,
+    "instruction": "Begin your exploration at the Eiffel Tower in Paris. Move 1 km east from the Eiffel Tower, then find the midpoint between the Eiffel Tower and the location 1 km east. Next, identify the midpoint between this new midpoint and the Eiffel Tower.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Eiffel Tower, Paris, France", "east", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Eiffel Tower, Paris, France", 1]},
+      {"id": 3, "function": "Between", "inputs": [2, "Eiffel Tower, Paris, France"]}
+    ]
+  },
+  {
+    "index": 55,
+    "instruction": "From the Eiffel Tower in Paris, navigate west-southwest for 9 kilometers to reach a unique destination ideal for a day trip or outdoor exploration.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Eiffel Tower, Paris, France", "252°", "9 km"]}
+    ]
+  },
+  {
+    "index": 56,
+    "instruction": "Begin your sailing route from Signal Hill in Cape Town. Move in a direction of 76° (northeast) from this landmark for 2 kilometers into the ocean. Then alter your course to proceed 10 kilometers southeast to reach your specified destination point off the coastal waters of Cape Town.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Signal Hill, Cape Town", "76°", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "southeast", "10 km"]}
+    ]
+  },
+  {
+    "index": 57,
+    "instruction": "Determine the new region located 3 kilometers southwest of Berlin, Germany, to set up a temporary monitoring station for the eco-study project.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Berlin, Germany", "southwest", "3 km"]}
+    ]
+  },
+  {
+    "index": 58,
+    "instruction": "Begin at Times Square in New York City. First, move 8 km in the direction of 161°. From that location, continue moving 2 km in the direction of 69°. Find the midpoint between the previous two points. Finally, calculate the midpoint between this latest point and Times Square.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Times Square, New York City", "161°", "8 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "69°", "2 km"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]},
+      {"id": 4, "function": "Between", "inputs": [3, "Times Square, New York City"]}
+    ]
+  },
+  {
+    "index": 59,
+    "instruction": "Plan a hiking meeting point by first moving 4 km north (at 13° azimuth) from Banff National Park. Then, find the midpoint between this new location and Jasper National Park. Determine the optimal final meeting location by finding the midpoint between the point from the previous step and Banff National Park.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Banff National Park", "13°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Jasper National Park", 1]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 60,
+    "instruction": "Determine an optimal location for a new wildlife observation post in the Yellowstone National Park. From the Yellowstone National Park Ranger Station, explore 3 km at an azimuth of 222° to find one potential point. Then, explore 8 km at an azimuth of 102° to find another potential point. Finally, determine the midpoint between these two points, which will serve as a strategic location for the observation post.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Yellowstone National Park Ranger Station", "222°", "3 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": ["Yellowstone National Park Ranger Station", "102°", "8 km"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 61,
+    "instruction": "Plan the placement of emergency response stations starting from Sydney, Australia. First, navigate 6 km southeast to set an initial station. Calculate the midpoint between this new location and Sydney to determine a focal area. Extend from this midpoint 10 km to the northeast for additional coverage. Finally, finalize the main station location by finding a midpoint and making a slight adjustment 2 km to the west.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney, Australia", "155°", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Sydney, Australia", 1]},
+      {"id": 3, "function": "Relative", "inputs": [2, "northeast", "10 km"]},
+      {"id": 4, "function": "Between", "inputs": ["Sydney, Australia", 3]},
+      {"id": 5, "function": "Azimuth", "inputs": [4, "253°", "2 km"]}
+    ]
+  },
+  {
+    "index": 62,
+    "instruction": "Starting from the Eiffel Tower in Paris, France, calculate the location by moving 7 km in the direction of 335°, and then move 1 km to the west from there. This will assist in laying out the final position for setting up a temporary logistical base for a community event.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Eiffel Tower", "335°", "7 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "1 km"]}
+    ]
+  },
+  {
+    "index": 63,
+    "instruction": "To set up a research field station, start from Yellowstone National Park. First, move 8 km westward to position the main base. Then, proceed to establish an outpost 6 km away in the direction of 209° from the new base location.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Yellowstone National Park", "west", "8 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "209°", "6 km"]}
+    ]
+  },
+  {
+    "index": 64,
+    "instruction": "From Denali National Park, move 7 km northeast, then find the midpoint between this new location and Denali National Park itself.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Denali National Park", "northeast", "7 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Denali National Park"]}
+    ]
+  },
+  {
+    "index": 65,
+    "instruction": "Set up a route for a geological survey team starting from Timbuktu, Mali. First, locate a point 5 km away from Timbuktu, at an azimuth of 104 degrees. Then find the midpoint between Timbuktu and this new point for a preliminary survey site. Next, calculate another midpoint on this path for an extended survey. Finally, from this extended point, navigate 10 km southeast to establish the primary weather monitoring station site.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Timbuktu, Mali", "104°", "5 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Timbuktu, Mali"]},
+      {"id": 3, "function": "Between", "inputs": ["Timbuktu, Mali", 2]},
+      {"id": 4, "function": "Azimuth", "inputs": [3, "117°", "10 km"]}
+    ]
+  },
+  {
+    "index": 66,
+    "instruction": "Start at the city center of Cambridge and move 9 kilometers in the direction of 248° to reach your destination near Great Shelford.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Cambridge", "248°", "9 km"]}
+    ]
+  },
+  {
+    "index": 67,
+    "instruction": "Starting from Monument Valley, travel 10 kilometers at an angle of 124° to identify your new location. Then, from there, navigate 6 kilometers in the northeast direction to reach your final destination.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Monument Valley, Arizona", "124°", "10 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "6 km"]}
+    ]
+  },
+  {
+    "index": 68,
+    "instruction": "Start your journey at Central Park, New York. Travel 9 kilometers southeast to reach the area around Midwood, Brooklyn. Then, head 7 kilometers northwest towards the vicinity of Williamsburg, completing your urban exploration.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, New York", "southeast", "9 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northwest", "7 km"]}
+    ]
+  },
+  {
+    "index": 69,
+    "instruction": "Determine the geographical midpoint between Cape Town, South Africa, and Antananarivo, Madagascar, for potential setup of a meeting point for the expedition.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Cape Town, South Africa", "Antananarivo, Madagascar"]},
+      {"id": 2, "function": "Between", "inputs": ["Cape Town, South Africa", 1]}
+    ]
+  },
+  {
+    "index": 70,
+    "instruction": "Calculate the midpoint between Rio de Janeiro and Buenos Aires, and then find the midpoint between São Paulo and the result from the first calculation. These locations can help in planning stopovers during a trip from Brazil to Argentina.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Rio de Janeiro", "Buenos Aires"]},
+      {"id": 2, "function": "Between", "inputs": ["São Paulo", 1]}
+    ]
+  },
+  {
+    "index": 71,
+    "instruction": "Starting from Newbury, first move 8 km northeast to determine a new location. From Newbury again, go 7 km south to find another point. Then, from the first new location, move 8 km at an angle of 297° to discover a third point. Finally, locate the midpoint between the third and the second points calculated to determine an ideal location for setting up a temporary research station.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Newbury", "northeast", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": ["Newbury", "south", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [1, "297°", "8 km"]},
+      {"id": 4, "function": "Between", "inputs": [3, 2]}
+    ]
+  },
+  {
+    "index": 72,
+    "instruction": "Determine the midpoint for setting up a potential urban outdoor event area, starting from Central Park, New York City. First, calculate the midpoint between a location 8 km north and another 2 km northeast of Central Park. Then, find the midpoint between this result and a further point 10 km north of Central Park.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, New York City", "north", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": ["Central Park, New York City", "northeast", "2 km"]},
+      {"id": 3, "function": "Relative", "inputs": ["Central Park, New York City", "north", "10 km"]},
+      {"id": 4, "function": "Between", "inputs": [1, 2]},
+      {"id": 5, "function": "Between", "inputs": [3, 4]}
+    ]
+  },
+  {
+    "index": 73,
+    "instruction": "Starting from Tokyo Tower, Tokyo, project a new location that lies 8 kilometers to the southeast (136°). Then, determine the midpoint between Tokyo Tower and this new location for planning purposes.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Tokyo Tower, Tokyo, Japan", "136°", "8 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Tokyo Tower, Tokyo, Japan"]}
+    ]
+  },
+  {
+    "index": 74,
+    "instruction": "Calculate a new point that is 1 km away from Sydney, Australia, towards the south-southeast at an azimuth of 155°. Then, find the midpoint between the original location in Sydney and this new point.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney, Australia", "155°", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Sydney, Australia"]}
+    ]
+  },
+  {
+    "index": 75,
+    "instruction": "You are tasked with planning survey checkpoints in the Mont Blanc region. Start in Courmayeur, Italy, moving 1 km northwest. Then, find a midpoint between Courmayeur and Chamonix, France. From that midpoint, traverse 7 km southeast at an azimuth of 111°. Next, adjust your path 9 km northeasterly at an azimuth of 39°. Ultimately, head 10 km southwest to identify the survey area's final checkpoint.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Courmayeur", "northwest", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Chamonix", 1]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "111°", "7 km"]},
+      {"id": 4, "function": "Azimuth", "inputs": [3, "39°", "9 km"]},
+      {"id": 5, "function": "Relative", "inputs": [4, "southwest", "10 km"]}
+    ]
+  },
+  {
+    "index": 76,
+    "instruction": "Determine the location that lies 1 km to the southeast of Union Square, San Francisco, for setting up a pop-up event.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Union Square, San Francisco", "southeast", "1 km"]}
+    ]
+  },
+  {
+    "index": 77,
+    "instruction": "Plan a short hike starting from Sapporo, Japan. First, move 2 kilometers northeast. Then, find the midpoint between your initial location in Sapporo and the location after moving 2 kilometers northeast. This midpoint is where you can schedule a rest stop.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Sapporo", "northeast", "2 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Sapporo", 1]}
+    ]
+  },
+  {
+    "index": 78,
+    "instruction": "You are planning a day trip from Paris to explore and want to find a mid-point between Versailles and a point 1 km away at 16° northward. Use these coordinates to decide where to have a quick coffee break on your excursion.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Versailles", "16°", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Versailles"]}
+    ]
+  },
+  {
+    "index": 79,
+    "instruction": "Calculate a new starting point for a hiking trip by moving 6 kilometers northwest from Boulder, Colorado.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Boulder, Colorado", "northwest", "6 km"]}
+    ]
+  },
+  {
+    "index": 80,
+    "instruction": "Identify the location 5 km in the direction of 294° from the Eiffel Tower in Paris.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Eiffel Tower, Paris", "294°", "5 km"]}
+    ]
+  },
+  {
+    "index": 81,
+    "instruction": "Plan a network of reference stations by first moving 5 km south-southwest from Rio de Janeiro, then calculate a sequence of midpoints, and finalize the position by moving 3 km north-northeast from the last midpoint for setting up the light tower.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Rio de Janeiro", "256°", "5 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Rio de Janeiro", 1]},
+      {"id": 3, "function": "Between", "inputs": [2, "Rio de Janeiro"]},
+      {"id": 4, "function": "Between", "inputs": [2, 3]},
+      {"id": 5, "function": "Azimuth", "inputs": [4, "25°", "3 km"]}
+    ]
+  },
+  {
+    "index": 82,
+    "instruction": "Determine a new location 6 km southeast of Florence, then find the midpoint between Florence and this new location.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Florence, Italy", "125°", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Florence, Italy", 1]}
+    ]
+  },
+  {
+    "index": 83,
+    "instruction": "Start your hike from Aoraki / Mount Cook. Begin by heading in a direction of 141° for a distance of 8 km. Once you reach the new position, find your mid-point back towards Aoraki / Mount Cook to ensure you're along the correct path. From this midpoint, head 60° for 10 km to reach another scenic destination.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Aoraki / Mount Cook", "141°", "8 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Aoraki / Mount Cook"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "60°", "10 km"]}
+    ]
+  },
+  {
+    "index": 84,
+    "instruction": "Starting from the Christ the Redeemer statue in Rio de Janeiro, plan an expedition that initially moves 3 kilometers in the direction of 136°, adjusts course to head 4 kilometers north, and subsequently proceeds 5 kilometers at an azimuth of 3°. Document the key positions along this route.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Christ the Redeemer, Rio de Janeiro, Brazil", "136°", "3 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "4 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "3°", "5 km"]}
+    ]
+  },
+  {
+    "index": 85,
+    "instruction": "Calculate an optimal central location for an international conference by considering midpoints first between New York City and London, and then including Sydney in the balancing. Ultimately, find a point that is equally convenient for attendees from all three cities.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["New York City", "London"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Sydney"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 86,
+    "instruction": "Starting from the southern boundary of Central Park in New York City, hike 4 kilometers north to reach the vicinity of the Jacqueline Kennedy Onassis Reservoir. From there, continue 1 kilometer east to arrive close to the park's eastern edge for a scenic viewpoint.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park South, New York City", "north", "4 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "1 km"]}
+    ]
+  },
+  {
+    "index": 87,
+    "instruction": "Find a location for a hiking trail that is approximately 8 kilometers northwest of San Francisco city center.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["San Francisco, CA", "northwest", "8 km"]}
+    ]
+  },
+  {
+    "index": 88,
+    "instruction": "Starting from the Sydney Opera House, travel 7 kilometers in a direction of 172 degrees. Then, find the midpoint between the Sydney Opera House and your current position.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "172°", "7 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Sydney Opera House", 1]}
+    ]
+  },
+  {
+    "index": 89,
+    "instruction": "Start your journey at Praça do Comércio in Lisbon, Portugal, and travel 3 kilometers towards the west to explore the city's landscape and attractions.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Praça do Comércio, Lisbon", "264°", "3 km"]}
+    ]
+  },
+  {
+    "index": 90,
+    "instruction": "Start your day trip at the Sydney Opera House and head 7 kilometers in a 175° direction to explore new sights in Sydney.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "175°", "7 km"]}
+    ]
+  },
+  {
+    "index": 91,
+    "instruction": "Start your journey in Central Park, New York. Head 4 kilometers to the east, and then find the midpoint between your new location and Times Square to identify your next stop.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, NY", "east", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Times Square, NY"]}
+    ]
+  },
+  {
+    "index": 92,
+    "instruction": "You are planning a hiking route starting from Golden Gate Park in San Francisco. Head southwest for 1 km to reach the first waypoint. From there, travel 2 km at an azimuth of 200° to your second waypoint. Finally, continue 3 km at an azimuth of 303° to your final destination.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Golden Gate Park", "southwest", "1 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "200°", "2 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "303°", "3 km"]}
+    ]
+  },
+  {
+    "index": 93,
+    "instruction": "You are planning to explore Paris starting from the Eiffel Tower. First, head southwest for 1 kilometer from the Eiffel Tower. Then, consider traveling 10 kilometers north from the Eiffel Tower towards Enghien-les-Bains. Finally, identify a midpoint between these two exploratory points to discover an interesting location.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Eiffel Tower, Paris", "236°", "1 km"]},
+      {"id": 2, "function": "Relative", "inputs": ["Eiffel Tower, Paris", "north", "10 km"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 94,
+    "instruction": "Determine the ideal location for a new wildlife observation post between the central Serengeti and a point 6 km southwest of a chosen landmark in the Ngorongoro Conservation Area.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Ngorongoro Conservation Area", "217°", "6 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Serengeti National Park", 1]}
+    ]
+  },
+  {
+    "index": 95,
+    "instruction": "Start your exploration at Cancun, Mexico. First, proceed 9 km at an azimuth of 182° to reach the initial site. Then, continue further south for 7 km. This journey will position you near potential sites for geological investigation of the Yucatan's unique cenotes.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Cancun, Mexico", "182°", "9 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "7 km"]}
+    ]
+  },
+  {
+    "index": 96,
+    "instruction": "Plan a journey starting from Dublin. Travel southeast for 5 km, then adjust your path to head approximately northwest at an angle of 301° for 9 km. Determine the central point between your initial and final locations after these movements for optimal observation or exploration setup.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Dublin", "southeast", "5 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "301°", "9 km"]},
+      {"id": 3, "function": "Between", "inputs": [1, 2]}
+    ]
+  },
+  {
+    "index": 97,
+    "instruction": "Start at the Sydney Opera House. Travel 8 km southeast at an angle of 165° to identify Point A. Then travel 9 km east-southeast at an angle of 121° to locate Point B. Find the midpoint between these two identified locations for a potential central survey site.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", "165°", "8 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": ["Sydney Opera House", "121°", "9 km"]},
+      {"id": 3, "function": "Between", "inputs": [2, 1]}
+    ]
+  },
+  {
+    "index": 98,
+    "instruction": "Starting from Rome, Italy, proceed in the direction of 345° for 9 kilometers to reach a location to the north-northwest of the city for observation purposes.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Rome, Italy", "345°", "9 km"]}
+    ]
+  },
+  {
+    "index": 99,
+    "instruction": "Establish two new weather monitoring stations in a southwest direction starting from Shibuya, Tokyo. The first station should be 4 km southwest of Shibuya, and the second station should be an additional 9 km southwest from the first station.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Shibuya, Tokyo", "southwest", "4 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "southwest", "9 km"]}
+    ]
+  },
+  {
+    "index": 9,
+    "instruction": "Plan a central spot for a camping trip by first finding the midpoint between Mont Blanc and Matterhorn, then find the midpoint between this point and Chamonix to refine the camping location.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Mont Blanc", "Matterhorn"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Chamonix"]}
+    ]
+  }
+]

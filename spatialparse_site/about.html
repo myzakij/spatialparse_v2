@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О проекте - SpatialParse</title>
+  <meta name="description" content="О проекте SpatialParse: миссия, исследовательская основа, поддержка Фонда содействия инновациям, ООО «ГЕОКОНТЕКСТ», стек и дорожная карта.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="about">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a>
+    <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false"><i data-lucide="menu"></i></button>
+    <nav class="nav-links" aria-label="Основная навигация"></nav>
+    <div class="auth-actions"><span class="user-chip" id="userChip" hidden></span><button class="icon-btn" id="openAccountBtn" type="button" title="Личный кабинет" aria-label="Личный кабинет"><i data-lucide="user-round"></i></button><button class="btn small ghost" id="authOpenBtn" type="button">Войти</button><button class="btn small secondary" id="logoutBtn" type="button" hidden>Выйти</button></div>
+  </header>
+
+  <main>
+    <section class="page-hero section-shell">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span></span>About</div>
+          <h1>SpatialParse делает текстовые геоописания пригодными для карты</h1>
+          <p class="lead">Проект создается как мост между естественным языком и GIS-инструментами: пользователь пишет обычную фразу, а система возвращает координаты, геометрию, шаги вычисления и экспорт.</p>
+        </div>
+        <div class="metric-rack reveal"><div><strong>ООО</strong><span>ГЕОКОНТЕКСТ</span></div><div><strong>Фонд</strong><span>студстартап</span></div><div><strong>2026</strong><span>развитие</span></div></div>
+      </div>
+    </section>
+
+    <section class="section-shell no-top">
+      <div class="container split-grid">
+        <div class="section-head left reveal"><div class="eyebrow"><span></span>Миссия</div><h2>Сократить путь от полевого описания до координат</h2><p>Во многих задачах точка известна не как широта и долгота, а как текст: «за деревней», «в середине пути», «около развилки», «5 км севернее». SpatialParse помогает сделать такие данные проверяемыми и пригодными для анализа.</p></div>
+        <div class="page-stack reveal">
+          <div class="page-link-card static-card"><i data-lucide="graduation-cap"></i><div><strong>Исследовательская основа</strong><span>Формализация географических описаний через цепочки пространственных операций.</span></div></div>
+          <div class="page-link-card static-card"><i data-lucide="badge-check"></i><div><strong>Грантовая поддержка</strong><span>Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап».</span></div></div>
+          <div class="page-link-card static-card"><i data-lucide="building-2"></i><div><strong>Коммерческий контур</strong><span>ООО «ГЕОКОНТЕКСТ» развивает продуктовую, API и интеграционную часть проекта.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell docs-band">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow"><span></span>Stack</div><h2>Технологии</h2><p>Архитектура разделяет LLM-парсинг, детерминированные георасчеты, хранение пользовательских данных и интерфейс карты.</p></div>
+        <div class="tech-grid">
+          <div class="tech-pill">FastAPI</div>
+          <div class="tech-pill">WebSocket</div>
+          <div class="tech-pill">Leaflet</div>
+          <div class="tech-pill">SQLite</div>
+          <div class="tech-pill">OpenRouter</div>
+          <div class="tech-pill">deepseek/deepseek-v4-pro</div>
+          <div class="tech-pill">Nominatim / OSM</div>
+          <div class="tech-pill">OSRM / Overpass</div>
+          <div class="tech-pill">GeoJSON / KML / GPX</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
+      <div class="container split-grid">
+        <div class="section-head left reveal"><div class="eyebrow"><span></span>Roadmap</div><h2>Дорожная карта</h2><p>Сайт уже работает как демо и кабинет. Следующий этап - надежность публичного продукта: безопасность, юридические документы, лимиты, админка и API-доступ.</p></div>
+        <div class="timeline reveal">
+          <article><strong>1</strong><h3>Публичная готовность</h3><p>HTTPS, rate limiting, email confirmation, password reset, согласия и удаление данных.</p></article>
+          <article><strong>2</strong><h3>Продуктовые функции</h3><p>Фильтры истории, коллекции, публичные ссылки, feedback, FAQ, бизнес-страница и API-кабинет.</p></article>
+          <article><strong>3</strong><h3>Командная работа</h3><p>Роли, корпоративные тарифы, лимиты, биллинг, локальное развертывание и пакетная обработка.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="section-shell suite-section">
+      <div class="container cta-panel reveal">
+        <div><div class="eyebrow"><span></span>Контакты</div><h2>Обсудить внедрение или исследовательский сценарий</h2><p>Для публичной версии здесь нужно указать юридические реквизиты, контактный email, адрес оператора данных и каналы поддержки.</p></div>
+        <a class="btn primary magnet" href="mailto:hello@geocontext.local"><i data-lucide="mail"></i><span>Написать</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><a class="brand mini" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a><span>О проекте</span><nav class="footer-links"><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Соглашение</a><a href="consent.html">Согласие</a></nav></div></footer>
+  <div class="modal" id="authModal" aria-hidden="true"><div class="modal-backdrop" data-close-auth></div><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="icon-btn modal-close" type="button" data-close-auth aria-label="Закрыть"><i data-lucide="x"></i></button><h2 id="authTitle">Аккаунт SpatialParse</h2><p class="modal-sub">Вход нужен для истории запросов, сохраненных результатов и рабочего кабинета.</p><div class="auth-tabs"><button class="active" id="loginTab" type="button">Вход</button><button id="registerTab" type="button">Регистрация</button></div><form id="loginForm" class="auth-form"><label><span>Email</span><input name="email" type="email" autocomplete="email" required></label><label><span>Пароль</span><input name="password" type="password" autocomplete="current-password" minlength="8" required></label><button class="btn primary full" type="submit"><i data-lucide="log-in"></i><span>Войти</span></button></form><form id="registerForm" class="auth-form" hidden><label><span>Имя</span><input name="name" type="text" autocomplete="name" required></label><label><span>Email</span><input name="email" type="email" autocomplete="email" required></label><label><span>Пароль</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label><label class="check-row auth-consent"><input name="consent" type="checkbox" required><span>Я принимаю пользовательское соглашение и согласие на обработку персональных данных.</span></label><button class="btn primary full" type="submit"><i data-lucide="user-plus"></i><span>Создать аккаунт</span></button></form><p class="auth-message" id="authMessage"></p></div></div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

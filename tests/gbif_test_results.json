@@ -1,0 +1,1970 @@
+{
+  "summary": {
+    "timestamp": "2026-04-14T15:43:41.257904",
+    "dataset": "GBIF Locality Descriptions (Figshare)",
+    "total_candidates": 13560,
+    "sample_size": 50,
+    "successful": 34,
+    "parse_errors": 0,
+    "exec_errors": 16,
+    "elapsed_s": 463.2,
+    "metrics": {
+      "mean_distance_error_km": 149.69,
+      "median_distance_error_km": 10.27,
+      "min_error_km": 0.02,
+      "max_error_km": 2365.09,
+      "accuracy_1km_%": 17.6,
+      "accuracy_5km_%": 44.1,
+      "accuracy_10km_%": 50.0,
+      "accuracy_25km_%": 61.8,
+      "accuracy_50km_%": 67.6
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "text_raw": "on the north slope of the Santa Rita Mts., about 17 miles north of Sonoita.",
+      "text": "on the north slope of the Santa Rita Mts., about 17 miles north of Sonoita. [Arizona, US]",
+      "context": "Arizona, US",
+      "gold_lat": 31.926271,
+      "gold_lon": -110.655359,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Santa Rita Mountains, Arizona"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "1",
+            "north",
+            "17 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 4.23,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Santa Rita Mountains, Arizona'",
+      "exec_time_s": 17.22,
+      "distance_error_km": null
+    },
+    {
+      "id": 2,
+      "text_raw": "Bear River Range, 30 miles east of Logan, vicinity of Beaver Basin",
+      "text": "Bear River Range, 30 miles east of Logan, vicinity of Beaver Basin [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 41.881406,
+      "gold_lon": -111.869572,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Logan, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "30 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 2.4,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 0.0,
+      "pred_lon": -111.25375,
+      "pred_lat": 41.72984,
+      "distance_error_km": 53.753
+    },
+    {
+      "id": 3,
+      "text_raw": "Bluffs along Colorado River, ca 10 mi S of US Highway 50-6, along Utah Highway 128.",
+      "text": "Bluffs along Colorado River, ca 10 mi S of US Highway 50-6, along Utah Highway 128. [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 38.8456,
+      "gold_lon": -109.282055,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "US Highway 50-6, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "10 mi"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Utah Highway 128"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ],
+      "parse_time_s": 3.56,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Locate",
+        "Between"
+      ],
+      "exec_time_s": 5.93,
+      "pred_lon": -111.15823,
+      "pred_lat": 39.68404,
+      "distance_error_km": 186.49
+    },
+    {
+      "id": 4,
+      "text_raw": "Lawrence Twp, along Little Medix Creek, 1 mi N of Coledonia Pike",
+      "text": "Lawrence Twp, along Little Medix Creek, 1 mi N of Coledonia Pike [Pennsylvania, US]",
+      "context": "Pennsylvania, US",
+      "gold_lat": 41.216342,
+      "gold_lon": -78.428819,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Lawrence Township, Pennsylvania"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "1 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 7.28,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.27,
+      "pred_lon": -78.45514,
+      "pred_lat": 41.09347,
+      "distance_error_km": 13.839
+    },
+    {
+      "id": 5,
+      "text_raw": "South Fork Pinto Creek 5.4 miles S of Pinto at turnoff to N entrance Chinamen's Canal tunnel.",
+      "text": "South Fork Pinto Creek 5.4 miles S of Pinto at turnoff to N entrance Chinamen's Canal tunnel. [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 37.47,
+      "gold_lon": -113.47,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Pinto, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "5.4 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.38,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.07,
+      "pred_lon": -113.51669,
+      "pred_lat": 37.45978,
+      "distance_error_km": 4.275
+    },
+    {
+      "id": 6,
+      "text_raw": "Wet black soil, 12 mi SW of Huntington. [Inferred county from precise loc.]",
+      "text": "Wet black soil, 12 mi SW of Huntington. [Inferred county from precise loc.] [Indiana, US]",
+      "context": "Indiana, US",
+      "gold_lat": 40.75874,
+      "gold_lon": -85.651674,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Huntington, Indiana",
+            "southwest",
+            "12 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 8.23,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 2.5,
+      "pred_lon": -85.6636,
+      "pred_lat": 40.67804,
+      "distance_error_km": 9.03
+    },
+    {
+      "id": 7,
+      "text_raw": "1/2 mi SW of Ithaca; old quarry along Hwy N",
+      "text": "1/2 mi SW of Ithaca; old quarry along Hwy N [Wisconsin, US]",
+      "context": "Wisconsin, US",
+      "gold_lat": 43.329392,
+      "gold_lon": -90.281827,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Ithaca, Wisconsin"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "0.5 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 1.7,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 1.57,
+      "pred_lon": -90.28882,
+      "pred_lat": 43.33571,
+      "distance_error_km": 0.902
+    },
+    {
+      "id": 8,
+      "text_raw": "Nunniong Plateau. Diggers Holes Track c. 3 Km S of junction with Reedy Track.",
+      "text": "Nunniong Plateau. Diggers Holes Track c. 3 Km S of junction with Reedy Track. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -37.1083,
+      "gold_lon": 148.1278,
+      "source": "aus_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "junction of Diggers Holes Track and Reedy Track, Victoria, AU"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "3 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.72,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'junction of Diggers Holes Track and Reedy Track, Victoria, AU'",
+      "exec_time_s": 22.05,
+      "distance_error_km": null
+    },
+    {
+      "id": 9,
+      "text_raw": "Mark Twain National Forest, E side of Pump Hollow, W of Forest Service Road 3753, 0.3 mi S of US 60",
+      "text": "Mark Twain National Forest, E side of Pump Hollow, W of Forest Service Road 3753, 0.3 mi S of US 60 [Missouri, US]",
+      "context": "Missouri, US",
+      "gold_lat": 36.871389,
+      "gold_lon": -90.664167,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Mark Twain National Forest, Missouri"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Locate",
+          "inputs": [
+            "Pump Hollow, Missouri"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Forest Service Road 3753, Missouri"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Locate",
+          "inputs": [
+            "US 60, Missouri"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Relative",
+          "inputs": [
+            4,
+            "south",
+            "0.3 mi"
+          ]
+        },
+        {
+          "id": 6,
+          "function": "Relative",
+          "inputs": [
+            5,
+            "west",
+            "1 km"
+          ]
+        }
+      ],
+      "parse_time_s": 2.68,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Locate",
+        "Locate",
+        "Locate",
+        "Relative",
+        "Relative"
+      ],
+      "exec_time_s": 8.76,
+      "pred_lon": -94.34295,
+      "pred_lat": 38.25177,
+      "distance_error_km": 358.718
+    },
+    {
+      "id": 10,
+      "text_raw": "Hwy 290, 3.1 miles E. of Bastrop/Lee Co line. South side of road",
+      "text": "Hwy 290, 3.1 miles E. of Bastrop/Lee Co line. South side of road [Texas, US]",
+      "context": "Texas, US",
+      "gold_lat": 30.1828,
+      "gold_lon": -97.0144,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Toward",
+          "inputs": [
+            "Bastrop/Lee County Line, Texas",
+            "Hwy 290, Texas",
+            "3.1 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.71,
+      "parse_error": null,
+      "functions": [
+        "Toward"
+      ],
+      "exec_error": "Cannot geocode 'Bastrop/Lee County Line, Texas'",
+      "exec_time_s": 18.22,
+      "distance_error_km": null
+    },
+    {
+      "id": 11,
+      "text_raw": "Deer Valley, 27 miles east of Cedar City, along Utah Route 14, Dixie National Forest.",
+      "text": "Deer Valley, 27 miles east of Cedar City, along Utah Route 14, Dixie National Forest. [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 37.518985,
+      "gold_lon": -112.709015,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Cedar City, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Along",
+          "inputs": [
+            1,
+            "Deer Valley, Utah",
+            "27 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.52,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Along"
+      ],
+      "exec_time_s": 10.49,
+      "pred_lon": -112.87589,
+      "pred_lat": 38.03911,
+      "distance_error_km": 59.666
+    },
+    {
+      "id": 12,
+      "text_raw": "north of Texas 63 about 2.5 miles west of Sabine River and Louisiana State Line",
+      "text": "north of Texas 63 about 2.5 miles west of Sabine River and Louisiana State Line [Texas, US]",
+      "context": "Texas, US",
+      "gold_lat": 31.079262,
+      "gold_lon": -93.581719,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Texas 63, Texas, US"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Sabine River, Louisiana State Line, Texas, US",
+            "west",
+            "2.5 miles"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north"
+          ]
+        }
+      ],
+      "parse_time_s": 1.89,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Sabine River, Louisiana State Line, Texas, US'",
+      "exec_time_s": 24.59,
+      "distance_error_km": null
+    },
+    {
+      "id": 13,
+      "text_raw": "Kenai Peninsula: 17.7 miles north Turn-again Pass, Highway 1",
+      "text": "Kenai Peninsula: 17.7 miles north Turn-again Pass, Highway 1 [Alaska, US]",
+      "context": "Alaska, US",
+      "gold_lat": 60.8,
+      "gold_lon": -149.1,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Turnagain Pass, Highway 1, Alaska"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "17.7 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.44,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.26,
+      "pred_lon": -149.21342,
+      "pred_lat": 61.04339,
+      "distance_error_km": 27.749
+    },
+    {
+      "id": 14,
+      "text_raw": "On raod to Espey Mound. Ca. 2 miles SW of Lindsey.",
+      "text": "On raod to Espey Mound. Ca. 2 miles SW of Lindsey. [Wisconsin, US]",
+      "context": "Wisconsin, US",
+      "gold_lat": 44.534307,
+      "gold_lon": -90.307583,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Lindsey, Wisconsin"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "2 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.29,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.39,
+      "pred_lon": -90.32882,
+      "pred_lat": 44.53535,
+      "distance_error_km": 1.687
+    },
+    {
+      "id": 15,
+      "text_raw": "c. 14 km (direct line) south of Mt Hotham, c. 250 m east of Dargo High Plains Road, c. 5 km NW of King Spur Track.",
+      "text": "c. 14 km (direct line) south of Mt Hotham, c. 250 m east of Dargo High Plains Road, c. 5 km NW of King Spur Track. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -37.0975,
+      "gold_lon": 147.154444,
+      "source": "vic_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Mt Hotham, Victoria"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "14 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "east",
+            "250 m"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Locate",
+          "inputs": [
+            "King Spur Track, Victoria"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Relative",
+          "inputs": [
+            4,
+            "southeast",
+            "5 km"
+          ]
+        }
+      ],
+      "parse_time_s": 2.04,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Relative",
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 4.39,
+      "pred_lon": 147.74261,
+      "pred_lat": -36.75104,
+      "distance_error_km": 64.944
+    },
+    {
+      "id": 16,
+      "text_raw": "3.3 miles N70°E of Antelope Springs along trail between Beer & Birch creeks in Deep Springs Valley",
+      "text": "3.3 miles N70°E of Antelope Springs along trail between Beer & Birch creeks in Deep Springs Valley [California, US]",
+      "context": "California, US",
+      "gold_lat": 40.435161,
+      "gold_lon": -120.121286,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Antelope Springs, Deep Springs Valley, California, US",
+            70,
+            "5.31 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.25,
+      "parse_error": null,
+      "functions": [
+        "Azimuth"
+      ],
+      "exec_error": "Cannot geocode 'Antelope Springs, Deep Springs Valley, California, US'",
+      "exec_time_s": 22.32,
+      "distance_error_km": null
+    },
+    {
+      "id": 17,
+      "text_raw": "Ca. 4 miles east of Leadville on the Mosquito Pass Road.",
+      "text": "Ca. 4 miles east of Leadville on the Mosquito Pass Road. [Colorado, US]",
+      "context": "Colorado, US",
+      "gold_lat": 39.250799,
+      "gold_lon": -106.217647,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Leadville, Colorado"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "1",
+            "east",
+            "6.4 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.63,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "pred_lon": -111.76142,
+      "pred_lat": 33.41414,
+      "distance_error_km": 816.819
+    },
+    {
+      "id": 18,
+      "text_raw": "25 miles N of Crittenden Ranch, 45 miles N of Montello, Delano Mtns., eastern Elko County.",
+      "text": "25 miles N of Crittenden Ranch, 45 miles N of Montello, Delano Mtns., eastern Elko County. [Nevada, US]",
+      "context": "Nevada, US",
+      "gold_lat": 41.891714,
+      "gold_lon": -114.260944,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "hard",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Crittenden Ranch, Elko County, Nevada"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "25 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.68,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Crittenden Ranch, Elko County, Nevada'",
+      "exec_time_s": 18.0,
+      "distance_error_km": null
+    },
+    {
+      "id": 19,
+      "text_raw": "Ca. 2 km SE of Cranbourne, Royal Botanic Gardens, south side of Philip Moors Drive, ca. 200 m west of Stringybark Drive.",
+      "text": "Ca. 2 km SE of Cranbourne, Royal Botanic Gardens, south side of Philip Moors Drive, ca. 200 m west of Stringybark Drive. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -38.125,
+      "gold_lon": 145.275,
+      "source": "vic_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Royal Botanic Gardens, Cranbourne, Victoria, AU",
+            "southeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "along Philip Moors Drive"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "west",
+            "200 m"
+          ]
+        }
+      ],
+      "parse_time_s": 2.03,
+      "parse_error": null,
+      "functions": [
+        "Relative",
+        "Relative",
+        "Relative"
+      ],
+      "exec_time_s": 2.2,
+      "pred_lon": 145.28637,
+      "pred_lat": -38.15669,
+      "distance_error_km": 3.661
+    },
+    {
+      "id": 20,
+      "text_raw": "Wasatch Range, American Fork Canyon; along north side of Forest Service Road 007 ca. 1.2 miles northeast of jct. UT 92 between Warnick and Mile Rock campgrounds, ca. 6.5 air miles ENE of Alpine",
+      "text": "Wasatch Range, American Fork Canyon; along north side of Forest Service Road 007 ca. 1.2 miles northeast of jct. UT 92 between Warnick and Mile Rock campgrounds, ca. 6.5 air miles ENE of Alpine [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 40.47,
+      "gold_lon": -111.65,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "UT 92, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "1.2 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 2.6,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.09,
+      "pred_lon": -110.80357,
+      "pred_lat": 39.40277,
+      "distance_error_km": 138.889
+    },
+    {
+      "id": 21,
+      "text_raw": "4 mi S of Cross Plains",
+      "text": "4 mi S of Cross Plains [Indiana, US]",
+      "context": "Indiana, US",
+      "gold_lat": 38.88596,
+      "gold_lon": -85.204679,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Cross Plains, Indiana",
+            "south",
+            "4 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 2.27,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 1.78,
+      "pred_lon": -85.20468,
+      "pred_lat": 38.88612,
+      "distance_error_km": 0.018
+    },
+    {
+      "id": 22,
+      "text_raw": "Beside road to Lake William Howell, 4km SW of Cheshunt.",
+      "text": "Beside road to Lake William Howell, 4km SW of Cheshunt. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -36.8344,
+      "gold_lon": 146.3881,
+      "source": "vic_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Cheshunt, Victoria, AU"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "4 km"
+          ]
+        }
+      ],
+      "parse_time_s": 2.21,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 1.73,
+      "pred_lon": 146.41125,
+      "pred_lat": -36.85449,
+      "distance_error_km": 3.039
+    },
+    {
+      "id": 23,
+      "text_raw": "5 to 10 miles west of Ludlow, Mohave Desert",
+      "text": "5 to 10 miles west of Ludlow, Mohave Desert [California, US]",
+      "context": "California, US",
+      "gold_lat": 34.716573,
+      "gold_lon": -116.326488,
+      "source": "cal_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Ludlow, Mohave Desert, California",
+            "west",
+            "7.5 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.51,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 1.82,
+      "pred_lon": -116.29387,
+      "pred_lat": 34.72175,
+      "distance_error_km": 3.036
+    },
+    {
+      "id": 24,
+      "text_raw": "On an anabranch of the Ovens River, 18 Km SE of Wangaratta, S of the Ovens Highway private property 'Baringa'.",
+      "text": "On an anabranch of the Ovens River, 18 Km SE of Wangaratta, S of the Ovens Highway private property 'Baringa'. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -36.4333,
+      "gold_lon": 146.5,
+      "source": "aus_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Wangaratta, Victoria"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "18 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "south"
+          ]
+        }
+      ],
+      "parse_time_s": 1.7,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Relative"
+      ],
+      "exec_error": "not enough values to unpack (expected 3, got 2)",
+      "exec_time_s": 1.18,
+      "distance_error_km": null
+    },
+    {
+      "id": 25,
+      "text_raw": "US 341 4 miles NW Eastman",
+      "text": "US 341 4 miles NW Eastman [Georgia, US]",
+      "context": "Georgia, US",
+      "gold_lat": 32.15,
+      "gold_lon": -82.88,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eastman, Georgia"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "4 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.51,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 1.79,
+      "pred_lon": -83.22449,
+      "pred_lat": 32.23886,
+      "distance_error_km": 33.888
+    },
+    {
+      "id": 26,
+      "text_raw": "Stone Cabin Area, Dixie National Forest, Forest Route 033, 10.9 miles northeast of Diamond Valley, south southwest side of Pine Valley Mountains",
+      "text": "Stone Cabin Area, Dixie National Forest, Forest Route 033, 10.9 miles northeast of Diamond Valley, south southwest side of Pine Valley Mountains [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 37.365272,
+      "gold_lon": -113.480379,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Diamond Valley, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Diamond Valley, Utah",
+            "northeast",
+            "10.9 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.51,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "pred_lon": -113.47117,
+      "pred_lat": 37.36385,
+      "distance_error_km": 0.829
+    },
+    {
+      "id": 27,
+      "text_raw": "5 Mile Track, Wilsons Prom., 0.7 km W of St Kilda Junction.",
+      "text": "5 Mile Track, Wilsons Prom., 0.7 km W of St Kilda Junction. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -38.9167,
+      "gold_lon": 146.4333,
+      "source": "vic_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "St Kilda Junction, Victoria, Australia"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "0.7 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.9,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 1.71,
+      "pred_lon": 144.97496,
+      "pred_lat": -37.85637,
+      "distance_error_km": 173.366
+    },
+    {
+      "id": 28,
+      "text_raw": "near Silvies River about 7 miles south of Seneca",
+      "text": "near Silvies River about 7 miles south of Seneca [Oregon, US]",
+      "context": "Oregon, US",
+      "gold_lat": 44.068961,
+      "gold_lon": -118.946602,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Seneca, Oregon"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "7 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.48,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 0.01,
+      "pred_lon": -118.97161,
+      "pred_lat": 44.0334,
+      "distance_error_km": 4.431
+    },
+    {
+      "id": 29,
+      "text_raw": "White Mts: S spur of hill 11513 on the Montgomery-Marble Creek divide, 2.3 miles S44°W of Montgomery Pk.",
+      "text": "White Mts: S spur of hill 11513 on the Montgomery-Marble Creek divide, 2.3 miles S44°W of Montgomery Pk. [California, US]",
+      "context": "California, US",
+      "gold_lat": 37.818223,
+      "gold_lon": -118.379613,
+      "source": "cal_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Montgomery Peak, California"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            224,
+            "2.3 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.64,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Azimuth"
+      ],
+      "exec_time_s": 1.8,
+      "pred_lon": -118.38602,
+      "pred_lat": 37.81434,
+      "distance_error_km": 0.709
+    },
+    {
+      "id": 30,
+      "text_raw": "In centerstrip of I-5. 2 mi south of Huron - Avenal Exit, nearly due east of Coalingua",
+      "text": "In centerstrip of I-5. 2 mi south of Huron - Avenal Exit, nearly due east of Coalingua [California, US]",
+      "context": "California, US",
+      "gold_lat": 36.076319,
+      "gold_lon": -120.101428,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Huron - Avenal Exit, I-5"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "2 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 2.23,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 0.02,
+      "pred_lon": -120.12903,
+      "pred_lat": 35.97521,
+      "distance_error_km": 11.514
+    },
+    {
+      "id": 31,
+      "text_raw": "1.5 miles north of Crumrod, Bee Bayou, common on mud flat.",
+      "text": "1.5 miles north of Crumrod, Bee Bayou, common on mud flat. [Arkansas, US]",
+      "context": "Arkansas, US",
+      "gold_lat": 34.16657,
+      "gold_lon": -91.026553,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Crumrod, Arkansas",
+            "north",
+            "1.5 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 2.1,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 2.08,
+      "pred_lon": -90.98178,
+      "pred_lat": 34.1704,
+      "distance_error_km": 4.141
+    },
+    {
+      "id": 32,
+      "text_raw": "Piedmont below Buck Springs, 10 miles southwest of Beatty",
+      "text": "Piedmont below Buck Springs, 10 miles southwest of Beatty [Nevada, US]",
+      "context": "Nevada, US",
+      "gold_lat": 36.805946,
+      "gold_lon": -116.887469,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Buck Springs, Nevada"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Beatty, Nevada",
+            "southwest",
+            "10 miles"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            "1",
+            "south",
+            "1 km"
+          ]
+        }
+      ],
+      "parse_time_s": 2.46,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Relative"
+      ],
+      "exec_time_s": 5.0,
+      "pred_lon": -111.83029,
+      "pred_lat": 33.40517,
+      "distance_error_km": 595.344
+    },
+    {
+      "id": 33,
+      "text_raw": "Pine Forest Range, ca. 0.3 km SSE of southern end of Knott Creek Reservoir.",
+      "text": "Pine Forest Range, ca. 0.3 km SSE of southern end of Knott Creek Reservoir. [Nevada, US]",
+      "context": "Nevada, US",
+      "gold_lat": 41.6611,
+      "gold_lon": -118.7922,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Knott Creek Reservoir, Nevada",
+            "south-southeast",
+            "0.3 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.45,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_error": "Unknown direction: south-southeast",
+      "exec_time_s": 1.74,
+      "distance_error_km": null
+    },
+    {
+      "id": 34,
+      "text_raw": "Cascade River, Rattler Range. 9 km E of Ringarooma.",
+      "text": "Cascade River, Rattler Range. 9 km E of Ringarooma. [Tasmania, AU]",
+      "context": "Tasmania, AU",
+      "gold_lat": -41.25,
+      "gold_lon": 147.85,
+      "source": "aus_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Ringarooma, Tasmania"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "9 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.84,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 1.92,
+      "pred_lon": 147.84439,
+      "pred_lat": -41.24166,
+      "distance_error_km": 1.039
+    },
+    {
+      "id": 35,
+      "text_raw": "Monitor Valley north of highway 50, hot springs near Hot Springs Hill, 1.8 miles east of the Three Bars road",
+      "text": "Monitor Valley north of highway 50, hot springs near Hot Springs Hill, 1.8 miles east of the Three Bars road [Nevada, US]",
+      "context": "Nevada, US",
+      "gold_lat": 39.55,
+      "gold_lon": -116.36,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Three Bars Road, Nevada"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "1.8 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.48,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Three Bars Road, Nevada'",
+      "exec_time_s": 15.94,
+      "distance_error_km": null
+    },
+    {
+      "id": 36,
+      "text_raw": "Poonthoon Pool on Whela Creek, c. 19 miles NW of 'Mileura' Homestead.",
+      "text": "Poonthoon Pool on Whela Creek, c. 19 miles NW of 'Mileura' Homestead. [Western Australia, AU]",
+      "context": "Western Australia, AU",
+      "gold_lat": -26.1833,
+      "gold_lon": 117.1333,
+      "source": "aus_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Mileura Homestead, Western Australia"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "19 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.6,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Mileura Homestead, Western Australia'",
+      "exec_time_s": 20.04,
+      "distance_error_km": null
+    },
+    {
+      "id": 37,
+      "text_raw": "Along Route 27, 12 mi N of Murfreesboro in well established cut-over roadside.",
+      "text": "Along Route 27, 12 mi N of Murfreesboro in well established cut-over roadside. [Arkansas, US]",
+      "context": "Arkansas, US",
+      "gold_lat": 34.221012,
+      "gold_lon": -93.645139,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Murfreesboro, Arkansas"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "12 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 1.72,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.15,
+      "pred_lon": -93.6899,
+      "pred_lat": 34.23582,
+      "distance_error_km": 4.432
+    },
+    {
+      "id": 38,
+      "text_raw": "Kanni Creek, 2 miles N of Nowa Nowa on Buchan Road.",
+      "text": "Kanni Creek, 2 miles N of Nowa Nowa on Buchan Road. [Victoria, AU]",
+      "context": "Victoria, AU",
+      "gold_lat": -37.7167,
+      "gold_lon": 148.0667,
+      "source": "vic_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Nowa Nowa, Victoria, AU"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "3.2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Along",
+          "inputs": [
+            2,
+            "Kanni Creek",
+            "3.2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.82,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Along"
+      ],
+      "exec_error": "Cannot geocode 'Kanni Creek'",
+      "exec_time_s": 20.33,
+      "distance_error_km": null
+    },
+    {
+      "id": 39,
+      "text_raw": "quarried area 1.6 km W on N side of RM 1431 from int. with Hwy. 281, Marble Falls",
+      "text": "quarried area 1.6 km W on N side of RM 1431 from int. with Hwy. 281, Marble Falls [Texas, US]",
+      "context": "Texas, US",
+      "gold_lat": 30.585474,
+      "gold_lon": -98.287442,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Intersection of RM 1431 and Hwy. 281, Marble Falls, Texas"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "1.6 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "north",
+            "1 km"
+          ]
+        }
+      ],
+      "parse_time_s": 2.76,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Intersection of RM 1431 and Hwy. 281, Marble Falls, Texas'",
+      "exec_time_s": 23.44,
+      "distance_error_km": null
+    },
+    {
+      "id": 40,
+      "text_raw": "Sweet Alice Canyon, ca. 3/4 miles west of Ruin Canyon, in Beef Basin, northeast of Dark Canyon",
+      "text": "Sweet Alice Canyon, ca. 3/4 miles west of Ruin Canyon, in Beef Basin, northeast of Dark Canyon [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 37.94436,
+      "gold_lon": -109.9133,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Ruin Canyon, Beef Basin, Utah"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "0.75 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.45,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Ruin Canyon, Beef Basin, Utah'",
+      "exec_time_s": 19.68,
+      "distance_error_km": null
+    },
+    {
+      "id": 41,
+      "text_raw": "3 miles SE of Cottonwood, at the Quail Springs Ranch",
+      "text": "3 miles SE of Cottonwood, at the Quail Springs Ranch [Arizona, US]",
+      "context": "Arizona, US",
+      "gold_lat": 34.58498,
+      "gold_lon": -111.88815,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Cottonwood, Arizona"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "3 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.66,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 2.9,
+      "pred_lon": -111.98993,
+      "pred_lat": 34.71689,
+      "distance_error_km": 17.373
+    },
+    {
+      "id": 42,
+      "text_raw": "Pine barren clearing, 5 miles south of Georgetown",
+      "text": "Pine barren clearing, 5 miles south of Georgetown [South Carolina, US]",
+      "context": "South Carolina, US",
+      "gold_lat": 33.304284,
+      "gold_lon": -79.294497,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Georgetown, South Carolina"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "5 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.74,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 1.72,
+      "pred_lon": -79.3343,
+      "pred_lat": 33.36694,
+      "distance_error_km": 7.887
+    },
+    {
+      "id": 43,
+      "text_raw": "2 miles southwest of Franklin Basin ranger station.",
+      "text": "2 miles southwest of Franklin Basin ranger station. [Idaho, US]",
+      "context": "Idaho, US",
+      "gold_lat": 42.036992,
+      "gold_lon": -111.620409,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Franklin Basin Ranger Station, Idaho, US",
+            "southwest",
+            "3.2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.79,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_error": "Cannot geocode 'Franklin Basin Ranger Station, Idaho, US'",
+      "exec_time_s": 20.56,
+      "distance_error_km": null
+    },
+    {
+      "id": 44,
+      "text_raw": "Grouse Creek Mountains, ca. 1.5 miles north-northeast of Red Butte.",
+      "text": "Grouse Creek Mountains, ca. 1.5 miles north-northeast of Red Butte. [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 41.71997,
+      "gold_lon": -113.725,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Red Butte, Utah",
+            "north-northeast",
+            "1.5 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.15,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_error": "Unknown direction: north-northeast",
+      "exec_time_s": 2.17,
+      "distance_error_km": null
+    },
+    {
+      "id": 45,
+      "text_raw": "0.6 mi S of community of Round Top, ca. 30 meters W of route 31, Saint Joseph’s Novitiate of the Daughters of Mary, near N end of cemetery",
+      "text": "0.6 mi S of community of Round Top, ca. 30 meters W of route 31, Saint Joseph’s Novitiate of the Daughters of Mary, near N end of cemetery [New York, US]",
+      "context": "New York, US",
+      "gold_lat": 42.2614,
+      "gold_lon": -74.0242,
+      "source": "ny_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Round Top, New York"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "0.6 mi"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Route 31, New York"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            3,
+            "west",
+            "30 meters"
+          ]
+        }
+      ],
+      "parse_time_s": 1.76,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Relative",
+        "Locate",
+        "Relative"
+      ],
+      "exec_time_s": 3.82,
+      "pred_lon": -74.78503,
+      "pred_lat": 41.48449,
+      "distance_error_km": 106.917
+    },
+    {
+      "id": 46,
+      "text_raw": "Rt. 31, 11 miles southwest of Brewton",
+      "text": "Rt. 31, 11 miles southwest of Brewton [Alabama, US]",
+      "context": "Alabama, US",
+      "gold_lat": 30.992209,
+      "gold_lon": -87.204053,
+      "source": "usa_sm_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Brewton, Alabama",
+            "southwest",
+            "11 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.71,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 1.5,
+      "pred_lon": -87.20344,
+      "pred_lat": 30.99141,
+      "distance_error_km": 0.106
+    },
+    {
+      "id": 47,
+      "text_raw": "2 miles W of Gansevoort.",
+      "text": "2 miles W of Gansevoort. [New York, US]",
+      "context": "New York, US",
+      "gold_lat": 43.196178,
+      "gold_lon": -73.691525,
+      "source": "ny_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Gansevoort, New York, US",
+            "west",
+            "2 miles"
+          ]
+        }
+      ],
+      "parse_time_s": 1.82,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 2.36,
+      "pred_lon": -73.69106,
+      "pred_lat": 43.1962,
+      "distance_error_km": 0.038
+    },
+    {
+      "id": 48,
+      "text_raw": "At margin of woodland; Rte. 350, 0.2 mi W of Walston Switch Road, near Crestview.",
+      "text": "At margin of woodland; Rte. 350, 0.2 mi W of Walston Switch Road, near Crestview. [Maryland, US]",
+      "context": "Maryland, US",
+      "gold_lat": 38.35298,
+      "gold_lon": -75.513767,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Rte. 350, Maryland"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Toward",
+          "inputs": [
+            1,
+            "Walston Switch Road, Maryland",
+            "0.2 mi"
+          ]
+        }
+      ],
+      "parse_time_s": 1.95,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Toward"
+      ],
+      "exec_time_s": 5.0,
+      "pred_lon": -101.8736,
+      "pred_lat": 35.21446,
+      "distance_error_km": 2365.088
+    },
+    {
+      "id": 49,
+      "text_raw": "Ca. 2 miles west of Duchesne on south side of U.S. Highway 40",
+      "text": "Ca. 2 miles west of Duchesne on south side of U.S. Highway 40 [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 40.164212,
+      "gold_lon": -110.43364,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "easy",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Duchesne, Utah",
+            "west",
+            "3.2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 1.78,
+      "parse_error": null,
+      "functions": [
+        "Relative"
+      ],
+      "exec_time_s": 1.23,
+      "pred_lon": -110.5092,
+      "pred_lat": 40.29604,
+      "distance_error_km": 16.001
+    },
+    {
+      "id": 50,
+      "text_raw": "2 miles east of junction of Highways 143/14 along Highway 14",
+      "text": "2 miles east of junction of Highways 143/14 along Highway 14 [Utah, US]",
+      "context": "Utah, US",
+      "gold_lat": 37.58,
+      "gold_lon": -112.8,
+      "source": "usa_lg_test_data.csv",
+      "complexity": "medium",
+      "parsed_steps": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "junction of Highways 143/14, Utah, US"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Along",
+          "inputs": [
+            1,
+            "east",
+            "3.2 km"
+          ]
+        }
+      ],
+      "parse_time_s": 3.42,
+      "parse_error": null,
+      "functions": [
+        "Locate",
+        "Along"
+      ],
+      "exec_error": "Cannot geocode 'junction of Highways 143/14, Utah, US'",
+      "exec_time_s": 20.78,
+      "distance_error_km": null
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Демо - SpatialParse</title>
+  <meta name="description" content="Рабочая карта SpatialParse: введите географическое описание, получите координаты, шаги вычисления, зону неопределенности и экспорт.">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="demo">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="SpatialParse">
+      <span class="brand-mark"><i data-lucide="scan-line"></i></span>
+      <span>SpatialParse</span>
+    </a>
+    <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false"><i data-lucide="menu"></i></button>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="index.html">Главная</a>
+      <a href="features.html">Возможности</a>
+      <a class="active" href="demo.html">Демо</a>
+      <a href="docs.html">Документация</a>
+      <a href="pricing.html">Тарифы</a>
+      <a href="about.html">О проекте</a>
+      <a href="account.html">Кабинет</a>
+    </nav>
+    <div class="auth-actions">
+      <span class="user-chip" id="userChip" hidden></span>
+      <button class="icon-btn" id="openAccountBtn" type="button" title="Личный кабинет" aria-label="Личный кабинет"><i data-lucide="user-round"></i></button>
+      <button class="btn small ghost" id="authOpenBtn" type="button">Войти</button>
+      <button class="btn small secondary" id="logoutBtn" type="button" hidden>Выйти</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-shell">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span></span>Live demo</div>
+          <h1>Рабочая карта для пространственных запросов</h1>
+          <p class="lead">
+            Введите описание на русском языке. SpatialParse разберет фразу, найдет опорные объекты,
+            рассчитает координаты, покажет область неопределенности, маршрут и все промежуточные шаги.
+          </p>
+        </div>
+        <div class="metric-rack reveal">
+          <div><strong>WS</strong><span>стрим шагов</span></div>
+          <div><strong>REST</strong><span>fallback</span></div>
+          <div><strong>GeoJSON</strong><span>экспорт</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workbench" class="workbench section-shell no-top">
+      <div class="container workbench-grid">
+        <aside class="query-panel reveal">
+          <div class="panel-kicker">Запрос</div>
+          <div class="query-label-row">
+            <label class="field-label" for="queryInput">Географическое описание</label>
+            <span class="query-counter" id="queryCounter">0 / 500</span>
+          </div>
+          <textarea id="queryInput" rows="7" maxlength="500" placeholder="Например: 5 км к северо-востоку от Казанского Кремля">5 км к северо-востоку от Казанского Кремля</textarea>
+          <div class="query-helper-row">
+            <button class="mini-btn" id="clearQueryBtn" type="button"><i data-lucide="x"></i><span>Очистить текст</span></button>
+            <span>Ctrl + Enter запускает расчет</span>
+          </div>
+
+          <details class="advanced-settings">
+            <summary><i data-lucide="sliders-horizontal"></i><span>Дополнительные параметры</span></summary>
+            <div class="control-grid" aria-label="Настройки запуска">
+              <div class="segmented" role="group" aria-label="Режим">
+                <label>
+                  <input type="radio" name="mode" value="fast" checked>
+                  <span>Быстро</span>
+                </label>
+                <label>
+                  <input type="radio" name="mode" value="precise">
+                  <span>Точно</span>
+                </label>
+              </div>
+              <label class="check-row">
+                <input type="checkbox" id="uncertaintyToggle">
+                <span>Показать область неопределенности</span>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" id="roadsToggle">
+                <span>Построить маршрут по дорогам</span>
+              </label>
+              <div class="settings-grid compact-settings">
+                <label class="preview-control">
+                  <span>Регион поиска</span>
+                  <input id="searchRegion" type="text" value="Казань, Татарстан" disabled aria-describedby="advancedPreviewNote">
+                </label>
+                <label class="preview-control">
+                  <span>Язык запроса</span>
+                  <select id="queryLanguage" disabled aria-describedby="advancedPreviewNote">
+                    <option value="ru">Русский</option>
+                    <option value="auto">Авто</option>
+                  </select>
+                </label>
+                <label class="preview-control">
+                  <span>Единицы</span>
+                  <select id="units" disabled aria-describedby="advancedPreviewNote">
+                    <option value="metric">Километры / метры</option>
+                  </select>
+                </label>
+                <label class="preview-control">
+                  <span>Тип результата</span>
+                  <select id="resultType" disabled aria-describedby="advancedPreviewNote">
+                    <option value="auto">Определить автоматически</option>
+                    <option value="point">Точка</option>
+                    <option value="zone">Зона</option>
+                    <option value="route">Маршрут</option>
+                  </select>
+                </label>
+                <p class="settings-note" id="advancedPreviewNote">Эти параметры показаны как preview и пока не влияют на расчёт. Сейчас backend использует режим, область неопределенности и построение дорог.</p>
+              </div>
+            </div>
+          </details>
+
+          <div class="button-row">
+            <button class="btn primary magnet" id="runBtn" type="button">
+              <i data-lucide="play"></i>
+              <span>Найти на карте</span>
+            </button>
+            <button class="btn secondary" id="saveResultBtn" type="button" disabled>
+              <i data-lucide="bookmark-plus"></i>
+              <span>Сохранить</span>
+            </button>
+            <button class="btn ghost" id="shareResultBtn" type="button">
+              <i data-lucide="link"></i>
+              <span>Ссылка</span>
+            </button>
+          </div>
+          <p class="save-hint">Войдите, чтобы сохранять результаты, повторять запросы из истории и собирать избранные точки в кабинете.</p>
+
+          <div class="panel-subsection">
+            <div class="panel-heading small-heading"><span>Примеры</span></div>
+            <div class="examples" aria-label="Примеры запросов">
+              <button type="button" data-query="Середина между Осиново и Юдино">Осиново - Юдино</button>
+              <button type="button" data-query="5 км к северо-востоку от Казанского Кремля">5 км от Кремля</button>
+              <button type="button" data-query="Точка в трети пути от Зеленодольска до Казани">Треть пути</button>
+              <button type="button" data-query="15 км по направлению к Иннополису от центра Казани">К Иннополису</button>
+              <button type="button" data-query="Построить маршрут по дорогам от Казанского Кремля до Иннополиса">Маршрут по дорогам</button>
+            </div>
+          </div>
+
+          <div class="panel-subsection">
+            <div class="panel-heading small-heading"><span>Последние запросы</span></div>
+            <div id="recentQueries" class="recent-list" aria-label="Последние запросы"></div>
+          </div>
+
+          <div class="export-row" aria-label="Экспорт результата">
+            <button class="mini-btn" type="button" data-export="geojson">GeoJSON</button>
+            <button class="mini-btn" type="button" data-export="kml">KML</button>
+            <button class="mini-btn" type="button" data-export="gpx">GPX</button>
+          </div>
+        </aside>
+
+        <section class="map-panel reveal">
+          <div class="map-toolbar">
+            <div>
+              <span class="map-title">Карта результата</span>
+              <span class="map-subtitle" id="mapSubtitle">Казань, Татарстан</span>
+            </div>
+            <div class="status-pill" id="statusPill" aria-live="polite">
+              <span class="status-dot"></span>
+              <span id="statusText">Готово к запуску</span>
+            </div>
+          </div>
+          <div class="map-action-row" aria-label="Действия с картой">
+            <button class="mini-btn" id="fullscreenMapBtn" type="button"><i data-lucide="maximize-2"></i><span>Во весь экран</span></button>
+            <button class="mini-btn" id="returnResultBtn" type="button" disabled><i data-lucide="crosshair"></i><span>К результату</span></button>
+            <button class="mini-btn" id="copyCoordsBtn" type="button" disabled><i data-lucide="copy"></i><span>Координаты</span></button>
+            <button class="mini-btn" id="openOsmBtn" type="button" disabled><i data-lucide="external-link"></i><span>OpenStreetMap</span></button>
+            <select id="coordinateFormat" aria-label="Формат координат">
+              <option value="lonlat">Lon, Lat</option>
+              <option value="latlon">Lat, Lon</option>
+            </select>
+          </div>
+          <div id="map" aria-label="Интерактивная карта"></div>
+          <div class="result-tabs">
+            <button class="active" type="button">Результат</button>
+            <button type="button">Шаги</button>
+            <button type="button">Исходные данные</button>
+            <button type="button">Предупреждения</button>
+          </div>
+          <div class="steps-panel">
+            <div class="panel-heading">
+              <span>Шаги вычисления</span>
+              <button class="icon-btn subtle" id="clearBtn" type="button" title="Очистить карту" aria-label="Очистить карту">
+                <i data-lucide="eraser"></i>
+              </button>
+            </div>
+            <div id="stepsList" class="steps-list">
+              <div class="empty-state">После запуска здесь появятся операции, координаты, опорные объекты и ошибки по шагам.</div>
+            </div>
+          </div>
+          <div class="map-note">
+            <i data-lucide="info"></i>
+            <span>Если геокодер найдет несколько вариантов, проверяйте опорные точки и область поиска. Запросы могут отправляться во внешние сервисы OpenRouter, Nominatim, OSRM и Overpass.</span>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand mini" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a>
+      <span>Демо-стенд геопространственного NLP</span>
+      <nav class="footer-links" aria-label="Документы">
+        <a href="privacy.html">Конфиденциальность</a>
+        <a href="terms.html">Соглашение</a>
+        <a href="consent.html">Согласие</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-auth></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="icon-btn modal-close" type="button" data-close-auth aria-label="Закрыть"><i data-lucide="x"></i></button>
+      <h2 id="authTitle">Аккаунт SpatialParse</h2>
+      <p class="modal-sub">Вход нужен для истории запросов, сохраненных результатов и рабочего кабинета.</p>
+      <div class="auth-tabs">
+        <button class="active" id="loginTab" type="button">Вход</button>
+        <button id="registerTab" type="button">Регистрация</button>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+        <button class="btn primary full" type="submit"><i data-lucide="log-in"></i><span>Войти</span></button>
+      </form>
+      <form id="registerForm" class="auth-form" hidden>
+        <label><span>Имя</span><input name="name" type="text" autocomplete="name" required></label>
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label class="check-row auth-consent"><input name="consent" type="checkbox" required><span>Я принимаю пользовательское соглашение и согласие на обработку персональных данных.</span></label>
+        <button class="btn primary full" type="submit"><i data-lucide="user-plus"></i><span>Создать аккаунт</span></button>
+      </form>
+      <p class="auth-message" id="authMessage"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="vendor/leaflet.js" defer></script>
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

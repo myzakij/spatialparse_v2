@@ -1,0 +1,7280 @@
+{
+  "parsing": [
+    {
+      "index": 1,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Paris",
+            "London"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            1,
+            "Paris",
+            0.5
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Paris, France",
+            "London, England"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Paris, France"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "match": false,
+      "detail": "Step count mismatch: predicted=3 (raw=4), expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Katoomba"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Echo Point"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Katoomba",
+            "southeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Echo Point"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Scafell Pike",
+            "west",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Scafell Pike",
+            "west",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Colosseum, Rome",
+            25,
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "2 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Colosseum, Rome",
+            "25°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "2 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Jasper, Alberta",
+            36,
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Banff, Alberta"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Jasper, Alberta",
+            "36°",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Banff, Alberta",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "match": false,
+      "detail": "Step count mismatch: predicted=4 (raw=4), expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Statue of Liberty"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            3,
+            "west",
+            "8 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower",
+            "Statue of Liberty"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "266°",
+            "8 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New Orleans, USA",
+            "Veracruz, Mexico"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "8 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New Orleans, USA",
+            "Veracruz, Mexico"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "220°",
+            "8 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "match": false,
+      "detail": "Step 3: input ref mismatch at position 0: predicted=2, expected=1",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Santorini",
+            "south",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Santorini",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "south",
+            "1 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            150,
+            "5 km"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Santorini, Greece",
+            "south",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Santorini, Greece",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "1 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "150°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Mont Blanc",
+            "Matterhorn"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Chamonix"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Mont Blanc, France-Italy border",
+            "Matterhorn, Switzerland-Italy border"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Chamonix, France"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park, New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "east",
+            "7 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            3,
+            "west",
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Central Park, New York City",
+            "215°",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "99°",
+            "7 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "285°",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park",
+            "east",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Central Park",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, Manhattan, New York",
+            "east",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Central Park, Manhattan, New York"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris city center",
+            "southeast",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris",
+            "southeast",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park Carousel"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "6 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            3,
+            "5 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            3,
+            199,
+            "3 km"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            4,
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park Carousel, New York",
+            "north",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "3°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "199°",
+            "3 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            "Central Park Carousel, New York"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Banff, Alberta"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "northeast",
+            "4 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            1,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Banff",
+            "northwest",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "4 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Banff",
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park, New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            333,
+            "7 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            3,
+            62,
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park",
+            "northeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "333°",
+            "7 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "62°",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park, New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "5 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "east",
+            "5 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Signal Hill, Cape Town",
+            "southwest",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Signal Hill, Cape Town"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Cape Town"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Signal Hill",
+            "southwest",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Signal Hill"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Cape Town",
+            1
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Praça do Comércio, Lisbon",
+            "north",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Praça do Comércio, Lisbon"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Praça do Comércio, Lisbon",
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Praça do Comércio, Lisbon",
+            "north",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Praça do Comércio, Lisbon"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Praça do Comércio, Lisbon",
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "South Pole",
+            65,
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "South Pole",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            184,
+            "7 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "South Pole",
+            "65°",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "South Pole",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "184°",
+            "7 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Yosemite National Park"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "10 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Yosemite National Park",
+            "northwest",
+            "10 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "match": false,
+      "detail": "Step count mismatch: predicted=4 (raw=5), expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Sydney Opera House"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            166,
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "166°",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Sydney Opera House"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Sydney Opera House",
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris, France",
+            "east",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Paris, France",
+            "90°",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Florence, Italy",
+            "south",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Florence, Italy"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Florence, Italy",
+            "south",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Florence, Italy"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "New York Botanical Garden",
+            "northwest",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "New York Botanical Garden",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "New York Botanical Garden",
+            "339°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "New York Botanical Garden"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "match": false,
+      "detail": "Step count mismatch: predicted=3 (raw=3), expected=4",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York",
+            "northeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York",
+            "northeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York",
+            "northeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York",
+            "northwest",
+            "5 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York",
+            "northwest",
+            "5 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            247,
+            "2 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "247°",
+            "2 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Milan",
+            "southeast",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Milan",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "southeast",
+            "7 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Milan",
+            "southeast",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Milan"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "southeast",
+            "7 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Leura, Australia",
+            317,
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            255,
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Leura, Australia",
+            "317°",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "255°",
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "west",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "west",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Nairobi",
+            "southeast",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Nairobi",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Nairobi, Kenya",
+            "101°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Nairobi, Kenya",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Berlin, Germany",
+            34,
+            "4 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Berlin, Germany",
+            "34°",
+            "4 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Zuma Beach, Malibu"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "4 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Zuma Beach, Malibu",
+            "261°",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Zuma Beach, Malibu",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Banff, Alberta",
+            "west",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Banff, Alberta",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "south",
+            "8 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Banff, Alberta",
+            "west",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Banff, Alberta"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "south",
+            "8 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Mount Tamalpais",
+            "southeast",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "west",
+            "4 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Mount Tamalpais",
+            "southeast",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "west",
+            "4 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "match": false,
+      "detail": "Step count mismatch: predicted=4 (raw=4), expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "west",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Eiffel Tower"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            3,
+            "southwest",
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "west",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "southwest",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "New York City",
+            "north",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            "New York City",
+            125,
+            "8 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            "New York City"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            2,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "New York City, USA",
+            "north",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            "New York City, USA",
+            "125°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            "New York City, USA"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Paris, France"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "2 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris, France",
+            "northwest",
+            "2 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            247,
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "247°",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Yosemite Village"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Yosemite Village",
+            "northwest",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Yosemite Village"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "match": false,
+      "detail": "Step 4: input ref mismatch at position 0: predicted=2, expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Santarém, Brazil"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            3,
+            30,
+            "5 km"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Santarém, Brazil",
+            "121°",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "30°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Los Angeles",
+            "San Francisco"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            "Los Angeles",
+            1,
+            0.25
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Los Angeles",
+            "San Francisco"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Los Angeles",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower, Paris"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "1 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "346°",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "match": false,
+      "detail": "Step 5: input ref mismatch at position 0: predicted=3, expected=4",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Zermatt",
+            140,
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            "Chamonix",
+            338,
+            "5 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Zermatt, Switzerland",
+            "140°",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            "Chamonix, France",
+            "338°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Chamonix, France"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            4,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Auckland",
+            "southwest",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Auckland"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Auckland",
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Auckland, New Zealand",
+            "southwest",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Auckland, New Zealand",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Paris, France",
+            263,
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Paris, France",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Paris, France",
+            "263°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Paris, France",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "match": false,
+      "detail": "Step count mismatch: predicted=1 (raw=1), expected=4",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            "London, UK"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            "London, UK"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Shinjuku, Tokyo",
+            "east",
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Shinjuku",
+            "east",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "match": false,
+      "detail": "Step count mismatch: predicted=4 (raw=5), expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "7 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Colosseum, Rome"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            4,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "southwest",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Colosseum",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Colosseum"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "match": false,
+      "detail": "Step count mismatch: predicted=4 (raw=4), expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Los Angeles",
+            "New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Los Angeles"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Los Angeles"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            3,
+            "north",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Los Angeles",
+            "New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "New York City"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "north",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Toronto Pearson International Airport"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "south",
+            "4 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Toronto Pearson International Airport",
+            "north",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "4 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            "Los Angeles"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            51,
+            "3 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            "Los Angeles"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "51°",
+            "3 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Fort William",
+            "southeast",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Fort William",
+            "southeast",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            235,
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "235°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Honolulu",
+            52,
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Honolulu",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            103,
+            "8 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Honolulu",
+            "52°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Honolulu"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "103°",
+            "8 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "McMurdo Station",
+            175,
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Amundsen-Scott South Pole Station"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "McMurdo Station",
+            "175°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Amundsen-Scott South Pole Station"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Yokohama",
+            105,
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            110,
+            "6 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Yokohama",
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Yokohama",
+            "105°",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "110°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Yokohama",
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower, Paris"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "7 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "north",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "southwest",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris, France",
+            "southeast",
+            "8 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris, France",
+            "southeast",
+            "8 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Tromsø, Norway",
+            "Rovaniemi, Finland"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Rovaniemi, Finland"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            "Rovaniemi, Finland"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Tromsø",
+            "Rovaniemi"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "354°",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Rovaniemi"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            "Rovaniemi",
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Syntagma Square, Athens"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Syntagma Square, Athens",
+            "west",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney",
+            228,
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sydney",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney, Australia",
+            "228°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sydney, Australia",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "southwest",
+            "2 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "southwest",
+            "2 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "match": false,
+      "detail": "Step count mismatch: predicted=5 (raw=5), expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "north",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Locate",
+          "inputs": [
+            "Arc de Triomphe"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "north",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Tokyo, Japan",
+            67,
+            "3 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Tokyo, Japan",
+            "67°",
+            "3 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 46,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Christopher Columbus Monument, Barcelona",
+            173,
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Christopher Columbus Monument, Barcelona, Spain",
+            "173°",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 47,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Alice Springs"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "6 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Alice Springs",
+            "94°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Alice Springs"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Fisherman's Wharf, San Francisco",
+            "northwest",
+            "2 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Fisherman's Wharf",
+            "northwest",
+            "2 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Sydney Opera House"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "north",
+            "2 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            "St Kilda Beach, Melbourne",
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "232°",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "St Kilda Beach",
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Luxor, Egypt",
+            121,
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Valley of the Kings",
+            "northeast",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "southeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            1,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Luxor",
+            "121°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Valley of the Kings",
+            "northeast",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "southeast",
+            "3 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "match": false,
+      "detail": "Step count mismatch: predicted=2 (raw=3), expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Paris"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "5 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Paris, France",
+            "northwest",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Paris, France"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 52,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "Brandenburg Gate, Berlin"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            15,
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower",
+            "Brandenburg Gate"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "15°",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Mendoza, Argentina",
+            "south",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Santiago, Chile"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Mendoza, Argentina",
+            "south",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Santiago, Chile"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "match": false,
+      "detail": "Step 3: input ref mismatch at position 0: predicted=1, expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower, Paris"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "1 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            1,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower, Paris, France",
+            "east",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Eiffel Tower, Paris, France",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Eiffel Tower, Paris, France"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower",
+            247.5,
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris, France",
+            "252°",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Signal Hill, Cape Town",
+            76,
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "10 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Signal Hill, Cape Town",
+            "76°",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "10 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 57,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Berlin, Germany",
+            "southwest",
+            "3 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Berlin, Germany",
+            "southwest",
+            "3 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 58,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Times Square, New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            161,
+            "8 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            69,
+            "2 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            4,
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Times Square, New York City",
+            "161°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "69°",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            "Times Square, New York City"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "match": false,
+      "detail": "Step 3: input ref mismatch at position 0: predicted=2, expected=1",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Banff National Park",
+            13,
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Jasper National Park"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Banff National Park"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Banff National Park",
+            "13°",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Jasper National Park",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 60,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Yellowstone National Park Ranger Station"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            222,
+            "3 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            102,
+            "8 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Yellowstone National Park Ranger Station",
+            "222°",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            "Yellowstone National Park Ranger Station",
+            "102°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 61,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Sydney",
+            "southeast",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "1",
+            "Sydney"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            "2",
+            "northeast",
+            "10 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            "Sydney",
+            "3"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Relative",
+          "inputs": [
+            "4",
+            "west",
+            "2 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney, Australia",
+            "155°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sydney, Australia",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "northeast",
+            "10 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            "Sydney, Australia",
+            3
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Azimuth",
+          "inputs": [
+            4,
+            "253°",
+            "2 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            335,
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower",
+            "335°",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "west",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 63,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Yellowstone National Park",
+            "west",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            209,
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Yellowstone National Park",
+            "west",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "209°",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Denali National Park",
+            "northeast",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Denali National Park",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Denali National Park",
+            "northeast",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Denali National Park"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Timbuktu",
+            104,
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Timbuktu",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Fraction",
+          "inputs": [
+            "Timbuktu",
+            1,
+            0.25
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            3,
+            "southeast",
+            "10 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Timbuktu, Mali",
+            "104°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Timbuktu, Mali"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Timbuktu, Mali",
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            3,
+            "117°",
+            "10 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 66,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Cambridge city center",
+            248,
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Cambridge",
+            "248°",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 67,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Monument Valley",
+            124,
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Monument Valley, Arizona",
+            "124°",
+            "10 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 68,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park, New York"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southeast",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "northwest",
+            "7 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York",
+            "southeast",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "7 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 69,
+      "match": false,
+      "detail": "Step count mismatch: predicted=1 (raw=1), expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Cape Town, South Africa",
+            "Antananarivo, Madagascar"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Cape Town, South Africa",
+            "Antananarivo, Madagascar"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Cape Town, South Africa",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 70,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Rio de Janeiro",
+            "Buenos Aires"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "São Paulo",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Rio de Janeiro",
+            "Buenos Aires"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "São Paulo",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 71,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Newbury",
+            "northeast",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Newbury",
+            "south",
+            "7 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            297,
+            "8 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Newbury",
+            "northeast",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Newbury",
+            "south",
+            "7 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "297°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 72,
+      "match": false,
+      "detail": "Step 3: function mismatch: predicted=Between, expected=Relative",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "north",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "northeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "north",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "northeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, New York City",
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Between",
+          "inputs": [
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "index": 73,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Tokyo Tower, Tokyo",
+            136,
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Tokyo Tower, Tokyo",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Tokyo Tower, Tokyo, Japan",
+            "136°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Tokyo Tower, Tokyo, Japan"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 74,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney, Australia",
+            155,
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sydney, Australia",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney, Australia",
+            "155°",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Sydney, Australia"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 75,
+      "match": false,
+      "detail": "Step count mismatch: predicted=6 (raw=7), expected=5",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Courmayeur, Italy"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Chamonix, France"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            "Courmayeur, Italy",
+            "Chamonix, France"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Azimuth",
+          "inputs": [
+            4,
+            111,
+            "7 km"
+          ]
+        },
+        {
+          "id": 6,
+          "function": "Azimuth",
+          "inputs": [
+            5,
+            39,
+            "9 km"
+          ]
+        },
+        {
+          "id": 7,
+          "function": "Azimuth",
+          "inputs": [
+            6,
+            219,
+            "10 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Courmayeur",
+            "northwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Chamonix",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "111°",
+            "7 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            3,
+            "39°",
+            "9 km"
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Relative",
+          "inputs": [
+            4,
+            "southwest",
+            "10 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 76,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Union Square, San Francisco",
+            "southeast",
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Union Square, San Francisco",
+            "southeast",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 77,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Sapporo, Japan"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "northeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Sapporo",
+            "northeast",
+            "2 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sapporo",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 78,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Paris",
+            16,
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Versailles",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Versailles",
+            "16°",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Versailles"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 79,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Boulder, Colorado",
+            "northwest",
+            "6 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Boulder, Colorado",
+            "northwest",
+            "6 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 80,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            294,
+            "5 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "294°",
+            "5 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 81,
+      "match": false,
+      "detail": "Step count mismatch: predicted=3 (raw=3), expected=5",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Rio de Janeiro",
+            202.5,
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Rio de Janeiro"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "north-northeast",
+            "3 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Rio de Janeiro",
+            "256°",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Rio de Janeiro",
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            "Rio de Janeiro"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        },
+        {
+          "id": 5,
+          "function": "Azimuth",
+          "inputs": [
+            4,
+            "25°",
+            "3 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 82,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Florence",
+            "southeast",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Florence",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Florence, Italy",
+            "125°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Florence, Italy",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 83,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Aoraki / Mount Cook",
+            141,
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Aoraki / Mount Cook"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            60,
+            "10 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Aoraki / Mount Cook",
+            "141°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Aoraki / Mount Cook"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "60°",
+            "10 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 84,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Christ the Redeemer, Rio de Janeiro",
+            136,
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "4 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            3,
+            "5 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Christ the Redeemer, Rio de Janeiro, Brazil",
+            "136°",
+            "3 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "4 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "3°",
+            "5 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 85,
+      "match": false,
+      "detail": "Step count mismatch: predicted=2 (raw=2), expected=3",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            "London"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Fraction",
+          "inputs": [
+            "Sydney",
+            1,
+            0.3333
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "New York City",
+            "London"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Sydney"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 86,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park, New York City"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "north",
+            "4 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            2,
+            "east",
+            "1 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park South, New York City",
+            "north",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "1 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 87,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "San Francisco city center",
+            "northwest",
+            "8 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "San Francisco, CA",
+            "northwest",
+            "8 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 88,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            172,
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sydney Opera House",
+            1
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "172°",
+            "7 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Sydney Opera House",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 89,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Praça do Comércio, Lisbon",
+            "west",
+            "3 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Praça do Comércio, Lisbon",
+            "264°",
+            "3 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 90,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            175,
+            "7 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "175°",
+            "7 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 91,
+      "match": false,
+      "detail": "Step count mismatch: predicted=3 (raw=4), expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Central Park, New York"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "east",
+            "4 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "Times Square, New York"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Central Park, NY",
+            "east",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Times Square, NY"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 92,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Golden Gate Park, San Francisco"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            200,
+            "2 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Azimuth",
+          "inputs": [
+            3,
+            303,
+            "3 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Golden Gate Park",
+            "southwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "200°",
+            "2 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Azimuth",
+          "inputs": [
+            2,
+            "303°",
+            "3 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 93,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Eiffel Tower"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "1 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower",
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            2,
+            3
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "236°",
+            "1 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            "Eiffel Tower, Paris",
+            "north",
+            "10 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 94,
+      "match": false,
+      "detail": "Step count mismatch: predicted=3 (raw=4), expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Locate",
+          "inputs": [
+            "Ngorongoro Conservation Area"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "6 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Locate",
+          "inputs": [
+            "central Serengeti"
+          ]
+        },
+        {
+          "id": 4,
+          "function": "Between",
+          "inputs": [
+            3,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Ngorongoro Conservation Area",
+            "217°",
+            "6 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            "Serengeti National Park",
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 95,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Cancun, Mexico",
+            182,
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "7 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Cancun, Mexico",
+            "182°",
+            "9 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "south",
+            "7 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 96,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Dublin",
+            "southeast",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            301,
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            "Dublin",
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Dublin",
+            "southeast",
+            "5 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            "301°",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "index": 97,
+      "match": false,
+      "detail": "Step 3: input ref mismatch at position 0: predicted=1, expected=2",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            165,
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            1,
+            121,
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "165°",
+            "8 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Azimuth",
+          "inputs": [
+            "Sydney Opera House",
+            "121°",
+            "9 km"
+          ]
+        },
+        {
+          "id": 3,
+          "function": "Between",
+          "inputs": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "index": 98,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Rome, Italy",
+            345,
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Azimuth",
+          "inputs": [
+            "Rome, Italy",
+            "345°",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 99,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Shibuya, Tokyo",
+            "southwest",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "9 km"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Relative",
+          "inputs": [
+            "Shibuya, Tokyo",
+            "southwest",
+            "4 km"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Relative",
+          "inputs": [
+            1,
+            "southwest",
+            "9 km"
+          ]
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "match": true,
+      "detail": "OK",
+      "predicted": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Mont Blanc",
+            "Matterhorn"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Chamonix"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "id": 1,
+          "function": "Between",
+          "inputs": [
+            "Mont Blanc",
+            "Matterhorn"
+          ]
+        },
+        {
+          "id": 2,
+          "function": "Between",
+          "inputs": [
+            1,
+            "Chamonix"
+          ]
+        }
+      ]
+    }
+  ],
+  "execution": [
+    {
+      "index": 1,
+      "success": true,
+      "centroid": [
+        1.7293523,
+        49.516982725000005
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 2,
+      "success": true,
+      "centroid": [
+        150.33151791005483,
+        -33.74042343917735
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 3,
+      "success": true,
+      "centroid": [
+        -3.4743389526163453,
+        54.4542586
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 4,
+      "success": true,
+      "centroid": [
+        12.557314847598755,
+        41.977208764274486
+      ],
+      "coord_count": 24
+    },
+    {
+      "index": 5,
+      "success": true,
+      "centroid": [
+        -116.80974441577138,
+        52.03968735756613
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 6,
+      "success": true,
+      "centroid": [
+        -35.97600278969424,
+        44.768698963464075
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 7,
+      "success": true,
+      "centroid": [
+        -93.15664983411433,
+        24.523181768575583
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 8,
+      "success": true,
+      "centroid": [
+        25.456599669683882,
+        36.25315842291748
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 9,
+      "success": true,
+      "centroid": [
+        7.08514015,
+        45.905101675
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 10,
+      "success": true,
+      "centroid": [
+        -73.95606132482781,
+        40.70898735249033
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 11,
+      "success": true,
+      "centroid": [
+        -73.94426818101357,
+        40.77985782917375
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 12,
+      "success": true,
+      "centroid": [
+        2.4955096432236497,
+        48.740400922465895
+      ],
+      "coord_count": 21
+    },
+    {
+      "index": 13,
+      "success": true,
+      "centroid": [
+        -73.97949224008946,
+        40.80657827764914
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 14,
+      "success": true,
+      "centroid": [
+        -115.56783966241105,
+        51.201280285833235
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 15,
+      "success": true,
+      "centroid": [
+        -73.87987677691217,
+        40.906644799783734
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 16,
+      "success": true,
+      "centroid": [
+        -73.90604407405172,
+        40.7827725
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 17,
+      "success": true,
+      "centroid": [
+        18.395760335795558,
+        -33.92948659001078
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 18,
+      "success": true,
+      "centroid": [
+        -9.137008880363954,
+        38.7107707415167
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 19,
+      "success": true,
+      "centroid": [
+        -129.40326964658067,
+        -89.95502274559668
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 20,
+      "success": true,
+      "centroid": [
+        -119.59688370003806,
+        37.902811000071864
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 1,
+      "success": true,
+      "centroid": [
+        151.22167259527325,
+        -33.87898822093193
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 2,
+      "success": true,
+      "centroid": [
+        2.516628477114687,
+        48.85757435887667
+      ],
+      "coord_count": 14
+    },
+    {
+      "index": 3,
+      "success": true,
+      "centroid": [
+        11.253149731294153,
+        43.70348336874427
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 4,
+      "success": true,
+      "centroid": [
+        -73.88993397327293,
+        40.887401323089975
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 5,
+      "success": false,
+      "error": "Element count is not divisible by 2, cannot reshape to [N, 2]"
+    },
+    {
+      "index": 6,
+      "success": true,
+      "centroid": [
+        -74.0146146505766,
+        40.81820040256212
+      ],
+      "coord_count": 73
+    },
+    {
+      "index": 7,
+      "success": true,
+      "centroid": [
+        2.269367230732342,
+        48.85123713280449
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 8,
+      "success": true,
+      "centroid": [
+        9.334116419581187,
+        45.355406975473315
+      ],
+      "coord_count": 23
+    },
+    {
+      "index": 9,
+      "success": true,
+      "centroid": [
+        150.24253223426672,
+        -33.65345353783937
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 10,
+      "success": true,
+      "centroid": [
+        2.360316833404789,
+        48.859700376038866
+      ],
+      "coord_count": 15
+    },
+    {
+      "index": 11,
+      "success": true,
+      "centroid": [
+        36.84511276920697,
+        -1.3000926974800449
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 12,
+      "success": true,
+      "centroid": [
+        13.42817334757841,
+        52.54717355940575
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 13,
+      "success": true,
+      "centroid": [
+        -118.8524434813205,
+        34.018625024670385
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 14,
+      "success": true,
+      "centroid": [
+        -115.62096522179333,
+        51.0763995272544
+      ],
+      "coord_count": 46
+    },
+    {
+      "index": 15,
+      "success": true,
+      "centroid": [
+        -46.461844085247456,
+        36.33367152547837
+      ],
+      "coord_count": 38
+    },
+    {
+      "index": 16,
+      "success": true,
+      "centroid": [
+        2.2093935603251817,
+        48.84570591203053
+      ],
+      "coord_count": 24
+    },
+    {
+      "index": 17,
+      "success": true,
+      "centroid": [
+        -73.97136088975671,
+        40.711182054723096
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 18,
+      "success": true,
+      "centroid": [
+        2.2775477178836727,
+        48.90820990254597
+      ],
+      "coord_count": 85
+    },
+    {
+      "index": 19,
+      "success": true,
+      "centroid": [
+        151.15536301782973,
+        -33.878243688978664
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 20,
+      "success": true,
+      "centroid": [
+        -119.59491900784663,
+        37.754532460007184
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 21,
+      "success": true,
+      "centroid": [
+        -54.613172358935884,
+        -2.3471723919588006
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 22,
+      "success": true,
+      "centroid": [
+        -119.28395452500001,
+        34.98725225
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 23,
+      "success": true,
+      "centroid": [
+        2.2928487280979337,
+        48.86261805909373
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 24,
+      "success": true,
+      "centroid": [
+        7.223421401980673,
+        45.94804830363224
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 25,
+      "success": true,
+      "centroid": [
+        174.72746390894343,
+        -36.880674770032336
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 26,
+      "success": true,
+      "centroid": [
+        2.2941978183818685,
+        48.84909058926164
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 27,
+      "success": true,
+      "centroid": [
+        -69.38862458124999,
+        41.38739794375
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 28,
+      "success": true,
+      "centroid": [
+        139.76999755511483,
+        35.6937632
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 29,
+      "success": true,
+      "centroid": [
+        9.925659332911142,
+        43.62165719498742
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 30,
+      "success": true,
+      "centroid": [
+        -85.06496421693652,
+        39.15990982581693
+      ],
+      "coord_count": 35
+    },
+    {
+      "index": 31,
+      "success": true,
+      "centroid": [
+        -79.62808665594729,
+        43.70681199816414
+      ],
+      "coord_count": 38
+    },
+    {
+      "index": 32,
+      "success": true,
+      "centroid": [
+        -96.09802674627166,
+        37.400166516269
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 33,
+      "success": true,
+      "centroid": [
+        -5.006513009061396,
+        56.76066615993532
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 34,
+      "success": true,
+      "centroid": [
+        151.14635322010298,
+        -33.90161251987443
+      ],
+      "coord_count": 25
+    },
+    {
+      "index": 35,
+      "success": true,
+      "centroid": [
+        -157.7577163645714,
+        21.304952821138407
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 36,
+      "success": true,
+      "centroid": [
+        13.707099840920705,
+        -83.9455395911778
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 37,
+      "success": true,
+      "centroid": [
+        139.68143399492175,
+        35.43762318291006
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 38,
+      "success": true,
+      "centroid": [
+        2.225612828954108,
+        48.9189379205109
+      ],
+      "coord_count": 46
+    },
+    {
+      "index": 39,
+      "success": true,
+      "centroid": [
+        2.4835805644037987,
+        48.74557550812914
+      ],
+      "coord_count": 27
+    },
+    {
+      "index": 40,
+      "success": true,
+      "centroid": [
+        24.87700348140592,
+        66.91837374263345
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 41,
+      "success": true,
+      "centroid": [
+        23.66717143126904,
+        37.97513433121224
+      ],
+      "coord_count": 18
+    },
+    {
+      "index": 42,
+      "success": true,
+      "centroid": [
+        151.1761058778363,
+        -33.89387928789831
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 43,
+      "success": true,
+      "centroid": [
+        2.2751942376127325,
+        48.845557779985626
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 44,
+      "success": true,
+      "centroid": [
+        2.294467260059558,
+        48.86992368321236
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 45,
+      "success": true,
+      "centroid": [
+        139.79443752912093,
+        35.68738629687041
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 46,
+      "success": true,
+      "centroid": [
+        -3.68903166548579,
+        40.41628504558642
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 47,
+      "success": true,
+      "centroid": [
+        133.91064910521013,
+        -23.700262772787525
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 48,
+      "success": true,
+      "centroid": [
+        -122.43266854888068,
+        37.820834620014374
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 49,
+      "success": true,
+      "centroid": [
+        148.08591548869833,
+        -35.85290308652425
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 50,
+      "success": true,
+      "centroid": [
+        32.69720528857031,
+        25.72151188747388
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 51,
+      "success": true,
+      "centroid": [
+        2.26869186293675,
+        48.910492960832585
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 52,
+      "success": true,
+      "centroid": [
+        7.839772498199142,
+        50.69594195204507
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 53,
+      "success": true,
+      "centroid": [
+        -69.69077340000001,
+        -34.06228155874955
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 54,
+      "success": true,
+      "centroid": [
+        2.2979140304079326,
+        48.8582599
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 55,
+      "success": true,
+      "centroid": [
+        2.1776886261739454,
+        48.83321721248771
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 56,
+      "success": true,
+      "centroid": [
+        18.513541555079065,
+        -33.99282732009927
+      ],
+      "coord_count": 24
+    },
+    {
+      "index": 57,
+      "success": true,
+      "centroid": [
+        13.363820244096068,
+        52.498335319978445
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 58,
+      "success": true,
+      "centroid": [
+        -73.96501352060903,
+        40.72464141434152
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 59,
+      "success": true,
+      "centroid": [
+        -116.39500060001859,
+        51.843384335101945
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 60,
+      "success": false,
+      "error": "OSM Nominatim returned no results for 'Yellowstone National Park Ranger Station' (tried 4 queries + 5 alternatives)"
+    },
+    {
+      "index": 61,
+      "success": true,
+      "centroid": [
+        151.23784321560663,
+        -33.847831525321126
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 62,
+      "success": true,
+      "centroid": [
+        2.229538987106792,
+        48.91524367555599
+      ],
+      "coord_count": 16
+    },
+    {
+      "index": 63,
+      "success": true,
+      "centroid": [
+        -110.69833659090465,
+        44.57294129764455
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 64,
+      "success": true,
+      "centroid": [
+        -148.84185910746731,
+        63.752434710025156
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 65,
+      "success": true,
+      "centroid": [
+        -2.913770362458231,
+        16.72839158207821
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 66,
+      "success": true,
+      "centroid": [
+        -0.0035733415879285473,
+        52.17518171036567
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 67,
+      "success": true,
+      "centroid": [
+        -109.96190008044982,
+        36.983190161541124
+      ],
+      "coord_count": 24
+    },
+    {
+      "index": 68,
+      "success": true,
+      "centroid": [
+        -73.93667052230343,
+        40.765906900687526
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 69,
+      "success": true,
+      "centroid": [
+        25.69431,
+        -30.174125625
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 70,
+      "success": true,
+      "centroid": [
+        -48.716231975,
+        -26.15546825
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 71,
+      "success": true,
+      "centroid": [
+        -1.3349139001971189,
+        51.41227833484581
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 72,
+      "success": true,
+      "centroid": [
+        -73.94584752584385,
+        40.87662930845781
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 73,
+      "success": true,
+      "centroid": [
+        139.77623715697734,
+        35.63259339883757
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 74,
+      "success": true,
+      "centroid": [
+        151.21057120397302,
+        -33.873914632082084
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 75,
+      "success": true,
+      "centroid": [
+        6.9287399608688816,
+        45.85408741797582
+      ],
+      "coord_count": 22
+    },
+    {
+      "index": 76,
+      "success": true,
+      "centroid": [
+        -122.39948097301959,
+        37.781585239992815
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 77,
+      "success": true,
+      "centroid": [
+        141.3629851464404,
+        43.068287060007194
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 78,
+      "success": true,
+      "centroid": [
+        2.1285686271224646,
+        48.80785787484525
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 79,
+      "success": true,
+      "centroid": [
+        -105.38038285023212,
+        40.11214071333229
+      ],
+      "coord_count": 15
+    },
+    {
+      "index": 80,
+      "success": true,
+      "centroid": [
+        2.2321107173347157,
+        48.876512067286974
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 81,
+      "success": true,
+      "centroid": [
+        -43.214754035048294,
+        -22.890660761984712
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 82,
+      "success": true,
+      "centroid": [
+        11.28619525589533,
+        43.754329693589156
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 83,
+      "success": true,
+      "centroid": [
+        170.28080985012775,
+        -43.57795192707697
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 84,
+      "success": true,
+      "centroid": [
+        -43.186778636230365,
+        -22.873995256288186
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 85,
+      "success": true,
+      "centroid": [
+        10.001903512500007,
+        26.115104162500003
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 86,
+      "success": true,
+      "centroid": [
+        -73.95220512734782,
+        40.80105291245815
+      ],
+      "coord_count": 20
+    },
+    {
+      "index": 87,
+      "success": true,
+      "centroid": [
+        -122.4718115158433,
+        37.83874478005749
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 88,
+      "success": true,
+      "centroid": [
+        151.22039653933922,
+        -33.888333009085486
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 89,
+      "success": true,
+      "centroid": [
+        -9.170899253427299,
+        38.70497137485522
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 90,
+      "success": true,
+      "centroid": [
+        151.22172792893141,
+        -33.91984097194777
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 91,
+      "success": true,
+      "centroid": [
+        -73.94998779977101,
+        40.7657289807936
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 92,
+      "success": true,
+      "centroid": [
+        -122.52657840089257,
+        37.76080824194829
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 93,
+      "success": true,
+      "centroid": [
+        2.288841385115731,
+        48.90066350954373
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 94,
+      "success": true,
+      "centroid": [
+        35.04323709542866,
+        -2.7439260217375354
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 95,
+      "success": true,
+      "centroid": [
+        -86.84430966404068,
+        20.986728322371313
+      ],
+      "coord_count": 28
+    },
+    {
+      "index": 96,
+      "success": true,
+      "centroid": [
+        -6.055870028489056,
+        53.24505061287847
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 97,
+      "success": true,
+      "centroid": [
+        151.26807805079181,
+        -33.9127114704434
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 98,
+      "success": true,
+      "centroid": [
+        12.45478708774902,
+        41.97141085340404
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 99,
+      "success": true,
+      "centroid": [
+        139.58275179842198,
+        35.56724529993067
+      ],
+      "coord_count": 24
+    },
+    {
+      "index": 9,
+      "success": true,
+      "centroid": [
+        7.08514015,
+        45.905101675
+      ],
+      "coord_count": 100
+    }
+  ]
+}

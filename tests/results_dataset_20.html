@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>SpatialParse Test Report</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+  h1 { color: #333; border-bottom: 3px solid #52aee3; padding-bottom: 10px; }
+  h2 { color: #52aee3; margin-top: 30px; }
+  .summary { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 20px 0; }
+  .summary .metric { display: inline-block; margin: 10px 30px 10px 0; }
+  .metric .value { font-size: 36px; font-weight: bold; }
+  .metric .label { color: #666; font-size: 14px; }
+  .metric.good .value { color: #2ecc71; }
+  .metric.warn .value { color: #f39c12; }
+  .metric.bad .value { color: #e74c3c; }
+  .bar { background: #eee; border-radius: 4px; height: 24px; margin: 5px 0 15px; overflow: hidden; }
+  .bar .fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px;
+                color: white; font-weight: bold; font-size: 13px; }
+  .bar .fill.green { background: #2ecc71; }
+  .bar .fill.orange { background: #f39c12; }
+  .bar .fill.red { background: #e74c3c; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px;
+           overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 10px 0 30px; }
+  th { background: #52aee3; color: white; padding: 12px 10px; text-align: left; font-size: 13px; }
+  td { padding: 10px; border-bottom: 1px solid #eee; font-size: 13px; vertical-align: top; }
+  tr:hover { background: #f0f8ff; }
+  .pass { color: #2ecc71; font-weight: bold; }
+  .fail { color: #e74c3c; font-weight: bold; }
+  .steps { font-family: 'Consolas', monospace; font-size: 12px; color: #555; word-break: break-all; }
+  .instruction { max-width: 400px; }
+  .detail { color: #e74c3c; font-size: 12px; }
+  .legend { background: #fff; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 13px;
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .legend b { color: #52aee3; }
+</style>
+</head>
+<body>
+<h1>SpatialParse &mdash; Test Report</h1>
+<p style="color:#888">Generated: 2026-03-18 02:18 &bull;
+   Dataset: dataset_20.json (20 items)</p>
+
+<div class="summary">
+  <div class="metric good">
+    <div class="value">90.0%</div>
+    <div class="label">Parsing Accuracy (18/20)</div>
+  </div>
+  <div class="metric good">
+    <div class="value">95.0%</div>
+    <div class="label">Execution Success (19/20)</div>
+  </div>
+</div>
+
+<div class="bar"><div class="fill green"
+     style="width:90.0%">Parsing: 18/20</div></div>
+<div class="bar"><div class="fill green"
+     style="width:95.0%">Execution: 19/20</div></div>
+
+<div class="legend">
+  <b>Parsing test</b> &mdash; checks that the LLM correctly converts natural language instructions into
+  a sequence of positioning functions (Relative, Between, Azimuth, Fraction, Locate).<br>
+  <b>Execution test</b> &mdash; runs ground-truth step chains through geocoding (Nominatim) and
+  verifies that valid coordinates are produced.
+</div>
+<h2>Parsing Results</h2>
+<table>
+<tr><th>#</th><th>Result</th><th class="instruction">Instruction</th><th>Expected Steps</th><th>Predicted Steps</th><th>Detail</th></tr>
+<tr><td>1</td><td class="pass">&#10004;</td><td class="instruction">Plan a trip that involves determining the midpoint between Paris and London, and then finding another midpoint between t...</td><td class="steps">Between("Paris, France", "London, England") → Between(step#1, "Paris, France")</td><td class="steps">Between("Paris", "London") → Between(step#1, "Paris")</td><td></td></tr>
+<tr><td>2</td><td class="fail">&#10008;</td><td class="instruction">Imagine you are planning a picnic hike in the Blue Mountains of Australia. Start your hike in Katoomba, move southeast f...</td><td class="steps">Relative("Katoomba", "southeast", "3 km") → Between(step#1, "Echo Point")</td><td class="steps">Locate("Katoomba") → Relative(step#1, "southeast", "3 km") → Locate("Echo Point") → Between(step#2, step#3)</td><td><span class="detail">Step count mismatch: predicted=3 (raw=4), expected=2</span></td></tr>
+<tr><td>3</td><td class="pass">&#10004;</td><td class="instruction">Plan a hiking route starting at Scafell Pike and travel 8 km to the west, then continue proceeding another 9 km westward...</td><td class="steps">Relative("Scafell Pike", "west", "8 km") → Relative(step#1, "west", "9 km")</td><td class="steps">Relative("Scafell Pike", "west", "8 km") → Relative(step#1, "west", "9 km")</td><td></td></tr>
+<tr><td>4</td><td class="pass">&#10004;</td><td class="instruction">Starting from the Colosseum in Rome, navigate 8 kilometers at a 25° azimuth to go towards the northeast, and then move a...</td><td class="steps">Azimuth("Colosseum, Rome", "25°", "8 km") → Relative(step#1, "northeast", "2 km")</td><td class="steps">Azimuth("Colosseum, Rome", step#25, "8 km") → Relative(step#1, "northeast", "2 km")</td><td></td></tr>
+<tr><td>5</td><td class="pass">&#10004;</td><td class="instruction">Set up a communications relay point 4 km in the direction of 36° from Jasper, Alberta and then find the midpoint between...</td><td class="steps">Azimuth("Jasper, Alberta", "36°", "4 km") → Between("Banff, Alberta", step#1)</td><td class="steps">Azimuth("Jasper, Alberta", step#36, "4 km") → Between(step#1, "Banff, Alberta")</td><td></td></tr>
+<tr><td>6</td><td class="pass">&#10004;</td><td class="instruction">Identify the midpoint between the Statue of Liberty and the Eiffel Tower. From this midpoint, proceed 8 kilometers due w...</td><td class="steps">Between("Eiffel Tower", "Statue of Liberty") → Relative(step#1, "west", "8 km")</td><td class="steps">Between("Statue of Liberty", "Eiffel Tower") → Relative(step#1, "west", "8 km")</td><td></td></tr>
+<tr><td>7</td><td class="pass">&#10004;</td><td class="instruction">Determine a strategic location for a new lookout post by first finding the midpoint between New Orleans, USA, and Veracr...</td><td class="steps">Between("New Orleans, USA", "Veracruz, Mexico") → Relative(step#1, "south west", "8 km")</td><td class="steps">Between("New Orleans, USA", "Veracruz, Mexico") → Relative(step#1, "southwest", "8 km")</td><td></td></tr>
+<tr><td>8</td><td class="fail">&#10008;</td><td class="instruction">Plan a marine survey starting at Santorini, Greece: First, move 9 km south to begin the survey in a new area. Then, iden...</td><td class="steps">Relative("Santorini, Greece", "south", "9 km") → Between("Santorini, Greece", step#1) → Relative(step#1, "south", "1 km") → Azimuth(step#2, "150°", "5 km") → Between(step#3, step#4)</td><td class="steps">Locate("Santorini, Greece") → Relative(step#1, "south", "9 km") → Between(step#1, step#2) → Relative(step#3, "south", "1 km") → Azimuth(step#3, step#150, "5 km") → Between(step#4, step#5)</td><td><span class="detail">Step 3: input ref mismatch at position 0: predicted=2, expected=1</span></td></tr>
+<tr><td>9</td><td class="pass">&#10004;</td><td class="instruction">Plan a central spot for a camping trip by first finding the midpoint between Mont Blanc and Matterhorn, then find the mi...</td><td class="steps">Between("Mont Blanc", "Matterhorn") → Between(step#1, "Chamonix")</td><td class="steps">Between("Mont Blanc", "Matterhorn") → Between(step#1, "Chamonix")</td><td></td></tr>
+<tr><td>10</td><td class="pass">&#10004;</td><td class="instruction">Begin your geocaching adventure at Central Park in New York City. Move southwest for 9 km. Then head east for another 7 ...</td><td class="steps">Azimuth("Central Park, New York City", "south west", "9 km") → Azimuth(step#1, "east", "7 km") → Azimuth(step#2, "west", "1 km")</td><td class="steps">Locate("Central Park, New York City") → Relative(step#1, "southwest", "9 km") → Relative(step#2, "east", "7 km") → Relative(step#3, "west", "1 km")</td><td></td></tr>
+<tr><td>11</td><td class="pass">&#10004;</td><td class="instruction">Plan a meeting point by moving 3 kilometers east of Central Park and then find a midpoint between this new location and ...</td><td class="steps">Relative("Central Park, Manhattan, New York", "east", "3 km") → Between(step#1, "Central Park, Manhattan, New York")</td><td class="steps">Relative("Central Park", "east", "3 km") → Between("Central Park", step#1)</td><td></td></tr>
+<tr><td>12</td><td class="pass">&#10004;</td><td class="instruction">Identify the location that is 9 km to the southeast of Paris city center to set up a monitoring station.</td><td class="steps">Relative("Paris", "southeast", "9 km")</td><td class="steps">Locate("Paris city center") → Relative(step#1, "southeast", "9 km")</td><td></td></tr>
+<tr><td>13</td><td class="pass">&#10004;</td><td class="instruction">Design a network of emergency medical drone hubs across Luxembourg. Start at the city hospital in Esch-sur-Alzette. Firs...</td><td class="steps">Relative("Esch-sur-Alzette, Luxembourg", "northeast", "4 km") → Azimuth(step#1, "45°", "6 km") → Azimuth(step#2, "190°", "3 km") → Between(step#3, "Esch-sur-Alzette Hospital, Luxembourg")</td><td class="steps">Locate("Esch-sur-Alzette hospital") → Relative(step#1, "northeast", "4 km") → Azimuth(step#2, step#45, "6 km") → Azimuth(step#3, step#190, "3 km") → Between(step#4, step#1)</td><td></td></tr>
+<tr><td>14</td><td class="pass">&#10004;</td><td class="instruction">Plan a scenic hiking route starting from Banff, Alberta. First, travel northwest for 2 km to reach a noted viewpoint. Fr...</td><td class="steps">Relative("Banff", "northwest", "2 km") → Relative(step#1, "northeast", "4 km") → Between("Banff", step#2)</td><td class="steps">Locate("Banff, Alberta") → Relative(step#1, "northwest", "2 km") → Relative(step#2, "northeast", "4 km") → Between(step#1, step#3)</td><td></td></tr>
+<tr><td>15</td><td class="pass">&#10004;</td><td class="instruction">Start at Central Park in New York City. Move northeast for 2 km to reach the area near The Met Cloisters in Fort Tryon P...</td><td class="steps">Relative("Central Park", "northeast", "2 km") → Azimuth(step#1, "333°", "7 km") → Azimuth(step#2, "62°", "9 km")</td><td class="steps">Locate("Central Park, New York City") → Relative(step#1, "northeast", "2 km") → Azimuth(step#2, step#333, "7 km") → Azimuth(step#3, step#62, "9 km")</td><td></td></tr>
+<tr><td>16</td><td class="pass">&#10004;</td><td class="instruction">Start at the Hellisheiði Geothermal Power Plant in Iceland and identify the area 5 kilometers to the northwest to assess...</td><td class="steps">Relative("Hellisheiði Geothermal Power Plant, Iceland", "northwest", "5 km")</td><td class="steps">Relative("Hellisheiði Geothermal Power Plant", "northwest", "5 km")</td><td></td></tr>
+<tr><td>17</td><td class="pass">&#10004;</td><td class="instruction">Plan a geological survey in the Cape Town area. First, find a point 3 km southwest of Signal Hill. Then, find the midpoi...</td><td class="steps">Relative("Signal Hill", "southwest", "3 km") → Between(step#1, "Signal Hill") → Between("Cape Town", step#1) → Between(step#2, step#3)</td><td class="steps">Relative("Signal Hill", "southwest", "3 km") → Between(step#1, "Signal Hill") → Between(step#2, "Cape Town") → Fraction(step#2, step#3, 0.5)</td><td></td></tr>
+<tr><td>18</td><td class="pass">&#10004;</td><td class="instruction">Start at Praça do Comércio in Lisbon. First, calculate a point 1 km north from this location. Then, find the midpoint be...</td><td class="steps">Relative("Praça do Comércio, Lisbon", "north", "1 km") → Between(step#1, "Praça do Comércio, Lisbon") → Between("Praça do Comércio, Lisbon", step#2)</td><td class="steps">Locate("Praça do Comércio, Lisbon") → Relative(step#1, "north", "1 km") → Between(step#1, step#2) → Between(step#1, step#3)</td><td></td></tr>
+<tr><td>19</td><td class="pass">&#10004;</td><td class="instruction">Starting at the South Pole, travel 4 kilometers at an angle of 65° to find Point A. Determine the midpoint between the S...</td><td class="steps">Azimuth("South Pole", "65°", "4 km") → Between("South Pole", step#1) → Azimuth(step#2, "184°", "7 km")</td><td class="steps">Azimuth("South Pole", step#65, "4 km") → Between("South Pole", step#1) → Azimuth(step#2, step#184, "7 km")</td><td></td></tr>
+<tr><td>20</td><td class="pass">&#10004;</td><td class="instruction">Identify a new exploration point 10 km northwest of the base camp at Yosemite National Park.</td><td class="steps">Relative("Yosemite National Park", "northwest", "10 km")</td><td class="steps">Locate("Yosemite National Park") → Relative(step#1, "northwest", "10 km")</td><td></td></tr>
+</table>
+<h2>Execution Results</h2>
+<table>
+<tr><th>#</th><th>Result</th><th class="instruction">Instruction</th><th>Steps</th><th>Centroid</th><th>Points</th></tr>
+<tr><td>1</td><td class="pass">&#10004;</td><td class="instruction">Plan a trip that involves determining the midpoint between Paris and London, and then finding another midpoint between t...</td><td class="steps">Between("Paris, France", "London, England") → Between(step#1, "Paris, France")</td><td>(1.7294, 49.5170)</td><td>100</td></tr>
+<tr><td>2</td><td class="pass">&#10004;</td><td class="instruction">Imagine you are planning a picnic hike in the Blue Mountains of Australia. Start your hike in Katoomba, move southeast f...</td><td class="steps">Relative("Katoomba", "southeast", "3 km") → Between(step#1, "Echo Point")</td><td>(150.3315, -33.7404)</td><td>100</td></tr>
+<tr><td>3</td><td class="pass">&#10004;</td><td class="instruction">Plan a hiking route starting at Scafell Pike and travel 8 km to the west, then continue proceeding another 9 km westward...</td><td class="steps">Relative("Scafell Pike", "west", "8 km") → Relative(step#1, "west", "9 km")</td><td>(-3.4743, 54.4543)</td><td>100</td></tr>
+<tr><td>4</td><td class="pass">&#10004;</td><td class="instruction">Starting from the Colosseum in Rome, navigate 8 kilometers at a 25° azimuth to go towards the northeast, and then move a...</td><td class="steps">Azimuth("Colosseum, Rome", "25°", "8 km") → Relative(step#1, "northeast", "2 km")</td><td>(12.5573, 41.9772)</td><td>24</td></tr>
+<tr><td>5</td><td class="pass">&#10004;</td><td class="instruction">Set up a communications relay point 4 km in the direction of 36° from Jasper, Alberta and then find the midpoint between...</td><td class="steps">Azimuth("Jasper, Alberta", "36°", "4 km") → Between("Banff, Alberta", step#1)</td><td>(-116.8097, 52.0397)</td><td>100</td></tr>
+<tr><td>6</td><td class="pass">&#10004;</td><td class="instruction">Identify the midpoint between the Statue of Liberty and the Eiffel Tower. From this midpoint, proceed 8 kilometers due w...</td><td class="steps">Between("Eiffel Tower", "Statue of Liberty") → Relative(step#1, "west", "8 km")</td><td>(-35.9648, 44.7738)</td><td>12</td></tr>
+<tr><td>7</td><td class="pass">&#10004;</td><td class="instruction">Determine a strategic location for a new lookout post by first finding the midpoint between New Orleans, USA, and Veracr...</td><td class="steps">Between("New Orleans, USA", "Veracruz, Mexico") → Relative(step#1, "south west", "8 km")</td><td>(-93.5214, 24.5030)</td><td>24</td></tr>
+<tr><td>8</td><td class="pass">&#10004;</td><td class="instruction">Plan a marine survey starting at Santorini, Greece: First, move 9 km south to begin the survey in a new area. Then, iden...</td><td class="steps">Relative("Santorini, Greece", "south", "9 km") → Between("Santorini, Greece", step#1) → Relative(step#1, "south", "1 km") → Azimuth(step#2, "150°", "5 km") → Between(step#3, step#4)</td><td>(25.4566, 36.2532)</td><td>100</td></tr>
+<tr><td>9</td><td class="pass">&#10004;</td><td class="instruction">Plan a central spot for a camping trip by first finding the midpoint between Mont Blanc and Matterhorn, then find the mi...</td><td class="steps">Between("Mont Blanc", "Matterhorn") → Between(step#1, "Chamonix")</td><td>(7.0851, 45.9051)</td><td>100</td></tr>
+<tr><td>10</td><td class="fail">&#10008;</td><td class="instruction">Begin your geocaching adventure at Central Park in New York City. Move southwest for 9 km. Then head east for another 7 ...</td><td class="steps">Azimuth("Central Park, New York City", "south west", "9 km") → Azimuth(step#1, "east", "7 km") → Azimuth(step#2, "west", "1 km")</td><td><span class="detail">could not convert string to float: ''</span></td><td>0</td></tr>
+<tr><td>11</td><td class="pass">&#10004;</td><td class="instruction">Plan a meeting point by moving 3 kilometers east of Central Park and then find a midpoint between this new location and ...</td><td class="steps">Relative("Central Park, Manhattan, New York", "east", "3 km") → Between(step#1, "Central Park, Manhattan, New York")</td><td>(-73.9443, 40.7799)</td><td>100</td></tr>
+<tr><td>12</td><td class="pass">&#10004;</td><td class="instruction">Identify the location that is 9 km to the southeast of Paris city center to set up a monitoring station.</td><td class="steps">Relative("Paris", "southeast", "9 km")</td><td>(2.4955, 48.7404)</td><td>21</td></tr>
+<tr><td>13</td><td class="pass">&#10004;</td><td class="instruction">Design a network of emergency medical drone hubs across Luxembourg. Start at the city hospital in Esch-sur-Alzette. Firs...</td><td class="steps">Relative("Esch-sur-Alzette, Luxembourg", "northeast", "4 km") → Azimuth(step#1, "45°", "6 km") → Azimuth(step#2, "190°", "3 km") → Between(step#3, "Esch-sur-Alzette Hospital, Luxembourg")</td><td>(6.0390, 49.5291)</td><td>100</td></tr>
+<tr><td>14</td><td class="pass">&#10004;</td><td class="instruction">Plan a scenic hiking route starting from Banff, Alberta. First, travel northwest for 2 km to reach a noted viewpoint. Fr...</td><td class="steps">Relative("Banff", "northwest", "2 km") → Relative(step#1, "northeast", "4 km") → Between("Banff", step#2)</td><td>(-115.5678, 51.2013)</td><td>100</td></tr>
+<tr><td>15</td><td class="pass">&#10004;</td><td class="instruction">Start at Central Park in New York City. Move northeast for 2 km to reach the area near The Met Cloisters in Fort Tryon P...</td><td class="steps">Relative("Central Park", "northeast", "2 km") → Azimuth(step#1, "333°", "7 km") → Azimuth(step#2, "62°", "9 km")</td><td>(-73.8799, 40.9066)</td><td>100</td></tr>
+<tr><td>16</td><td class="pass">&#10004;</td><td class="instruction">Start at the Hellisheiði Geothermal Power Plant in Iceland and identify the area 5 kilometers to the northwest to assess...</td><td class="steps">Relative("Hellisheiði Geothermal Power Plant, Iceland", "northwest", "5 km")</td><td>(-21.4213, 64.0501)</td><td>100</td></tr>
+<tr><td>17</td><td class="pass">&#10004;</td><td class="instruction">Plan a geological survey in the Cape Town area. First, find a point 3 km southwest of Signal Hill. Then, find the midpoi...</td><td class="steps">Relative("Signal Hill", "southwest", "3 km") → Between(step#1, "Signal Hill") → Between("Cape Town", step#1) → Between(step#2, step#3)</td><td>(18.3958, -33.9295)</td><td>100</td></tr>
+<tr><td>18</td><td class="pass">&#10004;</td><td class="instruction">Start at Praça do Comércio in Lisbon. First, calculate a point 1 km north from this location. Then, find the midpoint be...</td><td class="steps">Relative("Praça do Comércio, Lisbon", "north", "1 km") → Between(step#1, "Praça do Comércio, Lisbon") → Between("Praça do Comércio, Lisbon", step#2)</td><td>(-9.1370, 38.7108)</td><td>100</td></tr>
+<tr><td>19</td><td class="pass">&#10004;</td><td class="instruction">Starting at the South Pole, travel 4 kilometers at an angle of 65° to find Point A. Determine the midpoint between the S...</td><td class="steps">Azimuth("South Pole", "65°", "4 km") → Between("South Pole", step#1) → Azimuth(step#2, "184°", "7 km")</td><td>(-129.4033, -89.9550)</td><td>100</td></tr>
+<tr><td>20</td><td class="pass">&#10004;</td><td class="instruction">Identify a new exploration point 10 km northwest of the base camp at Yosemite National Park.</td><td class="steps">Relative("Yosemite National Park", "northwest", "10 km")</td><td>(-119.5969, 37.9028)</td><td>100</td></tr>
+</table>
+<h2>Mismatch Analysis</h2>
+<table><tr><th>Reason</th><th>Count</th><th>%</th></tr>
+<tr><td>Step count mismatch</td><td>1</td><td>5.0%</td></tr>
+<tr><td>Step 3</td><td>1</td><td>5.0%</td></tr>
+</table>
+</body></html>

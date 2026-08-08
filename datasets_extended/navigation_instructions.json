@@ -1,0 +1,82 @@
+[
+  {
+    "index": 1,
+    "instruction": "From Times Square, walk 1 km north along Broadway to reach Columbus Circle.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Times Square, New York", "north", "1 km"]}],
+    "source": "navigation", "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "Start at Shibuya Crossing in Tokyo. Head northeast for 3 km to reach the Meiji Shrine area.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Shibuya Crossing, Tokyo", "northeast", "3 km"]}],
+    "source": "navigation", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "Begin at the Brandenburger Tor in Berlin, go 2 km east along Unter den Linden, then 1 km south to reach Checkpoint Charlie.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Brandenburg Gate, Berlin", "east", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "1 km"]}
+    ],
+    "source": "navigation", "difficulty": "medium"
+  },
+  {
+    "index": 4,
+    "instruction": "From the Duomo in Milan, head northwest for 4 km to reach the Cimitero Monumentale. Then find the midpoint between the Duomo and your destination.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Duomo di Milano", "northwest", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Duomo di Milano", 1]}
+    ],
+    "source": "navigation", "difficulty": "medium"
+  },
+  {
+    "index": 5,
+    "instruction": "Start at the Hagia Sophia in Istanbul. Navigate 6 km at a bearing of 30 degrees to reach the area near Istinye.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Hagia Sophia, Istanbul", 30, "6 km"]}],
+    "source": "navigation", "difficulty": "medium"
+  },
+  {
+    "index": 6,
+    "instruction": "From the Royal Palace in Madrid, go 3 km south to Puerta de Toledo, then 5 km southeast to reach the Retiro Park area.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Royal Palace, Madrid", "south", "3 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "southeast", "5 km"]}
+    ],
+    "source": "navigation", "difficulty": "medium"
+  },
+  {
+    "index": 7,
+    "instruction": "Navigate from the Christ the Redeemer statue in Rio de Janeiro, 8 km northeast to Maracana Stadium. The pickup point is two-thirds of the way there.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Christ the Redeemer, Rio de Janeiro", "Maracana Stadium, Rio de Janeiro", 0.67]}],
+    "source": "navigation", "difficulty": "medium"
+  },
+  {
+    "index": 8,
+    "instruction": "Start at Edinburgh Castle, head 2 km east along the Royal Mile, then 3 km north to reach Leith. From Leith, proceed 4 km at a bearing of 70 degrees.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Edinburgh Castle", "east", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "3 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, 70, "4 km"]}
+    ],
+    "source": "navigation", "difficulty": "hard"
+  },
+  {
+    "index": 9,
+    "instruction": "From the Space Needle in Seattle, go 10 km southeast to Bellevue. Find the midpoint between Bellevue and Redmond, then move 2 km west.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Space Needle, Seattle", "southeast", "10 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Redmond, Washington"]},
+      {"id": 3, "function": "Relative", "inputs": [2, "west", "2 km"]}
+    ],
+    "source": "navigation", "difficulty": "hard"
+  },
+  {
+    "index": 10,
+    "instruction": "From the CN Tower in Toronto, head 5 km west. Then find the quarter-way point between your location and Niagara Falls.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["CN Tower, Toronto", "west", "5 km"]},
+      {"id": 2, "function": "Fraction", "inputs": [1, "Niagara Falls", 0.25]}
+    ],
+    "source": "navigation", "difficulty": "hard"
+  }
+]

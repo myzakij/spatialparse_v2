@@ -1,0 +1,506 @@
+[
+  {
+    "index": 1,
+    "instruction": "Find the area 5 kilometers south of the Eiffel Tower.",
+    "type": "Relative",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      2.2945006,
+      48.81334387523317
+    ],
+    "program": [
+      2.2945006,
+      48.81334387523317
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.9989,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 2,
+    "instruction": "Locate the midpoint between the Colosseum in Rome and the Pantheon.",
+    "type": "Between",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      12.4843682,
+      41.89477905
+    ],
+    "program": [
+      12.4843682,
+      41.89477905
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": null,
+      "BE": null,
+      "DR": null,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 3,
+    "instruction": "Find the area 3 km northeast of Central Park in New York City.",
+    "type": "Relative",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      -73.94018845422596,
+      40.801826020535195
+    ],
+    "program": [
+      -73.94018845422596,
+      40.801826020535195
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.9989,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 4,
+    "instruction": "Determine a point 8 km at a bearing of 120 degrees from the Sydney Opera House.",
+    "type": "Azimuth",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      151.29010113516853,
+      -33.89310812537347
+    ],
+    "program": [
+      151.29010113516853,
+      -33.89310812537347
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.9989,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 5,
+    "instruction": "Find the area one-quarter of the way from Burwood to Sydney Town Hall, closer to Burwood.",
+    "type": "Fraction",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      151.12957345,
+      -33.876157575
+    ],
+    "program": [
+      151.128405175,
+      -33.8826558
+    ],
+    "metrics": {
+      "ADE": 0.7306,
+      "RDE": null,
+      "BE": null,
+      "DR": null,
+      "Hit@0.1": false,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 6,
+    "instruction": "Identify the midpoint between Tokyo Tower and Mount Fuji, then move 10 km to the west.",
+    "type": "Chain(Between+Relative)",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      139.12779414699702,
+      35.51059349857172
+    ],
+    "program": [
+      139.13552237550502,
+      35.508790101916844
+    ],
+    "metrics": {
+      "ADE": 0.7277,
+      "RDE": 0.0728,
+      "BE": 0.39,
+      "DR": 5.762,
+      "Hit@0.1": false,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 7,
+    "instruction": "Starting from the Kremlin in Moscow, go 15 km northwest, then find the midpoint between that location and Sheremetyevo Airport.",
+    "type": "Chain(Relative+Between)",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      37.43610211909443,
+      55.91143669179618
+    ],
+    "program": [
+      37.43610211909443,
+      55.91143669179618
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 1.4063,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 8,
+    "instruction": "Plan a relay station 6 km east of Big Ben in London, then another station 4 km south of that.",
+    "type": "Chain(Relative+Relative)",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      -0.03798773032614055,
+      51.464739507544515
+    ],
+    "program": [
+      -0.03798773032614055,
+      51.464739507544515
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.7207,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 9,
+    "instruction": "Find the point three-quarters of the way from the Statue of Liberty to Times Square.",
+    "type": "Fraction",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      -74.0005619,
+      40.74025935
+    ],
+    "program": [
+      -74.00061635,
+      40.740070425
+    ],
+    "metrics": {
+      "ADE": 0.0215,
+      "RDE": null,
+      "BE": null,
+      "DR": null,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 10,
+    "instruction": "Determine the midpoint between the Brandenburg Gate in Berlin and the Charles Bridge in Prague.",
+    "type": "Between",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      13.895656299999999,
+      51.30122255
+    ],
+    "program": [
+      13.89392595,
+      51.30144785
+    ],
+    "metrics": {
+      "ADE": 0.1229,
+      "RDE": null,
+      "BE": null,
+      "DR": null,
+      "Hit@0.1": false,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 11,
+    "instruction": "From the Kazan Kremlin, move 7 km southwest, then from that point head 3 km at a bearing of 200 degrees.",
+    "type": "Chain(Relative+Azimuth)",
+    "difficulty": "hard",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      49.01078584059124,
+      55.72920640820102
+    ],
+    "program": [
+      49.01078584059124,
+      55.72920640820102
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.9791,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 12,
+    "instruction": "Identify the midpoint between Buckingham Palace and the Tower of London, then move 2 km north from that midpoint.",
+    "type": "Chain(Between+Relative)",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      -0.1095962,
+      51.52249235990674
+    ],
+    "program": [
+      -0.1095962,
+      51.52249235990674
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 1.6692,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 13,
+    "instruction": "Find the area 20 km due south of Reykjavik, Iceland.",
+    "type": "Relative",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      -21.9422367,
+      63.96631690093261
+    ],
+    "program": [
+      -21.9422367,
+      63.96631690093261
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.9989,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 14,
+    "instruction": "Set up a checkpoint halfway between the Louvre Museum and Notre-Dame Cathedral, then go 1 km east.",
+    "type": "Chain(Between+Relative)",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      2.357692431004074,
+      48.85704139395518
+    ],
+    "program": [
+      2.357692431004074,
+      48.85704139395518
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 1.5093,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 15,
+    "instruction": "Find the area 12 km at a bearing of 45 degrees from the Acropolis of Athens, then find the midpoint between that area and the Temple of Poseidon at Cape Sounion.",
+    "type": "Chain(Azimuth+Between)",
+    "difficulty": "hard",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": false,
+    "error": "No results for 'Temple of Poseidon, Cape Sounion'"
+  },
+  {
+    "index": 16,
+    "instruction": "Locate the point 4 km west of the Sagrada Familia in Barcelona.",
+    "type": "Relative",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      2.126522389151183,
+      41.40349466508365
+    ],
+    "program": [
+      2.126522389151183,
+      41.40349466508365
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.9989,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 17,
+    "instruction": "Start at the Golden Gate Bridge, move 5 km southeast, then from there move 3 km southwest. Find the midpoint between the final location and Alcatraz Island.",
+    "type": "Chain(Relative+Relative+Between)",
+    "difficulty": "hard",
+    "source": "unknown",
+    "n_steps": 3,
+    "success": true,
+    "manual": [
+      -122.44262360963432,
+      37.79806811710259
+    ],
+    "program": [
+      -122.44249504557834,
+      37.796755467541665
+    ],
+    "metrics": {
+      "ADE": 0.1464,
+      "RDE": 0.0183,
+      "BE": 1.51,
+      "DR": 0.5133,
+      "Hit@0.1": false,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 18,
+    "instruction": "Find the point one-third of the way from the Hermitage Museum in Saint Petersburg to the Peter and Paul Fortress.",
+    "type": "Fraction",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      30.314232335,
+      59.94413041
+    ],
+    "program": [
+      30.314232335,
+      59.94413041
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": null,
+      "BE": null,
+      "DR": null,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 19,
+    "instruction": "Determine a patrol area 6 km north of the Pyramids of Giza, then shift 4 km east.",
+    "type": "Chain(Relative+Relative)",
+    "difficulty": "medium",
+    "source": "unknown",
+    "n_steps": 2,
+    "success": true,
+    "manual": [
+      31.057555181606475,
+      30.056924909454008
+    ],
+    "program": [
+      31.057555181606475,
+      30.056924909454008
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": 0.0,
+      "BE": 0.0,
+      "DR": 0.7203,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  },
+  {
+    "index": 20,
+    "instruction": "Find the midpoint between Machu Picchu and Lake Titicaca.",
+    "type": "Between",
+    "difficulty": "easy",
+    "source": "unknown",
+    "n_steps": 1,
+    "success": true,
+    "manual": [
+      -70.96060525,
+      -14.4620061
+    ],
+    "program": [
+      -70.96060525,
+      -14.4620061
+    ],
+    "metrics": {
+      "ADE": 0.0,
+      "RDE": null,
+      "BE": null,
+      "DR": null,
+      "Hit@0.1": true,
+      "Hit@1": true,
+      "Hit@5": true
+    }
+  }
+]

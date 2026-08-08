@@ -1,0 +1,71 @@
+[
+  {
+    "index": 1,
+    "instruction": "The military base is located 45 km at a bearing of 275 degrees from Baghdad, in the western desert.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Baghdad", 275, "45 km"]}],
+    "source": "spatial_ml", "difficulty": "medium"
+  },
+  {
+    "index": 2,
+    "instruction": "Reconnaissance aircraft spotted the convoy 30 km southeast of Mosul, moving towards Kirkuk.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Mosul", "southeast", "30 km"]}],
+    "source": "spatial_ml", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "The border checkpoint is at the midpoint between Peshawar and Jalalabad along the Khyber Pass.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Peshawar, Pakistan", "Jalalabad, Afghanistan"]}],
+    "source": "spatial_ml", "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "The research station is 120 km south of McMurdo Station in Antarctica, on the Ross Ice Shelf.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["McMurdo Station, Antarctica", "south", "120 km"]}],
+    "source": "spatial_ml", "difficulty": "medium"
+  },
+  {
+    "index": 5,
+    "instruction": "Set up observation post at the point one-third of the way from Gibraltar to Tangier across the strait.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Gibraltar", "Tangier, Morocco", 0.33]}],
+    "source": "spatial_ml", "difficulty": "medium"
+  },
+  {
+    "index": 6,
+    "instruction": "The satellite detected heat anomaly 70 km at bearing 150 degrees from Brasilia. A second anomaly was found 25 km west of the first.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Brasilia", 150, "70 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "25 km"]}
+    ],
+    "source": "spatial_ml", "difficulty": "hard"
+  },
+  {
+    "index": 7,
+    "instruction": "The vessel was last seen at the midpoint between Singapore and Jakarta. Search area extends 50 km north of that position.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Singapore", "Jakarta"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "50 km"]}
+    ],
+    "source": "spatial_ml", "difficulty": "hard"
+  },
+  {
+    "index": 8,
+    "instruction": "The sensor array is positioned 18 km at a bearing of 22 degrees from the lighthouse at Cape Agulhas, South Africa.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Cape Agulhas, South Africa", 22, "18 km"]}],
+    "source": "spatial_ml", "difficulty": "medium"
+  },
+  {
+    "index": 9,
+    "instruction": "Weather balloon launched from Darwin, Australia, drifted 90 km northwest, then 40 km at a bearing of 350 degrees.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Darwin, Australia", "northwest", "90 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, 350, "40 km"]}
+    ],
+    "source": "spatial_ml", "difficulty": "hard"
+  },
+  {
+    "index": 10,
+    "instruction": "The archaeological site is located three-quarters of the way from Athens to Thessaloniki along the ancient road.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Athens", "Thessaloniki", 0.75]}],
+    "source": "spatial_ml", "difficulty": "medium"
+  }
+]

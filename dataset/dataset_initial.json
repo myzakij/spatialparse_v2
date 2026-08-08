@@ -1,0 +1,186 @@
+[
+    {
+        "instruction": "3km east of Melbourne and 5km north of St Kilda.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Melbourne", "east", "3 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["St Kilda", "north", "5 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]}
+        ]
+    },
+    {
+        "instruction": "7km north of Los Angeles, 4km west of Pasadena, then 3km northeast from their midpoint.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Los Angeles", "north", "7 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Pasadena", "west", "4 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "northeast", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "5km west of Sydney.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Sydney", "west", "5 km"]}
+        ]
+    },
+    {
+        "instruction": "2km south of Brisbane and 6km east of its result.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Brisbane", "south", "2 km"]},
+            {"id": 2, "function": "Relative", "inputs": [1, "east", "6 km"]}
+        ]
+    },
+    {
+        "instruction": "5km northeast of Paris and 3km south of Versailles, then 4km northwest of their midpoint.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Paris", "northeast", "5 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Versailles", "south", "3 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "northwest", "4 km"]}
+        ]
+    },
+    {
+        "instruction": "8km southeast of Chicago, 10km west of Gary, then 6km north of their midpoint.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Chicago", "southeast", "8 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Gary", "west", "10 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "north", "6 km"]}
+        ]
+    },
+    {
+        "instruction": "4km south of Madrid and 5km north of Getafe.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Madrid", "south", "4 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Getafe", "north", "5 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]}
+        ]
+    },
+    {
+        "instruction": "6km west of Rome and 3km south of Vatican City, then 2km southeast of their midpoint.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Rome", "west", "6 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Vatican City", "south", "3 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "southeast", "2 km"]}
+        ]
+    },
+    {
+        "instruction": "5km north of Toronto and 3km east of its result.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Toronto", "north", "5 km"]},
+            {"id": 2, "function": "Relative", "inputs": [1, "east", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "4km west of Osaka and 6km southwest of Kyoto, then 3km north of their midpoint.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Osaka", "west", "4 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Kyoto", "southwest", "6 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "north", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "6km west of Berlin, 4km north of Potsdam, then 5km southeast of their midpoint, finally 3km east.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Berlin", "west", "6 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Potsdam", "north", "4 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "southeast", "5 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "east", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "8km south of San Francisco, 6km west of Oakland, then 5km northeast, followed by 4km southeast.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["San Francisco", "south", "8 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Oakland", "west", "6 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "northeast", "5 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "southeast", "4 km"]}
+        ]
+    },
+    {
+        "instruction": "5km northeast of Tokyo, 3km west of Chiba, then 7km south, followed by 6km northwest.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Tokyo", "northeast", "5 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Chiba", "west", "3 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "south", "7 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "northwest", "6 km"]}
+        ]
+    },
+    {
+        "instruction": "7km southeast of London, 5km north of Croydon, then 6km west, followed by 3km northeast.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["London", "southeast", "7 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Croydon", "north", "5 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "west", "6 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "northeast", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "10km south of New York, 4km west of Jersey City, then 8km east, followed by 5km north.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["New York", "south", "10 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Jersey City", "west", "4 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "east", "8 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "north", "5 km"]}
+        ]
+    },
+    {
+        "instruction": "6km southwest of Melbourne, 4km north of Geelong, then 5km east, followed by 6km southeast.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Melbourne", "southwest", "6 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Geelong", "north", "4 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "east", "5 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "southeast", "6 km"]}
+        ]
+    },
+    {
+        "instruction": "7km west of Madrid, 5km north of Toledo, then 8km southeast, followed by 4km east, then 3km north.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Madrid", "west", "7 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Toledo", "north", "5 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "southeast", "8 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "east", "4 km"]},
+            {"id": 6, "function": "Relative", "inputs": [5, "north", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "5km east of Rome, 3km south of Naples, then 6km northwest, followed by 4km southwest, then 3km north.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Rome", "east", "5 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Naples", "south", "3 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "northwest", "6 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "southwest", "4 km"]},
+            {"id": 6, "function": "Relative", "inputs": [5, "north", "3 km"]}
+        ]
+    },
+    {
+        "instruction": "8km north of Toronto, 5km west of Mississauga, then 4km southeast, followed by 6km south.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Toronto", "north", "8 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Mississauga", "west", "5 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "southeast", "4 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "south", "6 km"]}
+        ]
+    },
+    {
+        "instruction": "7km southwest of Osaka, 4km north of Kyoto, then 6km east, followed by 5km northeast, then 3km west.",
+        "steps": [
+            {"id": 1, "function": "Relative", "inputs": ["Osaka", "southwest", "7 km"]},
+            {"id": 2, "function": "Relative", "inputs": ["Kyoto", "north", "4 km"]},
+            {"id": 3, "function": "Between", "inputs": [1, 2]},
+            {"id": 4, "function": "Relative", "inputs": [3, "east", "6 km"]},
+            {"id": 5, "function": "Relative", "inputs": [4, "northeast", "5 km"]},
+            {"id": 6, "function": "Relative", "inputs": [5, "west", "3 km"]}
+        ]
+    }
+]

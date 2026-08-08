@@ -1,0 +1,141 @@
+[
+  {
+    "index": 1,
+    "instruction": "20 км к северу от Мурманска в сторону Баренцева моря.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Murmansk", "north", "20 km"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "Середина между Калининградом и Вильнюсом.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Kaliningrad", "Vilnius"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "8 км на юго-восток от Петропавловской крепости в Санкт-Петербурге.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Peter and Paul Fortress, Saint Petersburg", "southeast", "8 km"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "Найди точку на полпути между Нижним Новгородом и Казанью вдоль Волги.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Nizhny Novgorod", "Kazan"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 5,
+    "instruction": "12 км к западу от Храма Василия Блаженного на Красной площади в Москве.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Saint Basil's Cathedral, Moscow", "west", "12 km"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 6,
+    "instruction": "Треть пути от Екатеринбурга до Челябинска.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Yekaterinburg", "Chelyabinsk", 0.33]}],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 7,
+    "instruction": "30 км по азимуту 45 градусов от Пулково в Петербурге.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Pulkovo Airport, Saint Petersburg", 45, "30 km"]}],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 8,
+    "instruction": "Из центра Самары 5 км на юг, потом 3 км на восток к берегу Волги.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Samara, Russia", "south", "5 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "east", "3 km"]}
+    ],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 9,
+    "instruction": "Точка на три четверти пути от Иркутска до Улан-Удэ вдоль Транссиба.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Irkutsk", "Ulan-Ude", 0.75]}],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 10,
+    "instruction": "Середина между Ростовом-на-Дону и Краснодаром, затем 15 км на юго-запад.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Rostov-on-Don", "Krasnodar"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "southwest", "15 km"]}
+    ],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 11,
+    "instruction": "Пожар обнаружен в 40 км к северо-востоку от Якутска в тайге.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Yakutsk", "northeast", "40 km"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 12,
+    "instruction": "Метеостанция установлена на полпути между Норильском и Дудинкой.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Norilsk", "Dudinka"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 13,
+    "instruction": "Из аэропорта Домодедово 10 км на запад, затем ещё 7 км по азимуту 310 градусов.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Domodedovo Airport, Moscow", "west", "10 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, 310, "7 km"]}
+    ],
+    "source": "russian_advanced", "difficulty": "hard"
+  },
+  {
+    "index": 14,
+    "instruction": "Место аварии находится в 25 км к юго-западу от Тюмени. Спасатели выдвинулись из Тюмени к месту аварии, остановка на середине пути.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Tyumen", "southwest", "25 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Tyumen", 1]}
+    ],
+    "source": "russian_advanced", "difficulty": "hard"
+  },
+  {
+    "index": 15,
+    "instruction": "Четверть пути от Петрозаводска до Мурманска, ближе к Петрозаводску.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Petrozavodsk", "Murmansk", 0.25]}],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 16,
+    "instruction": "6 км на север от Мамаева кургана в Волгограде.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Mamayev Kurgan, Volgograd", "north", "6 km"]}],
+    "source": "russian_advanced", "difficulty": "easy"
+  },
+  {
+    "index": 17,
+    "instruction": "Из Калуги 50 км на юго-восток в сторону Тулы, затем найди середину между этой точкой и Тулой.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Kaluga", "southeast", "50 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Tula, Russia"]}
+    ],
+    "source": "russian_advanced", "difficulty": "hard"
+  },
+  {
+    "index": 18,
+    "instruction": "Маяк расположен в 3 км к востоку от мыса Дежнёва на Чукотке.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Cape Dezhnev, Chukotka", "east", "3 km"]}],
+    "source": "russian_advanced", "difficulty": "hard"
+  },
+  {
+    "index": 19,
+    "instruction": "Найди точку ровно посередине между Байкалом и Хубсугулом в Монголии.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Lake Baikal", "Lake Khuvsgul, Mongolia"]}],
+    "source": "russian_advanced", "difficulty": "medium"
+  },
+  {
+    "index": 20,
+    "instruction": "Из Грозного 15 км на юг в горы, потом 8 км на запад, потом середина между конечной точкой и Владикавказом.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Grozny", "south", "15 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "8 km"]},
+      {"id": 3, "function": "Between", "inputs": [2, "Vladikavkaz"]}
+    ],
+    "source": "russian_advanced", "difficulty": "hard"
+  }
+]

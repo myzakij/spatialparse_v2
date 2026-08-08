@@ -1,0 +1,1244 @@
+[
+  {
+    "id": 1,
+    "text": "Эйфелева башня",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Locate",
+        "inputs": [
+          "Eiffel Tower, Paris"
+        ]
+      }
+    ],
+    "gold_lon": 2.2945,
+    "gold_lat": 48.8584,
+    "category": "locate",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "text": "Кремль в Москве",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Locate",
+        "inputs": [
+          "Kremlin, Moscow"
+        ]
+      }
+    ],
+    "gold_lon": 37.6176,
+    "gold_lat": 55.752,
+    "category": "locate",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "text": "Колизей в Риме",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Locate",
+        "inputs": [
+          "Colosseum, Rome"
+        ]
+      }
+    ],
+    "gold_lon": 12.4924,
+    "gold_lat": 41.8902,
+    "category": "locate",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "text": "Тадж-Махал",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Locate",
+        "inputs": [
+          "Taj Mahal"
+        ]
+      }
+    ],
+    "gold_lon": 78.0421,
+    "gold_lat": 27.1751,
+    "category": "locate",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "text": "Казанский Кремль",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Locate",
+        "inputs": [
+          "Kazan Kremlin"
+        ]
+      }
+    ],
+    "gold_lon": 49.1064,
+    "gold_lat": 55.7982,
+    "category": "locate",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "text": "5 км к югу от Эйфелевой башни",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Eiffel Tower, Paris",
+          "south",
+          "5 km"
+        ]
+      }
+    ],
+    "gold_lon": 2.2945,
+    "gold_lat": 48.81348,
+    "category": "relative",
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "text": "10 км к северу от Кремля",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kremlin, Moscow",
+          "north",
+          "10 km"
+        ]
+      }
+    ],
+    "gold_lon": 37.6176,
+    "gold_lat": 55.84183,
+    "category": "relative",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "text": "3 км к востоку от Колизея",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Colosseum, Rome",
+          "east",
+          "3 km"
+        ]
+      }
+    ],
+    "gold_lon": 12.5286,
+    "gold_lat": 41.89019,
+    "category": "relative",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "text": "7 км к западу от Биг-Бена",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Big Ben, London",
+          "west",
+          "7 km"
+        ]
+      }
+    ],
+    "gold_lon": -0.22562,
+    "gold_lat": 51.50066,
+    "category": "relative",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "text": "15 км к северо-западу от Кремля",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kremlin, Moscow",
+          "northwest",
+          "15 km"
+        ]
+      }
+    ],
+    "gold_lon": 37.44788,
+    "gold_lat": 55.84716,
+    "category": "relative",
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "text": "20 км к юго-востоку от Бурдж-Халифы",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Burj Khalifa, Dubai",
+          "southeast",
+          "20 km"
+        ]
+      }
+    ],
+    "gold_lon": 55.41466,
+    "gold_lat": 25.07009,
+    "category": "relative",
+    "difficulty": "medium"
+  },
+  {
+    "id": 12,
+    "text": "8 км к северо-востоку от Бранденбургских ворот",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Brandenburg Gate, Berlin",
+          "northeast",
+          "8 km"
+        ]
+      }
+    ],
+    "gold_lon": 13.4613,
+    "gold_lat": 52.56709,
+    "category": "relative",
+    "difficulty": "medium"
+  },
+  {
+    "id": 13,
+    "text": "2 км к югу от Казанского Кремля",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kazan Kremlin",
+          "south",
+          "2 km"
+        ]
+      }
+    ],
+    "gold_lon": 49.1064,
+    "gold_lat": 55.78023,
+    "category": "relative",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "text": "12 км к юго-западу от Тадж-Махала",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Taj Mahal",
+          "southwest",
+          "12 km"
+        ]
+      }
+    ],
+    "gold_lon": 77.95648,
+    "gold_lat": 27.09885,
+    "category": "relative",
+    "difficulty": "medium"
+  },
+  {
+    "id": 15,
+    "text": "6 км к северу от Акрополя",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Acropolis, Athens",
+          "north",
+          "6 km"
+        ]
+      }
+    ],
+    "gold_lon": 23.7257,
+    "gold_lat": 38.0254,
+    "category": "relative",
+    "difficulty": "easy"
+  },
+  {
+    "id": 16,
+    "text": "Середина пути между Кремлём и Шереметьево",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Kremlin, Moscow",
+          "Sheremetyevo Airport"
+        ]
+      }
+    ],
+    "gold_lon": 37.5161,
+    "gold_lat": 55.8623,
+    "category": "between",
+    "difficulty": "easy"
+  },
+  {
+    "id": 17,
+    "text": "Средняя точка между Колизеем и Пантеоном в Риме",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Colosseum, Rome",
+          "Pantheon, Rome"
+        ]
+      }
+    ],
+    "gold_lon": 12.4846,
+    "gold_lat": 41.8944,
+    "category": "between",
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "text": "Середина между Эйфелевой башней и Лувром",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Eiffel Tower, Paris",
+          "Louvre, Paris"
+        ]
+      }
+    ],
+    "gold_lon": 2.31605,
+    "gold_lat": 48.8595,
+    "category": "between",
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "text": "Средняя точка между Биг-Беном и Букингемским дворцом",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Big Ben, London",
+          "Buckingham Palace, London"
+        ]
+      }
+    ],
+    "gold_lon": -0.13325,
+    "gold_lat": 51.50105,
+    "category": "between",
+    "difficulty": "easy"
+  },
+  {
+    "id": 20,
+    "text": "Середина пути между пирамидами Гизы и Акрополем",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Pyramids of Giza",
+          "Acropolis, Athens"
+        ]
+      }
+    ],
+    "gold_lon": 27.42995,
+    "gold_lat": 33.97535,
+    "category": "between",
+    "difficulty": "medium"
+  },
+  {
+    "id": 21,
+    "text": "Четверть пути от Статуи Свободы до Таймс-сквер",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Statue of Liberty",
+          "Times Square, New York",
+          0.25
+        ]
+      }
+    ],
+    "gold_lon": -74.0298,
+    "gold_lat": 40.7064,
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "id": 22,
+    "text": "Три четверти пути от Эйфелевой башни до Триумфальной арки",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Eiffel Tower, Paris",
+          "Arc de Triomphe, Paris",
+          0.75
+        ]
+      }
+    ],
+    "gold_lon": 2.29488,
+    "gold_lat": 48.86995,
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "id": 23,
+    "text": "Треть пути от Кремля до Останкинской башни",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Kremlin, Moscow",
+          "Ostankino Tower, Moscow",
+          0.333
+        ]
+      }
+    ],
+    "gold_lon": 37.61564,
+    "gold_lat": 55.77454,
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "id": 24,
+    "text": "Половина пути от Эрмитажа до Петергофа",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Hermitage, Saint Petersburg",
+          "Peterhof",
+          0.5
+        ]
+      }
+    ],
+    "gold_lon": 30.11165,
+    "gold_lat": 59.91295,
+    "category": "fraction",
+    "difficulty": "medium"
+  },
+  {
+    "id": 25,
+    "text": "Две трети пути от Токийской башни до горы Фудзи",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Tokyo Tower",
+          "Mount Fuji",
+          0.667
+        ]
+      }
+    ],
+    "gold_lon": 139.06639,
+    "gold_lat": 35.45983,
+    "category": "fraction",
+    "difficulty": "hard"
+  },
+  {
+    "id": 26,
+    "text": "8 км по азимуту 120 градусов от Сиднейского оперного театра",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Sydney Opera House",
+          120,
+          "8 km"
+        ]
+      }
+    ],
+    "gold_lon": 151.29028,
+    "gold_lat": -33.89271,
+    "category": "azimuth",
+    "difficulty": "easy"
+  },
+  {
+    "id": 27,
+    "text": "10 км по азимуту 45 градусов от Кремля",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Kremlin, Moscow",
+          45,
+          "10 km"
+        ]
+      }
+    ],
+    "gold_lon": 37.73065,
+    "gold_lat": 55.81547,
+    "category": "azimuth",
+    "difficulty": "easy"
+  },
+  {
+    "id": 28,
+    "text": "5 км по азимуту 200 градусов от Бурдж-Халифы",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Burj Khalifa, Dubai",
+          200,
+          "5 km"
+        ]
+      }
+    ],
+    "gold_lon": 55.25743,
+    "gold_lat": 25.15499,
+    "category": "azimuth",
+    "difficulty": "medium"
+  },
+  {
+    "id": 29,
+    "text": "15 км по азимуту 330 градусов от пирамид Гизы",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Pyramids of Giza",
+          330,
+          "15 km"
+        ]
+      }
+    ],
+    "gold_lon": 31.05633,
+    "gold_lat": 30.09587,
+    "category": "azimuth",
+    "difficulty": "medium"
+  },
+  {
+    "id": 30,
+    "text": "3 км по азимуту 90 градусов от Пизанской башни",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Leaning Tower of Pisa",
+          90,
+          "3 km"
+        ]
+      }
+    ],
+    "gold_lon": 10.43389,
+    "gold_lat": 43.72299,
+    "category": "azimuth",
+    "difficulty": "easy"
+  },
+  {
+    "id": 31,
+    "text": "20 километров в сторону Казани от Арска",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Arsk, Tatarstan",
+          "Kazan",
+          "20 km"
+        ]
+      }
+    ],
+    "gold_lon": 49.60612,
+    "gold_lat": 55.99076,
+    "category": "toward",
+    "difficulty": "medium"
+  },
+  {
+    "id": 32,
+    "text": "50 км от Москвы в сторону Нижнего Новгорода",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Moscow",
+          "Nizhny Novgorod",
+          "50 km"
+        ]
+      }
+    ],
+    "gold_lon": 38.40178,
+    "gold_lat": 55.83812,
+    "category": "toward",
+    "difficulty": "medium"
+  },
+  {
+    "id": 33,
+    "text": "30 км от Сочи в сторону Краснодара",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Sochi",
+          "Krasnodar",
+          "30 km"
+        ]
+      }
+    ],
+    "gold_lon": 39.59465,
+    "gold_lat": 43.85215,
+    "category": "toward",
+    "difficulty": "medium"
+  },
+  {
+    "id": 34,
+    "text": "100 км от Новосибирска в сторону Омска",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Novosibirsk",
+          "Omsk",
+          "100 km"
+        ]
+      }
+    ],
+    "gold_lon": 81.36938,
+    "gold_lat": 55.05655,
+    "category": "toward",
+    "difficulty": "hard"
+  },
+  {
+    "id": 35,
+    "text": "40 км от Екатеринбурга в сторону Челябинска",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Yekaterinburg",
+          "Chelyabinsk",
+          "40 km"
+        ]
+      }
+    ],
+    "gold_lon": 60.78191,
+    "gold_lat": 56.49189,
+    "category": "toward",
+    "difficulty": "medium"
+  },
+  {
+    "id": 36,
+    "text": "80 км от Мурманска в направлении Архангельска",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Murmansk",
+          "Arkhangelsk",
+          "80 km"
+        ]
+      }
+    ],
+    "gold_lon": 34.26296,
+    "gold_lat": 68.38154,
+    "category": "toward",
+    "difficulty": "hard"
+  },
+  {
+    "id": 37,
+    "text": "60 км от Иркутска в сторону Улан-Удэ",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Irkutsk",
+          "Ulan-Ude",
+          "60 km"
+        ]
+      }
+    ],
+    "gold_lon": 105.15827,
+    "gold_lat": 52.178,
+    "category": "toward",
+    "difficulty": "medium"
+  },
+  {
+    "id": 38,
+    "text": "20 км от Арска вдоль трассы М7 в сторону Казани",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Along",
+        "inputs": [
+          "Arsk, Tatarstan",
+          "Kazan",
+          "20 km"
+        ]
+      }
+    ],
+    "gold_lon": 49.65344,
+    "gold_lat": 56.01071,
+    "category": "along",
+    "difficulty": "medium"
+  },
+  {
+    "id": 39,
+    "text": "50 км от Москвы по дороге в сторону Нижнего Новгорода",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Along",
+        "inputs": [
+          "Moscow",
+          "Nizhny Novgorod",
+          "50 km"
+        ]
+      }
+    ],
+    "gold_lon": 38.24275,
+    "gold_lat": 55.78642,
+    "category": "along",
+    "difficulty": "hard"
+  },
+  {
+    "id": 40,
+    "text": "30 км от Сочи вдоль шоссе в сторону Краснодара",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Along",
+        "inputs": [
+          "Sochi",
+          "Krasnodar",
+          "30 km"
+        ]
+      }
+    ],
+    "gold_lon": 39.55003,
+    "gold_lat": 43.73615,
+    "category": "along",
+    "difficulty": "medium"
+  },
+  {
+    "id": 41,
+    "text": "40 км от Екатеринбурга по трассе в сторону Челябинска",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Along",
+        "inputs": [
+          "Yekaterinburg",
+          "Chelyabinsk",
+          "40 km"
+        ]
+      }
+    ],
+    "gold_lon": 60.89343,
+    "gold_lat": 56.54278,
+    "category": "along",
+    "difficulty": "medium"
+  },
+  {
+    "id": 42,
+    "text": "60 км от Иркутска вдоль дороги в сторону Улан-Удэ",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Along",
+        "inputs": [
+          "Irkutsk",
+          "Ulan-Ude",
+          "60 km"
+        ]
+      }
+    ],
+    "gold_lon": 103.81743,
+    "gold_lat": 51.96121,
+    "category": "along",
+    "difficulty": "hard"
+  },
+  {
+    "id": 43,
+    "text": "Пересечение улицы Баумана и Профсоюзной в Казани",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Intersection",
+        "inputs": [
+          "Bauman Street",
+          "Profsoyuznaya Street",
+          "Kazan"
+        ]
+      }
+    ],
+    "gold_lon": 49.1154,
+    "gold_lat": 55.7893,
+    "category": "intersection",
+    "difficulty": "medium"
+  },
+  {
+    "id": 44,
+    "text": "Перекрёсток Тверской и Бульварного кольца в Москве",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Intersection",
+        "inputs": [
+          "Tverskaya Street",
+          "Boulevard Ring",
+          "Moscow"
+        ]
+      }
+    ],
+    "gold_lon": 37.6059,
+    "gold_lat": 55.7633,
+    "category": "intersection",
+    "difficulty": "medium"
+  },
+  {
+    "id": 45,
+    "text": "Пересечение Невского проспекта и Садовой улицы в Петербурге",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Intersection",
+        "inputs": [
+          "Nevsky Prospect",
+          "Sadovaya Street",
+          "Saint Petersburg"
+        ]
+      }
+    ],
+    "gold_lon": 30.3339,
+    "gold_lat": 59.9293,
+    "category": "intersection",
+    "difficulty": "medium"
+  },
+  {
+    "id": 46,
+    "text": "Перекрёсток Oxford Street и Regent Street в Лондоне",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Intersection",
+        "inputs": [
+          "Oxford Street",
+          "Regent Street",
+          "London"
+        ]
+      }
+    ],
+    "gold_lon": -0.141,
+    "gold_lat": 51.5152,
+    "category": "intersection",
+    "difficulty": "medium"
+  },
+  {
+    "id": 47,
+    "text": "Пересечение Broadway и 7th Avenue в Нью-Йорке",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Intersection",
+        "inputs": [
+          "Broadway",
+          "7th Avenue",
+          "New York"
+        ]
+      }
+    ],
+    "gold_lon": -73.9857,
+    "gold_lat": 40.758,
+    "category": "intersection",
+    "difficulty": "medium"
+  },
+  {
+    "id": 48,
+    "text": "15 км к северо-западу от Кремля, затем середина пути до Шереметьево",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kremlin, Moscow",
+          "northwest",
+          "15 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Sheremetyevo Airport"
+        ]
+      }
+    ],
+    "gold_lon": 37.43124,
+    "gold_lat": 55.90988,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 49,
+    "text": "6 км к востоку от Биг-Бена, затем 4 км к югу",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Big Ben, London",
+          "east",
+          "6 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "south",
+          "4 km"
+        ]
+      }
+    ],
+    "gold_lon": -0.03802,
+    "gold_lat": 51.46474,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 50,
+    "text": "Найди Эйфелеву башню, затем 3 км к северу от неё",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Locate",
+        "inputs": [
+          "Eiffel Tower, Paris"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "north",
+          "3 km"
+        ]
+      }
+    ],
+    "gold_lon": 2.2945,
+    "gold_lat": 48.88535,
+    "category": "chain",
+    "difficulty": "medium"
+  },
+  {
+    "id": 51,
+    "text": "Середина между Колизеем и Ватиканом, затем 2 км к югу",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Colosseum, Rome",
+          "Vatican"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "south",
+          "2 km"
+        ]
+      }
+    ],
+    "gold_lon": 12.4729,
+    "gold_lat": 41.87858,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 52,
+    "text": "5 км к востоку от Красной площади, затем середина пути до Большого театра",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Red Square, Moscow",
+          "east",
+          "5 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Bolshoi Theatre, Moscow"
+        ]
+      }
+    ],
+    "gold_lon": 37.65961,
+    "gold_lat": 55.75699,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 53,
+    "text": "10 км по азимуту 60 градусов от Бранденбургских ворот, затем середина пути обратно до ворот",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Brandenburg Gate, Berlin",
+          60,
+          "10 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Brandenburg Gate, Berlin"
+        ]
+      }
+    ],
+    "gold_lon": 13.44168,
+    "gold_lat": 52.53872,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 54,
+    "text": "5 км к северу от Казанского Кремля, затем 3 км к востоку, затем 2 км к югу",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kazan Kremlin",
+          "north",
+          "5 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "east",
+          "3 km"
+        ]
+      },
+      {
+        "id": 3,
+        "function": "Relative",
+        "inputs": [
+          2,
+          "south",
+          "2 km"
+        ]
+      }
+    ],
+    "gold_lon": 49.1544,
+    "gold_lat": 55.82514,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 55,
+    "text": "Половина пути от Эрмитажа до Петропавловской крепости, затем 1 км к востоку",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Hermitage, Saint Petersburg",
+          "Peter and Paul Fortress, Saint Petersburg",
+          0.5
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "east",
+          "1 km"
+        ]
+      }
+    ],
+    "gold_lon": 30.33339,
+    "gold_lat": 59.945,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 56,
+    "text": "4 км к востоку от Эйфелевой башни, затем половина пути оттуда до Лувра",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Eiffel Tower, Paris",
+          "east",
+          "4 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Fraction",
+        "inputs": [
+          1,
+          "Louvre, Paris",
+          0.5
+        ]
+      }
+    ],
+    "gold_lon": 2.34336,
+    "gold_lat": 48.85949,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 57,
+    "text": "Середина между Кремлём и Воробьёвыми горами, затем середина оттуда до Парка Горького",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Kremlin, Moscow",
+          "Sparrow Hills, Moscow"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Gorky Park, Moscow"
+        ]
+      }
+    ],
+    "gold_lon": 37.59072,
+    "gold_lat": 55.73123,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 58,
+    "text": "20 км от Арска в сторону Казани, затем середина пути оттуда до Казани",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Arsk, Tatarstan",
+          "Kazan",
+          "20 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Kazan"
+        ]
+      }
+    ],
+    "gold_lon": 49.35626,
+    "gold_lat": 55.89448,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 59,
+    "text": "30 км от Сочи в сторону Краснодара, затем 5 км к востоку",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Toward",
+        "inputs": [
+          "Sochi",
+          "Krasnodar",
+          "30 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "east",
+          "5 km"
+        ]
+      }
+    ],
+    "gold_lon": 39.65694,
+    "gold_lat": 43.85213,
+    "category": "chain",
+    "difficulty": "hard"
+  },
+  {
+    "id": 60,
+    "text": "10 км к северу от Кремля, затем 5 км в сторону Шереметьево",
+    "expected_steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kremlin, Moscow",
+          "north",
+          "10 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Toward",
+        "inputs": [
+          1,
+          "Sheremetyevo Airport",
+          "5 km"
+        ]
+      }
+    ],
+    "gold_lon": 37.56513,
+    "gold_lat": 55.87575,
+    "category": "chain",
+    "difficulty": "hard"
+  }
+]

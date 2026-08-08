@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кабинет - SpatialParse</title>
+  <meta name="description" content="Личный кабинет SpatialParse: история запросов, сохраненные результаты, карта, рабочие настройки и управление данными.">
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="account">
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="SpatialParse">
+      <span class="brand-mark"><i data-lucide="scan-line"></i></span>
+      <span>SpatialParse</span>
+    </a>
+    <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false"><i data-lucide="menu"></i></button>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="index.html">Главная</a>
+      <a href="features.html">Возможности</a>
+      <a href="demo.html">Демо</a>
+      <a href="docs.html">Документация</a>
+      <a href="pricing.html">Тарифы</a>
+      <a href="about.html">О проекте</a>
+      <a class="active" href="account.html">Кабинет</a>
+    </nav>
+    <div class="auth-actions">
+      <span class="user-chip" id="userChip" hidden></span>
+      <button class="icon-btn" id="openAccountBtn" type="button" title="Личный кабинет" aria-label="Личный кабинет"><i data-lucide="user-round"></i></button>
+      <button class="btn small ghost" id="authOpenBtn" type="button">Войти</button>
+      <button class="btn small secondary" id="logoutBtn" type="button" hidden>Выйти</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-shell">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span></span>Workspace</div>
+          <h1>Личный кабинет для геозапросов</h1>
+          <p class="lead">История вычислений, сохраненные точки, коллекции результатов, карта предпросмотра и рабочие настройки региона в одном месте.</p>
+        </div>
+        <div class="metric-rack reveal">
+          <div><strong id="historyCount">0</strong><span>запросов</span></div>
+          <div><strong id="savedCount">0</strong><span>сохранено</span></div>
+          <div><strong id="lastActivity">-</strong><span>активность</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="account" class="section-shell no-top">
+      <div class="container">
+        <div class="account-guest reveal" id="accountGuest">
+          <div>
+            <h2>Войдите или создайте аккаунт</h2>
+            <p>После входа сайт будет сохранять историю вычислений и выбранные результаты в локальную SQLite-базу backend. Это позволит повторять запросы, экспортировать данные и вести рабочие подборки.</p>
+          </div>
+          <button class="btn primary magnet" type="button" data-open-auth>
+            <i data-lucide="log-in"></i>
+            <span>Войти</span>
+          </button>
+        </div>
+
+        <div class="account-dashboard" id="accountDashboard" hidden>
+          <div class="account-layout">
+            <section class="account-block reveal overview-block">
+              <div class="panel-heading">
+                <span>Обзор рабочего пространства</span>
+                <a class="mini-link" href="demo.html">Новый запрос</a>
+              </div>
+              <div class="account-overview-grid">
+                <div class="stat-box"><strong id="historyCountMirror">История</strong><span class="stat-label">Все вычисления сохраняются автоматически после входа.</span></div>
+                <div class="stat-box"><strong id="savedCountMirror">Избранное</strong><span class="stat-label">Сохраненные результаты можно открывать на карте и экспортировать.</span></div>
+                <div class="stat-box"><strong>GeoJSON</strong><span class="stat-label">Основной формат обмена для GIS и API.</span></div>
+              </div>
+            </section>
+
+            <section class="account-block reveal" id="history">
+              <div class="panel-heading">
+                <span>История запросов</span>
+                <button class="icon-btn subtle" id="refreshHistoryBtn" type="button" title="Обновить" aria-label="Обновить историю">
+                  <i data-lucide="refresh-cw"></i>
+                </button>
+              </div>
+              <div class="account-tools">
+                <label class="sr-only" for="historySearch">Поиск по истории</label>
+                <input id="historySearch" type="search" placeholder="Поиск по истории" aria-label="Поиск по истории">
+                <select aria-label="Сортировка истории">
+                  <option>Сначала новые</option>
+                  <option>Сначала старые</option>
+                </select>
+              </div>
+              <div id="historyList" class="item-list"></div>
+            </section>
+
+            <section class="account-block reveal" id="saved">
+              <div class="panel-heading">
+                <span>Сохраненные результаты</span>
+                <button class="icon-btn subtle" id="refreshSavedBtn" type="button" title="Обновить" aria-label="Обновить сохраненные результаты">
+                  <i data-lucide="refresh-cw"></i>
+                </button>
+              </div>
+              <div class="collection-strip" aria-label="Коллекции">
+                <button class="active" type="button">Все</button>
+                <button type="button">Рабочие</button>
+                <button type="button">Проверить</button>
+                <button type="button">Экспорт</button>
+              </div>
+              <div id="savedList" class="item-list"></div>
+            </section>
+
+            <section class="account-block account-map-block reveal">
+              <div class="panel-heading">
+                <span>Предпросмотр</span>
+                <a class="mini-link" href="demo.html">Открыть демо</a>
+              </div>
+              <div id="accountMap" class="account-map" aria-label="Карта сохраненного результата"></div>
+            </section>
+
+            <section class="account-block settings-block reveal" id="settings">
+              <div class="panel-heading">
+                <span>Профиль и рабочий контекст</span>
+              </div>
+              <div class="settings-grid">
+                <label>
+                  <span>Имя</span>
+                  <input id="profileName" type="text" placeholder="Имя пользователя">
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input id="profileEmail" type="email" placeholder="email@example.com" readonly>
+                </label>
+                <label>
+                  <span>Регион по умолчанию</span>
+                  <input id="defaultRegion" type="text" value="Казань, Татарстан">
+                </label>
+                <label>
+                  <span>Радиус поиска, км</span>
+                  <input id="defaultRadius" type="number" min="5" max="500" value="120">
+                </label>
+                <label>
+                  <span>Режим по умолчанию</span>
+                  <select id="defaultMode">
+                    <option>Быстро</option>
+                    <option>Точно</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Стиль карты</span>
+                  <select id="mapStyle">
+                    <option>OpenStreetMap</option>
+                    <option>Светлая рабочая карта</option>
+                  </select>
+                </label>
+              </div>
+              <div class="settings-actions">
+                <button class="btn secondary" id="saveSettingsBtn" type="button"><i data-lucide="save"></i><span>Сохранить настройки</span></button>
+              </div>
+              <p class="muted">Email меняется только через подтвержденный сценарий. Регион, радиус и стиль сохраняются как рабочие предпочтения браузера.</p>
+            </section>
+
+            <section class="account-block reveal data-block">
+              <div class="panel-heading">
+                <span>Управление данными</span>
+              </div>
+              <div class="data-actions">
+                <button class="mini-btn" type="button" data-data-action="export-account"><i data-lucide="download"></i><span>Экспорт всей истории</span></button>
+                <button class="mini-btn" type="button" data-data-action="clear-history"><i data-lucide="trash-2"></i><span>Очистить историю</span></button>
+                <button class="mini-btn danger" type="button" data-data-action="delete-account"><i data-lucide="user-x"></i><span>Удалить аккаунт</span></button>
+              </div>
+              <p class="muted">Действия применяются к текущему аккаунту. Перед удалением или очисткой сайт попросит подтверждение.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand mini" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a>
+      <span>Кабинет пользователя</span>
+      <nav class="footer-links" aria-label="Документы">
+        <a href="privacy.html">Конфиденциальность</a>
+        <a href="terms.html">Соглашение</a>
+        <a href="consent.html">Согласие</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="modal" id="authModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-auth></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="icon-btn modal-close" type="button" data-close-auth aria-label="Закрыть"><i data-lucide="x"></i></button>
+      <h2 id="authTitle">Аккаунт SpatialParse</h2>
+      <p class="modal-sub">Вход нужен для истории запросов, сохраненных результатов и рабочего кабинета.</p>
+      <div class="auth-tabs">
+        <button class="active" id="loginTab" type="button">Вход</button>
+        <button id="registerTab" type="button">Регистрация</button>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+        <button class="btn primary full" type="submit"><i data-lucide="log-in"></i><span>Войти</span></button>
+      </form>
+      <form id="registerForm" class="auth-form" hidden>
+        <label><span>Имя</span><input name="name" type="text" autocomplete="name" required></label>
+        <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label class="check-row auth-consent"><input name="consent" type="checkbox" required><span>Я принимаю пользовательское соглашение и согласие на обработку персональных данных.</span></label>
+        <button class="btn primary full" type="submit"><i data-lucide="user-plus"></i><span>Создать аккаунт</span></button>
+      </form>
+      <p class="auth-message" id="authMessage"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="vendor/leaflet.js" defer></script>
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

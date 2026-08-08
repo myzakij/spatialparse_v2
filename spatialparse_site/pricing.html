@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тарифы - SpatialParse</title>
+  <meta name="description" content="Тарифы SpatialParse: бесплатное демо, исследовательский режим, бизнес/API и внедрение в корпоративный контур.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="pricing">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a>
+    <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Открыть меню" aria-expanded="false"><i data-lucide="menu"></i></button>
+    <nav class="nav-links" aria-label="Основная навигация"></nav>
+    <div class="auth-actions"><span class="user-chip" id="userChip" hidden></span><button class="icon-btn" id="openAccountBtn" type="button" title="Личный кабинет" aria-label="Личный кабинет"><i data-lucide="user-round"></i></button><button class="btn small ghost" id="authOpenBtn" type="button">Войти</button><button class="btn small secondary" id="logoutBtn" type="button" hidden>Выйти</button></div>
+  </header>
+
+  <main>
+    <section class="page-hero section-shell">
+      <div class="container page-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span></span>Pricing</div>
+          <h1>Тарифы для демо, исследований и бизнеса</h1>
+          <p class="lead">Пока проект находится в активной разработке, тарифы описывают продуктовую модель и будущие ограничения. Бесплатное демо доступно сразу.</p>
+        </div>
+        <div class="metric-rack reveal"><div><strong>Free</strong><span>для тестов</span></div><div><strong>Research</strong><span>для данных</span></div><div><strong>API</strong><span>для бизнеса</span></div></div>
+      </div>
+    </section>
+
+    <section class="section-shell no-top">
+      <div class="container pricing-grid">
+        <article class="price-card reveal">
+          <div class="price-kicker">Free</div>
+          <h2>Демо</h2>
+          <p>Для проверки запросов, карты, экспорта и личного кабинета.</p>
+          <strong class="price-value">0 ₽</strong>
+          <ul>
+            <li>Ограниченное число запросов</li>
+            <li>История и сохраненные результаты</li>
+            <li>Экспорт GeoJSON/KML/GPX</li>
+            <li>Работа через публичный demo backend</li>
+          </ul>
+          <a class="btn primary full" href="demo.html"><i data-lucide="play"></i><span>Попробовать</span></a>
+        </article>
+        <article class="price-card highlighted reveal">
+          <div class="price-kicker">Research</div>
+          <h2>Исследования</h2>
+          <p>Для научных, образовательных и аналитических задач с большим числом текстов.</p>
+          <strong class="price-value">По запросу</strong>
+          <ul>
+            <li>Расширенные лимиты</li>
+            <li>Пакетная обработка запросов</li>
+            <li>Работа с пользовательскими наборами данных</li>
+            <li>Приоритетная диагностика ошибок</li>
+          </ul>
+          <a class="btn secondary full" href="about.html#contacts"><i data-lucide="mail"></i><span>Обсудить</span></a>
+        </article>
+        <article class="price-card reveal">
+          <div class="price-kicker">Business / API</div>
+          <h2>Внедрение</h2>
+          <p>Для компаний, которым нужен API, командная работа, приватный контур или поддержка.</p>
+          <strong class="price-value">По договору</strong>
+          <ul>
+            <li>API-доступ и ключи</li>
+            <li>Командные аккаунты и роли</li>
+            <li>Настройка лимитов и журналов</li>
+            <li>Развертывание под задачу заказчика</li>
+          </ul>
+          <a class="btn secondary full" href="about.html#contacts"><i data-lucide="briefcase-business"></i><span>Связаться</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell docs-band">
+      <div class="container split-grid">
+        <div class="section-head left reveal"><div class="eyebrow"><span></span>Перед запуском</div><h2>Что нужно для коммерческого доступа</h2><p>Публичная эксплуатация должна сопровождаться юридическими документами, лимитами, безопасностью и прозрачной обработкой внешних сервисов.</p></div>
+        <div class="limitation-list reveal">
+          <div><i data-lucide="lock"></i><span>HTTPS, rate limiting, защита от перебора паролей и безопасные сессии.</span></div>
+          <div><i data-lucide="file-check"></i><span>Пользовательское соглашение, политика конфиденциальности и согласие на обработку данных.</span></div>
+          <div><i data-lucide="server"></i><span>Мониторинг OpenRouter, Nominatim, OSRM, Overpass и отказоустойчивые fallback-сценарии.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><a class="brand mini" href="index.html"><span class="brand-mark"><i data-lucide="scan-line"></i></span><span>SpatialParse</span></a><span>Тарифы</span><nav class="footer-links"><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Соглашение</a><a href="consent.html">Согласие</a></nav></div></footer>
+  <div class="modal" id="authModal" aria-hidden="true"><div class="modal-backdrop" data-close-auth></div><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="icon-btn modal-close" type="button" data-close-auth aria-label="Закрыть"><i data-lucide="x"></i></button><h2 id="authTitle">Аккаунт SpatialParse</h2><p class="modal-sub">Вход нужен для истории запросов, сохраненных результатов и рабочего кабинета.</p><div class="auth-tabs"><button class="active" id="loginTab" type="button">Вход</button><button id="registerTab" type="button">Регистрация</button></div><form id="loginForm" class="auth-form"><label><span>Email</span><input name="email" type="email" autocomplete="email" required></label><label><span>Пароль</span><input name="password" type="password" autocomplete="current-password" minlength="8" required></label><button class="btn primary full" type="submit"><i data-lucide="log-in"></i><span>Войти</span></button></form><form id="registerForm" class="auth-form" hidden><label><span>Имя</span><input name="name" type="text" autocomplete="name" required></label><label><span>Email</span><input name="email" type="email" autocomplete="email" required></label><label><span>Пароль</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label><label class="check-row auth-consent"><input name="consent" type="checkbox" required><span>Я принимаю пользовательское соглашение и согласие на обработку персональных данных.</span></label><button class="btn primary full" type="submit"><i data-lucide="user-plus"></i><span>Создать аккаунт</span></button></form><p class="auth-message" id="authMessage"></p></div></div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="vendor/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

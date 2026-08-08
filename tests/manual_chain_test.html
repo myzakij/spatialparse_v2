@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f68e0079b50d8663cafcf60c6a6df3af {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style="position:fixed;bottom:20px;left:20px;z-index:1000;background:white;padding:14px 18px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:12px;line-height:1.8"><b>Reasoning chain</b><br><span style="color:#3498db">●</span> Step 1: Central Park<br><span style="color:#2ecc71">●</span> Step 2: 2km NE<br><span style="color:#e67e22">●</span> Step 3: 7km @ 333°<br><span style="color:#e74c3c">●</span> Step 4: 9km @ 62° (FINAL)<br><span style="color:#3498db">●</span> Manual calculation<br><b>Difference: 0.01 km</b></div>
+    
+            <div class="folium-map" id="map_f68e0079b50d8663cafcf60c6a6df3af" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f68e0079b50d8663cafcf60c6a6df3af = L.map(
+                "map_f68e0079b50d8663cafcf60c6a6df3af",
+                {
+                    center: [40.83, -73.93],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5a523d2f170825f84f641b78d163705b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5a523d2f170825f84f641b78d163705b.addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var marker_54486c9d823c637da81e6708bda3faca = L.marker(
+                [40.78277, -73.96536],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var icon_599874062075adba54923c0990bc69bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e3195055741c0a979a3e209a1b051f50 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_36224f50c653b62b89c3463228253b4c = $(`<div id="html_36224f50c653b62b89c3463228253b4c" style="width: 100.0%; height: 100.0%;"><b>Step 1: Central Park</b><br>Program: (-73.96536, 40.78277)</div>`)[0];
+                popup_e3195055741c0a979a3e209a1b051f50.setContent(html_36224f50c653b62b89c3463228253b4c);
+            
+        
+
+        marker_54486c9d823c637da81e6708bda3faca.bindPopup(popup_e3195055741c0a979a3e209a1b051f50)
+        ;
+
+        
+    
+    
+                marker_54486c9d823c637da81e6708bda3faca.setIcon(icon_599874062075adba54923c0990bc69bb);
+            
+    
+            var marker_a36a01c1a45a2f9283eb46a72cbd1825 = L.marker(
+                [40.78277, -73.96536],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var div_icon_d2ca14d4b633a86b114ef7a991889d36 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:#3498db;text-shadow:1px 1px 2px white,-1px -1px 2px white;margin-left:14px;margin-top:-8px\"\u003e1. Central Park\u003c/div\u003e",
+  "iconSize": [200, 20],
+  "className": "empty",
+});
+        
+    
+                marker_a36a01c1a45a2f9283eb46a72cbd1825.setIcon(div_icon_d2ca14d4b633a86b114ef7a991889d36);
+            
+    
+            var marker_b2ff57046f82332cb7b3f4d1e822c221 = L.marker(
+                [40.79548, -73.94858],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var icon_02da1cf7c07a4268b3df26a08a265071 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d39452449b604e7a60f716b06b770d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3b5f576c026619a61bf4c03186966072 = $(`<div id="html_3b5f576c026619a61bf4c03186966072" style="width: 100.0%; height: 100.0%;"><b>Step 2: 2km NE</b><br>Program: (-73.94858, 40.79548)</div>`)[0];
+                popup_3d39452449b604e7a60f716b06b770d3.setContent(html_3b5f576c026619a61bf4c03186966072);
+            
+        
+
+        marker_b2ff57046f82332cb7b3f4d1e822c221.bindPopup(popup_3d39452449b604e7a60f716b06b770d3)
+        ;
+
+        
+    
+    
+                marker_b2ff57046f82332cb7b3f4d1e822c221.setIcon(icon_02da1cf7c07a4268b3df26a08a265071);
+            
+    
+            var marker_41bfe0d749b9be2bce2163bea2a695b3 = L.marker(
+                [40.79548, -73.94858],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var div_icon_dfce666f35b2ac79de146565485f7373 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:#2ecc71;text-shadow:1px 1px 2px white,-1px -1px 2px white;margin-left:14px;margin-top:-8px\"\u003e2. 2km NE\u003c/div\u003e",
+  "iconSize": [200, 20],
+  "className": "empty",
+});
+        
+    
+                marker_41bfe0d749b9be2bce2163bea2a695b3.setIcon(div_icon_dfce666f35b2ac79de146565485f7373);
+            
+    
+            var poly_line_860c620a65c59766bc054bb3f14974b1 = L.polyline(
+                [[40.78277, -73.96536], [40.79548, -73.94858]],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": "6", "dashOffset": null, "fill": false, "fillColor": "#2ecc71", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+        var popup_992fcd85236f26e5d11ea976a3f2ccc5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbcb3e8749f4d8c54643032c69e2a26e = $(`<div id="html_bbcb3e8749f4d8c54643032c69e2a26e" style="width: 100.0%; height: 100.0%;">Step 1 → 2</div>`)[0];
+                popup_992fcd85236f26e5d11ea976a3f2ccc5.setContent(html_bbcb3e8749f4d8c54643032c69e2a26e);
+            
+        
+
+        poly_line_860c620a65c59766bc054bb3f14974b1.bindPopup(popup_992fcd85236f26e5d11ea976a3f2ccc5)
+        ;
+
+        
+    
+    
+            var marker_ffe01363dc64bff09252a2bffd284113 = L.marker(
+                [40.8515, -73.98632],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var icon_bb2f0d13b94a8cb38eca3eda3fb198fb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_185cb9a6580afcdff2787d028d9e10b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2a5695b4d1055ced23a93849e4d89a82 = $(`<div id="html_2a5695b4d1055ced23a93849e4d89a82" style="width: 100.0%; height: 100.0%;"><b>Step 3: 7km @ 333°</b><br>Program: (-73.98632, 40.85150)</div>`)[0];
+                popup_185cb9a6580afcdff2787d028d9e10b8.setContent(html_2a5695b4d1055ced23a93849e4d89a82);
+            
+        
+
+        marker_ffe01363dc64bff09252a2bffd284113.bindPopup(popup_185cb9a6580afcdff2787d028d9e10b8)
+        ;
+
+        
+    
+    
+                marker_ffe01363dc64bff09252a2bffd284113.setIcon(icon_bb2f0d13b94a8cb38eca3eda3fb198fb);
+            
+    
+            var marker_7cabcece661c05c34956bdf3a3016e24 = L.marker(
+                [40.8515, -73.98632],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var div_icon_855f90c79bddb8c9e6b001ca7c600541 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:#e67e22;text-shadow:1px 1px 2px white,-1px -1px 2px white;margin-left:14px;margin-top:-8px\"\u003e3. 7km @ 333\u00b0\u003c/div\u003e",
+  "iconSize": [200, 20],
+  "className": "empty",
+});
+        
+    
+                marker_7cabcece661c05c34956bdf3a3016e24.setIcon(div_icon_855f90c79bddb8c9e6b001ca7c600541);
+            
+    
+            var poly_line_8485e303fe76dc5d64bd75c585bed419 = L.polyline(
+                [[40.79548, -73.94858], [40.8515, -73.98632]],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6", "dashOffset": null, "fill": false, "fillColor": "#e67e22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+        var popup_fb7bd8c926d6d38383e3bfb79bf4b1a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72c34a30c117edb41872ddbb97898d0e = $(`<div id="html_72c34a30c117edb41872ddbb97898d0e" style="width: 100.0%; height: 100.0%;">Step 2 → 3</div>`)[0];
+                popup_fb7bd8c926d6d38383e3bfb79bf4b1a7.setContent(html_72c34a30c117edb41872ddbb97898d0e);
+            
+        
+
+        poly_line_8485e303fe76dc5d64bd75c585bed419.bindPopup(popup_fb7bd8c926d6d38383e3bfb79bf4b1a7)
+        ;
+
+        
+    
+    
+            var marker_efeeec87fa03e32657741d2a8d886075 = L.marker(
+                [40.88942, -73.89189],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var icon_8f4c56f58aa238743d5e1ef5ef058d8f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_494c2071575fba2d78b0d2ade4bc6c2c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34f9007c31af8a4e4eaf9859874b17bb = $(`<div id="html_34f9007c31af8a4e4eaf9859874b17bb" style="width: 100.0%; height: 100.0%;"><b>Step 4: 9km @ 62° (FINAL)</b><br>Program: (-73.89189, 40.88942)</div>`)[0];
+                popup_494c2071575fba2d78b0d2ade4bc6c2c.setContent(html_34f9007c31af8a4e4eaf9859874b17bb);
+            
+        
+
+        marker_efeeec87fa03e32657741d2a8d886075.bindPopup(popup_494c2071575fba2d78b0d2ade4bc6c2c)
+        ;
+
+        
+    
+    
+                marker_efeeec87fa03e32657741d2a8d886075.setIcon(icon_8f4c56f58aa238743d5e1ef5ef058d8f);
+            
+    
+            var marker_ef1cfe7a5aaed4eb4dd3e820ae529ffe = L.marker(
+                [40.88942, -73.89189],
+                {
+}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+            var div_icon_a5ccdecabf14431956d2e014300fbe53 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:#e74c3c;text-shadow:1px 1px 2px white,-1px -1px 2px white;margin-left:14px;margin-top:-8px\"\u003e\u26054. 9km @ 62\u00b0 (FINAL)\u003c/div\u003e",
+  "iconSize": [200, 20],
+  "className": "empty",
+});
+        
+    
+                marker_ef1cfe7a5aaed4eb4dd3e820ae529ffe.setIcon(div_icon_a5ccdecabf14431956d2e014300fbe53);
+            
+    
+            var poly_line_ca6908a727f87a1052952a6007107770 = L.polyline(
+                [[40.8515, -73.98632], [40.88942, -73.89189]],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6", "dashOffset": null, "fill": false, "fillColor": "#e74c3c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+        var popup_fe13715eb12b792b559edf251f05e0d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4d6ed6baff4337c391930675a40df3a6 = $(`<div id="html_4d6ed6baff4337c391930675a40df3a6" style="width: 100.0%; height: 100.0%;">Step 3 → 4</div>`)[0];
+                popup_fe13715eb12b792b559edf251f05e0d6.setContent(html_4d6ed6baff4337c391930675a40df3a6);
+            
+        
+
+        poly_line_ca6908a727f87a1052952a6007107770.bindPopup(popup_fe13715eb12b792b559edf251f05e0d6)
+        ;
+
+        
+    
+    
+            var circle_marker_9eb5d8e72b47c025f5c5cbc553c28699 = L.circleMarker(
+                [40.88954, -73.89193],
+                {"bubblingMouseEvents": true, "color": "#3498db", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3498db", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_f68e0079b50d8663cafcf60c6a6df3af);
+        
+    
+        var popup_0309c716c240ad1aea811923db64fd46 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34daad25148ace35c03354d5d8210c87 = $(`<div id="html_34daad25148ace35c03354d5d8210c87" style="width: 100.0%; height: 100.0%;">Manual: (-73.89193, 40.88954)</div>`)[0];
+                popup_0309c716c240ad1aea811923db64fd46.setContent(html_34daad25148ace35c03354d5d8210c87);
+            
+        
+
+        circle_marker_9eb5d8e72b47c025f5c5cbc553c28699.bindPopup(popup_0309c716c240ad1aea811923db64fd46)
+        ;
+
+        
+    
+    
+            map_f68e0079b50d8663cafcf60c6a6df3af.fitBounds(
+                [[40.78277, -73.96536], [40.79548, -73.94858], [40.8515, -73.98632], [40.88942, -73.89189]],
+                {"padding": [40, 40]}
+            );
+        
+</script>
+</html>

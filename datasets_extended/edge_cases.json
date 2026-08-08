@@ -1,0 +1,78 @@
+[
+  {
+    "index": 1,
+    "instruction": "Find the area 5 km south of Portland.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Portland, Oregon", "south", "5 km"]}],
+    "source": "edge_case", "difficulty": "easy",
+    "note": "Ambiguous: Portland OR vs Portland ME. Should default to the larger city (Oregon)."
+  },
+  {
+    "index": 2,
+    "instruction": "Locate the midpoint between Cambridge in England and Cambridge in Massachusetts.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Cambridge, England", "Cambridge, Massachusetts"]}],
+    "source": "edge_case", "difficulty": "medium",
+    "note": "Same name, different countries. Both must be correctly disambiguated."
+  },
+  {
+    "index": 3,
+    "instruction": "3 km at a bearing of 10 degrees west of south from the Sydney Opera House.",
+    "steps": [{"id": 1, "function": "Azimuth", "inputs": ["Sydney Opera House", 190, "3 km"]}],
+    "source": "edge_case", "difficulty": "medium",
+    "note": "Compound direction: '10 degrees west of south' = 180+10 = 190 degrees."
+  },
+  {
+    "index": 4,
+    "instruction": "Find a location 0.5 km north of Big Ben in London.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Big Ben, London", "north", "0.5 km"]}],
+    "source": "edge_case", "difficulty": "easy",
+    "note": "Very short distance — tests precision at small scale."
+  },
+  {
+    "index": 5,
+    "instruction": "Find the midpoint between the North Pole and the South Pole.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["North Pole", "South Pole"]}],
+    "source": "edge_case", "difficulty": "hard",
+    "note": "Extreme geographic scale — result should be on the equator."
+  },
+  {
+    "index": 6,
+    "instruction": "200 km east of Honolulu, Hawaii, in the Pacific Ocean.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Honolulu, Hawaii", "east", "200 km"]}],
+    "source": "edge_case", "difficulty": "medium",
+    "note": "Result is in open ocean — no landmass. Tests that system handles water locations."
+  },
+  {
+    "index": 7,
+    "instruction": "1 км к северу от деревни Лесхоз в Татарстане, Россия.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Leskhoz, Tatarstan, Russia", "north", "1 km"]}],
+    "source": "edge_case", "difficulty": "hard",
+    "note": "Obscure Russian village. Tests Cyrillic geocoding with LLM enrichment."
+  },
+  {
+    "index": 8,
+    "instruction": "Find the area in the center of the triangle formed by Paris, London, and Brussels.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Paris", "London"]},
+      {"id": 2, "function": "Fraction", "inputs": [1, "Brussels", 0.33]}
+    ],
+    "source": "edge_case", "difficulty": "hard",
+    "note": "Centroid of a triangle — requires creative function composition."
+  },
+  {
+    "index": 9,
+    "instruction": "500 meters south of the White House, Washington DC.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["White House, Washington DC", "south", "0.5 km"]}],
+    "source": "edge_case", "difficulty": "easy",
+    "note": "Distance in meters, not km — tests unit handling."
+  },
+  {
+    "index": 10,
+    "instruction": "Go 15 km northwest from the place that is 10 km east of the Kremlin.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Kremlin, Moscow", "east", "10 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northwest", "15 km"]}
+    ],
+    "source": "edge_case", "difficulty": "hard",
+    "note": "Nested relative reference — the starting point itself is defined relatively."
+  }
+]

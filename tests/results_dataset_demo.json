@@ -1,0 +1,180 @@
+{
+  "execution": [
+    {
+      "index": 1,
+      "success": true,
+      "centroid": [
+        2.2945006,
+        48.81334387523317
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 2,
+      "success": true,
+      "centroid": [
+        12.4843682,
+        41.89477905
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 3,
+      "success": true,
+      "centroid": [
+        -73.94018845422596,
+        40.801826020535195
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 4,
+      "success": true,
+      "centroid": [
+        151.29010113516853,
+        -33.89310812537347
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 5,
+      "success": true,
+      "centroid": [
+        151.128405175,
+        -33.8826558
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 6,
+      "success": true,
+      "centroid": [
+        139.12779414699702,
+        35.51059349857172
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 7,
+      "success": true,
+      "centroid": [
+        37.43610211909443,
+        55.91143669179618
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 8,
+      "success": true,
+      "centroid": [
+        -0.03798773032614055,
+        51.464739507544515
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 9,
+      "success": true,
+      "centroid": [
+        -74.00061635,
+        40.740070425
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 10,
+      "success": true,
+      "centroid": [
+        13.89392595,
+        51.30144785
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 11,
+      "success": true,
+      "centroid": [
+        49.01078584059124,
+        55.72920640820102
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 12,
+      "success": true,
+      "centroid": [
+        -0.1095962,
+        51.52249235990674
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 13,
+      "success": true,
+      "centroid": [
+        -21.9422367,
+        63.96631690093261
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 14,
+      "success": true,
+      "centroid": [
+        2.357692431004074,
+        48.85704139395518
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 15,
+      "success": false,
+      "error": "Cannot geocode 'Temple of Poseidon, Cape Sounion'"
+    },
+    {
+      "index": 16,
+      "success": true,
+      "centroid": [
+        2.126522389151183,
+        41.40349466508365
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 17,
+      "success": true,
+      "centroid": [
+        -122.44249504557834,
+        37.796755467541665
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 18,
+      "success": true,
+      "centroid": [
+        30.314232335,
+        59.94413041
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 19,
+      "success": true,
+      "centroid": [
+        31.165735469848638,
+        30.024674017917413
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 20,
+      "success": true,
+      "centroid": [
+        -70.96060525,
+        -14.4620061
+      ],
+      "coord_count": 100
+    }
+  ]
+}

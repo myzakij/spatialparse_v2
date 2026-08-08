@@ -1,0 +1,74 @@
+[
+  {
+    "index": 1,
+    "instruction": "5 километров к югу от Эйфелевой башни.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Eiffel Tower", "south", "5 km"]}],
+    "source": "russian", "difficulty": "easy"
+  },
+  {
+    "index": 2,
+    "instruction": "Середина между Кремлём и аэропортом Шереметьево.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Kremlin, Moscow", "Sheremetyevo Airport"]}],
+    "source": "russian", "difficulty": "easy"
+  },
+  {
+    "index": 3,
+    "instruction": "10 км на северо-запад от Казанского Кремля.",
+    "steps": [{"id": 1, "function": "Relative", "inputs": ["Kazan Kremlin", "northwest", "10 km"]}],
+    "source": "russian", "difficulty": "easy"
+  },
+  {
+    "index": 4,
+    "instruction": "Четверть пути от Эрмитажа до Петропавловской крепости в Санкт-Петербурге.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Hermitage Museum, Saint Petersburg", "Peter and Paul Fortress, Saint Petersburg", 0.25]}],
+    "source": "russian", "difficulty": "medium"
+  },
+  {
+    "index": 5,
+    "instruction": "3 км к востоку от Большого театра в Москве, затем 2 км на север.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Bolshoi Theatre, Moscow", "east", "3 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "north", "2 km"]}
+    ],
+    "source": "russian", "difficulty": "medium"
+  },
+  {
+    "index": 6,
+    "instruction": "Середина между Новосибирском и Красноярском, затем 20 км на юг.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Novosibirsk", "Krasnoyarsk"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south", "20 km"]}
+    ],
+    "source": "russian", "difficulty": "medium"
+  },
+  {
+    "index": 7,
+    "instruction": "7 км к юго-западу от центра Казани, затем ещё 4 км по азимуту 200 градусов.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Kazan", "southwest", "7 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, 200, "4 km"]}
+    ],
+    "source": "russian", "difficulty": "hard"
+  },
+  {
+    "index": 8,
+    "instruction": "Найди точку на полпути от Исаакиевского собора до Казанского собора в Петербурге.",
+    "steps": [{"id": 1, "function": "Between", "inputs": ["Saint Isaac's Cathedral, Saint Petersburg", "Kazan Cathedral, Saint Petersburg"]}],
+    "source": "russian", "difficulty": "easy"
+  },
+  {
+    "index": 9,
+    "instruction": "15 км к северу от Сочи, затем середина между этой точкой и горнолыжным курортом Красная Поляна.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Sochi", "north", "15 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Krasnaya Polyana"]}
+    ],
+    "source": "russian", "difficulty": "hard"
+  },
+  {
+    "index": 10,
+    "instruction": "Две трети пути от Владивостока до Хабаровска.",
+    "steps": [{"id": 1, "function": "Fraction", "inputs": ["Vladivostok", "Khabarovsk", 0.67]}],
+    "source": "russian", "difficulty": "medium"
+  }
+]

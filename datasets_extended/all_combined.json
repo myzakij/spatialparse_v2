@@ -1,0 +1,1894 @@
+[
+  {
+    "index": 1,
+    "instruction": "Find the area 5 km south of Portland.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Portland, Oregon",
+          "south",
+          "5 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "easy",
+    "note": "Ambiguous: Portland OR vs Portland ME. Should default to the larger city (Oregon).",
+    "original_index": 1
+  },
+  {
+    "index": 2,
+    "instruction": "Locate the midpoint between Cambridge in England and Cambridge in Massachusetts.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Cambridge, England",
+          "Cambridge, Massachusetts"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "medium",
+    "note": "Same name, different countries. Both must be correctly disambiguated.",
+    "original_index": 2
+  },
+  {
+    "index": 3,
+    "instruction": "3 km at a bearing of 10 degrees west of south from the Sydney Opera House.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Sydney Opera House",
+          190,
+          "3 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "medium",
+    "note": "Compound direction: '10 degrees west of south' = 180+10 = 190 degrees.",
+    "original_index": 3
+  },
+  {
+    "index": 4,
+    "instruction": "Find a location 0.5 km north of Big Ben in London.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Big Ben, London",
+          "north",
+          "0.5 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "easy",
+    "note": "Very short distance — tests precision at small scale.",
+    "original_index": 4
+  },
+  {
+    "index": 5,
+    "instruction": "Find the midpoint between the North Pole and the South Pole.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "North Pole",
+          "South Pole"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "hard",
+    "note": "Extreme geographic scale — result should be on the equator.",
+    "original_index": 5
+  },
+  {
+    "index": 6,
+    "instruction": "200 km east of Honolulu, Hawaii, in the Pacific Ocean.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Honolulu, Hawaii",
+          "east",
+          "200 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "medium",
+    "note": "Result is in open ocean — no landmass. Tests that system handles water locations.",
+    "original_index": 6
+  },
+  {
+    "index": 7,
+    "instruction": "1 км к северу от деревни Лесхоз в Татарстане, Россия.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Leskhoz, Tatarstan, Russia",
+          "north",
+          "1 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "hard",
+    "note": "Obscure Russian village. Tests Cyrillic geocoding with LLM enrichment.",
+    "original_index": 7
+  },
+  {
+    "index": 8,
+    "instruction": "Find the area in the center of the triangle formed by Paris, London, and Brussels.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Paris",
+          "London"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Fraction",
+        "inputs": [
+          1,
+          "Brussels",
+          0.33
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "hard",
+    "note": "Centroid of a triangle — requires creative function composition.",
+    "original_index": 8
+  },
+  {
+    "index": 9,
+    "instruction": "500 meters south of the White House, Washington DC.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "White House, Washington DC",
+          "south",
+          "0.5 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "easy",
+    "note": "Distance in meters, not km — tests unit handling.",
+    "original_index": 9
+  },
+  {
+    "index": 10,
+    "instruction": "Go 15 km northwest from the place that is 10 km east of the Kremlin.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kremlin, Moscow",
+          "east",
+          "10 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "northwest",
+          "15 km"
+        ]
+      }
+    ],
+    "source": "edge_case",
+    "difficulty": "hard",
+    "note": "Nested relative reference — the starting point itself is defined relatively.",
+    "original_index": 10
+  },
+  {
+    "index": 11,
+    "instruction": "From Times Square, walk 1 km north along Broadway to reach Columbus Circle.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Times Square, New York",
+          "north",
+          "1 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "easy",
+    "original_index": 1
+  },
+  {
+    "index": 12,
+    "instruction": "Start at Shibuya Crossing in Tokyo. Head northeast for 3 km to reach the Meiji Shrine area.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Shibuya Crossing, Tokyo",
+          "northeast",
+          "3 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 13,
+    "instruction": "Begin at the Brandenburger Tor in Berlin, go 2 km east along Unter den Linden, then 1 km south to reach Checkpoint Charlie.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Brandenburg Gate, Berlin",
+          "east",
+          "2 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "south",
+          "1 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "medium",
+    "original_index": 3
+  },
+  {
+    "index": 14,
+    "instruction": "From the Duomo in Milan, head northwest for 4 km to reach the Cimitero Monumentale. Then find the midpoint between the Duomo and your destination.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Duomo di Milano",
+          "northwest",
+          "4 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          "Duomo di Milano",
+          1
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "medium",
+    "original_index": 4
+  },
+  {
+    "index": 15,
+    "instruction": "Start at the Hagia Sophia in Istanbul. Navigate 6 km at a bearing of 30 degrees to reach the area near Istinye.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Hagia Sophia, Istanbul",
+          30,
+          "6 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "medium",
+    "original_index": 5
+  },
+  {
+    "index": 16,
+    "instruction": "From the Royal Palace in Madrid, go 3 km south to Puerta de Toledo, then 5 km southeast to reach the Retiro Park area.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Royal Palace, Madrid",
+          "south",
+          "3 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "southeast",
+          "5 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "medium",
+    "original_index": 6
+  },
+  {
+    "index": 17,
+    "instruction": "Navigate from the Christ the Redeemer statue in Rio de Janeiro, 8 km northeast to Maracana Stadium. The pickup point is two-thirds of the way there.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Christ the Redeemer, Rio de Janeiro",
+          "Maracana Stadium, Rio de Janeiro",
+          0.67
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "medium",
+    "original_index": 7
+  },
+  {
+    "index": 18,
+    "instruction": "Start at Edinburgh Castle, head 2 km east along the Royal Mile, then 3 km north to reach Leith. From Leith, proceed 4 km at a bearing of 70 degrees.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Edinburgh Castle",
+          "east",
+          "2 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "north",
+          "3 km"
+        ]
+      },
+      {
+        "id": 3,
+        "function": "Azimuth",
+        "inputs": [
+          2,
+          70,
+          "4 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "hard",
+    "original_index": 8
+  },
+  {
+    "index": 19,
+    "instruction": "From the Space Needle in Seattle, go 10 km southeast to Bellevue. Find the midpoint between Bellevue and Redmond, then move 2 km west.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Space Needle, Seattle",
+          "southeast",
+          "10 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Redmond, Washington"
+        ]
+      },
+      {
+        "id": 3,
+        "function": "Relative",
+        "inputs": [
+          2,
+          "west",
+          "2 km"
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "hard",
+    "original_index": 9
+  },
+  {
+    "index": 20,
+    "instruction": "From the CN Tower in Toronto, head 5 km west. Then find the quarter-way point between your location and Niagara Falls.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "CN Tower, Toronto",
+          "west",
+          "5 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Fraction",
+        "inputs": [
+          1,
+          "Niagara Falls",
+          0.25
+        ]
+      }
+    ],
+    "source": "navigation",
+    "difficulty": "hard",
+    "original_index": 10
+  },
+  {
+    "index": 21,
+    "instruction": "The earthquake struck 50 km southwest of Tokyo, near the coast of Sagami Bay.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Tokyo",
+          "southwest",
+          "50 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "easy",
+    "original_index": 1
+  },
+  {
+    "index": 22,
+    "instruction": "A wildfire was reported 15 km north of Los Angeles, spreading towards the San Gabriel Mountains.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Los Angeles",
+          "north",
+          "15 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 23,
+    "instruction": "Flooding hit the area 30 km east of Mumbai along the Ulhas River basin.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Mumbai",
+          "east",
+          "30 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "easy",
+    "original_index": 3
+  },
+  {
+    "index": 24,
+    "instruction": "The tsunami warning was issued for the coastal zone between Sendai and Fukushima, approximately at the midpoint.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Sendai, Japan",
+          "Fukushima, Japan"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "easy",
+    "original_index": 4
+  },
+  {
+    "index": 25,
+    "instruction": "A 6.2 magnitude earthquake struck 80 km at a bearing of 210 degrees from Santiago, Chile.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Santiago, Chile",
+          210,
+          "80 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "medium",
+    "original_index": 5
+  },
+  {
+    "index": 26,
+    "instruction": "The hurricane made landfall 25 km southeast of New Orleans and moved 40 km northeast over the next 6 hours.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "New Orleans",
+          "southeast",
+          "25 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "northeast",
+          "40 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "medium",
+    "original_index": 6
+  },
+  {
+    "index": 27,
+    "instruction": "Volcanic eruption reported 12 km south of Reykjavik. Evacuation zone extends 5 km further south from the eruption site.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Reykjavik",
+          "south",
+          "12 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "south",
+          "5 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "medium",
+    "original_index": 7
+  },
+  {
+    "index": 28,
+    "instruction": "The landslide occurred at a point roughly one-third of the way from Kathmandu to Pokhara along the Prithvi Highway.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Kathmandu",
+          "Pokhara",
+          0.33
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "medium",
+    "original_index": 8
+  },
+  {
+    "index": 29,
+    "instruction": "Flash floods affected the area between Cairo and Alexandria. Emergency response was set up at the midpoint, then shifted 10 km west due to road access.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Cairo",
+          "Alexandria, Egypt"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "west",
+          "10 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "hard",
+    "original_index": 9
+  },
+  {
+    "index": 30,
+    "instruction": "The epicenter was located 65 km at a bearing of 135 degrees from Ankara. Aftershocks were felt 20 km northwest of the epicenter.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Ankara",
+          135,
+          "65 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "northwest",
+          "20 km"
+        ]
+      }
+    ],
+    "source": "news_disasters",
+    "difficulty": "hard",
+    "original_index": 10
+  },
+  {
+    "index": 31,
+    "instruction": "20 км к северу от Мурманска в сторону Баренцева моря.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Murmansk",
+          "north",
+          "20 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 1
+  },
+  {
+    "index": 32,
+    "instruction": "Середина между Калининградом и Вильнюсом.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Kaliningrad",
+          "Vilnius"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 33,
+    "instruction": "8 км на юго-восток от Петропавловской крепости в Санкт-Петербурге.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Peter and Paul Fortress, Saint Petersburg",
+          "southeast",
+          "8 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 3
+  },
+  {
+    "index": 34,
+    "instruction": "Найди точку на полпути между Нижним Новгородом и Казанью вдоль Волги.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Nizhny Novgorod",
+          "Kazan"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 4
+  },
+  {
+    "index": 35,
+    "instruction": "12 км к западу от Храма Василия Блаженного на Красной площади в Москве.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Saint Basil's Cathedral, Moscow",
+          "west",
+          "12 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 5
+  },
+  {
+    "index": 36,
+    "instruction": "Треть пути от Екатеринбурга до Челябинска.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Yekaterinburg",
+          "Chelyabinsk",
+          0.33
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 6
+  },
+  {
+    "index": 37,
+    "instruction": "30 км по азимуту 45 градусов от Пулково в Петербурге.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Pulkovo Airport, Saint Petersburg",
+          45,
+          "30 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 7
+  },
+  {
+    "index": 38,
+    "instruction": "Из центра Самары 5 км на юг, потом 3 км на восток к берегу Волги.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Samara, Russia",
+          "south",
+          "5 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "east",
+          "3 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 8
+  },
+  {
+    "index": 39,
+    "instruction": "Точка на три четверти пути от Иркутска до Улан-Удэ вдоль Транссиба.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Irkutsk",
+          "Ulan-Ude",
+          0.75
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 9
+  },
+  {
+    "index": 40,
+    "instruction": "Середина между Ростовом-на-Дону и Краснодаром, затем 15 км на юго-запад.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Rostov-on-Don",
+          "Krasnodar"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "southwest",
+          "15 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 10
+  },
+  {
+    "index": 41,
+    "instruction": "Пожар обнаружен в 40 км к северо-востоку от Якутска в тайге.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Yakutsk",
+          "northeast",
+          "40 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 11
+  },
+  {
+    "index": 42,
+    "instruction": "Метеостанция установлена на полпути между Норильском и Дудинкой.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Norilsk",
+          "Dudinka"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 12
+  },
+  {
+    "index": 43,
+    "instruction": "Из аэропорта Домодедово 10 км на запад, затем ещё 7 км по азимуту 310 градусов.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Domodedovo Airport, Moscow",
+          "west",
+          "10 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Azimuth",
+        "inputs": [
+          1,
+          310,
+          "7 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "hard",
+    "original_index": 13
+  },
+  {
+    "index": 44,
+    "instruction": "Место аварии находится в 25 км к юго-западу от Тюмени. Спасатели выдвинулись из Тюмени к месту аварии, остановка на середине пути.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Tyumen",
+          "southwest",
+          "25 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          "Tyumen",
+          1
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "hard",
+    "original_index": 14
+  },
+  {
+    "index": 45,
+    "instruction": "Четверть пути от Петрозаводска до Мурманска, ближе к Петрозаводску.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Petrozavodsk",
+          "Murmansk",
+          0.25
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 15
+  },
+  {
+    "index": 46,
+    "instruction": "6 км на север от Мамаева кургана в Волгограде.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Mamayev Kurgan, Volgograd",
+          "north",
+          "6 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "easy",
+    "original_index": 16
+  },
+  {
+    "index": 47,
+    "instruction": "Из Калуги 50 км на юго-восток в сторону Тулы, затем найди середину между этой точкой и Тулой.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kaluga",
+          "southeast",
+          "50 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Tula, Russia"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "hard",
+    "original_index": 17
+  },
+  {
+    "index": 48,
+    "instruction": "Маяк расположен в 3 км к востоку от мыса Дежнёва на Чукотке.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Cape Dezhnev, Chukotka",
+          "east",
+          "3 km"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "hard",
+    "original_index": 18
+  },
+  {
+    "index": 49,
+    "instruction": "Найди точку ровно посередине между Байкалом и Хубсугулом в Монголии.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Lake Baikal",
+          "Lake Khuvsgul, Mongolia"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "medium",
+    "original_index": 19
+  },
+  {
+    "index": 50,
+    "instruction": "Из Грозного 15 км на юг в горы, потом 8 км на запад, потом середина между конечной точкой и Владикавказом.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Grozny",
+          "south",
+          "15 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "west",
+          "8 km"
+        ]
+      },
+      {
+        "id": 3,
+        "function": "Between",
+        "inputs": [
+          2,
+          "Vladikavkaz"
+        ]
+      }
+    ],
+    "source": "russian_advanced",
+    "difficulty": "hard",
+    "original_index": 20
+  },
+  {
+    "index": 51,
+    "instruction": "5 километров к югу от Эйфелевой башни.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Eiffel Tower",
+          "south",
+          "5 km"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "easy",
+    "original_index": 1
+  },
+  {
+    "index": 52,
+    "instruction": "Середина между Кремлём и аэропортом Шереметьево.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Kremlin, Moscow",
+          "Sheremetyevo Airport"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 53,
+    "instruction": "10 км на северо-запад от Казанского Кремля.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kazan Kremlin",
+          "northwest",
+          "10 km"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "easy",
+    "original_index": 3
+  },
+  {
+    "index": 54,
+    "instruction": "Четверть пути от Эрмитажа до Петропавловской крепости в Санкт-Петербурге.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Hermitage Museum, Saint Petersburg",
+          "Peter and Paul Fortress, Saint Petersburg",
+          0.25
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "medium",
+    "original_index": 4
+  },
+  {
+    "index": 55,
+    "instruction": "3 км к востоку от Большого театра в Москве, затем 2 км на север.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Bolshoi Theatre, Moscow",
+          "east",
+          "3 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "north",
+          "2 km"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "medium",
+    "original_index": 5
+  },
+  {
+    "index": 56,
+    "instruction": "Середина между Новосибирском и Красноярском, затем 20 км на юг.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Novosibirsk",
+          "Krasnoyarsk"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "south",
+          "20 km"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "medium",
+    "original_index": 6
+  },
+  {
+    "index": 57,
+    "instruction": "7 км к юго-западу от центра Казани, затем ещё 4 км по азимуту 200 градусов.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Kazan",
+          "southwest",
+          "7 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Azimuth",
+        "inputs": [
+          1,
+          200,
+          "4 km"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "hard",
+    "original_index": 7
+  },
+  {
+    "index": 58,
+    "instruction": "Найди точку на полпути от Исаакиевского собора до Казанского собора в Петербурге.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Saint Isaac's Cathedral, Saint Petersburg",
+          "Kazan Cathedral, Saint Petersburg"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "easy",
+    "original_index": 8
+  },
+  {
+    "index": 59,
+    "instruction": "15 км к северу от Сочи, затем середина между этой точкой и горнолыжным курортом Красная Поляна.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Sochi",
+          "north",
+          "15 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Krasnaya Polyana"
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "hard",
+    "original_index": 9
+  },
+  {
+    "index": 60,
+    "instruction": "Две трети пути от Владивостока до Хабаровска.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Vladivostok",
+          "Khabarovsk",
+          0.67
+        ]
+      }
+    ],
+    "source": "russian",
+    "difficulty": "medium",
+    "original_index": 10
+  },
+  {
+    "index": 61,
+    "instruction": "The military base is located 45 km at a bearing of 275 degrees from Baghdad, in the western desert.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Baghdad",
+          275,
+          "45 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "medium",
+    "original_index": 1
+  },
+  {
+    "index": 62,
+    "instruction": "Reconnaissance aircraft spotted the convoy 30 km southeast of Mosul, moving towards Kirkuk.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Mosul",
+          "southeast",
+          "30 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 63,
+    "instruction": "The border checkpoint is at the midpoint between Peshawar and Jalalabad along the Khyber Pass.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Peshawar, Pakistan",
+          "Jalalabad, Afghanistan"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "easy",
+    "original_index": 3
+  },
+  {
+    "index": 64,
+    "instruction": "The research station is 120 km south of McMurdo Station in Antarctica, on the Ross Ice Shelf.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "McMurdo Station, Antarctica",
+          "south",
+          "120 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "medium",
+    "original_index": 4
+  },
+  {
+    "index": 65,
+    "instruction": "Set up observation post at the point one-third of the way from Gibraltar to Tangier across the strait.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Gibraltar",
+          "Tangier, Morocco",
+          0.33
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "medium",
+    "original_index": 5
+  },
+  {
+    "index": 66,
+    "instruction": "The satellite detected heat anomaly 70 km at bearing 150 degrees from Brasilia. A second anomaly was found 25 km west of the first.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Brasilia",
+          150,
+          "70 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "west",
+          "25 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "hard",
+    "original_index": 6
+  },
+  {
+    "index": 67,
+    "instruction": "The vessel was last seen at the midpoint between Singapore and Jakarta. Search area extends 50 km north of that position.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Singapore",
+          "Jakarta"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "north",
+          "50 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "hard",
+    "original_index": 7
+  },
+  {
+    "index": 68,
+    "instruction": "The sensor array is positioned 18 km at a bearing of 22 degrees from the lighthouse at Cape Agulhas, South Africa.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Cape Agulhas, South Africa",
+          22,
+          "18 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "medium",
+    "original_index": 8
+  },
+  {
+    "index": 69,
+    "instruction": "Weather balloon launched from Darwin, Australia, drifted 90 km northwest, then 40 km at a bearing of 350 degrees.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Darwin, Australia",
+          "northwest",
+          "90 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Azimuth",
+        "inputs": [
+          1,
+          350,
+          "40 km"
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "hard",
+    "original_index": 9
+  },
+  {
+    "index": 70,
+    "instruction": "The archaeological site is located three-quarters of the way from Athens to Thessaloniki along the ancient road.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Athens",
+          "Thessaloniki",
+          0.75
+        ]
+      }
+    ],
+    "source": "spatial_ml",
+    "difficulty": "medium",
+    "original_index": 10
+  },
+  {
+    "index": 71,
+    "instruction": "The hotel is located 2 km south of the Sagrada Familia in Barcelona, within walking distance of the beach.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Sagrada Familia, Barcelona",
+          "south",
+          "2 km"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "easy",
+    "original_index": 1
+  },
+  {
+    "index": 72,
+    "instruction": "Our Airbnb is situated halfway between the Louvre and the Arc de Triomphe in Paris.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Louvre Museum, Paris",
+          "Arc de Triomphe, Paris"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 73,
+    "instruction": "The resort is 8 km northeast of Denpasar Airport in Bali, near the coast of Sanur.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Ngurah Rai Airport, Bali",
+          "northeast",
+          "8 km"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "easy",
+    "original_index": 3
+  },
+  {
+    "index": 74,
+    "instruction": "Find a restaurant at the quarter-way point from the Colosseum to Vatican City, closer to the Colosseum.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Colosseum, Rome",
+          "Vatican City",
+          0.25
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "medium",
+    "original_index": 4
+  },
+  {
+    "index": 75,
+    "instruction": "The campsite is 6 km west of Interlaken, then another 3 km south towards the lake.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Interlaken, Switzerland",
+          "west",
+          "6 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "south",
+          "3 km"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "medium",
+    "original_index": 5
+  },
+  {
+    "index": 76,
+    "instruction": "The villa is positioned at the midpoint between Amalfi and Positano on the Italian coast.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Amalfi, Italy",
+          "Positano, Italy"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "easy",
+    "original_index": 6
+  },
+  {
+    "index": 77,
+    "instruction": "The ski lodge is 4 km at a bearing of 320 degrees from Chamonix, up on the mountainside.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Azimuth",
+        "inputs": [
+          "Chamonix, France",
+          320,
+          "4 km"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "medium",
+    "original_index": 7
+  },
+  {
+    "index": 78,
+    "instruction": "Our meeting point is three-quarters of the way from Shibuya Station to Tokyo Tower.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Shibuya Station, Tokyo",
+          "Tokyo Tower",
+          0.75
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "medium",
+    "original_index": 8
+  },
+  {
+    "index": 79,
+    "instruction": "The guesthouse is 10 km southeast of Marrakech Medina, then 2 km east into the palm grove.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Marrakech Medina",
+          "southeast",
+          "10 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "east",
+          "2 km"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "medium",
+    "original_index": 9
+  },
+  {
+    "index": 80,
+    "instruction": "Plan a day trip: start at the Sydney Opera House, go 5 km northwest to Taronga Zoo, then find the midpoint between the zoo and Manly Beach for lunch.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Sydney Opera House",
+          "northwest",
+          "5 km"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Between",
+        "inputs": [
+          1,
+          "Manly Beach, Sydney"
+        ]
+      }
+    ],
+    "source": "travel_hospitality",
+    "difficulty": "hard",
+    "original_index": 10
+  },
+  {
+    "index": 81,
+    "instruction": "The Great Wall of China extends from Shanhaiguan in the east. Find the point 100 km west of Shanhaiguan along the wall.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Shanhaiguan",
+          "west",
+          "100 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "easy",
+    "original_index": 1
+  },
+  {
+    "index": 82,
+    "instruction": "Stonehenge is located 13 km north of Salisbury in Wiltshire, England.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Salisbury, England",
+          "north",
+          "13 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "easy",
+    "original_index": 2
+  },
+  {
+    "index": 83,
+    "instruction": "The Taj Mahal is situated on the banks of the Yamuna River in Agra. Find the area 3 km south of the Taj Mahal.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Taj Mahal, Agra",
+          "south",
+          "3 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "easy",
+    "original_index": 3
+  },
+  {
+    "index": 84,
+    "instruction": "Petra is located approximately 240 km south of Amman, the capital of Jordan.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Amman, Jordan",
+          "south",
+          "240 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "easy",
+    "original_index": 4
+  },
+  {
+    "index": 85,
+    "instruction": "The Suez Canal connects Port Said on the Mediterranean to Suez on the Red Sea. Find the midpoint of the canal.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Port Said, Egypt",
+          "Suez, Egypt"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "easy",
+    "original_index": 5
+  },
+  {
+    "index": 86,
+    "instruction": "Angkor Wat is situated 6 km north of the modern town of Siem Reap in Cambodia.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Siem Reap, Cambodia",
+          "north",
+          "6 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "easy",
+    "original_index": 6
+  },
+  {
+    "index": 87,
+    "instruction": "The Panama Canal runs from Colon on the Atlantic to Panama City on the Pacific. The Gatun Locks are located roughly one-quarter of the way from Colon.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Colon, Panama",
+          "Panama City",
+          0.25
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "medium",
+    "original_index": 7
+  },
+  {
+    "index": 88,
+    "instruction": "Mount Kilimanjaro rises 5,895 m above sea level, located 330 km south of the equator near the town of Moshi in Tanzania.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Relative",
+        "inputs": [
+          "Moshi, Tanzania",
+          "northwest",
+          "30 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "medium",
+    "original_index": 8
+  },
+  {
+    "index": 89,
+    "instruction": "The Chunnel entrance on the French side is near Calais. The English entrance is near Folkestone. Find the midpoint under the English Channel, then shift 5 km east towards the English coast.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Between",
+        "inputs": [
+          "Calais, France",
+          "Folkestone, England"
+        ]
+      },
+      {
+        "id": 2,
+        "function": "Relative",
+        "inputs": [
+          1,
+          "east",
+          "5 km"
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "hard",
+    "original_index": 9
+  },
+  {
+    "index": 90,
+    "instruction": "The Trans-Siberian Railway connects Moscow to Vladivostok. The halfway point is near Irkutsk. Find the quarter-way point from Moscow.",
+    "steps": [
+      {
+        "id": 1,
+        "function": "Fraction",
+        "inputs": [
+          "Moscow",
+          "Vladivostok",
+          0.25
+        ]
+      }
+    ],
+    "source": "wikipedia",
+    "difficulty": "medium",
+    "original_index": 10
+  }
+]

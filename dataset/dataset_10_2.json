@@ -1,0 +1,171 @@
+[
+  {
+    "index": 1,
+    "instruction": "You are a wildlife biologist conducting a long-term ecological monitoring study in Tasmania, Australia. You are currently selecting a new observation point between two base areas: Cradle Mountain and Lake St Clair. You plan to move 3 km southwest of Lake St Clair to set up a temporary observation point. You then need to perform a series of spatial calculations: first find a midpoint between this temporary point and Lake St Clair, then find another midpoint between Cradle Mountain and the midpoint of the temporary point, and finally find the final monitoring station location between the first two midpoints. Follow these steps to determine the final location.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["LOC_2", "LOC_1"]},
+      {"id": 2, "function": "Between", "inputs": [1, "LOC_2"]}
+    ]
+  },
+  {
+    "index": 2,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_2", "southeast", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "LOC_1"]}
+    ]
+  },
+  {
+    "index": 3,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "west", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "9 km"]}
+    ]
+  },
+  {
+    "index": 4,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["LOC_1", "25°", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "2 km"]}
+    ]
+  },
+  {
+    "index": 5,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["LOC_1", "36°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["LOC_2", 1]}
+    ]
+  },
+  {
+    "index": 6,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["LOC_2", "LOC_1"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "266°", "8 km"]}
+    ]
+  },
+  {
+    "index": 7,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["LOC_1", "LOC_2"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "220°", "8 km"]}
+    ]
+  },
+  {
+    "index": 8,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "south", "9 km"]},
+      {"id": 2, "function": "Between", "inputs": ["LOC_1", 1]},
+      {"id": 3, "function": "Relative", "inputs": [1, "south", "1 km"]},
+      {"id": 4, "function": "Azimuth", "inputs": [2, "150°", "5 km"]},
+      {"id": 5, "function": "Between", "inputs": [3, 4]}
+    ]
+  },
+  {
+    "index": 9,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["LOC_1", "LOC_2"]},
+      {"id": 2, "function": "Between", "inputs": [1, "LOC_3"]}
+    ]
+  },
+  {
+    "index": 10,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["LOC_1", "215°", "9 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "99°", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "285°", "1 km"]}
+    ]
+  },
+  {
+    "index": 11,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "east", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "LOC_1"]}
+    ]
+  },
+  {
+    "index": 12,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "southeast", "9 km"]}
+    ]
+  },
+  {
+    "index": 13,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "north", "6 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "3°", "5 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "199°", "3 km"]},
+      {"id": 4, "function": "Between", "inputs": [3, "LOC_1"]}
+    ]
+  },
+  {
+    "index": 14,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "northwest", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "4 km"]},
+      {"id": 3, "function": "Between", "inputs": ["LOC_1", 2]}
+    ]
+  },
+  {
+    "index": 15,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "northeast", "2 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "333°", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "62°", "9 km"]}
+    ]
+  },
+  {
+    "index": 16,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "east", "5 km"]}
+    ]
+  },
+  {
+    "index": 17,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_2", "southwest", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "LOC_2"]},
+      {"id": 3, "function": "Between", "inputs": ["LOC_1", 1]},
+      {"id": 4, "function": "Between", "inputs": [2, 3]}
+    ]
+  },
+  {
+    "index": 18,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "north", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "LOC_1"]},
+      {"id": 3, "function": "Between", "inputs": ["LOC_1", 2]}
+    ]
+  },
+  {
+    "index": 19,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["LOC_1", "65°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["LOC_1", 1]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "184°", "7 km"]}
+    ]
+  },
+  {
+    "index": 20,
+    "instruction": "",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["LOC_1", "northwest", "10 km"]}
+    ]
+  }
+]

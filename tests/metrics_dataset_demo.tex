@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Computation accuracy by expression type}
+\label{tab:accuracy}
+\begin{tabular}{lrrrrrrr}
+\hline
+Expression Type & N & Mean ADE & Median ADE & RDE & BE & DR & Hit@1km \\
+\hline
+Azimuth & 1 & 0.000 km & 0.000 km & 0.0\% & 0.0° & 0.999 & 100\% \\
+Between & 3 & 0.041 km & 0.000 km & --- & --- & --- & 100\% \\
+Chain(Between+Relative) & 3 & 0.243 km & 0.000 km & 2.4\% & 0.1° & 2.980 & 100\% \\
+Chain(Relative+Azimuth) & 1 & 0.000 km & 0.000 km & 0.0\% & 0.0° & 0.979 & 100\% \\
+Chain(Relative+Between) & 1 & 0.000 km & 0.000 km & 0.0\% & 0.0° & 1.406 & 100\% \\
+Chain(Relative+Relative) & 2 & 0.000 km & 0.000 km & 0.0\% & 0.0° & 0.721 & 100\% \\
+Chain(Relative+Relative+Between) & 1 & 0.146 km & 0.146 km & 1.8\% & 1.5° & 0.513 & 100\% \\
+Fraction & 3 & 0.251 km & 0.021 km & --- & --- & --- & 100\% \\
+Relative & 4 & 0.000 km & 0.000 km & 0.0\% & 0.0° & 0.999 & 100\% \\
+\hline
+\textbf{Total} & 19 & 0.092 km & 0.000 km & --- & --- & --- & 100\% \\
+\hline
+\end{tabular}
+\end{table}

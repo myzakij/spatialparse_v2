@@ -1,0 +1,22 @@
+{
+  "execution": [
+    {
+      "index": 1,
+      "success": true,
+      "centroid": [
+        1.73829405,
+        49.519025750000004
+      ],
+      "coord_count": 100
+    },
+    {
+      "index": 2,
+      "success": true,
+      "centroid": [
+        150.32362153579453,
+        -33.732526070017954
+      ],
+      "coord_count": 100
+    }
+  ]
+}

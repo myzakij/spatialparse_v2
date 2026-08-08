@@ -1,0 +1,174 @@
+[
+
+  {
+    "index": 1,
+    "instruction": "Plan a trip that involves determining the midpoint between Paris and London, and then finding another midpoint between this location and Paris to identify potential stopovers during travel.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Paris, France", "London, England"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Paris, France"]}
+    ]
+  },
+  {
+    "index": 2,
+    "instruction": "Imagine you are planning a picnic hike in the Blue Mountains of Australia. Start your hike in Katoomba, move southeast for 3 kilometers, and then find a scenic midpoint between your new location and Echo Point to set up your picnic.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Katoomba", "southeast", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Echo Point"]}
+    ]
+  },
+  {
+    "index": 3,
+    "instruction": "Plan a hiking route starting at Scafell Pike and travel 8 km to the west, then continue proceeding another 9 km westward.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Scafell Pike", "west", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "9 km"]}
+    ]
+  },
+  {
+    "index": 4,
+    "instruction": "Starting from the Colosseum in Rome, navigate 8 kilometers at a 25° azimuth to go towards the northeast, and then move a further 2 kilometers in the northeast direction. Determine if this is a suitable location for a new tourist station setup.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Colosseum, Rome", "25°", "8 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "2 km"]}
+    ]
+  },
+  {
+    "index": 5,
+    "instruction": "Set up a communications relay point 4 km in the direction of 36° from Jasper, Alberta and then find the midpoint between this point and Banff, Alberta.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Jasper, Alberta", "36°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Banff, Alberta", 1]}
+    ]
+  },
+  {
+    "index": 6,
+    "instruction": "Identify the midpoint between the Statue of Liberty and the Eiffel Tower. From this midpoint, proceed 8 kilometers due west to establish a new GPS tracking station.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Eiffel Tower", "Statue of Liberty"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "west", "8 km"]}
+    ]
+  },
+  {
+    "index": 7,
+    "instruction": "Determine a strategic location for a new lookout post by first finding the midpoint between New Orleans, USA, and Veracruz, Mexico. Then, identify a spot 8 km southwest of this midpoint.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["New Orleans, USA", "Veracruz, Mexico"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "south west", "8 km"]}
+    ]
+  },
+  {
+    "index": 8,
+    "instruction": "Plan a marine survey starting at Santorini, Greece: First, move 9 km south to begin the survey in a new area. Then, identify the midpoint between Santorini and this new location, and move 1 km south from it for further exploration. From the original midpoint, proceed 5 km at an azimuth of 150° towards a final survey site. Find the midpoint between this location and the previous exploration point for setting a central sampling station.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Santorini, Greece", "south", "9 km"]},
+      {"id": 2, "function": "Between", "inputs": ["Santorini, Greece", 1]},
+      {"id": 3, "function": "Relative", "inputs": [1, "south", "1 km"]},
+      {"id": 4, "function": "Azimuth", "inputs": [2, "150°", "5 km"]},
+      {"id": 5, "function": "Between", "inputs": [3, 4]}
+    ]
+  },
+  {
+    "index": 9,
+    "instruction": "Plan a central spot for a camping trip by first finding the midpoint between Mont Blanc and Matterhorn, then find the midpoint between this point and Chamonix to refine the camping location.",
+    "steps": [
+      {"id": 1, "function": "Between", "inputs": ["Mont Blanc", "Matterhorn"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Chamonix"]}
+    ]
+  },
+  {
+    "index": 10,
+    "instruction": "Begin your geocaching adventure at Central Park in New York City. Move southwest for 9 km. Then head east for another 7 km. Finally, go back for an additional 1 km to find the hidden cache location.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["Central Park, New York City", "south west", "9 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "east", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "west", "1 km"]}
+    ]
+  },
+  {
+    "index": 11,
+    "instruction": "Plan a meeting point by moving 3 kilometers east of Central Park and then find a midpoint between this new location and Central Park.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park, Manhattan, New York", "east", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Central Park, Manhattan, New York"]}
+    ]
+  },
+  {
+    "index": 12,
+    "instruction": "Identify the location that is 9 km to the southeast of Paris city center to set up a monitoring station.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Paris", "southeast", "9 km"]}
+    ]
+  },
+  {
+  "index": 13,
+  "instruction": "Design a network of emergency medical drone hubs across Luxembourg. Start at the city hospital in Esch-sur-Alzette. First, plan a drone station 4 km to the northeast to reach nearby suburbs. Then, from there, move 6 km at an azimuth angle of 45° to cover rural areas toward Bettembourg. Continue by traveling 3 km at an azimuth of 190° to extend reach into southern valleys. Finally, identify the midpoint between this last location and the starting hospital as a backup drone relay site.",
+  "steps": [
+    {"id": 1, "function": "Relative", "inputs": ["Esch-sur-Alzette, Luxembourg", "northeast", "4 km"]},
+    {"id": 2, "function": "Azimuth", "inputs": [1, "45°", "6 km"]},
+    {"id": 3, "function": "Azimuth", "inputs": [2, "190°", "3 km"]},
+    {"id": 4, "function": "Between", "inputs": [3, "Esch-sur-Alzette Hospital, Luxembourg"]}
+  ]
+}
+,
+  {
+    "index": 14,
+    "instruction": "Plan a scenic hiking route starting from Banff, Alberta. First, travel northwest for 2 km to reach a noted viewpoint. From there, continue northeast for 4 km, potentially spotting wildlife along the way. Finally, identify a midpoint between Banff and your current location to set a resting spot or picnic area for optimal views and convenience.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Banff", "northwest", "2 km"]},
+      {"id": 2, "function": "Relative", "inputs": [1, "northeast", "4 km"]},
+      {"id": 3, "function": "Between", "inputs": ["Banff", 2]}
+    ]
+  },
+  {
+    "index": 15,
+    "instruction": "Start at Central Park in New York City. Move northeast for 2 km to reach the area near The Met Cloisters in Fort Tryon Park. From there, head in the direction of 333° for 7 km towards the intersection of Riverside Drive and W 165th St. Finally, navigate 9 km in the direction of 62° to reach a suitable spot near Yonkers Avenue in Yonkers for the meteorological station setup.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Central Park", "northeast", "2 km"]},
+      {"id": 2, "function": "Azimuth", "inputs": [1, "333°", "7 km"]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "62°", "9 km"]}
+    ]
+  },
+  {
+    "index": 16,
+    "instruction": "Start at the Hellisheiði Geothermal Power Plant in Iceland and identify the area 5 kilometers to the northwest to assess potential expansion sites for sustainable energy infrastructure.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Hellisheiði Geothermal Power Plant, Iceland", "northwest", "5 km"]}
+    ]
+  }
+  ,
+  {
+    "index": 17,
+    "instruction": "Plan a geological survey in the Cape Town area. First, find a point 3 km southwest of Signal Hill. Then, find the midpoint between this new location and Signal Hill. Next, calculate the midpoint between this result and Cape Town. Finally, determine the central point between all computed midpoints to establish a base camp for your survey operations.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Signal Hill", "southwest", "3 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Signal Hill"]},
+      {"id": 3, "function": "Between", "inputs": ["Cape Town", 1]},
+      {"id": 4, "function": "Between", "inputs": [2, 3]}
+    ]
+  },
+  {
+    "index": 18,
+    "instruction": "Start at Praça do Comércio in Lisbon. First, calculate a point 1 km north from this location. Then, find the midpoint between this new location and Praça do Comércio. Finally, determine the midpoint between Praça do Comércio and the previously calculated midpoint to navigate effectively around the city.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Praça do Comércio, Lisbon", "north", "1 km"]},
+      {"id": 2, "function": "Between", "inputs": [1, "Praça do Comércio, Lisbon"]},
+      {"id": 3, "function": "Between", "inputs": ["Praça do Comércio, Lisbon", 2]}
+    ]
+  },
+  {
+    "index": 19,
+    "instruction": "Starting at the South Pole, travel 4 kilometers at an angle of 65° to find Point A. Determine the midpoint between the South Pole and Point A. From this midpoint, travel 7 kilometers at an angle of 184° to reach McMurdo Station.",
+    "steps": [
+      {"id": 1, "function": "Azimuth", "inputs": ["South Pole", "65°", "4 km"]},
+      {"id": 2, "function": "Between", "inputs": ["South Pole", 1]},
+      {"id": 3, "function": "Azimuth", "inputs": [2, "184°", "7 km"]}
+    ]
+  },
+  {
+    "index": 20,
+    "instruction": "Identify a new exploration point 10 km northwest of the base camp at Yosemite National Park.",
+    "steps": [
+      {"id": 1, "function": "Relative", "inputs": ["Yosemite National Park", "northwest", "10 km"]}
+    ]
+  }
+]

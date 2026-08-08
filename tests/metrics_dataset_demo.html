@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Dissertation Metrics Report</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f5f5f5; }
+  .hdr { background: linear-gradient(135deg,#1a1a2e,#16213e); color: white; padding: 24px 32px; }
+  .hdr h1 { margin: 0; } .hdr p { opacity: .7; margin: 4px 0 0; }
+  .content { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  .stats { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+  .st { background: white; padding: 16px 20px; border-radius: 8px; flex: 1; min-width: 130px;
+         text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,.1); }
+  .st .v { font-size: 28px; font-weight: bold; } .st .l { color: #888; font-size: 12px; }
+  .st.g .v { color: #27ae60; } .st.b .v { color: #2980b9; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px;
+           overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,.1); margin: 16px 0; }
+  th { background: #2c3e50; color: white; padding: 10px 12px; text-align: left; font-size: 12px; }
+  td { padding: 8px 12px; border-bottom: 1px solid #eee; font-size: 12px; }
+  tr:hover { background: #f0f8ff; }
+  .good { color: #27ae60; font-weight: bold; }
+  .warn { color: #e67e22; font-weight: bold; }
+  .bad { color: #e74c3c; font-weight: bold; }
+  h2 { color: #2c3e50; margin: 24px 0 8px; }
+  .formula { background: #f8f9fa; padding: 12px; border-radius: 6px; font-family: monospace;
+              font-size: 13px; margin: 8px 0; border-left: 4px solid #3498db; }
+</style></head><body>
+<div class="hdr"><h1>SpatialParse — Dissertation Metrics Report</h1>
+<p>2026-03-21 14:32 | 19/20 tests</p></div>
+<div class="content">
+
+<h2>Metric Definitions</h2>
+<div class="formula">
+ADE = haversine(predicted, expected)  — Absolute Distance Error (km)<br>
+RDE = ADE / D_operation  — Relative Distance Error (%)<br>
+BE = |bearing(origin→predicted) - bearing(origin→expected)|  — Bearing Error (°)<br>
+DR = dist(origin→predicted) / D_expected  — Distance Ratio (1.0 = perfect)<br>
+Hit@R = 1 if ADE &lt; R km, else 0  — Hit Rate at radius R
+</div>
+
+<h2>Overall Results</h2>
+<div class="stats">
+  <div class="st g"><div class="v">15/19</div><div class="l">Hit@0.1km</div></div>
+  <div class="st g"><div class="v">19/19</div><div class="l">Hit@1km</div></div>
+  <div class="st b"><div class="v">0.092</div><div class="l">Mean ADE (km)</div></div>
+  <div class="st"><div class="v">0.000</div><div class="l">Median ADE (km)</div></div>
+  <div class="st"><div class="v">0.731</div><div class="l">Max ADE (km)</div></div>
+</div>
+
+<h2>By Expression Type</h2>
+<table>
+<tr><th>Type</th><th>N</th><th>Mean ADE</th><th>Median ADE</th><th>RDE</th><th>BE</th><th>DR</th><th>Hit@0.1</th><th>Hit@1</th><th>Hit@5</th></tr>
+<tr><td>Azimuth</td><td>1</td><td class='good'>0.000</td><td>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Between</td><td>3</td><td class='good'>0.041</td><td>0.000</td><td>—</td><td>—</td><td>—</td><td>67%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Chain(Between+Relative)</td><td>3</td><td class='warn'>0.243</td><td>0.000</td><td>2.4%</td><td>0.1°</td><td>2.980</td><td>67%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Chain(Relative+Azimuth)</td><td>1</td><td class='good'>0.000</td><td>0.000</td><td>0.0%</td><td>0.0°</td><td>0.979</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Chain(Relative+Between)</td><td>1</td><td class='good'>0.000</td><td>0.000</td><td>0.0%</td><td>0.0°</td><td>1.406</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Chain(Relative+Relative)</td><td>2</td><td class='good'>0.000</td><td>0.000</td><td>0.0%</td><td>0.0°</td><td>0.721</td><td>100%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Chain(Relative+Relative+Between)</td><td>1</td><td class='warn'>0.146</td><td>0.146</td><td>1.8%</td><td>1.5°</td><td>0.513</td><td>0%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Fraction</td><td>3</td><td class='warn'>0.251</td><td>0.021</td><td>—</td><td>—</td><td>—</td><td>67%</td><td>100%</td><td>100%</td></tr>
+<tr><td>Relative</td><td>4</td><td class='good'>0.000</td><td>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>100%</td><td>100%</td><td>100%</td></tr>
+</table>
+<h2>By Difficulty</h2><table>
+<tr><th>Difficulty</th><th>N</th><th>Mean ADE</th><th>Hit@1</th></tr>
+<tr><td>easy</td><td>8</td><td>0.015</td><td>100%</td></tr>
+<tr><td>medium</td><td>9</td><td>0.164</td><td>100%</td></tr>
+<tr><td>hard</td><td>2</td><td>0.073</td><td>100%</td></tr>
+</table>
+<h2>All Results</h2><table>
+<tr><th>#</th><th>Instruction</th><th>Type</th><th>ADE</th><th>RDE</th><th>BE</th><th>DR</th><th>Hit@1</th></tr>
+<tr><td>1</td><td>Find the area 5 kilometers south of the Eiffel Tower....</td><td>Relative</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>✓</td></tr>
+<tr><td>2</td><td>Locate the midpoint between the Colosseum in Rome and the Pa...</td><td>Between</td><td class='good'>0.000</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>3</td><td>Find the area 3 km northeast of Central Park in New York Cit...</td><td>Relative</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>✓</td></tr>
+<tr><td>4</td><td>Determine a point 8 km at a bearing of 120 degrees from the ...</td><td>Azimuth</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>✓</td></tr>
+<tr><td>5</td><td>Find the area one-quarter of the way from Burwood to Sydney ...</td><td>Fraction</td><td class='warn'>0.731</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>6</td><td>Identify the midpoint between Tokyo Tower and Mount Fuji, th...</td><td>Chain(Between+Relative)</td><td class='warn'>0.728</td><td>7.3%</td><td>0.4°</td><td>5.762</td><td>✓</td></tr>
+<tr><td>7</td><td>Starting from the Kremlin in Moscow, go 15 km northwest, the...</td><td>Chain(Relative+Between)</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>1.406</td><td>✓</td></tr>
+<tr><td>8</td><td>Plan a relay station 6 km east of Big Ben in London, then an...</td><td>Chain(Relative+Relative)</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.721</td><td>✓</td></tr>
+<tr><td>9</td><td>Find the point three-quarters of the way from the Statue of ...</td><td>Fraction</td><td class='good'>0.021</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>10</td><td>Determine the midpoint between the Brandenburg Gate in Berli...</td><td>Between</td><td class='warn'>0.123</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>11</td><td>From the Kazan Kremlin, move 7 km southwest, then from that ...</td><td>Chain(Relative+Azimuth)</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.979</td><td>✓</td></tr>
+<tr><td>12</td><td>Identify the midpoint between Buckingham Palace and the Towe...</td><td>Chain(Between+Relative)</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>1.669</td><td>✓</td></tr>
+<tr><td>13</td><td>Find the area 20 km due south of Reykjavik, Iceland....</td><td>Relative</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>✓</td></tr>
+<tr><td>14</td><td>Set up a checkpoint halfway between the Louvre Museum and No...</td><td>Chain(Between+Relative)</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>1.509</td><td>✓</td></tr>
+<tr><td>15</td><td>Find the area 12 km at a bearing of 45 degrees from the Acro...</td><td colspan='6' class='bad'>ERROR: No results for 'Temple of Poseidon, Cape</td></tr>
+<tr><td>16</td><td>Locate the point 4 km west of the Sagrada Familia in Barcelo...</td><td>Relative</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.999</td><td>✓</td></tr>
+<tr><td>17</td><td>Start at the Golden Gate Bridge, move 5 km southeast, then f...</td><td>Chain(Relative+Relative+Between)</td><td class='warn'>0.146</td><td>1.8%</td><td>1.5°</td><td>0.513</td><td>✓</td></tr>
+<tr><td>18</td><td>Find the point one-third of the way from the Hermitage Museu...</td><td>Fraction</td><td class='good'>0.000</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>19</td><td>Determine a patrol area 6 km north of the Pyramids of Giza, ...</td><td>Chain(Relative+Relative)</td><td class='good'>0.000</td><td>0.0%</td><td>0.0°</td><td>0.720</td><td>✓</td></tr>
+<tr><td>20</td><td>Find the midpoint between Machu Picchu and Lake Titicaca....</td><td>Between</td><td class='good'>0.000</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+</table>
+</div></body></html>
