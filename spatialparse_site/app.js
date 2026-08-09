@@ -80,6 +80,7 @@ function init() {
   initSeoMetadata();
   initNavigation();
   initCookieConsent();
+  initFooterSupport();
   initShellAnimations();
   initA11y();
   initVisualMaps();
@@ -571,6 +572,21 @@ function setCookieSettingsOpen(banner, open) {
 function hideCookieBanner() {
   const banner = $('cookieBanner');
   if (banner) banner.hidden = true;
+}
+
+function initFooterSupport() {
+  const footer = document.querySelector('footer.footer');
+  if (!footer || footer.querySelector('.footer-support')) return;
+  const block = document.createElement('div');
+  block.className = 'container footer-support';
+  block.innerHTML = `
+    <div class="footer-support-logos">
+      <img src="assets/logo-fasie.png" alt="Фонд содействия инновациям" loading="lazy">
+      <img src="assets/logo-putp.png" alt="Платформа университетского технологического предпринимательства" loading="lazy">
+    </div>
+    <p>Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии».</p>
+  `;
+  footer.prepend(block);
 }
 
 function initA11y() {
@@ -1351,26 +1367,22 @@ function renderAccountMenu() {
         <i data-lucide="map"></i>
         <span><strong>Новый геозапрос</strong><small>Открыть рабочую карту</small></span>
       </a>
-      <a class="account-menu-item" role="menuitem" href="account.html#history">
-        <i data-lucide="history"></i>
-        <span><strong>История запросов</strong><small>Повторить прошлые вычисления</small></span>
-      </a>
-      <a class="account-menu-item" role="menuitem" href="account.html#saved">
-        <i data-lucide="bookmark"></i>
-        <span><strong>Сохранённые результаты</strong><small>Открыть избранные точки</small></span>
+      <a class="account-menu-item" role="menuitem" href="pricing.html">
+        <i data-lucide="gauge"></i>
+        <span><strong>Тариф и лимиты</strong><small>Текущий план и запросы</small></span>
       </a>
       <a class="account-menu-item" role="menuitem" href="account.html#settings">
-        <i data-lucide="sliders-horizontal"></i>
-        <span><strong>Рабочий контекст</strong><small>Регион и радиус поиска</small></span>
+        <i data-lucide="user-cog"></i>
+        <span><strong>Настройки профиля</strong><small>Регион, радиус и данные аккаунта</small></span>
       </a>
-      <a class="account-menu-item" role="menuitem" href="docs.html">
-        <i data-lucide="book-open"></i>
-        <span><strong>Документация</strong><small>Форматы запросов и экспорт</small></span>
-      </a>
-      <button class="account-menu-item" role="menuitem" type="button" data-account-action="refresh">
-        <i data-lucide="refresh-cw"></i>
-        <span><strong>Обновить данные</strong><small>Синхронизировать историю и сохранения</small></span>
+      <button class="account-menu-item" role="menuitem" type="button" data-account-action="theme">
+        <i data-lucide="${document.documentElement.dataset.theme === 'dark' ? 'sun' : 'moon'}"></i>
+        <span><strong>Тема: ${document.documentElement.dataset.theme === 'dark' ? 'тёмная' : 'светлая'}</strong><small>Переключить оформление</small></span>
       </button>
+      <a class="account-menu-item" role="menuitem" href="about.html">
+        <i data-lucide="life-buoy"></i>
+        <span><strong>Помощь</strong><small>О проекте и контакты</small></span>
+      </a>
       <button class="account-menu-item danger" role="menuitem" type="button" data-account-action="logout">
         <i data-lucide="log-out"></i>
         <span><strong>Выйти</strong><small>Завершить текущую сессию</small></span>
@@ -1381,10 +1393,11 @@ function renderAccountMenu() {
   els.accountMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeAccountMenu);
   });
-  els.accountMenu.querySelector('[data-account-action="refresh"]')?.addEventListener('click', async () => {
-    closeAccountMenu();
-    await loadAccount();
-    showToast('Данные аккаунта обновлены');
+  els.accountMenu.querySelector('[data-account-action="theme"]')?.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem(THEME_KEY, next);
+    renderAccountMenu();
   });
   els.accountMenu.querySelector('[data-account-action="logout"]')?.addEventListener('click', () => {
     closeAccountMenu();
