@@ -670,6 +670,23 @@ function initShellAnimations() {
   revealItems.forEach((item) => observer.observe(item));
 
   document.querySelectorAll('[data-count]').forEach(animateCounter);
+
+  initLiquidLight();
+}
+
+function initLiquidLight() {
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!fine.matches || reduced.matches) return;
+  const targets = document.querySelectorAll('.btn.primary, .feature-card, .use-case-card, .price-card, [data-tilt-card]');
+  targets.forEach((el) => {
+    el.classList.add('liquid-light');
+    el.addEventListener('pointermove', (event) => {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty('--light-x', `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`);
+      el.style.setProperty('--light-y', `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`);
+    }, { passive: true });
+  });
 }
 
 function updateScrollProgress() {
@@ -1146,7 +1163,7 @@ function renderAccountMenu() {
   const summary = state.summary || {};
   const historyCount = summary.history_count ?? state.history.length ?? 0;
   const savedCount = summary.saved_count ?? state.saved.length ?? 0;
-  const lastActivity = summary.last_activity ? formatDate(summary.last_activity) : 'нет запусков';
+  const lastActivity = summary.last_activity ? formatDate(summary.last_activity) : '—';
 
   els.accountMenu.innerHTML = `
     <div class="account-menu-head">
@@ -1159,7 +1176,7 @@ function renderAccountMenu() {
     <div class="account-menu-stats" aria-label="Статистика аккаунта">
       <span><b>${escapeHtml(historyCount)}</b><small>запросов</small></span>
       <span><b>${escapeHtml(savedCount)}</b><small>сохранено</small></span>
-      <span><b>${escapeHtml(lastActivity)}</b><small>активность</small></span>
+      <span title="${escapeHtml(lastActivity)}"><b>${escapeHtml(lastActivity)}</b><small>активность</small></span>
     </div>
     <div class="account-menu-list" role="menu" aria-label="Меню аккаунта">
       <a class="account-menu-item" role="menuitem" href="account.html">

@@ -2107,7 +2107,7 @@ select {
 }
 
 .preview-control span::after {
-  content: "Ð¡ÐºÐ¾Ñ€Ð¾";
+  content: "Скоро";
   display: inline-flex;
   align-items: center;
   min-height: 20px;
@@ -2556,7 +2556,7 @@ select {
   }
 
   .table-wrap::before {
-    content: "ÐŸÑ€Ð¾ÐºÑ€ÑƒÑ‚Ð¸Ñ‚Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ Ð¿Ð¾ Ð³Ð¾Ñ€Ð¸Ð·Ð¾Ð½Ñ‚Ð°Ð»Ð¸";
+    content: "Прокрутите таблицу по горизонтали";
     position: absolute;
     top: 7px;
     right: 10px;
@@ -7356,12 +7356,6 @@ summary:focus-visible {
   box-shadow: 0 0 0 3px rgba(0, 122, 255, .22), var(--glass-highlight);
 }
 
-.btn.primary:active:not(:disabled) {
-  background:
-    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, .3), transparent 34%),
-    linear-gradient(180deg, rgba(0, 110, 235, .96), rgba(0, 86, 200, .94));
-}
-
 .btn:disabled,
 .icon-btn:disabled,
 .mini-btn:disabled {
@@ -7700,5 +7694,42 @@ p,
 @media (max-width: 400px) {
   .btn {
     padding-inline: var(--space-4);
+  }
+}
+
+/* ---------- Liquid light: subtle pointer-follow highlight ---------- */
+
+.liquid-light {
+  position: relative;
+}
+
+.liquid-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    160px circle at var(--light-x, 50%) var(--light-y, 50%),
+    rgba(255, 255, 255, .14),
+    transparent 62%
+  );
+  transition: opacity var(--motion-base) var(--ease-standard);
+}
+
+.liquid-light:hover::after {
+  opacity: 1;
+}
+
+.liquid-light > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-light::after {
+    display: none;
   }
 }
