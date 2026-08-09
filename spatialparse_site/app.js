@@ -7,7 +7,7 @@ const REF_COLOR = '#6f7a83';
 
 const state = {
   token: localStorage.getItem('spatialparse_token') || '',
-  user: null,
+  user: readCachedUser(),
   summary: null,
   map: null,
   accountMap: null,
@@ -1375,10 +1375,6 @@ function renderAccountMenu() {
         <i data-lucide="user-cog"></i>
         <span><strong>Настройки профиля</strong><small>Регион, радиус и данные аккаунта</small></span>
       </a>
-      <button class="account-menu-item" role="menuitem" type="button" data-account-action="theme">
-        <i data-lucide="${document.documentElement.dataset.theme === 'dark' ? 'sun' : 'moon'}"></i>
-        <span><strong>Тема: ${document.documentElement.dataset.theme === 'dark' ? 'тёмная' : 'светлая'}</strong><small>Переключить оформление</small></span>
-      </button>
       <a class="account-menu-item" role="menuitem" href="about.html">
         <i data-lucide="life-buoy"></i>
         <span><strong>Помощь</strong><small>О проекте и контакты</small></span>
@@ -1392,12 +1388,6 @@ function renderAccountMenu() {
 
   els.accountMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeAccountMenu);
-  });
-  els.accountMenu.querySelector('[data-account-action="theme"]')?.addEventListener('click', () => {
-    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    localStorage.setItem(THEME_KEY, next);
-    renderAccountMenu();
   });
   els.accountMenu.querySelector('[data-account-action="logout"]')?.addEventListener('click', () => {
     closeAccountMenu();
@@ -2266,11 +2256,26 @@ async function handleRegister(event) {
   }
 }
 
+function readCachedUser() {
+  if (!localStorage.getItem('spatialparse_token')) return null;
+  try {
+    return JSON.parse(localStorage.getItem('spatialparse_user') || 'null');
+  } catch (error) {
+    return null;
+  }
+}
+
+function cacheUser(user) {
+  if (user) localStorage.setItem('spatialparse_user', JSON.stringify({ name: user.name || '', email: user.email || '' }));
+  else localStorage.removeItem('spatialparse_user');
+}
+
 function saveSession(response) {
   state.token = response.token || '';
   state.user = response.user || null;
   state.summary = response.summary || null;
   if (state.token) localStorage.setItem('spatialparse_token', state.token);
+  cacheUser(state.user);
   renderAuthState();
   loadAccount();
 }
@@ -2292,6 +2297,7 @@ async function logout() {
   state.user = null;
   state.summary = null;
   localStorage.removeItem('spatialparse_token');
+  cacheUser(null);
   closeAccountMenu();
   renderAuthState();
   renderGuestAccount();
@@ -2338,6 +2344,7 @@ async function loadAccount(options = {}) {
     if (controller.signal.aborted || state.token !== tokenAtStart) return;
     state.user = me.user;
     state.summary = me.summary;
+    cacheUser(state.user);
     renderAuthState();
     renderSummary();
 
@@ -2356,6 +2363,7 @@ async function loadAccount(options = {}) {
     if (state.token !== tokenAtStart) return;
     state.token = '';
     localStorage.removeItem('spatialparse_token');
+    cacheUser(null);
     renderAuthState();
     renderGuestAccount();
     if (!options.silent) showToast('Сессия истекла, войдите снова');
@@ -2616,6 +2624,7 @@ async function deleteAccount() {
     state.history = [];
     state.saved = [];
     localStorage.removeItem('spatialparse_token');
+    cacheUser(null);
     renderAuthState();
     renderGuestAccount();
     showToast('Аккаунт удален');
