@@ -74,6 +74,8 @@ const els = {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  initTheme();
+  initPageTransitions();
   initIcons();
   initSeoMetadata();
   initNavigation();
@@ -101,6 +103,62 @@ function resolveApiBase() {
 function apiBaseToWs(apiBase) {
   const url = new URL(apiBase);
   return (url.protocol === 'https:' ? 'wss://' : 'ws://') + url.host;
+}
+
+const THEME_KEY = 'sp_theme';
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const preferred = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const actions = document.querySelector('.auth-actions');
+  if (actions && !document.getElementById('themeToggle')) {
+    const button = document.createElement('button');
+    button.id = 'themeToggle';
+    button.type = 'button';
+    button.className = 'icon-btn';
+    button.title = 'Сменить тему';
+    button.setAttribute('aria-label', 'Сменить тему');
+    actions.prepend(button);
+    button.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(THEME_KEY, next);
+    });
+  }
+  applyTheme(preferred);
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  const button = document.getElementById('themeToggle');
+  if (button) {
+    button.innerHTML = `<i data-lucide="${theme === 'dark' ? 'sun' : 'moon'}"></i>`;
+    initIcons();
+  }
+}
+
+function initPageTransitions() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.body.classList.add('page-enter');
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname) return;
+    event.preventDefault();
+    document.body.classList.add('page-leave');
+    window.setTimeout(() => { window.location.href = url.href; }, 190);
+  });
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) document.body.classList.remove('page-leave');
+  });
 }
 
 function initIcons() {
@@ -306,8 +364,31 @@ function enhanceAuthModal() {
       <label class="remember-me"><input type="checkbox" name="remember" checked><span>Запомнить меня</span></label>
       <button type="button" class="forgot-link">Забыли пароль?</button>`;
     loginSubmit.before(row);
-    row.querySelector('.forgot-link').addEventListener('click', () => {
-      showToast('Восстановление пароля скоро появится');
+    row.querySelector('.forgot-link').addEventListener('click', () => setAuthMode('reset'));
+  }
+
+  if (els.loginForm && !modal.querySelector('#resetForm')) {
+    const resetForm = document.createElement('form');
+    resetForm.id = 'resetForm';
+    resetForm.className = 'auth-form';
+    resetForm.hidden = true;
+    resetForm.innerHTML = `
+      <p class="auth-reset-sub">Укажите email аккаунта — мы пришлём инструкцию по восстановлению пароля.</p>
+      <label><span>Email</span><span class="input-wrap"><input name="email" type="email" autocomplete="email" placeholder="Введите ваш email" required><span class="input-icon"><i data-lucide="mail"></i></span></span></label>
+      <button class="btn primary full" type="submit"><i data-lucide="send"></i><span>Отправить инструкцию</span></button>
+      <button class="forgot-link auth-back-link" type="button">← Вернуться ко входу</button>`;
+    els.loginForm.after(resetForm);
+    resetForm.querySelector('.auth-back-link').addEventListener('click', () => setAuthMode('login'));
+    resetForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      setAuthMessage('');
+      const note = document.createElement('p');
+      note.className = 'auth-reset-done';
+      note.innerHTML = '<i data-lucide="mail-check"></i><span>Заявка принята. Автоматическая отправка писем скоро заработает — а пока напишите нам, и мы восстановим доступ вручную.</span>';
+      const existing = resetForm.querySelector('.auth-reset-done');
+      if (existing) existing.remove();
+      resetForm.querySelector('button[type="submit"]').after(note);
+      initIcons();
     });
   }
 
@@ -2572,15 +2653,30 @@ function closeAuth() {
 
 function setAuthMode(mode) {
   const isLogin = mode === 'login';
+  const isReset = mode === 'reset';
   const card = els.authModal?.querySelector('.modal-card');
   clearAuthValidation(els.loginForm);
   clearAuthValidation(els.registerForm);
   if (els.loginTab) els.loginTab.classList.toggle('active', isLogin);
-  if (els.registerTab) els.registerTab.classList.toggle('active', !isLogin);
+  if (els.registerTab) els.registerTab.classList.toggle('active', !isLogin && !isReset);
   if (els.loginForm) els.loginForm.hidden = !isLogin;
-  if (els.registerForm) els.registerForm.hidden = isLogin;
+  if (els.registerForm) els.registerForm.hidden = isLogin || isReset;
+  const resetForm = $('resetForm');
+  if (resetForm) {
+    resetForm.hidden = !isReset;
+    if (!isReset) resetForm.querySelector('.auth-reset-done')?.remove();
+  }
+  const authTabs = els.authModal?.querySelector('.auth-tabs');
+  if (authTabs) authTabs.hidden = isReset;
   const authTitle = $('authTitle');
-  if (authTitle) authTitle.textContent = isLogin ? 'Вход в SpatialParse' : 'Создание аккаунта';
+  if (authTitle) {
+    authTitle.textContent = isReset
+      ? 'Восстановление пароля'
+      : (isLogin ? 'Вход в SpatialParse' : 'Создание аккаунта');
+  }
+  if (isReset) {
+    window.setTimeout(() => resetForm?.querySelector('input')?.focus(), 30);
+  }
   if (card) {
     card.dataset.authMode = isLogin ? 'login' : 'register';
     delete card.dataset.authDirection;
