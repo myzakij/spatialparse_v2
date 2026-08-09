@@ -8438,3 +8438,336 @@ body.page-leave main {
     transparent 62%
   );
 }
+
+/* ============================================================
+   Round 4: custom checkboxes, cookie panel polish, legal TOC
+   pills, animated marquee, hover micro-interactions.
+   ============================================================ */
+
+/* ---------- Custom square checkboxes (map options, cookie) ---------- */
+
+.check-row:not(.auth-consent) input[type="checkbox"],
+.cookie-category input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  min-height: 22px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  border: 1.5px solid rgba(111, 122, 131, .62);
+  border-radius: 6px;
+  background: var(--surface-solid);
+  box-shadow: none;
+  cursor: pointer;
+  position: relative;
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    background var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard);
+}
+
+.cookie-category input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin-top: 1px;
+  border-radius: 5px;
+}
+
+.check-row:not(.auth-consent) input[type="checkbox"]:checked,
+.cookie-category input[type="checkbox"]:checked {
+  border-color: rgba(0, 87, 194, .72);
+  background:
+    radial-gradient(circle at 30% 8%, rgba(255, 255, 255, .3), transparent 52%),
+    linear-gradient(180deg, #2e93ff, #0067df);
+}
+
+.check-row:not(.auth-consent) input[type="checkbox"]::after,
+.cookie-category input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 11px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(42deg) scale(0);
+  transform-origin: center;
+  transition: transform var(--motion-fast) var(--ease-emphasized);
+}
+
+.cookie-category input[type="checkbox"]::after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+}
+
+.check-row:not(.auth-consent) input[type="checkbox"]:checked::after,
+.cookie-category input[type="checkbox"]:checked::after {
+  transform: rotate(42deg) scale(1);
+}
+
+.check-row:not(.auth-consent) input[type="checkbox"]:focus-visible,
+.cookie-category input[type="checkbox"]:focus-visible {
+  outline: 0;
+  border-color: rgba(0, 122, 255, .6);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, .2);
+}
+
+.check-row:not(.auth-consent) input[type="checkbox"]:disabled,
+.cookie-category input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+.cookie-category input[type="checkbox"]:disabled:checked {
+  border-color: rgba(12, 129, 119, .5);
+  background: linear-gradient(180deg, #35a58f, #0c8177);
+}
+
+.check-row {
+  cursor: pointer;
+}
+
+/* ---------- Cookie banner polish ---------- */
+
+.cookie-settings-panel {
+  padding: var(--space-3);
+  animation: cookiePanelIn 260ms var(--ease-emphasized) both;
+}
+
+@keyframes cookiePanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.cookie-category {
+  cursor: pointer;
+  transition:
+    border-color var(--motion-fast) var(--ease-standard),
+    background var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard);
+}
+
+.cookie-category:not(.disabled):not(.active):hover {
+  border-color: rgba(0, 122, 255, .34);
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 8px 20px rgba(31, 42, 56, .08);
+}
+
+.cookie-category.disabled {
+  cursor: not-allowed;
+}
+
+.cookie-save-choice.btn.secondary,
+.cookie-settings-panel .cookie-save-choice {
+  align-self: center;
+  min-height: 44px;
+}
+
+/* ---------- Legal / docs section nav: elegant pill row ---------- */
+
+.page-hero-grid:has(.docs-index) {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.docs-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.docs-index a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(31, 42, 56, .12);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, .66);
+  color: var(--ink-2);
+  font-size: .86rem;
+  font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 4px 14px rgba(31, 42, 56, .05);
+}
+
+.docs-index a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: .7;
+  transition: opacity var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+
+.docs-index a:hover {
+  border-color: rgba(0, 122, 255, .34);
+  background: rgba(255, 255, 255, .95);
+  color: var(--ink);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 10px 24px rgba(31, 42, 56, .1);
+}
+
+.docs-index a:hover::before {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+.legal-card[id],
+article[id],
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+[data-theme="dark"] .docs-index a {
+  border-color: rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .06);
+  color: var(--ink-2);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .docs-index a:hover {
+  border-color: rgba(0, 122, 255, .4);
+  background: rgba(255, 255, 255, .1);
+  color: var(--ink);
+}
+
+/* ---------- Marquee: animated running strip ---------- */
+
+.marquee {
+  border-block: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  flex-wrap: nowrap;
+  width: max-content;
+  min-width: max-content;
+  justify-content: flex-start;
+  animation: marquee 34s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee span {
+  flex: 0 0 auto;
+  padding: 14px 28px;
+  color: rgba(31, 42, 56, .44);
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+.marquee span:hover {
+  color: var(--blue);
+}
+
+[data-theme="dark"] .marquee span {
+  color: rgba(198, 208, 220, .4);
+}
+
+[data-theme="dark"] .marquee span:hover {
+  color: #5aa9ff;
+}
+
+/* ---------- Hover micro-interactions ---------- */
+
+.feature-card,
+.doc-card,
+.process-card,
+.use-case-card,
+.price-card,
+.page-link-card {
+  transition:
+    transform var(--motion-base) var(--ease-emphasized),
+    border-color var(--motion-fast) var(--ease-standard),
+    background var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-base) var(--ease-standard);
+}
+
+.feature-card:hover,
+.doc-card:hover,
+.process-card:hover,
+.use-case-card:hover,
+.price-card:hover,
+.page-link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(25, 35, 49, .14), var(--glass-highlight);
+}
+
+[data-theme="dark"] .feature-card:hover,
+[data-theme="dark"] .doc-card:hover,
+[data-theme="dark"] .process-card:hover,
+[data-theme="dark"] .use-case-card:hover,
+[data-theme="dark"] .price-card:hover,
+[data-theme="dark"] .page-link-card:hover {
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .5), var(--glass-highlight);
+}
+
+.feature-card .icon-wrap,
+.feature-card > svg,
+.doc-card > svg {
+  transition: transform var(--motion-base) var(--ease-emphasized);
+}
+
+.feature-card:hover .icon-wrap,
+.feature-card:hover > svg,
+.doc-card:hover > svg {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.btn:not(:disabled):active,
+.icon-btn:not(:disabled):active,
+.mini-btn:not(:disabled):active {
+  transform: translateY(1px) scale(.985);
+}
+
+.footer-links a {
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-base) var(--ease-emphasized);
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .feature-card:hover,
+  .doc-card:hover,
+  .process-card:hover,
+  .use-case-card:hover,
+  .price-card:hover,
+  .page-link-card:hover,
+  .docs-index a:hover {
+    transform: none;
+  }
+}
