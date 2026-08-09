@@ -1,4 +1,6 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400..800;1,400..800&display=swap');
+
+:root {
   --bg: #f5f7fa;
   --bg-elevated: #fbfcff;
   --bg-soft: #eef4f8;
@@ -55,7 +57,7 @@
   --radius-xl: 26px;
   --radius-panel: 24px;
   --radius-pill: 999px;
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --font: "Inter Tight", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
   --tracking-display: -0.022em;
   --tracking-heading: -0.017em;
@@ -4330,7 +4332,7 @@ body[data-page="account"]:not(.is-authenticated) .account-guest::after {
   --color-success: var(--green);
   --color-warning: var(--amber);
   --color-error: var(--red);
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --font: "Inter Tight", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   --mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
   --motion-fast: 0ms;
   --motion-base: 0ms;
@@ -7945,34 +7947,45 @@ select:focus-visible {
 }
 
 .remember-me input {
-  width: 18px;
-  height: 18px;
-  min-height: 18px;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
   margin: 0;
+  padding: 0;
   appearance: none;
   border: 1.5px solid rgba(111, 122, 131, .62);
-  border-radius: 5px;
-  background: #fff;
+  border-radius: 6px;
+  background: var(--surface-solid);
+  box-shadow: none;
   cursor: pointer;
   position: relative;
-  transition: border-color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
+  transition: border-color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard);
 }
 
 .remember-me input:checked {
   border-color: rgba(0, 87, 194, .72);
-  background: linear-gradient(180deg, #2e93ff, #0067df);
+  background:
+    radial-gradient(circle at 30% 8%, rgba(255, 255, 255, .3), transparent 52%),
+    linear-gradient(180deg, #2e93ff, #0067df);
+}
+
+.remember-me input::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(42deg) scale(0);
+  transform-origin: center;
+  transition: transform var(--motion-fast) var(--ease-emphasized);
 }
 
 .remember-me input:checked::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 9px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  transform: rotate(42deg);
+  transform: rotate(42deg) scale(1);
 }
 
 .remember-me input:focus-visible {
@@ -8781,36 +8794,47 @@ section[id] {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: 14px 26px;
+  gap: 16px 32px;
   margin-bottom: 20px;
-  padding: 16px 20px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius);
-  background: var(--glass-bg);
-  box-shadow: var(--glass-shadow), var(--glass-edge);
-  -webkit-backdrop-filter: blur(var(--glass-blur-subtle)) saturate(1.2);
-  backdrop-filter: blur(var(--glass-blur-subtle)) saturate(1.2);
+  padding: 20px 26px;
+  border: 1px solid rgba(255, 255, 255, .78);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(95, 111, 214, .1), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(246, 250, 255, .56));
+  box-shadow: 0 20px 52px rgba(25, 35, 49, .1), var(--glass-edge);
+  -webkit-backdrop-filter: blur(var(--glass-blur-regular)) saturate(1.25);
+  backdrop-filter: blur(var(--glass-blur-regular)) saturate(1.25);
 }
 
 .footer-support-logos {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 26px;
   flex-wrap: wrap;
 }
 
 .footer-support-logos img {
   display: block;
-  height: 52px;
+  height: 56px;
   width: auto;
+  transition: transform var(--motion-fast) var(--ease-standard);
+}
+
+.footer-support-logos img[src*="logo-putp"] {
+  height: 72px;
+}
+
+.footer-support-logos img:hover {
+  transform: translateY(-2px) scale(1.03);
 }
 
 .footer-support p {
   margin: 0;
   color: var(--muted);
-  font-size: .8rem;
-  line-height: 1.5;
-  max-width: 62ch;
+  font-size: .82rem;
+  line-height: 1.55;
+  max-width: 68ch;
 }
 
 @media (max-width: 720px) {
@@ -8934,5 +8958,95 @@ section[id] {
   .mini-btn:hover,
   .user-chip:hover {
     transform: none;
+  }
+}
+
+/* ---------- Metric rack: gentle float + shine ---------- */
+
+.metric-rack div {
+  position: relative;
+  overflow: hidden;
+  animation: rackFloat 6.4s ease-in-out infinite;
+  transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard);
+}
+
+.metric-rack div:nth-child(2) {
+  animation-delay: 1.1s;
+}
+
+.metric-rack div:nth-child(3) {
+  animation-delay: 2.2s;
+}
+
+.metric-rack div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .55) 48%, transparent 62%) -180% 0 / 260% 100% no-repeat;
+  pointer-events: none;
+  animation: rackShine 7.5s var(--ease-standard) infinite;
+}
+
+.metric-rack div:nth-child(2)::before {
+  animation-delay: 1.1s;
+}
+
+.metric-rack div:nth-child(3)::before {
+  animation-delay: 2.2s;
+}
+
+.metric-rack div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(25, 35, 49, .14);
+  animation-play-state: paused;
+}
+
+@keyframes rackFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes rackShine {
+  0%, 55% { background-position: -180% 0; }
+  85%, 100% { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metric-rack div,
+  .metric-rack div::before {
+    animation: none;
+  }
+}
+
+/* ---------- Smoother page transitions ---------- */
+
+body.page-enter main {
+  animation-duration: 560ms;
+}
+
+body.page-leave main {
+  animation-duration: 240ms;
+}
+
+body.page-enter .site-header {
+  animation: headerEnter 480ms var(--ease-emphasized) both;
+}
+
+@keyframes headerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-enter .site-header {
+    animation: none;
   }
 }
