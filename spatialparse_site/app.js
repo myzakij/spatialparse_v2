@@ -7,7 +7,7 @@ const REF_COLOR = '#6f7a83';
 
 const state = {
   token: localStorage.getItem('spatialparse_token') || '',
-  user: null,
+  user: readCachedUser(),
   summary: null,
   map: null,
   accountMap: null,
@@ -74,10 +74,13 @@ const els = {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  initTheme();
+  initPageTransitions();
   initIcons();
   initSeoMetadata();
   initNavigation();
   initCookieConsent();
+  initFooterSupport();
   initShellAnimations();
   initA11y();
   initVisualMaps();
@@ -101,6 +104,62 @@ function resolveApiBase() {
 function apiBaseToWs(apiBase) {
   const url = new URL(apiBase);
   return (url.protocol === 'https:' ? 'wss://' : 'ws://') + url.host;
+}
+
+const THEME_KEY = 'sp_theme';
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const preferred = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const actions = document.querySelector('.auth-actions');
+  if (actions && !document.getElementById('themeToggle')) {
+    const button = document.createElement('button');
+    button.id = 'themeToggle';
+    button.type = 'button';
+    button.className = 'icon-btn';
+    button.title = 'Сменить тему';
+    button.setAttribute('aria-label', 'Сменить тему');
+    actions.prepend(button);
+    button.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(THEME_KEY, next);
+    });
+  }
+  applyTheme(preferred);
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  const button = document.getElementById('themeToggle');
+  if (button) {
+    button.innerHTML = `<i data-lucide="${theme === 'dark' ? 'sun' : 'moon'}"></i>`;
+    initIcons();
+  }
+}
+
+function initPageTransitions() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.body.classList.add('page-enter');
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || link.target === '_blank' || link.hasAttribute('download')) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname) return;
+    event.preventDefault();
+    document.body.classList.add('page-leave');
+    window.setTimeout(() => { window.location.href = url.href; }, 190);
+  });
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) document.body.classList.remove('page-leave');
+  });
 }
 
 function initIcons() {
@@ -235,6 +294,111 @@ function initNavigation() {
       closeMobileNav(topbar, { restoreFocus: true });
     });
   });
+
+  initIcons();
+}
+
+function enhanceAuthModal() {
+  const modal = els.authModal;
+  if (!modal || modal.dataset.authUiReady) return;
+  modal.dataset.authUiReady = 'true';
+
+  if (els.registerForm && !els.registerForm.querySelector('input[name="password_repeat"]')) {
+    const passwordLabel = els.registerForm.querySelector('input[name="password"]')?.closest('label');
+    if (passwordLabel) {
+      const repeatLabel = document.createElement('label');
+      repeatLabel.innerHTML = '<span>Повторите пароль</span><input name="password_repeat" type="password" autocomplete="new-password" minlength="8" required>';
+      passwordLabel.after(repeatLabel);
+    }
+  }
+
+  const decorate = (form, fields) => {
+    if (!form) return;
+    fields.forEach(({ name, placeholder, icon }) => {
+      const input = form.querySelector(`input[name="${name}"]`);
+      if (!input || input.closest('.input-wrap')) return;
+      input.placeholder = placeholder;
+      const wrap = document.createElement('span');
+      wrap.className = 'input-wrap';
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+      if (icon === 'eye') {
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'password-toggle';
+        toggle.setAttribute('aria-label', 'Показать пароль');
+        toggle.innerHTML = '<i data-lucide="eye"></i>';
+        toggle.addEventListener('click', () => {
+          const show = input.type === 'password';
+          input.type = show ? 'text' : 'password';
+          toggle.setAttribute('aria-label', show ? 'Скрыть пароль' : 'Показать пароль');
+          toggle.innerHTML = `<i data-lucide="${show ? 'eye-off' : 'eye'}"></i>`;
+          initIcons();
+          input.focus();
+        });
+        wrap.appendChild(toggle);
+      } else if (icon) {
+        const badge = document.createElement('span');
+        badge.className = 'input-icon';
+        badge.innerHTML = `<i data-lucide="${icon}"></i>`;
+        wrap.appendChild(badge);
+      }
+    });
+  };
+
+  decorate(els.loginForm, [
+    { name: 'email', placeholder: 'Введите ваш email', icon: 'mail' },
+    { name: 'password', placeholder: 'Введите ваш пароль', icon: 'eye' }
+  ]);
+  decorate(els.registerForm, [
+    { name: 'name', placeholder: 'Введите ваше имя', icon: 'user' },
+    { name: 'email', placeholder: 'Введите ваш email', icon: 'mail' },
+    { name: 'password', placeholder: 'Создайте пароль', icon: 'eye' },
+    { name: 'password_repeat', placeholder: 'Повторите пароль', icon: 'eye' }
+  ]);
+
+  const loginSubmit = els.loginForm?.querySelector('button[type="submit"]');
+  if (loginSubmit && !els.loginForm.querySelector('.auth-aux-row')) {
+    const row = document.createElement('div');
+    row.className = 'auth-aux-row';
+    row.innerHTML = `
+      <label class="remember-me"><input type="checkbox" name="remember" checked><span>Запомнить меня</span></label>
+      <button type="button" class="forgot-link">Забыли пароль?</button>`;
+    loginSubmit.before(row);
+    row.querySelector('.forgot-link').addEventListener('click', () => setAuthMode('reset'));
+  }
+
+  if (els.loginForm && !modal.querySelector('#resetForm')) {
+    const resetForm = document.createElement('form');
+    resetForm.id = 'resetForm';
+    resetForm.className = 'auth-form';
+    resetForm.hidden = true;
+    resetForm.innerHTML = `
+      <p class="auth-reset-sub">Укажите email аккаунта — мы пришлём инструкцию по восстановлению пароля.</p>
+      <label><span>Email</span><span class="input-wrap"><input name="email" type="email" autocomplete="email" placeholder="Введите ваш email" required><span class="input-icon"><i data-lucide="mail"></i></span></span></label>
+      <button class="btn primary full" type="submit"><i data-lucide="send"></i><span>Отправить инструкцию</span></button>
+      <button class="forgot-link auth-back-link" type="button">← Вернуться ко входу</button>`;
+    els.loginForm.after(resetForm);
+    resetForm.querySelector('.auth-back-link').addEventListener('click', () => setAuthMode('login'));
+    resetForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      setAuthMessage('');
+      const note = document.createElement('p');
+      note.className = 'auth-reset-done';
+      note.innerHTML = '<i data-lucide="mail-check"></i><span>Заявка принята. Автоматическая отправка писем скоро заработает — а пока напишите нам, и мы восстановим доступ вручную.</span>';
+      const existing = resetForm.querySelector('.auth-reset-done');
+      if (existing) existing.remove();
+      resetForm.querySelector('button[type="submit"]').after(note);
+      initIcons();
+    });
+  }
+
+  if (els.loginForm && !els.loginForm.querySelector('.auth-legal-note')) {
+    const note = document.createElement('p');
+    note.className = 'auth-legal-note';
+    note.innerHTML = 'Входя в систему, вы соглашаетесь с нашими <a href="terms.html">условиями использования</a> и <a href="privacy.html">политикой конфиденциальности</a>.';
+    els.loginForm.appendChild(note);
+  }
 
   initIcons();
 }
@@ -408,6 +572,21 @@ function setCookieSettingsOpen(banner, open) {
 function hideCookieBanner() {
   const banner = $('cookieBanner');
   if (banner) banner.hidden = true;
+}
+
+function initFooterSupport() {
+  const footer = document.querySelector('footer.footer');
+  if (!footer || footer.querySelector('.footer-support')) return;
+  const block = document.createElement('div');
+  block.className = 'container footer-support';
+  block.innerHTML = `
+    <div class="footer-support-logos">
+      <img src="assets/logo-fasie.png" alt="Фонд содействия инновациям" loading="lazy">
+      <img src="assets/logo-putp.png" alt="Платформа университетского технологического предпринимательства" loading="lazy">
+    </div>
+    <p>Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап» мероприятия «Платформа университетского технологического предпринимательства» федерального проекта «Технологии».</p>
+  `;
+  footer.prepend(block);
 }
 
 function initA11y() {
@@ -670,6 +849,23 @@ function initShellAnimations() {
   revealItems.forEach((item) => observer.observe(item));
 
   document.querySelectorAll('[data-count]').forEach(animateCounter);
+
+  initLiquidLight();
+}
+
+function initLiquidLight() {
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!fine.matches || reduced.matches) return;
+  const targets = document.querySelectorAll('.btn.primary, .feature-card, .use-case-card, .price-card, [data-tilt-card]');
+  targets.forEach((el) => {
+    el.classList.add('liquid-light');
+    el.addEventListener('pointermove', (event) => {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty('--light-x', `${(((event.clientX - rect.left) / rect.width) * 100).toFixed(1)}%`);
+      el.style.setProperty('--light-y', `${(((event.clientY - rect.top) / rect.height) * 100).toFixed(1)}%`);
+    }, { passive: true });
+  });
 }
 
 function updateScrollProgress() {
@@ -1021,6 +1217,7 @@ function markerStyle(color, radius = 7) {
 
 function bindAuth() {
   initAccountMenu();
+  enhanceAuthModal();
   enhanceAuthConsent();
   if (els.authOpenBtn) els.authOpenBtn.addEventListener('click', () => openAuth('login'));
   if (els.openAccountBtn) {
@@ -1146,7 +1343,7 @@ function renderAccountMenu() {
   const summary = state.summary || {};
   const historyCount = summary.history_count ?? state.history.length ?? 0;
   const savedCount = summary.saved_count ?? state.saved.length ?? 0;
-  const lastActivity = summary.last_activity ? formatDate(summary.last_activity) : 'нет запусков';
+  const lastActivity = summary.last_activity ? formatDate(summary.last_activity) : '—';
 
   els.accountMenu.innerHTML = `
     <div class="account-menu-head">
@@ -1159,7 +1356,7 @@ function renderAccountMenu() {
     <div class="account-menu-stats" aria-label="Статистика аккаунта">
       <span><b>${escapeHtml(historyCount)}</b><small>запросов</small></span>
       <span><b>${escapeHtml(savedCount)}</b><small>сохранено</small></span>
-      <span><b>${escapeHtml(lastActivity)}</b><small>активность</small></span>
+      <span title="${escapeHtml(lastActivity)}"><b>${escapeHtml(lastActivity)}</b><small>активность</small></span>
     </div>
     <div class="account-menu-list" role="menu" aria-label="Меню аккаунта">
       <a class="account-menu-item" role="menuitem" href="account.html">
@@ -1170,26 +1367,18 @@ function renderAccountMenu() {
         <i data-lucide="map"></i>
         <span><strong>Новый геозапрос</strong><small>Открыть рабочую карту</small></span>
       </a>
-      <a class="account-menu-item" role="menuitem" href="account.html#history">
-        <i data-lucide="history"></i>
-        <span><strong>История запросов</strong><small>Повторить прошлые вычисления</small></span>
-      </a>
-      <a class="account-menu-item" role="menuitem" href="account.html#saved">
-        <i data-lucide="bookmark"></i>
-        <span><strong>Сохранённые результаты</strong><small>Открыть избранные точки</small></span>
+      <a class="account-menu-item" role="menuitem" href="pricing.html">
+        <i data-lucide="gauge"></i>
+        <span><strong>Тариф и лимиты</strong><small>Текущий план и запросы</small></span>
       </a>
       <a class="account-menu-item" role="menuitem" href="account.html#settings">
-        <i data-lucide="sliders-horizontal"></i>
-        <span><strong>Рабочий контекст</strong><small>Регион и радиус поиска</small></span>
+        <i data-lucide="user-cog"></i>
+        <span><strong>Настройки профиля</strong><small>Регион, радиус и данные аккаунта</small></span>
       </a>
-      <a class="account-menu-item" role="menuitem" href="docs.html">
-        <i data-lucide="book-open"></i>
-        <span><strong>Документация</strong><small>Форматы запросов и экспорт</small></span>
+      <a class="account-menu-item" role="menuitem" href="about.html">
+        <i data-lucide="life-buoy"></i>
+        <span><strong>Помощь</strong><small>О проекте и контакты</small></span>
       </a>
-      <button class="account-menu-item" role="menuitem" type="button" data-account-action="refresh">
-        <i data-lucide="refresh-cw"></i>
-        <span><strong>Обновить данные</strong><small>Синхронизировать историю и сохранения</small></span>
-      </button>
       <button class="account-menu-item danger" role="menuitem" type="button" data-account-action="logout">
         <i data-lucide="log-out"></i>
         <span><strong>Выйти</strong><small>Завершить текущую сессию</small></span>
@@ -1199,11 +1388,6 @@ function renderAccountMenu() {
 
   els.accountMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeAccountMenu);
-  });
-  els.accountMenu.querySelector('[data-account-action="refresh"]')?.addEventListener('click', async () => {
-    closeAccountMenu();
-    await loadAccount();
-    showToast('Данные аккаунта обновлены');
   });
   els.accountMenu.querySelector('[data-account-action="logout"]')?.addEventListener('click', () => {
     closeAccountMenu();
@@ -2045,6 +2229,14 @@ async function handleRegister(event) {
   event.preventDefault();
   clearAuthValidation(els.registerForm);
   const formData = new FormData(els.registerForm);
+  const repeatInput = els.registerForm.querySelector('input[name="password_repeat"]');
+  if (repeatInput && repeatInput.value !== formData.get('password')) {
+    repeatInput.setAttribute('aria-invalid', 'true');
+    repeatInput.setAttribute('aria-describedby', 'authMessage');
+    setAuthMessage('Пароли не совпадают');
+    repeatInput.focus();
+    return;
+  }
   try {
     const response = await apiFetch('/api/auth/register', {
       method: 'POST',
@@ -2064,11 +2256,26 @@ async function handleRegister(event) {
   }
 }
 
+function readCachedUser() {
+  if (!localStorage.getItem('spatialparse_token')) return null;
+  try {
+    return JSON.parse(localStorage.getItem('spatialparse_user') || 'null');
+  } catch (error) {
+    return null;
+  }
+}
+
+function cacheUser(user) {
+  if (user) localStorage.setItem('spatialparse_user', JSON.stringify({ name: user.name || '', email: user.email || '' }));
+  else localStorage.removeItem('spatialparse_user');
+}
+
 function saveSession(response) {
   state.token = response.token || '';
   state.user = response.user || null;
   state.summary = response.summary || null;
   if (state.token) localStorage.setItem('spatialparse_token', state.token);
+  cacheUser(state.user);
   renderAuthState();
   loadAccount();
 }
@@ -2090,6 +2297,7 @@ async function logout() {
   state.user = null;
   state.summary = null;
   localStorage.removeItem('spatialparse_token');
+  cacheUser(null);
   closeAccountMenu();
   renderAuthState();
   renderGuestAccount();
@@ -2136,6 +2344,7 @@ async function loadAccount(options = {}) {
     if (controller.signal.aborted || state.token !== tokenAtStart) return;
     state.user = me.user;
     state.summary = me.summary;
+    cacheUser(state.user);
     renderAuthState();
     renderSummary();
 
@@ -2154,6 +2363,7 @@ async function loadAccount(options = {}) {
     if (state.token !== tokenAtStart) return;
     state.token = '';
     localStorage.removeItem('spatialparse_token');
+    cacheUser(null);
     renderAuthState();
     renderGuestAccount();
     if (!options.silent) showToast('Сессия истекла, войдите снова');
@@ -2414,6 +2624,7 @@ async function deleteAccount() {
     state.history = [];
     state.saved = [];
     localStorage.removeItem('spatialparse_token');
+    cacheUser(null);
     renderAuthState();
     renderGuestAccount();
     showToast('Аккаунт удален');
@@ -2428,6 +2639,7 @@ function openAuth(mode = 'login') {
   setAuthMode(mode);
   clearAuthValidation(els.loginForm);
   clearAuthValidation(els.registerForm);
+  els.authModal.classList.remove('closing');
   els.authModal.classList.add('open');
   els.authModal.setAttribute('aria-hidden', 'false');
   setPageInert(true);
@@ -2443,7 +2655,15 @@ function openAuth(mode = 'login') {
 function closeAuth() {
   if (!els.authModal) return;
   const wasOpen = els.authModal.classList.contains('open');
-  els.authModal.classList.remove('open');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (wasOpen && !reduceMotion) {
+    els.authModal.classList.add('closing');
+    window.setTimeout(() => {
+      els.authModal.classList.remove('open', 'closing');
+    }, 170);
+  } else {
+    els.authModal.classList.remove('open', 'closing');
+  }
   els.authModal.setAttribute('aria-hidden', 'true');
   clearAuthValidation(els.loginForm);
   clearAuthValidation(els.registerForm);
@@ -2455,13 +2675,30 @@ function closeAuth() {
 
 function setAuthMode(mode) {
   const isLogin = mode === 'login';
+  const isReset = mode === 'reset';
   const card = els.authModal?.querySelector('.modal-card');
   clearAuthValidation(els.loginForm);
   clearAuthValidation(els.registerForm);
   if (els.loginTab) els.loginTab.classList.toggle('active', isLogin);
-  if (els.registerTab) els.registerTab.classList.toggle('active', !isLogin);
+  if (els.registerTab) els.registerTab.classList.toggle('active', !isLogin && !isReset);
   if (els.loginForm) els.loginForm.hidden = !isLogin;
-  if (els.registerForm) els.registerForm.hidden = isLogin;
+  if (els.registerForm) els.registerForm.hidden = isLogin || isReset;
+  const resetForm = $('resetForm');
+  if (resetForm) {
+    resetForm.hidden = !isReset;
+    if (!isReset) resetForm.querySelector('.auth-reset-done')?.remove();
+  }
+  const authTabs = els.authModal?.querySelector('.auth-tabs');
+  if (authTabs) authTabs.hidden = isReset;
+  const authTitle = $('authTitle');
+  if (authTitle) {
+    authTitle.textContent = isReset
+      ? 'Восстановление пароля'
+      : (isLogin ? 'Вход в SpatialParse' : 'Создание аккаунта');
+  }
+  if (isReset) {
+    window.setTimeout(() => resetForm?.querySelector('input')?.focus(), 30);
+  }
   if (card) {
     card.dataset.authMode = isLogin ? 'login' : 'register';
     delete card.dataset.authDirection;
