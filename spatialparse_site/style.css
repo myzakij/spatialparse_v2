@@ -7520,3 +7520,185 @@ pre,
     transform: none;
   }
 }
+
+/* ============================================================
+   Final premium QA layer: graphite primary CTA, user dropdown,
+   icon alignment, overflow safety. Overrides earlier passes.
+   ============================================================ */
+
+/* ---------- Primary CTA: deep graphite glass ---------- */
+
+.btn.primary {
+  border-color: rgba(16, 17, 20, .78);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .2), transparent 46%),
+    linear-gradient(180deg, #33363b, #1f2125 58%, #191b1f);
+  color: #fff;
+  box-shadow:
+    0 16px 38px rgba(16, 20, 26, .3),
+    inset 0 1px 0 rgba(255, 255, 255, .22),
+    inset 0 -1px 0 rgba(0, 0, 0, .28);
+}
+
+.btn.primary:hover:not(:disabled) {
+  border-color: rgba(16, 17, 20, .84);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .26), transparent 48%),
+    linear-gradient(180deg, #3b3e44, #26282d 58%, #1d1f24);
+  background-position: 0 0;
+  box-shadow:
+    0 20px 46px rgba(16, 20, 26, .34),
+    inset 0 1px 0 rgba(255, 255, 255, .26),
+    inset 0 -1px 0 rgba(0, 0, 0, .28);
+}
+
+.btn.primary:active:not(:disabled) {
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .14), transparent 44%),
+    linear-gradient(180deg, #26282c, #17181c);
+  box-shadow:
+    0 10px 24px rgba(16, 20, 26, .28),
+    inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.btn.primary:focus-visible {
+  border-color: rgba(0, 122, 255, .8);
+  box-shadow:
+    0 0 0 3px rgba(0, 122, 255, .28),
+    0 16px 38px rgba(16, 20, 26, .26),
+    inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+
+.btn.primary.danger {
+  border-color: rgba(148, 32, 42, .8);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .18), transparent 46%),
+    linear-gradient(180deg, #c13a4a, #96222e);
+  box-shadow: 0 16px 36px rgba(148, 32, 42, .26), inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.btn.primary.danger:hover:not(:disabled) {
+  border-color: rgba(148, 32, 42, .9);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .22), transparent 48%),
+    linear-gradient(180deg, #cb4454, #a02633);
+  box-shadow: 0 20px 44px rgba(148, 32, 42, .3), inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+
+/* ---------- Icon + text composition ---------- */
+
+.btn svg,
+.mini-btn svg,
+.icon-btn svg,
+.account-menu-item svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.9;
+}
+
+.btn.small svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn span {
+  min-width: 0;
+}
+
+/* ---------- User dropdown: premium glass, viewport-safe ---------- */
+
+.account-menu {
+  width: min(384px, calc(100vw - 32px));
+  max-height: calc(100dvh - 112px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(31, 42, 56, .28) transparent;
+  animation: accountMenuIn 200ms var(--ease-emphasized);
+}
+
+.account-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.account-menu::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(31, 42, 56, .24);
+}
+
+.account-menu::before {
+  display: none;
+}
+
+@keyframes accountMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(.97);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.account-menu-head {
+  padding: var(--space-3);
+}
+
+.account-menu-list {
+  border-top-color: rgba(31, 42, 56, .1);
+}
+
+.account-menu-item {
+  min-height: 50px;
+}
+
+.account-menu-item:hover,
+.account-menu-item:focus-visible {
+  transform: none;
+}
+
+.account-menu-item.danger {
+  margin-top: var(--space-1);
+  border-top: 1px solid rgba(31, 42, 56, .1);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.account-identity small {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Overflow safety ---------- */
+
+h1,
+h2,
+h3,
+h4,
+p,
+.lead {
+  overflow-wrap: break-word;
+}
+
+.user-chip {
+  max-width: min(230px, 38vw);
+}
+
+@media (max-width: 760px) {
+  .user-chip {
+    max-width: 46vw;
+  }
+
+  .account-menu {
+    max-height: calc(100dvh - 96px);
+  }
+}
+
+@media (max-width: 400px) {
+  .btn {
+    padding-inline: var(--space-4);
+  }
+}
