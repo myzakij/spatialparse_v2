@@ -2445,6 +2445,7 @@ function openAuth(mode = 'login') {
   setAuthMode(mode);
   clearAuthValidation(els.loginForm);
   clearAuthValidation(els.registerForm);
+  els.authModal.classList.remove('closing');
   els.authModal.classList.add('open');
   els.authModal.setAttribute('aria-hidden', 'false');
   setPageInert(true);
@@ -2460,7 +2461,15 @@ function openAuth(mode = 'login') {
 function closeAuth() {
   if (!els.authModal) return;
   const wasOpen = els.authModal.classList.contains('open');
-  els.authModal.classList.remove('open');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (wasOpen && !reduceMotion) {
+    els.authModal.classList.add('closing');
+    window.setTimeout(() => {
+      els.authModal.classList.remove('open', 'closing');
+    }, 170);
+  } else {
+    els.authModal.classList.remove('open', 'closing');
+  }
   els.authModal.setAttribute('aria-hidden', 'true');
   clearAuthValidation(els.loginForm);
   clearAuthValidation(els.registerForm);

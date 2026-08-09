@@ -7523,10 +7523,10 @@ pre,
 /* ---------- Primary CTA: deep graphite glass ---------- */
 
 .btn.primary {
-  border-color: rgba(16, 17, 20, .78);
+  border-color: rgba(38, 44, 52, .72);
   background:
-    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .2), transparent 46%),
-    linear-gradient(180deg, #33363b, #1f2125 58%, #191b1f);
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .22), transparent 46%),
+    linear-gradient(180deg, #4a5058, #343a41 58%, #2c323a);
   color: #fff;
   box-shadow:
     0 16px 38px rgba(16, 20, 26, .3),
@@ -7535,10 +7535,10 @@ pre,
 }
 
 .btn.primary:hover:not(:disabled) {
-  border-color: rgba(16, 17, 20, .84);
+  border-color: rgba(38, 44, 52, .82);
   background:
-    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .26), transparent 48%),
-    linear-gradient(180deg, #3b3e44, #26282d 58%, #1d1f24);
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .28), transparent 48%),
+    linear-gradient(180deg, #545a63, #3b4149 58%, #333941);
   background-position: 0 0;
   box-shadow:
     0 20px 46px rgba(16, 20, 26, .34),
@@ -7549,7 +7549,7 @@ pre,
 .btn.primary:active:not(:disabled) {
   background:
     radial-gradient(circle at 30% 0%, rgba(255, 255, 255, .14), transparent 44%),
-    linear-gradient(180deg, #26282c, #17181c);
+    linear-gradient(180deg, #3a4047, #2a3038);
   box-shadow:
     0 10px 24px rgba(16, 20, 26, .28),
     inset 0 1px 0 rgba(255, 255, 255, .14);
@@ -7731,5 +7731,114 @@ p,
 @media (prefers-reduced-motion: reduce) {
   .liquid-light::after {
     display: none;
+  }
+}
+
+/* ============================================================
+   Auth polish layer: neutral consent checkbox, soft focus,
+   modal enter/exit motion. Overrides earlier passes.
+   ============================================================ */
+
+textarea:focus,
+input:focus,
+select:focus,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  border-color: rgba(70, 92, 116, .55);
+  box-shadow:
+    0 0 0 3px rgba(70, 92, 116, .12),
+    inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+.auth-consent:hover,
+.auth-consent:focus-within {
+  border-color: rgba(70, 92, 116, .4);
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 12px 28px rgba(31, 42, 56, .1);
+}
+
+.auth-consent input:checked,
+.auth-consent:hover input:checked,
+.auth-consent input:checked:hover {
+  border-color: rgba(38, 44, 52, .84);
+  background:
+    radial-gradient(circle at 30% 8%, rgba(255, 255, 255, .24), transparent 52%),
+    linear-gradient(180deg, #4a5058, #31373f);
+  box-shadow:
+    0 8px 18px rgba(31, 42, 56, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+
+.auth-consent input:checked::after {
+  animation: consentCheckIn 180ms var(--ease-standard) both;
+}
+
+@keyframes consentCheckIn {
+  from {
+    opacity: 0;
+    transform: rotate(42deg) scale(.5);
+  }
+}
+
+.auth-consent input:focus-visible,
+.auth-consent input:checked:focus-visible {
+  outline: 0;
+  border-color: rgba(0, 122, 255, .6);
+  box-shadow:
+    0 0 0 3px rgba(0, 122, 255, .2),
+    0 8px 18px rgba(31, 42, 56, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .22);
+}
+
+.auth-consent a {
+  color: var(--ink-2);
+  font-weight: 600;
+  text-decoration-color: rgba(31, 42, 56, .4);
+  transition: color var(--motion-fast) var(--ease-standard), text-decoration-color var(--motion-fast) var(--ease-standard);
+}
+
+.auth-consent a:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
+#authModal .auth-tabs button {
+  transition:
+    background-color var(--motion-base) var(--ease-standard),
+    color var(--motion-base) var(--ease-standard),
+    box-shadow var(--motion-base) var(--ease-standard);
+}
+
+/* Modal enter/exit: backdrop fade + card scale/translate */
+
+.modal.open .modal-backdrop {
+  animation: backdropIn 260ms var(--ease-standard) both;
+}
+
+.modal.open .modal-card {
+  animation: modalIn 280ms var(--ease-standard) both;
+}
+
+.modal.open.closing .modal-backdrop {
+  animation: backdropOut 160ms ease-in both;
+}
+
+.modal.open.closing .modal-card {
+  animation: modalOut 160ms ease-in both;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+}
+
+@keyframes backdropOut {
+  to { opacity: 0; }
+}
+
+@keyframes modalOut {
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(.985);
   }
 }
