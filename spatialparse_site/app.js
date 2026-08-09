@@ -239,6 +239,88 @@ function initNavigation() {
   initIcons();
 }
 
+function enhanceAuthModal() {
+  const modal = els.authModal;
+  if (!modal || modal.dataset.authUiReady) return;
+  modal.dataset.authUiReady = 'true';
+
+  if (els.registerForm && !els.registerForm.querySelector('input[name="password_repeat"]')) {
+    const passwordLabel = els.registerForm.querySelector('input[name="password"]')?.closest('label');
+    if (passwordLabel) {
+      const repeatLabel = document.createElement('label');
+      repeatLabel.innerHTML = '<span>Повторите пароль</span><input name="password_repeat" type="password" autocomplete="new-password" minlength="8" required>';
+      passwordLabel.after(repeatLabel);
+    }
+  }
+
+  const decorate = (form, fields) => {
+    if (!form) return;
+    fields.forEach(({ name, placeholder, icon }) => {
+      const input = form.querySelector(`input[name="${name}"]`);
+      if (!input || input.closest('.input-wrap')) return;
+      input.placeholder = placeholder;
+      const wrap = document.createElement('span');
+      wrap.className = 'input-wrap';
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+      if (icon === 'eye') {
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'password-toggle';
+        toggle.setAttribute('aria-label', 'Показать пароль');
+        toggle.innerHTML = '<i data-lucide="eye"></i>';
+        toggle.addEventListener('click', () => {
+          const show = input.type === 'password';
+          input.type = show ? 'text' : 'password';
+          toggle.setAttribute('aria-label', show ? 'Скрыть пароль' : 'Показать пароль');
+          toggle.innerHTML = `<i data-lucide="${show ? 'eye-off' : 'eye'}"></i>`;
+          initIcons();
+          input.focus();
+        });
+        wrap.appendChild(toggle);
+      } else if (icon) {
+        const badge = document.createElement('span');
+        badge.className = 'input-icon';
+        badge.innerHTML = `<i data-lucide="${icon}"></i>`;
+        wrap.appendChild(badge);
+      }
+    });
+  };
+
+  decorate(els.loginForm, [
+    { name: 'email', placeholder: 'Введите ваш email', icon: 'mail' },
+    { name: 'password', placeholder: 'Введите ваш пароль', icon: 'eye' }
+  ]);
+  decorate(els.registerForm, [
+    { name: 'name', placeholder: 'Введите ваше имя', icon: 'user' },
+    { name: 'email', placeholder: 'Введите ваш email', icon: 'mail' },
+    { name: 'password', placeholder: 'Создайте пароль', icon: 'eye' },
+    { name: 'password_repeat', placeholder: 'Повторите пароль', icon: 'eye' }
+  ]);
+
+  const loginSubmit = els.loginForm?.querySelector('button[type="submit"]');
+  if (loginSubmit && !els.loginForm.querySelector('.auth-aux-row')) {
+    const row = document.createElement('div');
+    row.className = 'auth-aux-row';
+    row.innerHTML = `
+      <label class="remember-me"><input type="checkbox" name="remember" checked><span>Запомнить меня</span></label>
+      <button type="button" class="forgot-link">Забыли пароль?</button>`;
+    loginSubmit.before(row);
+    row.querySelector('.forgot-link').addEventListener('click', () => {
+      showToast('Восстановление пароля скоро появится');
+    });
+  }
+
+  if (els.loginForm && !els.loginForm.querySelector('.auth-legal-note')) {
+    const note = document.createElement('p');
+    note.className = 'auth-legal-note';
+    note.innerHTML = 'Входя в систему, вы соглашаетесь с нашими <a href="terms.html">условиями использования</a> и <a href="privacy.html">политикой конфиденциальности</a>.';
+    els.loginForm.appendChild(note);
+  }
+
+  initIcons();
+}
+
 function enhanceAuthConsent() {
   document.querySelectorAll('.auth-consent').forEach((label) => {
     const checkbox = label.querySelector('input[type="checkbox"]');
@@ -1038,6 +1120,7 @@ function markerStyle(color, radius = 7) {
 
 function bindAuth() {
   initAccountMenu();
+  enhanceAuthModal();
   enhanceAuthConsent();
   if (els.authOpenBtn) els.authOpenBtn.addEventListener('click', () => openAuth('login'));
   if (els.openAccountBtn) {
@@ -2062,6 +2145,14 @@ async function handleRegister(event) {
   event.preventDefault();
   clearAuthValidation(els.registerForm);
   const formData = new FormData(els.registerForm);
+  const repeatInput = els.registerForm.querySelector('input[name="password_repeat"]');
+  if (repeatInput && repeatInput.value !== formData.get('password')) {
+    repeatInput.setAttribute('aria-invalid', 'true');
+    repeatInput.setAttribute('aria-describedby', 'authMessage');
+    setAuthMessage('Пароли не совпадают');
+    repeatInput.focus();
+    return;
+  }
   try {
     const response = await apiFetch('/api/auth/register', {
       method: 'POST',
@@ -2488,6 +2579,8 @@ function setAuthMode(mode) {
   if (els.registerTab) els.registerTab.classList.toggle('active', !isLogin);
   if (els.loginForm) els.loginForm.hidden = !isLogin;
   if (els.registerForm) els.registerForm.hidden = isLogin;
+  const authTitle = $('authTitle');
+  if (authTitle) authTitle.textContent = isLogin ? 'Вход в SpatialParse' : 'Создание аккаунта';
   if (card) {
     card.dataset.authMode = isLogin ? 'login' : 'register';
     delete card.dataset.authDirection;

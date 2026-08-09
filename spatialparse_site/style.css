@@ -7842,3 +7842,213 @@ select:focus-visible {
     transform: translateY(8px) scale(.985);
   }
 }
+
+/* ============================================================
+   Auth reference layer: per-mode titles, field icons,
+   light neutral submit, remember/forgot row, legal note.
+   ============================================================ */
+
+#authModal .modal-sub {
+  display: none;
+}
+
+#authModal .modal-card h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-right: 0;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 760px) {
+  #authModal .modal-card h2 {
+    padding-inline: 44px;
+    font-size: 1.3rem;
+  }
+}
+
+.auth-form label > .input-wrap {
+  display: block;
+  margin-bottom: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.input-wrap {
+  position: relative;
+  display: block;
+}
+
+.input-wrap input {
+  padding-right: 44px;
+}
+
+.input-icon,
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.input-icon {
+  pointer-events: none;
+}
+
+.password-toggle {
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard);
+}
+
+.password-toggle:hover {
+  color: var(--ink-2);
+  background: rgba(31, 42, 56, .06);
+}
+
+.password-toggle:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, .2);
+}
+
+.input-icon svg,
+.password-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.9;
+}
+
+.auth-aux-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: .84rem;
+}
+
+.remember-me {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-2);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.remember-me input {
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  margin: 0;
+  appearance: none;
+  border: 1.5px solid rgba(111, 122, 131, .62);
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: border-color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
+}
+
+.remember-me input:checked {
+  border-color: rgba(38, 44, 52, .84);
+  background: linear-gradient(180deg, #4a5058, #31373f);
+}
+
+.remember-me input:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(42deg);
+}
+
+.remember-me input:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, .2);
+}
+
+.forgot-link {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--blue-dark);
+  font-size: .84rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.auth-legal-note {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.auth-legal-note a,
+.auth-consent a {
+  color: var(--blue-dark);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(13, 94, 175, .4);
+  text-underline-offset: 3px;
+}
+
+.auth-legal-note a:hover,
+.auth-consent a:hover {
+  color: var(--blue);
+  text-decoration-color: currentColor;
+}
+
+#authModal .btn.primary {
+  border-color: rgba(31, 42, 56, .14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(238, 243, 249, .92));
+  color: var(--ink);
+  box-shadow:
+    0 8px 22px rgba(25, 35, 49, .08),
+    inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+#authModal .btn.primary:hover:not(:disabled) {
+  border-color: rgba(0, 122, 255, .3);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(226, 237, 250, .94));
+  color: var(--ink);
+  box-shadow:
+    0 12px 28px rgba(25, 35, 49, .12),
+    inset 0 1px 0 rgba(255, 255, 255, .95);
+}
+
+#authModal .btn.primary:active:not(:disabled) {
+  background:
+    linear-gradient(180deg, rgba(240, 245, 250, .96), rgba(222, 231, 242, .94));
+  box-shadow:
+    0 6px 16px rgba(25, 35, 49, .1),
+    inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+#authModal .btn.primary:focus-visible {
+  border-color: rgba(0, 122, 255, .6);
+  box-shadow:
+    0 0 0 3px rgba(0, 122, 255, .2),
+    0 8px 22px rgba(25, 35, 49, .08),
+    inset 0 1px 0 rgba(255, 255, 255, .9);
+}
